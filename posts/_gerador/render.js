@@ -1,7 +1,7 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
-const posts = require('./posts');
+const posts = require(process.env.POSTS || './posts');
 
 const OUT = process.argv[2];
 const only = process.argv[3]; // filtro opcional por nome de arquivo

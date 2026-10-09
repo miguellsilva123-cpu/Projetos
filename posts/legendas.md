@@ -6,6 +6,11 @@ Imagens em 1080×1350 (formato retrato 4:5, o que ocupa mais espaço no feed).
 
 Copie a legenda inteira (as hashtags já estão no final).
 
+**Versões novas (v2):** 8 posts foram refeitos com letra maior e as cores da marca (escuro, creme e dourado).
+Use a versão `-v2` no lugar da antiga, com a mesma legenda:
+`post-04-elogio-escolha-v2`, `post-05-enquete-v2`, `post-06-perguntas-v2`, `post-08-pesquisa-v2`,
+`post-10-recibo-v2`, `post-11-dicionario-v2` (substitui o `post-11-jornal`), `post-12-e-agora-v2` e `dark-03-terminal-v2`.
+
 ---
 
 ## Posts variados
@@ -64,10 +69,10 @@ Elogiar a aparência mostra que você olhou. Elogiar uma escolha mostra que voc�
 ```
 Enquete rápida, sem resposta certa (ou tem? 👀)
 
-1️⃣ Abrir com um elogio
-2️⃣ Abrir com uma pergunta sobre o story dela
+🅰️ Abrir com um elogio
+🅱️ Abrir com uma pergunta sobre o story dela
 
-Comenta 1 ou 2 e o porquê. Amanhã eu conto o que a maioria escolheu e o que costuma funcionar melhor.
+Comenta A ou B e o porquê. Amanhã eu conto o que a maioria escolheu e o que costuma funcionar melhor.
 
 #enquete #direct #paquera #relacionamento
 ```
@@ -137,7 +142,7 @@ Vale cada centavo.
 #comunicacao #paquera #direct #relacionamento
 ```
 
-### post-11-jornal.png · Dia 26
+### post-11-jornal.png / post-11-dicionario-v2.png · Dia 26
 ```
 Persistir é continuar melhorando. Insistir é continuar ignorando o que ela já disse.
 

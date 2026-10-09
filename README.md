@@ -1,0 +1,21 @@
+# Projeto: @oprotocolodapresenca
+
+Crescimento do perfil do Instagram **@oprotocolodapresenca** com conteúdo sobre comunicação, direct e presença.
+
+**Hipótese de público:** homens que querem se comunicar melhor; mulheres comentam e compartilham (identificação).
+**Tom:** direto, bem-humorado, respeitoso. Sem manipulação, sem promessa de resultado.
+
+## Conteúdo
+- [`plano-30-dias/calendario.md`](plano-30-dias/calendario.md): o que postar em cada dia
+- [`plano-30-dias/reels.md`](plano-30-dias/reels.md): 30 roteiros de Reels
+- [`plano-30-dias/carrosseis.md`](plano-30-dias/carrosseis.md): 12 carrosséis slide a slide
+- [`plano-30-dias/posts-simples.md`](plano-30-dias/posts-simples.md): 12 posts de pergunta/afirmação
+- [`plano-30-dias/bio-legendas-hashtags.md`](plano-30-dias/bio-legendas-hashtags.md): bio, legendas, hashtags
+- [`metricas/resultados.md`](metricas/resultados.md): tabela para anotar os números
+
+## Meta
+Meta declarada: 100k seguidores em 30 dias. Isso depende de viralização e não dá para garantir.
+Meta de trabalho realista: 1k a 10k, com todo dia postando e ajustando pelo que funciona.
+
+## Segurança
+Nunca coloque senhas, tokens ou chaves de API neste repositório. Use um arquivo `.env` ignorado pelo git.

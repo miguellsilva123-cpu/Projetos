@@ -3,12 +3,12 @@
 ## Bio sugerida (150 caracteres)
 ```
 O Protocolo da Presença
-Aprenda a se comunicar sem ser chato
-Direct, conversa e respeito
-👇 Comece pelo vídeo fixado
+Pare de ser mais um no direct
+Conversa, assunto e respeito
+👇 Guia grátis: 10 aberturas
 ```
 - **Nome do perfil:** "Protocolo da Presença | Comunicação" (palavras-chave ajudam na busca)
-- **Foto:** rosto nítido (ou logo simples) em fundo liso, boa luz.
+- **Foto:** logo ou símbolo simples em fundo preto com a cor de destaque (perfil sem rosto).
 - **Destaques:** "Comece aqui", "Fórmula", "Dicas de direct", "Depoimentos".
 - **Posts fixados (3):** o Reel mais viral, o carrossel C1, e o carrossel C3 (fórmula).
 

@@ -2,7 +2,9 @@
 
 Crescimento do perfil do Instagram **@oprotocolodapresenca** com conteúdo sobre comunicação, direct e presença.
 
-**Hipótese de público:** homens que querem se comunicar melhor; mulheres comentam e compartilham (identificação).
+**Nicho:** relacionamento e desempenho masculino na conversa (ter mais assunto com mulheres no direct, sem cantada pronta).
+**Perfil:** dark, sem rosto. **Monetização:** produto digital (ebook).
+**Público:** homens que querem se comunicar melhor; mulheres comentam e compartilham (identificação).
 **Tom:** direto, bem-humorado, respeitoso. Sem manipulação, sem promessa de resultado.
 
 ## Conteúdo
@@ -10,6 +12,9 @@ Crescimento do perfil do Instagram **@oprotocolodapresenca** com conteúdo sobre
 - [`plano-30-dias/reels.md`](plano-30-dias/reels.md): 30 roteiros de Reels
 - [`plano-30-dias/carrosseis.md`](plano-30-dias/carrosseis.md): 12 carrosséis slide a slide
 - [`plano-30-dias/posts-simples.md`](plano-30-dias/posts-simples.md): 12 posts de pergunta/afirmação
+- [`plano-30-dias/stories.md`](plano-30-dias/stories.md): 30 dias de stories, 8 tipos e fases de venda
+- [`plano-30-dias/identidade-visual-dark.md`](plano-30-dias/identidade-visual-dark.md): paleta, fontes e vídeo sem rosto
+- [`produto/ebook-e-funil.md`](produto/ebook-e-funil.md): isca grátis, ebook, preço e página de vendas
 - [`plano-30-dias/bio-legendas-hashtags.md`](plano-30-dias/bio-legendas-hashtags.md): bio, legendas, hashtags
 - [`metricas/resultados.md`](metricas/resultados.md): tabela para anotar os números
 

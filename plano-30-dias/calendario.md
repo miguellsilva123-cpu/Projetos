@@ -1,6 +1,7 @@
 # Calendário de 30 dias: @oprotocolodapresenca
 
-**Todo dia:** 1 Reel + 3 a 5 Stories (enquete, caixa de perguntas ou resposta a comentários).
+**Todo dia:** 1 Reel + 4 Stories (veja [`stories.md`](stories.md)).
+**Venda:** semanas 1–2 aquecimento e isca grátis, semana 3 pré-lançamento, semana 4 lançamento do ebook (veja [`../produto/ebook-e-funil.md`](../produto/ebook-e-funil.md)).
 **Alternando:** carrossel (12 dias), post simples (12 dias) ou só o Reel (6 dias).
 
 | Dia | Reel | Carrossel / Post |

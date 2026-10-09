@@ -1,7 +1,7 @@
 # 30 Reels prontos (1 por dia)
 
 **Formato padrão (7 a 15 s):** texto grande na tela, legenda queimada no vídeo, sem enrolação.
-Pode ser você falando, ou só texto sobre vídeo de fundo (café, rua, celular, cidade).
+Perfil dark e **sem rosto**: texto animado sobre fundo preto ou b-roll escuro (celular, cidade à noite, café), com locução opcional. Veja `identidade-visual-dark.md`.
 **Estrutura:** Gancho (0–2 s) → Problema (2–6 s) → Troca/solução (6–12 s) → CTA (últimos 2 s).
 **Regra de ouro:** o último frame deve levar de volta ao primeiro (loop) para aumentar a retenção.
 

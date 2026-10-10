@@ -17,6 +17,7 @@ Crescimento do perfil do Instagram **@oprotocolodapresenca** com conteúdo sobre
 - [`produto/ebook-e-funil.md`](produto/ebook-e-funil.md): isca grátis, ebook, preço e página de vendas
 - [`plano-30-dias/bio-legendas-hashtags.md`](plano-30-dias/bio-legendas-hashtags.md): bio, legendas, hashtags
 - [`posts/legendas.md`](posts/legendas.md): 18 imagens prontas (12 variadas + 6 dark) com legendas
+- [`posts/serie-nova/legendas.md`](posts/serie-nova/legendas.md): série nova (7 formatos novos + 3 posts com foto no Canva)
 - [`metricas/resultados.md`](metricas/resultados.md): tabela para anotar os números
 
 ## Meta

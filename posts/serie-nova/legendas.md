@@ -158,3 +158,41 @@ Abra, confira e baixe em **PNG** (Compartilhar → Baixar). Eles estão em 1080�
 - f01 (mão com celular): https://canva.link/3zkpw1ydeksvc7c
 - f02 (cidade na chuva): https://canva.link/p6b7xhtwkfvctlf
 - f03 (silhueta na rua): https://canva.link/qooe3iibldpzt58
+
+---
+
+## Combo de hoje: 2 stories + 1 post ("a segunda mensagem")
+
+- Story 1 (enquete): https://canva.link/mxbatd8rr1j6aeq: adicione a figurinha **Enquete** no espaço vazio. Pergunta: "Você trava na segunda mensagem?" · Opções: "SIM 😅" / "NUNCA 😎"
+- Story 2 (chamada pro post): https://canva.link/jf33idgb6laz2az: depois de publicar o post, compartilhe o post neste story (avião de papel → Adicionar ao story) no espaço acima de "post novo no feed".
+- Post do feed: https://canva.link/q9hwb3fpblhjzda
+
+### Legenda do post
+```
+O "oi" abre a porta. A segunda mensagem decide se você entra. 🚪
+
+A maioria trava aqui: ela responde "oi, tudo bem?" e você manda "tudo e você?". Pronto, virou entrevista de emprego.
+
+O que mandar no lugar 👇
+
+1️⃣ Puxe algo que ELA postou
+"Tudo ótimo! Vi o story do show ontem, foi tão bom quanto parecia?"
+
+2️⃣ Pergunte algo que vire história
+Em vez de "gosta de viajar?", tente "qual viagem deu tudo errado e virou sua melhor história?"
+
+3️⃣ Deixe leve
+Sem textão, sem pressão, sem cobrar resposta.
+
+A regra é simples: a segunda mensagem precisa dar a ela algo pra responder além de "tudo".
+
+📌 Salva pra usar na próxima conversa.
+💬 Qual foi a pior segunda mensagem que você já mandou? Conta aí 👇
+
+#direct #dicasparahomens #comunicacao #paquera #presenca
+```
+
+### Ordem para publicar
+1. Story 1 (enquete) agora.
+2. Post do feed com a legenda acima, uns 30–60 min depois.
+3. Story 2 logo após o post, compartilhando o post nele.

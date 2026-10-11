@@ -35,7 +35,7 @@ Separei 10 aberturas nesse estilo, uma pra cada tipo de story: série, comida, v
 ```
 
 ## Por que a chamada é pelo direct (e não "comenta QUERO")
-Homem quase nunca comenta em público num post que admite "eu não sei puxar assunto". Nos seus números, a única ação que apareceu foi **compartilhamento** (3), que é privado. Pedir a palavra no **direct** tira a vergonha do caminho, e conversa no direct também é um dos sinais que mais ajudam a distribuição.
+Homem quase nunca comenta em público num post que admite "eu não sei puxar assunto". Nos seus 4 posts foram 0 comentários e 2 curtidas, mas 3 **compartilhamentos**: a ação mais discreta foi a que mais apareceu. Pedir a palavra no **direct** tira a vergonha do caminho, e conversa no direct também é um dos sinais que mais ajudam a distribuição.
 
 ## Quando alguém mandar ABERTURA
 **Atenção:** quem não te segue cai em **Solicitações de mensagem**. Olhe lá, senão o lead se perde.

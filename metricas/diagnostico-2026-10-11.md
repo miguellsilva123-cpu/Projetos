@@ -19,11 +19,11 @@ Total no mês: 267 visualizações, 10 interações, 0 seguidores, 0 toques no l
 
 ## O que os números dizem
 1. **A visualização ainda é pequena pra julgar o nicho.** O melhor Reel chegou a 126 pessoas. Conta nova costuma converter bem menos de 1% do alcance em seguidor (estimativa de mercado, não dado do seu perfil). Com 126 pessoas, 0 seguidor é o esperado, não um veredito.
-2. **O algoritmo está mostrando seus Reels pra estranhos.** Praticamente 100% das views vieram de não seguidores. Isso é bom: a distribuição funciona.
+2. **O algoritmo está mostrando seus Reels pra estranhos.** 94% das views (251 de 267) vieram de quem não te segue. Isso é bom: a distribuição funciona.
 3. **Foto e carrossel não chegam em ninguém agora.** Com 0 seguidores, o carrossel alcançou 2 pessoas e a imagem, 3. Até ter uns 300 a 500 seguidores, **o post do dia tem que ser Reel.** Stories também não alcançam ninguém sem seguidor.
 4. **A maioria sai antes do 3º segundo.** 91% no 1º Reel, 58% no 2º. O 2º melhorou porque abriu com uma situação específica ("ela curtiu seu foguinho e não respondeu"). O gancho precisa ser visual e reconhecível no 1º quadro.
 5. **Cada post pediu uma coisa diferente** (comentar PADRÃO, comentar o número, marcar amigo, salvar, contar história), e quase nunca ofereceu algo em troca. A bio vende o ebook pago pra quem nem te conhece. Resultado: 0 toques no link.
-6. **Homem não comenta em público nesse tema.** Comentar num post de "como falar com mulher" é admitir dificuldade na frente de todo mundo. A única ação que apareceu foi compartilhamento, que é privado. A chamada certa é pedir a palavra **no direct**.
+6. **Homem não comenta em público nesse tema.** Comentar num post de "como falar com mulher" é admitir dificuldade na frente de todo mundo. Somando os 4 posts foram 0 comentários e 2 curtidas, mas 3 compartilhamentos: a ação mais discreta foi a que mais apareceu. A chamada certa é pedir a palavra **no direct**.
 7. **Horário:** 3 dos 4 posts saíram depois das 22h30.
 
 ## O nicho é ruim?

@@ -31,6 +31,8 @@ Separei 10 aberturas nesse estilo, pros stories mais comuns: série, comida, via
 
 📩 Manda ABERTURA no meu direct que eu te envio o guia grátis.
 
+👉 E segue o perfil: a partir de amanhã, toda noite tem uma abertura nova aqui.
+
 #direct #dicasparahomens #comunicação #paquera #relacionamento
 ```
 
@@ -49,8 +51,10 @@ Fala! Aqui tá o guia com as 10 aberturas 👇
 
 **Mensagem 2:**
 ```
-Começa pela 01 ou pela 07, são as mais fáceis de adaptar. Depois me conta qual você testou? 👊
+Começa pela 01 ou pela 07, são as mais fáceis de adaptar. E segue o perfil: toda noite eu posto uma abertura nova. Depois me conta qual você testou? 👊
 ```
+
+O pedido pra seguir vai aqui porque quem te chamou no direct é quem mais tem chance de seguir.
 
 Não ofereça o ebook nessa conversa. Se a pessoa voltar pra contar como foi, aí sim:
 ```

@@ -182,7 +182,7 @@ const P = {
       <div class="lbl">MENSAGEM 1 · JUNTO COM AS 8 FOTOS DO GUIA</div>
       <div class="me">Fala! Aqui tá o guia com as 10 aberturas 👇</div>
       <div class="lbl">MENSAGEM 2</div>
-      <div class="me">Começa pela 01 ou pela 07, são as mais fáceis de adaptar. Depois me conta qual você testou? 👊</div>
+      <div class="me">Começa pela 01 ou pela 07, são as mais fáceis de adaptar. E segue o perfil: toda noite eu posto uma abertura nova. Depois me conta qual você testou? 👊</div>
       <div class="lbl">SÓ SE A PESSOA VOLTAR PRA CONTAR COMO FOI</div>
       <div class="me">Que bom que funcionou! Se quiser o método completo (como sustentar a conversa e levar pro encontro), o ebook tá no link da bio.</div>
     </div>

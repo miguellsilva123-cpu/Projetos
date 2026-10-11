@@ -18,7 +18,10 @@ Crescimento do perfil do Instagram **@oprotocolodapresenca** com conteúdo sobre
 - [`plano-30-dias/bio-legendas-hashtags.md`](plano-30-dias/bio-legendas-hashtags.md): bio, legendas, hashtags
 - [`posts/legendas.md`](posts/legendas.md): 18 imagens prontas (12 variadas + 6 dark) com legendas
 - [`posts/serie-nova/legendas.md`](posts/serie-nova/legendas.md): série nova (7 formatos novos + 3 posts com foto no Canva)
+- [`posts/reel-direct-dela/legenda.md`](posts/reel-direct-dela/legenda.md): Reel "o direct dela depois de 1 story" (pede ABERTURA no direct) + roteiro de resposta
+- [`produto/isca-10-aberturas`](produto/isca-10-aberturas): guia grátis "10 aberturas para o direct" (8 imagens + PDF)
 - [`metricas/resultados.md`](metricas/resultados.md): tabela para anotar os números
+- [`metricas/diagnostico-2026-10-11.md`](metricas/diagnostico-2026-10-11.md): diagnóstico do perfil com dados do Windsor.ai
 
 ## Meta
 Meta declarada: 100k seguidores em 30 dias. Isso depende de viralização e não dá para garantir.

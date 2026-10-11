@@ -7,11 +7,11 @@
 - **Objetivo:** gerar lead (pessoa que te chama no direct), não curtida.
 
 ## Como postar (pelo app, não pela API)
-1. **Horário:** hoje, entre **20h e 21h** (Brasília). Os 4 posts anteriores saíram entre 19h29 e 01h44.
+1. **Horário:** hoje, entre **20h e 21h** (Brasília). É um horário de pico comum no Brasil; o do seu público ainda não dá pra saber. Os 4 posts anteriores saíram cada um num horário (de 19h29 a 01h44), e fixar um horário ajuda a comparar um Reel com o outro.
 2. Novo Reel → escolha `reel-direct-dela.mp4`.
-3. **Áudio:** toque em "Áudio" e escolha uma música **em alta** (a que tem a setinha ↗), instrumental, volume baixo. Reel sem áudio é distribuído pra menos gente. Por isso o vídeo sai sem música: ela entra pelo app.
+3. **Áudio:** toque em "Áudio" e escolha uma música **em alta** (a que tem a setinha ↗), instrumental, volume baixo. Reel sem áudio é distribuído pra menos gente. O vídeo sai sem música de propósito: ela entra pelo app.
 4. **Capa:** "Editar capa" → "Adicionar da galeria" → `capa.jpg`.
-5. Cole a legenda abaixo e publique.
+5. Cole a legenda (está abaixo e também sozinha em `legenda.txt`) e publique.
 6. Depois de publicar: **fixe esse Reel no perfil** (os 3 pontinhos → Fixar).
 
 ## Legenda (copie inteira)
@@ -27,7 +27,7 @@ A mensagem que ela responde tem 3 coisas:
 2️⃣ Uma pergunta fácil de responder
 3️⃣ Leveza, sem pressão
 
-Separei 10 aberturas nesse estilo, uma pra cada tipo de story: série, comida, viagem, treino, pet...
+Separei 10 aberturas nesse estilo, pros stories mais comuns: série, comida, viagem, treino, pet...
 
 📩 Manda ABERTURA no meu direct que eu te envio o guia grátis.
 
@@ -35,14 +35,14 @@ Separei 10 aberturas nesse estilo, uma pra cada tipo de story: série, comida, v
 ```
 
 ## Por que a chamada é pelo direct (e não "comenta QUERO")
-Homem quase nunca comenta em público num post que admite "eu não sei puxar assunto". Nos seus 4 posts foram 0 comentários e 2 curtidas, mas 3 **compartilhamentos**: a ação mais discreta foi a que mais apareceu. Pedir a palavra no **direct** tira a vergonha do caminho, e conversa no direct também é um dos sinais que mais ajudam a distribuição.
+Homem quase nunca comenta em público num post desses: comentar é admitir "eu não sei puxar assunto". Nos seus 4 posts foram 0 comentários e 2 curtidas, mas 3 **compartilhamentos**: a ação mais discreta foi a que mais apareceu. Pedir a palavra no **direct** tira a vergonha do caminho, e conversa no direct também é um dos sinais que mais ajudam a distribuição.
 
 ## Quando alguém mandar ABERTURA
-**Atenção:** quem não te segue cai em **Solicitações de mensagem**. Olhe lá, senão o lead se perde.
+**Atenção:** mensagem de quem **você não segue** cai em **Solicitações de mensagem**. Como o perfil segue só 12 contas, quase todo pedido vai cair lá. Olhe lá, senão o lead se perde.
 
 Responda em até 1 hora, com 2 mensagens:
 
-**Mensagem 1** (e mande as 8 imagens de `produto/isca-10-aberturas` como fotos, num álbum só):
+**Mensagem 1** (e mande as 8 imagens `pagina-01.png` a `pagina-08.png` da pasta `produto/isca-10-aberturas` como fotos, num álbum só):
 ```
 Fala! Aqui tá o guia com as 10 aberturas 👇
 ```
@@ -68,7 +68,7 @@ Comunicação, presença e respeito.
 🎁 Manda ABERTURA no direct: 10 aberturas grátis
 📖 Ebook completo 👇
 ```
-A bio atual manda direto pro ebook pago. Quem acabou de te conhecer não compra; mas pega um presente grátis.
+A bio atual manda direto pro ebook pago. Quem acabou de te conhecer não compra, mas pega um presente grátis.
 
 ## Como saber se funcionou (olhe amanhã à noite)
 | Métrica | Reel anterior (08/10) | Meta deste |

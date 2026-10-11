@@ -89,7 +89,7 @@ const body = `
   </div>
 </div>
 <div id="C" style="opacity:0">
-  <div class="c1" id="c1">Ela não responde<br>o mais bonito.</div>
+  <div class="c1" id="c1">Ela não responde<br>o cara mais bonito.</div>
   <div class="c2" id="c2">Responde quem<br>prestou atenção.</div>
   <div class="c3" id="c3">Separei 10 aberturas assim,<br>prontas pra adaptar.</div>
   <div class="c4" id="c4">MANDA NO MEU DIRECT</div>

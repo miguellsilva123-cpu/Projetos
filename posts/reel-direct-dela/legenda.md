@@ -2,6 +2,7 @@
 
 - **Vídeo:** `reel-direct-dela.mp4` (1080×1920, 17 s, sem música)
 - **Capa:** `capa.jpg`
+- **Bio nova:** `bio-nova.txt` (só o texto, pra copiar e colar)
 - **O que ele entrega:** o guia grátis [`produto/isca-10-aberturas`](../../produto/isca-10-aberturas) (8 imagens + PDF)
 - **Objetivo:** gerar lead (pessoa que te chama no direct), não curtida.
 

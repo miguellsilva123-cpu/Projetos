@@ -50,6 +50,10 @@ b{color:${CREAM};font-weight:700}
   display:flex;align-items:center;justify-content:center;margin-top:2px}
 .st p{font-size:30px}
 .st p b{display:block;font:700 32px/1.3 Inter;margin-bottom:4px}
+.steps.tight{gap:16px}
+.steps.tight .st p{font-size:27px;line-height:1.4}
+.steps.tight .st p b{font-size:29px}
+.steps.tight .st p b.in{font-size:inherit}
 .box{border:3px solid ${G};border-radius:30px;padding:34px 40px;background:linear-gradient(180deg,#2b2113,#1b140c)}
 .box .lb{font:800 22px Montserrat;letter-spacing:6px;color:${G};margin-bottom:14px}
 .warn{border-color:#c0583f;background:linear-gradient(180deg,#2b1610,#1b0f0a)}
@@ -181,11 +185,11 @@ const P = {
   direct: page('QUANDO ALGUÉM MANDAR ABERTURA', `<h1>O roteiro <i>do direct</i></h1>
     <div class="box warn"><div class="lb">ATENÇÃO</div><p>Mensagem de quem <b>você não segue</b> cai em <b>Solicitações de mensagem</b>. Como o perfil segue só 12 contas, quase todo pedido vai cair lá. Olhe lá e responda em até 1 hora.</p></div>
     <div class="chat" style="margin-top:20px">
-      <div class="lbl">MENSAGEM 1 · JUNTO COM AS 8 FOTOS DO GUIA</div>
+      <div class="lbl">MENSAGEM 1 · DEPOIS, AS 8 FOTOS DO GUIA NUM ÁLBUM</div>
       <div class="me">Fala! Aqui tá o guia com as 10 aberturas 👇</div>
       <div class="lbl">MENSAGEM 2</div>
       <div class="me">Começa pela 01 ou pela 07, são as mais fáceis de adaptar. E segue o perfil: toda noite eu posto uma abertura nova. Depois me conta qual você testou? 👊</div>
-      <div class="lbl">SÓ SE A PESSOA VOLTAR PRA CONTAR COMO FOI</div>
+      <div class="lbl">SÓ SE A PESSOA VOLTAR DIZENDO QUE FUNCIONOU</div>
       <div class="me">Que bom que funcionou! Se quiser o método completo (como sustentar a conversa e levar pro encontro), o ebook tá no link da bio.</div>
     </div>
     <p style="margin-top:30px;font-size:25px;color:#9c8a66">As 8 fotos são pagina-01.png a pagina-08.png (pasta produto/isca-10-aberturas). PDF não vai no direct pelo celular: o PDF 08 é só pra você consultar.</p>`),
@@ -210,37 +214,37 @@ const P = {
       <tr><td><b>Vídeo</b></td><td>o .mp4 do Reel</td><td>o mesmo arquivo<small>nunca o baixado do Instagram (vem com marca d'água)</small></td></tr>
       <tr><td><b>Chamada</b></td><td>ABERTURA no direct</td><td class="gold">a mesma</td></tr>
       <tr><td><b>Link na bio</b></td><td>tem</td><td>não tem<small>só com 1.000 seguidores ou empresa verificada (CNPJ)</small></td></tr>
-      <tr><td><b>Bio</b></td><td>até 150 caracteres</td><td>até 80 caracteres</td></tr>
+      <tr><td><b>Bio</b></td><td>até 150 caracteres</td><td>até 80 caracteres*</td></tr>
       <tr><td><b>Hashtags</b></td><td>3 a 5</td><td>no máximo 5</td></tr>
       <tr><td><b>Pedido cai em</b></td><td>Solicitações</td><td>Solicitações<small>às vezes em Solicitações filtradas; tem que tocar em Aceitar</small></td></tr>
       <tr><td><b>Ebook</b></td><td>link da bio</td><td>manda pro Instagram</td></tr>
     </table>
-    <p style="margin-top:30px;font-size:24px;color:#9c8a66">Regras conferidas em 11/10/2026 em páginas oficiais do TikTok. As fontes estão no arquivo tiktok.md.</p>`),
+    <p style="margin-top:30px;font-size:24px;color:#9c8a66">Regras conferidas em 11/10/2026. * Sem página oficial: limite da bio, de hashtags e horários (confira no app). Fontes no arquivo tiktok.md.</p>`),
 
   ttConta: page('TIKTOK · ANTES DE POSTAR', `<h1>Configure <i>a conta</i></h1>
     <div class="steps" style="gap:22px">
-      <div class="st"><div class="n">1</div><p><b>Conta pessoal e pública</b>Não troque pra comercial agora: nela só aparecem músicas da biblioteca comercial.</p></div>
-      <div class="st"><div class="n">2</div><p><b>Direct aberto</b>Configurações e privacidade › Privacidade › Mensagens diretas. Deixe <b class="in">“Conexões em potencial”</b> e <b class="in">“Outros no TikTok”</b> em <b class="in">Solicitações</b>.</p></div>
-      <div class="st"><div class="n">3</div><p><b>Telefone</b>Cadastre e confirme. O app costuma pedir.</p></div>
-      <div class="st"><div class="n">4</div><p><b>Teste</b>Peça pra alguém, de outra conta e sem te seguir, mandar ABERTURA. Veja se chega em Solicitações.</p></div>
+      <div class="st"><div class="n">1</div><p><b>Conta pessoal e pública</b>Usuário @oprotocolodapresenca, se estiver livre. Conta comercial só quando quiser resposta automática.</p></div>
+      <div class="st"><div class="n">2</div><p><b>Direct aberto</b>Perfil › ☰ › Configurações e privacidade › Privacidade › Mensagens diretas. Deixe <b class="in">“Conexões em potencial”</b> e <b class="in">“Outros no TikTok”</b> em <b class="in">Solicitações</b>.</p></div>
+      <div class="st"><div class="n">3</div><p><b>Telefone</b>Cadastre e confirme. Não é regra oficial, mas o app costuma pedir.</p></div>
+      <div class="st"><div class="n">4</div><p><b>Teste</b>Peça pra alguém que você não segue (e que não te segue) mandar ABERTURA. Veja se chega em Solicitações.</p></div>
     </div>
     <div class="box" style="margin-top:34px;padding:28px 34px"><div class="lb">BIO DO TIKTOK · 76 CARACTERES</div><div class="bio">${BIO_TT}</div></div>
     <p style="margin-top:16px;font-size:24px;color:#9c8a66">Copie do arquivo <b class="in">bio-tiktok.txt</b>. Se aparecer a opção em Editar perfil, ligue o seu Instagram.</p>`),
 
   ttPostar: page('TIKTOK · COMO POSTAR', `<h1>Como postar <i>no TikTok</i></h1>
-    <div class="steps" style="gap:22px">
-      <div class="st"><div class="n">1</div><p><b>Hoje, por volta das 21h</b>Logo depois do Instagram. Não há horário comprovado pro Brasil: depois, teste 12h, 18h e 21h.</p></div>
+    <div class="steps tight">
+      <div class="st"><div class="n">1</div><p><b>Hoje, por volta das 21h</b>Logo depois do Instagram. Nas próximas semanas, teste postar às 12h, às 18h e às 21h e compare.</p></div>
       <div class="st"><div class="n">2</div><p><b>+ › Carregar</b>Escolha reel-direct-dela.mp4.</p></div>
-      <div class="st"><div class="n">3</div><p><b>Som</b>“Adicionar som” › um som em alta, volume baixo. Se o TikTok silenciar, troque por um da Biblioteca de Música Comercial.</p></div>
+      <div class="st"><div class="n">3</div><p><b>Som, sem risco</b>Ative Divulgar conteúdo comercial › Sua marca e use uma música da Biblioteca de Música Comercial. Som em alta comum é risco: o vídeo capta contato pro seu negócio.</p></div>
       <div class="st"><div class="n">4</div><p><b>Capa</b>O primeiro quadro (o direct lotado).</p></div>
       <div class="st"><div class="n">5</div><p><b>Legenda</b>Cole de <b class="in">legenda-tiktok.txt</b> (próxima página) e publique.</p></div>
-      <div class="st"><div class="n">6</div><p><b>Fixe um comentário seu</b>Cole de <b class="in">comentario-fixado.txt</b>.</p></div>
-      <div class="st"><div class="n">7</div><p><b>Palavras-chave</b>Se aparecer ⋯ › Gerenciar palavras-chave, sugira: “como puxar assunto”, “o que mandar no direct”, “primeira mensagem”.</p></div>
+      <div class="st"><div class="n">6</div><p><b>Fixe um comentário seu</b>Comente no vídeo (cole de <b class="in">comentario-fixado.txt</b>), segure o comentário › Fixar.</p></div>
+      <div class="st"><div class="n">7</div><p><b>Palavras-chave</b>No vídeo publicado, ⋯ › Gerenciar palavras-chave (se aparecer). Sugira: “como puxar assunto”, “o que mandar no direct”, “primeira mensagem”.</p></div>
     </div>`),
 
   ttLegenda: page('TIKTOK · LEGENDA', `<h1>A legenda <i>do TikTok</i></h1>
     <div class="box" style="padding:34px 40px"><div class="cap">${LEG_TT}</div></div>
-    <p style="margin-top:18px;font-size:24px;color:#9c8a66">A primeira linha tem a busca e a chamada, porque só ela aparece no feed. São 4 hashtags (o limite é 5).</p>
+    <p style="margin-top:18px;font-size:24px;color:#9c8a66">O começo tem o que as pessoas pesquisam e a chamada, porque só uns 55 a 100 caracteres aparecem no feed. São 4 hashtags (o limite é 5).</p>
     <h2>Comentário <i>pra fixar</i></h2>
     <div class="box" style="padding:30px 40px"><div class="cap" style="font-size:28px">${COM_TT}</div></div>
     <p style="margin-top:18px;font-size:24px;color:#9c8a66">Copie dos arquivos <b class="in">legenda-tiktok.txt</b> e <b class="in">comentario-fixado.txt</b>.</p>`),
@@ -248,14 +252,14 @@ const P = {
   ttDirect: page('TIKTOK · DIRECT', `<h1>O direct <i>no TikTok</i></h1>
     <div class="box warn"><div class="lb">PRIMEIRO, ACEITE</div><p>Caixa de entrada › <b>Solicitações de mensagem</b> (olhe também <b>Solicitações filtradas</b>) › abra › <b>Aceitar</b>. Só depois dá pra responder.</p></div>
     <div class="chat" style="margin-top:16px">
-      <div class="lbl">MENSAGEM 1 · COM AS 8 FOTOS NUM ENVIO SÓ (CABEM ATÉ 9)</div>
+      <div class="lbl">MENSAGEM 1 · DEPOIS, AS 8 FOTOS DE UMA VEZ (CABEM ATÉ 9)</div>
       <div class="me">Fala! Aqui tá o guia com as 10 aberturas 👇</div>
       <div class="lbl">MENSAGEM 2</div>
       <div class="me">Começa pela 01 ou pela 07, são as mais fáceis de adaptar. E segue o perfil: toda noite eu posto uma abertura nova. Depois me conta qual você testou? 👊</div>
-      <div class="lbl">SÓ SE A PESSOA VOLTAR PRA CONTAR COMO FOI</div>
+      <div class="lbl">SÓ SE A PESSOA VOLTAR DIZENDO QUE FUNCIONOU</div>
       <div class="me">Que bom que funcionou! Se quiser o método completo, o ebook tá no link da bio do meu Instagram: @oprotocolodapresenca</div>
     </div>
-    <p style="margin-top:26px;font-size:24px;color:#9c8a66">Não use robô nem app não oficial pra responder: o TikTok proíbe e pode bloquear seu direct. Com mais de uns 20 pedidos por dia, o caminho oficial é o ManyChat, mas ele exige conta comercial (sem sons em alta).</p>`),
+    <p style="margin-top:26px;font-size:24px;color:#9c8a66">Não use robô nem app não oficial: o TikTok proíbe e pode bloquear seu direct. Com mais de uns 20 pedidos por dia, os caminhos oficiais são a resposta automática do TikTok e o ManyChat (os dois com conta comercial).</p>`),
 };
 
 const PDFS = [

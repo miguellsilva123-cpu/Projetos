@@ -44,7 +44,7 @@ Homem quase nunca comenta em público num post desses: comentar é admitir "eu n
 
 Responda em até 1 hora, com 2 mensagens:
 
-**Mensagem 1** (e mande as 8 imagens `pagina-01.png` a `pagina-08.png` da pasta `produto/isca-10-aberturas` como fotos, num álbum só):
+**Mensagem 1** (mande este texto e, logo depois, as 8 imagens `pagina-01.png` a `pagina-08.png` da pasta `produto/isca-10-aberturas` como fotos, num álbum só):
 ```
 Fala! Aqui tá o guia com as 10 aberturas 👇
 ```
@@ -56,7 +56,7 @@ Começa pela 01 ou pela 07, são as mais fáceis de adaptar. E segue o perfil: t
 
 O pedido pra seguir vai aqui porque quem te chamou no direct é quem mais tem chance de seguir.
 
-Não ofereça o ebook nessa conversa. Se a pessoa voltar pra contar como foi, aí sim:
+Não ofereça o ebook nessa conversa. Se a pessoa voltar dizendo que funcionou, aí sim:
 ```
 Que bom que funcionou! Se quiser o método completo (como sustentar a conversa e levar pro encontro), o ebook tá no link da bio.
 ```

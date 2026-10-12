@@ -69,26 +69,28 @@ add(`<svg width="8640" height="1350" style="position:absolute;inset:0;overflow:v
 const ORDER=['S1','S2','S3','S4','S5','S6','S7','S8'];
 ORDER.forEach((id,i)=>{
   const c=C[id],x=i*W;
-  const t2 = id==='S1' ? `<em>${esc(c.titulo2)}</em>` : `<span class="l2">${esc(c.titulo2)}</span>`;
-  add(`<div class="txt" style="left:${x}px"><div class="pill"><i></i>${esc(c.pill)}</div><div class="h">${esc(c.titulo1)}${id==='S1'?'<br>':''}${t2}</div><div class="sub">${esc(c.sub)}</div></div>`);
+  const t2 = (id==='S1'||id==='S8') ? `<em>${esc(c.titulo2)}</em>` : `<span class="l2">${esc(c.titulo2)}</span>`;
+  const hs=Math.max(c.titulo1.length,c.titulo2.length)>23?64:74;
+  add(`<div class="txt" style="left:${x}px"><div class="pill"><i></i>${esc(c.pill)}</div><div class="h" style="font-size:${hs}px">${esc(c.titulo1)}${(id==='S1'||id==='S8')?'<br>':''}${t2}</div><div class="sub">${esc(c.sub)}</div></div>`);
   add(`<div class="count" style="left:${x+W-150}px">${String(i+1).padStart(2,'0')} / 08</div>`);
   add(`<div class="logo" style="left:${x+80}px"><b></b>O PROTOCOLO</div>`);
-  if(i<7) add(`<div class="arrow" style="left:${x+W-230}px">ARRASTA <svg width="34" height="16" viewBox="0 0 34 16" fill="none" stroke="#5E626B" stroke-width="2.5" stroke-linecap="round"><path d="M2 8h28M23 2l7 6-7 6"/></svg></div>`);
+  if(i<7) add(`<div class="arrow" style="right:${8640-(x+W)+70}px;letter-spacing:.04em;font-size:24px;color:#9A9DA5">${esc((c.ponte||'Arrasta').replace(/\s*→\s*$/,''))} <svg width="34" height="16" viewBox="0 0 34 16" fill="none" stroke="#5E626B" stroke-width="2.5" stroke-linecap="round"><path d="M2 8h28M23 2l7 6-7 6"/></svg></div>`);
 });
 
 // S1 — celular com a "entrevista" + perguntas flutuando (uma atravessa para o S2)
 {
   const c=C.S1;
+  const ans=C.S2.chat.map(m=>Array.isArray(m)?m[1]:m.ela);
   add(`<div class="glass" style="left:300px;top:150px;width:470px;height:700px;border-radius:64px;padding:34px 30px;transform:perspective(1600px) rotateY(-16deg) rotateX(6deg) rotateZ(-3deg);background:linear-gradient(160deg,#16171c,#0d0e11);border:10px solid #24262c">
     <div style="width:130px;height:34px;border-radius:999px;background:#000;margin:0 auto 26px"></div>
     <div style="display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1.5px solid rgba(255,255,255,.08)"><div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#d8b38a,#6d4c34)"></div><div><div style="font-size:24px;font-weight:600">ana.lu</div><div style="font-size:17px;color:#8C9099">Ativa agora</div></div></div>
     <div style="position:relative;height:470px">
       <div class="bub me" style="right:0;top:26px;font-size:22px;padding:12px 18px">${esc(c.chips[0])}</div>
-      <div class="bub her" style="left:0;top:96px;font-size:22px;padding:12px 18px">no comércio</div>
+      <div class="bub her" style="left:0;top:96px;font-size:22px;padding:12px 18px">${esc(ans[0])}</div>
       <div class="bub me" style="right:0;top:166px;font-size:22px;padding:12px 18px">${esc(c.chips[1])}</div>
-      <div class="bub her" style="left:0;top:236px;font-size:22px;padding:12px 18px">zona sul</div>
+      <div class="bub her" style="left:0;top:236px;font-size:22px;padding:12px 18px">${esc(ans[1])}</div>
       <div class="bub me" style="right:0;top:306px;font-size:22px;padding:12px 18px">${esc(c.chips[2])}</div>
-      <div class="bub her" style="left:0;top:376px;font-size:22px;padding:12px 18px">tenho</div>
+      <div class="bub her" style="left:0;top:376px;font-size:22px;padding:12px 18px">${esc(ans[2])}</div>
     </div></div>`);
   const pos=[[60,210,-6],[720,150,5],[80,560,4],[880,470,-4]];
   c.chips.forEach((q,k)=>{const [x,y,r]=pos[k];add(`<div class="glass chip" style="left:${x}px;top:${y}px;transform:rotate(${r}deg)"><span class="dot" style="background:#E11D2E;box-shadow:0 0 10px #E11D2E"></span>${esc(q)}</div>`)});
@@ -97,7 +99,7 @@ ORDER.forEach((id,i)=>{
 // S2 — cards de pergunta/resposta empilhados (coluna nasce no S1)
 {
   const c=C.S2,x0=W;
-  c.chat.forEach(([q,a],k)=>{
+  c.chat.map(m=>Array.isArray(m)?m:[m.ele,m.ela]).forEach(([q,a],k)=>{
     const y=120+k*215, x=x0+190+k*40;
     add(`<div class="glass" style="left:${x}px;top:${y}px;width:640px;height:185px;padding:26px 30px;display:flex;flex-direction:column;gap:16px;${k===2?'border-color:rgba(225,29,46,.45)':''}">
       <div style="display:flex;justify-content:flex-end"><div class="bub me" style="position:static;font-size:25px;padding:12px 20px">${esc(q)}</div></div>
@@ -164,10 +166,10 @@ ORDER.forEach((id,i)=>{
   const c=C.S8,x0=7*W;
   add(`<div class="glass" style="left:${x0+120}px;top:150px;width:840px;padding:30px 34px">
     <div style="font-size:20px;font-weight:600;letter-spacing:.22em;color:#8C9099;margin-bottom:20px">COMENTÁRIOS</div>
-    <div style="display:flex;align-items:center;gap:18px;height:92px;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);padding:0 12px 0 30px;font-size:28px"><span style="flex:1;color:#E6E7EA">${esc(c.cta_comentar)}</span><span style="width:68px;height:68px;border-radius:50%;background:#E11D2E;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div></div>`);
+    <div style="display:flex;align-items:center;gap:18px;height:92px;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);padding:0 12px 0 30px;font-size:25px"><span style="flex:1;color:#E6E7EA;white-space:normal;line-height:1.3">${esc(c.cta_comentar)}</span><span style="width:68px;height:68px;border-radius:50%;background:#E11D2E;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div></div>`);
   add(`<div class="glass chip" style="left:${x0+120}px;top:390px;font-size:25px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF5A66" stroke-width="2.4" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>${esc(c.cta_salvar)}</div>`);
   add(`<div class="glass chip" style="left:${x0+120}px;top:500px;font-size:25px;border-color:rgba(225,29,46,.5)"><span style="padding:6px 14px;border-radius:999px;background:#E11D2E;color:#fff;font-size:20px;font-weight:700;letter-spacing:.12em">+ SEGUIR</span>${esc(c.cta_seguir)}</div>`);
-  add(`<div style="position:absolute;left:${x0+120}px;top:620px;font-size:20px;font-weight:600;letter-spacing:.22em;color:#5E626B">@OPROTOCOLODAPRESENCA</div>`);
+  add(`<div style="position:absolute;left:${x0+120}px;top:700px;font-size:20px;font-weight:600;letter-spacing:.22em;color:#5E626B">@OPROTOCOLODAPRESENCA</div>`);
 }
 window.READY=true;
 </script>

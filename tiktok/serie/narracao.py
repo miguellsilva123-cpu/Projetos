@@ -1,6 +1,7 @@
 """Gera a narração frase por frase e a linha do tempo que sincroniza o vídeo com a voz.
 
 Uso: python3 narracao.py "<comando de síntese com {text} {out}>" <pasta_saida>
+     python3 narracao.py --remix <pasta_saida>   (remonta o áudio sem mudar a linha do tempo)
 Saídas na pasta: narracao.wav (48 kHz mono), timeline.json e timeline.js (window.WARP).
 
 Cada frase tem uma âncora no tempo original da animação (serie.html). O vídeo é
@@ -26,7 +27,7 @@ PHRASES = [
     ('p04a', 'Ela respondeu: cá cá cá...', 6.9, 0.35),
     ('p04b', 'e você não soube o que mandar.', 8.9, 0.6),
     ('p05', 'Às vezes, foi no encontro.', 11.1, 0.3),
-    ('p06', 'O assunto acabou, bateu o silêncio...', 13.6, 0.9),
+    ('p06', 'O assunto acabou... e bateu o silêncio.', 13.6, 0.9),
     ('p07', 'e vocês ficaram um olhando pra cara do outro.', 15.6, 0.6),
     ('p08', 'E quase nunca foi falta de assunto.', 18.1, 0.3),
     ('p09', 'A conversa virou entrevista.', 19.2, 0.4),
@@ -38,7 +39,7 @@ PHRASES = [
     ('p15', 'Pra você nunca mais deixar o clima morrer.', 38.7, 0.7),
     ('p16', 'E tudo começa aqui: entender por que você trava.', 41.8, 0.9),
     ('p17', 'Você digita, apaga, digita de novo...', 46.2, 0.3),
-    ('p18', 'e não manda.', 48.1, 0.6),
+    ('p18', 'e não manda nada.', 48.1, 0.6),
     ('p19', 'Isso não é timidez.', 49.9, 0.4),
     ('p20', 'Você tá tentando achar a frase perfeita do nada.', 51.0, 0.4),
     ('p21a', 'Ao vivo, é igual: você procura algo genial pra dizer...', 52.8, 0.3),
@@ -74,7 +75,31 @@ def load48(path):
     return x
 
 
+def remix(outdir):
+    """Remonta narracao.wav a partir de frases/*.wav usando o timeline.json existente."""
+    info = json.load(open(os.path.join(outdir, 'timeline.json'), encoding='utf-8'))
+    voice = np.zeros(int(info['duration'] * SR) + SR)
+    for ph in info['phrases']:
+        c = load48(os.path.join(outdir, 'frases', ph['id'] + '.wav'))
+        i = int(ph['start'] * SR)
+        voice[i:i + len(c)] += c
+    voice = voice[: int(info['duration'] * SR)]
+    finish(voice, outdir)
+
+
+def finish(voice, outdir):
+    sf.write(os.path.join(outdir, 'narracao_bruta.wav'), voice, SR)
+    # cadeia de voz: limpeza de grave, compressão suave, presença e loudness de narração
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', os.path.join(outdir, 'narracao_bruta.wav'), '-af',
+                    'highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=2,'
+                    'equalizer=f=180:t=q:w=1.2:g=2,equalizer=f=3200:t=q:w=1.5:g=2.5,loudnorm=I=-16:TP=-1.5:LRA=8',
+                    '-ar', str(SR), os.path.join(outdir, 'narracao.wav')], check=True)
+
+
 def main():
+    if sys.argv[1] == '--remix':
+        remix(sys.argv[2])
+        return
     cmd_tpl, outdir = sys.argv[1], sys.argv[2]
     os.makedirs(os.path.join(outdir, 'frases'), exist_ok=True)
     clips = []
@@ -99,12 +124,7 @@ def main():
         i = int(s * SR)
         voice[i:i + len(c)] += c
     voice = voice[: int(end * SR)]
-    sf.write(os.path.join(outdir, 'narracao_bruta.wav'), voice, SR)
-    # cadeia de voz: limpeza de grave, compressão suave, presença e loudness de narração
-    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', os.path.join(outdir, 'narracao_bruta.wav'), '-af',
-                    'highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=2,'
-                    'equalizer=f=180:t=q:w=1.2:g=2,equalizer=f=3200:t=q:w=1.5:g=2.5,loudnorm=I=-16:TP=-1.5:LRA=8',
-                    '-ar', str(SR), os.path.join(outdir, 'narracao.wav')], check=True)
+    finish(voice, outdir)
     info = {
         'duration': round(end, 3),
         'warp': warp,

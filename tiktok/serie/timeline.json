@@ -1,345 +1,392 @@
 {
- "duration": 91.594,
+ "duration": 85.778,
  "warp": [
   [
    0.0,
    0.0
   ],
   [
-   0.9,
+   0.6,
    1.0
   ],
   [
-   3.178,
-   3.3
+   3.07,
+   3.4
   ],
   [
-   5.084,
+   4.439,
    5.0
   ],
   [
-   6.944,
+   6.259,
    6.9
   ],
   [
-   8.677,
+   7.189,
    8.9
   ],
   [
-   10.579,
+   9.479,
    11.1
   ],
   [
-   12.423,
+   11.039,
    13.6
   ],
   [
-   15.428,
+   13.199,
    15.6
   ],
   [
-   18.149,
+   15.747,
    18.1
   ],
   [
-   20.356,
+   17.487,
    19.2
   ],
   [
-   22.176,
+   19.567,
    21.8
   ],
   [
-   25.657,
+   22.067,
    25.05
   ],
   [
-   28.373,
+   24.882,
    28.9
   ],
   [
-   32.379,
+   29.182,
    32.6
   ],
   [
-   34.51,
+   31.362,
    34.4
   ],
   [
-   37.52,
+   33.622,
    38.7
   ],
   [
-   40.239,
+   36.424,
    41.8
   ],
   [
-   43.542,
+   40.132,
    46.2
   ],
   [
-   46.158,
+   42.372,
    48.1
   ],
   [
-   47.418,
+   43.763,
    49.9
   ],
   [
-   48.941,
+   45.083,
    51.0
   ],
   [
-   51.861,
+   48.008,
    52.8
   ],
   [
-   54.993,
+   50.398,
    54.5
   ],
   [
-   57.863,
+   53.041,
    58.6
   ],
   [
-   61.012,
+   56.141,
    61.0
   ],
   [
-   67.086,
+   62.148,
    68.4
   ],
   [
-   70.708,
+   65.438,
    72.1
   ],
   [
-   74.633,
+   69.084,
    75.9
   ],
   [
-   81.654,
+   75.86,
    80.8
   ],
   [
-   86.258,
+   80.4,
    85.4
   ],
   [
-   91.594,
+   85.778,
    88.0
   ]
  ],
  "phrases": [
   {
-   "id": "p01",
-   "text": "Todo homem já perdeu uma mulher que queria...",
+   "id": "b01",
+   "text": "Todo homem já perdeu uma mulher que queria",
    "old": 1.0,
-   "start": 0.9,
-   "dur": 2.028
+   "start": 0.6
   },
   {
-   "id": "p02",
+   "id": "b01",
    "text": "por causa de um vacilo.",
-   "old": 3.3,
-   "start": 3.178,
-   "dur": 1.207
+   "old": 3.4,
+   "start": 3.07
   },
   {
-   "id": "p03",
-   "text": "Às vezes, foi por mensagem.",
+   "id": "b02",
+   "text": "Às vezes foi por mensagem:",
    "old": 5.0,
-   "start": 5.084,
-   "dur": 1.56
+   "start": 4.439
   },
   {
-   "id": "p04a",
-   "text": "Ela respondeu: cá cá cá...",
+   "id": "b02",
+   "text": "ela respondeu cá cá cá,",
    "old": 6.9,
-   "start": 6.944,
-   "dur": 1.383
+   "start": 6.259
   },
   {
-   "id": "p04b",
+   "id": "b02",
    "text": "e você não soube o que mandar.",
    "old": 8.9,
-   "start": 8.677,
-   "dur": 1.302
+   "start": 7.189
   },
   {
-   "id": "p05",
-   "text": "Às vezes, foi no encontro.",
+   "id": "b03",
+   "text": "Às vezes foi no encontro:",
    "old": 11.1,
-   "start": 10.579,
-   "dur": 1.544
+   "start": 9.479
   },
   {
-   "id": "p06",
-   "text": "O assunto acabou, bateu o silêncio...",
+   "id": "b03",
+   "text": "o assunto acabou, e bateu o silêncio,",
    "old": 13.6,
-   "start": 12.423,
-   "dur": 2.104
+   "start": 11.039
   },
   {
-   "id": "p07",
+   "id": "b03",
    "text": "e vocês ficaram um olhando pra cara do outro.",
    "old": 15.6,
-   "start": 15.428,
-   "dur": 2.122
+   "start": 13.199
   },
   {
-   "id": "p08",
+   "id": "b04",
    "text": "E quase nunca foi falta de assunto.",
    "old": 18.1,
-   "start": 18.149,
-   "dur": 1.907
+   "start": 15.747
   },
   {
-   "id": "p09",
-   "text": "A conversa virou entrevista.",
+   "id": "b04",
+   "text": "A conversa virou entrevista:",
    "old": 19.2,
-   "start": 20.356,
-   "dur": 1.397
+   "start": 17.487
   },
   {
-   "id": "p10",
-   "text": "Pergunta, resposta. Pergunta, resposta.",
+   "id": "b04",
+   "text": "pergunta, resposta, pergunta, resposta.",
    "old": 21.8,
-   "start": 22.176,
-   "dur": 2.881
+   "start": 19.567
   },
   {
-   "id": "p11",
+   "id": "b05",
    "text": "Ninguém se apaixona numa entrevista.",
    "old": 25.05,
-   "start": 25.657,
-   "dur": 1.915
+   "start": 22.067
   },
   {
-   "id": "p12",
+   "id": "b06",
    "text": "Nos próximos cinco dias, eu vou te mostrar como puxar assunto sem travar,",
    "old": 28.9,
-   "start": 28.373,
-   "dur": 3.756
+   "start": 24.882
   },
   {
-   "id": "p13",
+   "id": "b06",
    "text": "como fazer uma conversa puxar a outra,",
    "old": 32.6,
-   "start": 32.379,
-   "dur": 1.881
+   "start": 29.182
   },
   {
-   "id": "p14",
+   "id": "b06",
    "text": "e o que fazer quando bate o silêncio.",
    "old": 34.4,
-   "start": 34.51,
-   "dur": 1.932
+   "start": 31.362
   },
   {
-   "id": "p15",
+   "id": "b07",
    "text": "Pra você nunca mais deixar o clima morrer.",
    "old": 38.7,
-   "start": 37.52,
-   "dur": 2.019
+   "start": 33.622
   },
   {
-   "id": "p16",
+   "id": "b08",
    "text": "E tudo começa aqui: entender por que você trava.",
    "old": 41.8,
-   "start": 40.239,
-   "dur": 2.404
+   "start": 36.424
   },
   {
-   "id": "p17",
-   "text": "Você digita, apaga, digita de novo...",
+   "id": "b09",
+   "text": "Você digita, apaga, digita de novo,",
    "old": 46.2,
-   "start": 43.542,
-   "dur": 2.315
+   "start": 40.132
   },
   {
-   "id": "p18",
-   "text": "e não manda.",
+   "id": "b09",
+   "text": "e não manda nada.",
    "old": 48.1,
-   "start": 46.158,
-   "dur": 0.625
+   "start": 42.372
   },
   {
-   "id": "p19",
+   "id": "b10",
    "text": "Isso não é timidez.",
    "old": 49.9,
-   "start": 47.418,
-   "dur": 1.124
+   "start": 43.763
   },
   {
-   "id": "p20",
+   "id": "b10",
    "text": "Você tá tentando achar a frase perfeita do nada.",
    "old": 51.0,
-   "start": 48.941,
-   "dur": 2.519
+   "start": 45.083
   },
   {
-   "id": "p21a",
-   "text": "Ao vivo, é igual: você procura algo genial pra dizer...",
+   "id": "b11",
+   "text": "Ao vivo é igual: você procura algo genial pra dizer,",
    "old": 52.8,
-   "start": 51.861,
-   "dur": 2.832
+   "start": 48.008
   },
   {
-   "id": "p21b",
-   "text": "o momento passa... e ela vai embora.",
+   "id": "b11",
+   "text": "o momento passa, e ela vai embora.",
    "old": 54.5,
-   "start": 54.993,
-   "dur": 1.53
+   "start": 50.398
   },
   {
-   "id": "p22",
+   "id": "b12",
    "text": "Puxar assunto fica fácil quando você tem um motivo.",
    "old": 58.6,
-   "start": 57.863,
-   "dur": 2.799
+   "start": 53.041
   },
   {
-   "id": "p23",
-   "text": "E o motivo está sempre na sua frente: o que ela postou, o que ela tá fazendo, o lugar onde vocês estão.",
+   "id": "b12",
+   "text": "E o motivo tá sempre na sua frente: o que ela postou, o que ela tá fazendo, o lugar onde vocês estão.",
    "old": 61.0,
-   "start": 61.012,
-   "dur": 5.374
+   "start": 56.141
   },
   {
-   "id": "p24",
+   "id": "b13",
    "text": "Antes de chamar, responde uma pergunta: o que eu reparei nela?",
    "old": 68.4,
-   "start": 67.086,
-   "dur": 3.172
+   "start": 62.148
   },
   {
-   "id": "p25",
+   "id": "b13",
    "text": "Se tem resposta, manda. Se não tem, espera o próximo stóri.",
    "old": 72.1,
-   "start": 70.708,
-   "dur": 3.425
+   "start": 65.438
   },
   {
-   "id": "p26",
+   "id": "b14",
    "text": "Ao vivo, repara no momento: a música que ela colocou, o amigo que vocês têm em comum, o que tá acontecendo ao redor.",
    "old": 75.9,
-   "start": 74.633,
-   "dur": 6.321
+   "start": 69.084
   },
   {
-   "id": "p27",
+   "id": "b15",
    "text": "Missão de hoje: olha três stóris e anota o detalhe que você comentaria em cada um.",
    "old": 80.8,
-   "start": 81.654,
-   "dur": 4.154
+   "start": 75.86
   },
   {
-   "id": "p28",
-   "text": "Não precisa mandar ainda. Amanhã, eu te mostro o que escrever.",
+   "id": "b15",
+   "text": "Não precisa mandar ainda. Amanhã eu te mostro o que escrever.",
    "old": 85.4,
-   "start": 86.258,
-   "dur": 3.135
+   "start": 80.4
+  }
+ ],
+ "blocks": [
+  {
+   "id": "b01",
+   "start": 0.6,
+   "dur": 3.489
+  },
+  {
+   "id": "b02",
+   "start": 4.439,
+   "dur": 4.69
+  },
+  {
+   "id": "b03",
+   "start": 9.479,
+   "dur": 5.918
+  },
+  {
+   "id": "b04",
+   "start": 15.747,
+   "dur": 6.02
+  },
+  {
+   "id": "b05",
+   "start": 22.067,
+   "dur": 2.215
+  },
+  {
+   "id": "b06",
+   "start": 24.882,
+   "dur": 8.391
+  },
+  {
+   "id": "b07",
+   "start": 33.622,
+   "dur": 2.401
+  },
+  {
+   "id": "b08",
+   "start": 36.424,
+   "dur": 3.109
+  },
+  {
+   "id": "b09",
+   "start": 40.132,
+   "dur": 3.331
+  },
+  {
+   "id": "b10",
+   "start": 43.763,
+   "dur": 3.994
+  },
+  {
+   "id": "b11",
+   "start": 48.008,
+   "dur": 4.634
+  },
+  {
+   "id": "b12",
+   "start": 53.041,
+   "dur": 8.707
+  },
+  {
+   "id": "b13",
+   "start": 62.148,
+   "dur": 6.636
+  },
+  {
+   "id": "b14",
+   "start": 69.084,
+   "dur": 6.376
+  },
+  {
+   "id": "b15",
+   "start": 75.86,
+   "dur": 7.917
   }
  ]
 }

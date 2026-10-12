@@ -1,14 +1,29 @@
 """Trilha e efeitos sonoros sintetizados para o vídeo Dia 0 + Dia 1.
 
-Uso: python3 audio.py saida.wav
-Os tempos dos eventos seguem a linha do tempo de serie.html.
+Uso: python3 audio.py saida.wav [timeline.json narracao.wav]
+Os tempos dos eventos estão no tempo original de serie.html; com timeline.json eles
+são levados para o tempo da narração (a mesma dobra de tempo que o vídeo usa).
 """
+import json
 import sys
 import wave
 import numpy as np
 
 SR = 48000
-DUR = 88.0
+TL = json.load(open(sys.argv[2], encoding='utf-8')) if len(sys.argv) > 2 else None
+VOICE = sys.argv[3] if len(sys.argv) > 3 else None
+WARP = TL['warp'] if TL else [[0.0, 0.0], [88.0, 88.0]]
+DUR = TL['duration'] if TL else 88.0
+
+
+def nt(old):
+    """tempo original da animação -> tempo do vídeo final"""
+    for (a0, b0), (a1, b1) in zip(WARP, WARP[1:]):
+        if old <= b1:
+            return a0 + (a1 - a0) * (old - b0) / (b1 - b0) if b1 > b0 else a0
+    a, b = WARP[-1]
+    return a + (old - b)
+
 N = int(SR * DUR)
 rng = np.random.default_rng(7)
 L = np.zeros(N)
@@ -16,7 +31,7 @@ R = np.zeros(N)
 
 
 def place(sig, t, gain=1.0, pan=0.0):
-    i = int(t * SR)
+    i = int(nt(t) * SR)
     if i >= N:
         return
     sig = sig[: N - i]
@@ -152,10 +167,21 @@ music = onepole_lp(music, 2600)
 # ducking: silêncio do "silêncio", respiros nas transições
 duck = np.ones(N)
 for a, b, lvl in [(14.55, 15.9, 0.0), (26.95, 27.6, 0.35), (45.25, 46.0, 0.35), (0, 0.6, 0.0)]:
-    i0, i1 = int(a * SR), int(b * SR)
+    i0, i1 = int(nt(a) * SR), int(nt(b) * SR)
     duck[i0:i1] = np.minimum(duck[i0:i1], lvl)
 duck = onepole_lp(duck, 6)
 music *= duck
+voice = None
+if VOICE:
+    import soundfile as sf
+    voice, vsr = sf.read(VOICE)
+    assert vsr == SR
+    voice = np.pad(voice, (0, max(0, N - len(voice))))[:N]
+    # sidechain: a trilha abaixa enquanto o locutor fala
+    venv = onepole_lp(np.abs(voice), 8)
+    venv = venv / (venv.max() + 1e-9)
+    side = 1 - 0.55 * np.clip(venv * 6, 0, 1)
+    music *= onepole_lp(side, 3)
 L += music * 0.32
 R += music * 0.32
 
@@ -193,10 +219,11 @@ for tk in (84.0, 84.6, 85.2):
 place(swell((220.0, 277.18, 329.63, 440.0), 2.6), 86.6, 0.4)
 
 # ambiências: bar (some de repente no "silêncio") e festa (some quando ela vai embora)
-bar = murmur(3.6, 1)
+bar_d = nt(14.6) - nt(11.0)
+bar = murmur(bar_d, 1)
 bar[-int(0.02 * SR):] *= np.linspace(1, 0, int(0.02 * SR))
-place(bar * np.clip(tt(3.6) / 0.6, 0, 1), 11.0, 0.22)
-party_d = 8.0
+place(bar * np.clip(tt(bar_d) / 0.6, 0, 1), 11.0, 0.22)
+party_d = nt(57.0) - nt(49.0)
 party = murmur(party_d, 2)
 tp = tt(party_d)
 thump = np.zeros_like(tp)
@@ -209,6 +236,9 @@ fade = np.clip(tp / 0.6, 0, 1) * np.clip((party_d - tp) / 2.5, 0, 1)
 place(party * fade, 49.0, 0.2)
 
 # ---------- master ----------
+if voice is not None:
+    L += voice * 0.62
+    R += voice * 0.62
 mix = np.stack([L, R], axis=1)
 mix = np.tanh(mix * 1.1)
 mix /= np.abs(mix).max() + 1e-9

@@ -11,6 +11,7 @@ const path = require('path');
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
   await page.goto('file://' + path.resolve(html));
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))));
   await page.waitForTimeout(300);
   const stage = await page.$('#stage');
   if (stills) {

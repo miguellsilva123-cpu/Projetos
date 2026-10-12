@@ -1,4 +1,4 @@
-// Uso: node render.cjs <html> <saida.mp4> <duracao_s> [fps] [--frames t1,t2,...]
+// Uso: node render.cjs <html> <saida.mp4> <duracao_s> [fps] [--frames t1,t2,...] [--range ini,fim]
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const path = require('path');
@@ -24,7 +24,9 @@ const path = require('path');
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
     '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', '-movflags', '+faststart', out], { stdio: ['pipe', 'inherit', 'inherit'] });
   const n = Math.round(dur * fps);
-  for (let i = 0; i < n; i++) {
+  const ri = process.argv.indexOf('--range');
+  const [r0, r1] = ri > 0 ? process.argv[ri + 1].split(',').map(Number) : [0, n];
+  for (let i = r0; i < Math.min(r1, n); i++) {
     await page.evaluate(t => window.render(t), i / fps);
     const buf = await stage.screenshot({ type: 'jpeg', quality: 94 });
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));

@@ -1,0 +1,345 @@
+{
+ "duration": 91.594,
+ "warp": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.9,
+   1.0
+  ],
+  [
+   3.178,
+   3.3
+  ],
+  [
+   5.084,
+   5.0
+  ],
+  [
+   6.944,
+   6.9
+  ],
+  [
+   8.677,
+   8.9
+  ],
+  [
+   10.579,
+   11.1
+  ],
+  [
+   12.423,
+   13.6
+  ],
+  [
+   15.428,
+   15.6
+  ],
+  [
+   18.149,
+   18.1
+  ],
+  [
+   20.356,
+   19.2
+  ],
+  [
+   22.176,
+   21.8
+  ],
+  [
+   25.657,
+   25.05
+  ],
+  [
+   28.373,
+   28.9
+  ],
+  [
+   32.379,
+   32.6
+  ],
+  [
+   34.51,
+   34.4
+  ],
+  [
+   37.52,
+   38.7
+  ],
+  [
+   40.239,
+   41.8
+  ],
+  [
+   43.542,
+   46.2
+  ],
+  [
+   46.158,
+   48.1
+  ],
+  [
+   47.418,
+   49.9
+  ],
+  [
+   48.941,
+   51.0
+  ],
+  [
+   51.861,
+   52.8
+  ],
+  [
+   54.993,
+   54.5
+  ],
+  [
+   57.863,
+   58.6
+  ],
+  [
+   61.012,
+   61.0
+  ],
+  [
+   67.086,
+   68.4
+  ],
+  [
+   70.708,
+   72.1
+  ],
+  [
+   74.633,
+   75.9
+  ],
+  [
+   81.654,
+   80.8
+  ],
+  [
+   86.258,
+   85.4
+  ],
+  [
+   91.594,
+   88.0
+  ]
+ ],
+ "phrases": [
+  {
+   "id": "p01",
+   "text": "Todo homem já perdeu uma mulher que queria...",
+   "old": 1.0,
+   "start": 0.9,
+   "dur": 2.028
+  },
+  {
+   "id": "p02",
+   "text": "por causa de um vacilo.",
+   "old": 3.3,
+   "start": 3.178,
+   "dur": 1.207
+  },
+  {
+   "id": "p03",
+   "text": "Às vezes, foi por mensagem.",
+   "old": 5.0,
+   "start": 5.084,
+   "dur": 1.56
+  },
+  {
+   "id": "p04a",
+   "text": "Ela respondeu: cá cá cá...",
+   "old": 6.9,
+   "start": 6.944,
+   "dur": 1.383
+  },
+  {
+   "id": "p04b",
+   "text": "e você não soube o que mandar.",
+   "old": 8.9,
+   "start": 8.677,
+   "dur": 1.302
+  },
+  {
+   "id": "p05",
+   "text": "Às vezes, foi no encontro.",
+   "old": 11.1,
+   "start": 10.579,
+   "dur": 1.544
+  },
+  {
+   "id": "p06",
+   "text": "O assunto acabou, bateu o silêncio...",
+   "old": 13.6,
+   "start": 12.423,
+   "dur": 2.104
+  },
+  {
+   "id": "p07",
+   "text": "e vocês ficaram um olhando pra cara do outro.",
+   "old": 15.6,
+   "start": 15.428,
+   "dur": 2.122
+  },
+  {
+   "id": "p08",
+   "text": "E quase nunca foi falta de assunto.",
+   "old": 18.1,
+   "start": 18.149,
+   "dur": 1.907
+  },
+  {
+   "id": "p09",
+   "text": "A conversa virou entrevista.",
+   "old": 19.2,
+   "start": 20.356,
+   "dur": 1.397
+  },
+  {
+   "id": "p10",
+   "text": "Pergunta, resposta. Pergunta, resposta.",
+   "old": 21.8,
+   "start": 22.176,
+   "dur": 2.881
+  },
+  {
+   "id": "p11",
+   "text": "Ninguém se apaixona numa entrevista.",
+   "old": 25.05,
+   "start": 25.657,
+   "dur": 1.915
+  },
+  {
+   "id": "p12",
+   "text": "Nos próximos cinco dias, eu vou te mostrar como puxar assunto sem travar,",
+   "old": 28.9,
+   "start": 28.373,
+   "dur": 3.756
+  },
+  {
+   "id": "p13",
+   "text": "como fazer uma conversa puxar a outra,",
+   "old": 32.6,
+   "start": 32.379,
+   "dur": 1.881
+  },
+  {
+   "id": "p14",
+   "text": "e o que fazer quando bate o silêncio.",
+   "old": 34.4,
+   "start": 34.51,
+   "dur": 1.932
+  },
+  {
+   "id": "p15",
+   "text": "Pra você nunca mais deixar o clima morrer.",
+   "old": 38.7,
+   "start": 37.52,
+   "dur": 2.019
+  },
+  {
+   "id": "p16",
+   "text": "E tudo começa aqui: entender por que você trava.",
+   "old": 41.8,
+   "start": 40.239,
+   "dur": 2.404
+  },
+  {
+   "id": "p17",
+   "text": "Você digita, apaga, digita de novo...",
+   "old": 46.2,
+   "start": 43.542,
+   "dur": 2.315
+  },
+  {
+   "id": "p18",
+   "text": "e não manda.",
+   "old": 48.1,
+   "start": 46.158,
+   "dur": 0.625
+  },
+  {
+   "id": "p19",
+   "text": "Isso não é timidez.",
+   "old": 49.9,
+   "start": 47.418,
+   "dur": 1.124
+  },
+  {
+   "id": "p20",
+   "text": "Você tá tentando achar a frase perfeita do nada.",
+   "old": 51.0,
+   "start": 48.941,
+   "dur": 2.519
+  },
+  {
+   "id": "p21a",
+   "text": "Ao vivo, é igual: você procura algo genial pra dizer...",
+   "old": 52.8,
+   "start": 51.861,
+   "dur": 2.832
+  },
+  {
+   "id": "p21b",
+   "text": "o momento passa... e ela vai embora.",
+   "old": 54.5,
+   "start": 54.993,
+   "dur": 1.53
+  },
+  {
+   "id": "p22",
+   "text": "Puxar assunto fica fácil quando você tem um motivo.",
+   "old": 58.6,
+   "start": 57.863,
+   "dur": 2.799
+  },
+  {
+   "id": "p23",
+   "text": "E o motivo está sempre na sua frente: o que ela postou, o que ela tá fazendo, o lugar onde vocês estão.",
+   "old": 61.0,
+   "start": 61.012,
+   "dur": 5.374
+  },
+  {
+   "id": "p24",
+   "text": "Antes de chamar, responde uma pergunta: o que eu reparei nela?",
+   "old": 68.4,
+   "start": 67.086,
+   "dur": 3.172
+  },
+  {
+   "id": "p25",
+   "text": "Se tem resposta, manda. Se não tem, espera o próximo stóri.",
+   "old": 72.1,
+   "start": 70.708,
+   "dur": 3.425
+  },
+  {
+   "id": "p26",
+   "text": "Ao vivo, repara no momento: a música que ela colocou, o amigo que vocês têm em comum, o que tá acontecendo ao redor.",
+   "old": 75.9,
+   "start": 74.633,
+   "dur": 6.321
+  },
+  {
+   "id": "p27",
+   "text": "Missão de hoje: olha três stóris e anota o detalhe que você comentaria em cada um.",
+   "old": 80.8,
+   "start": 81.654,
+   "dur": 4.154
+  },
+  {
+   "id": "p28",
+   "text": "Não precisa mandar ainda. Amanhã, eu te mostro o que escrever.",
+   "old": 85.4,
+   "start": 86.258,
+   "dur": 3.135
+  }
+ ]
+}

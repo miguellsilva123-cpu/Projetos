@@ -13,6 +13,7 @@ OLD_END = 46.5
 
 # (id, [(trecho, âncora no tempo original), ...], pausa depois do bloco)
 BLOCKS = [
+    ('b00', [('Dia dois.', 0.15)], 0.45),
     ('b01', [('Ela recebe esse tipo de mensagem o dia todo.', 0.8), ('Por que ela responderia a sua?', 2.6)], 0.5),
     ('b02', [('Elogio solto não abre conversa.', 5.2), ('Ela não tem nada pra responder, além de obrigada.', 8.8),
              ('Ou nada.', 11.0)], 1.0),

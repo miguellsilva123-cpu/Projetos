@@ -1,5 +1,5 @@
 {
- "duration": 44.357,
+ "duration": 45.645,
  "warp": [
   [
    0.0,
@@ -7,195 +7,210 @@
   ],
   [
    0.6,
+   0.15
+  ],
+  [
+   1.888,
    0.8
   ],
   [
-   3.05,
+   4.338,
    2.6
   ],
   [
-   5.701,
+   6.989,
    5.2
   ],
   [
-   7.751,
+   9.039,
    8.8
   ],
   [
-   10.501,
+   11.789,
    11.0
   ],
   [
-   12.101,
+   13.389,
    14.2
   ],
   [
-   16.445,
+   17.733,
    19.6
   ],
   [
-   18.135,
+   19.423,
    22.0
   ],
   [
-   22.148,
+   23.436,
    25.6
   ],
   [
-   24.598,
+   25.886,
    28.0
   ],
   [
-   27.258,
+   28.546,
    31.0
   ],
   [
-   30.205,
+   31.493,
    34.4
   ],
   [
-   31.745,
+   33.033,
    35.8
   ],
   [
-   35.025,
+   36.313,
    39.0
   ],
   [
-   38.895,
+   40.183,
    42.5
   ],
   [
-   44.357,
+   45.645,
    46.5
   ]
  ],
  "phrases": [
   {
+   "id": "b00",
+   "text": "Dia dois.",
+   "old": 0.15,
+   "start": 0.6
+  },
+  {
    "id": "b01",
    "text": "Ela recebe esse tipo de mensagem o dia todo.",
    "old": 0.8,
-   "start": 0.6
+   "start": 1.888
   },
   {
    "id": "b01",
    "text": "Por que ela responderia a sua?",
    "old": 2.6,
-   "start": 3.05
+   "start": 4.338
   },
   {
    "id": "b02",
    "text": "Elogio solto não abre conversa.",
    "old": 5.2,
-   "start": 5.701
+   "start": 6.989
   },
   {
    "id": "b02",
    "text": "Ela não tem nada pra responder, além de obrigada.",
    "old": 8.8,
-   "start": 7.751
+   "start": 9.039
   },
   {
    "id": "b02",
    "text": "Ou nada.",
    "old": 11.0,
-   "start": 10.501
+   "start": 11.789
   },
   {
    "id": "b03",
    "text": "Mesmo story, outra mensagem.",
    "old": 14.2,
-   "start": 12.101
+   "start": 13.389
   },
   {
    "id": "b03b",
    "text": "Agora ela tem o que contar.",
    "old": 19.6,
-   "start": 16.445
+   "start": 17.733
   },
   {
    "id": "b03b",
    "text": "Você não elogiou a aparência dela: você reparou no que ela fez.",
    "old": 22.0,
-   "start": 18.135
+   "start": 19.423
   },
   {
    "id": "b04",
    "text": "A fórmula é um detalhe do que ela mostrou,",
    "old": 25.6,
-   "start": 22.148
+   "start": 23.436
   },
   {
    "id": "b04",
    "text": "mais uma pergunta leve, que dá vontade de responder.",
    "old": 28.0,
-   "start": 24.598
+   "start": 25.886
   },
   {
    "id": "b04",
    "text": "Uma pergunta que não se responde com sim ou não.",
    "old": 31.0,
-   "start": 27.258
+   "start": 28.546
   },
   {
    "id": "b05",
    "text": "Ao vivo funciona igual:",
    "old": 34.4,
-   "start": 30.205
+   "start": 31.493
   },
   {
    "id": "b05",
    "text": "você entendeu alguma coisa dessa aula, ou fui só eu?",
    "old": 35.8,
-   "start": 31.745
+   "start": 33.033
   },
   {
    "id": "b06",
    "text": "Missão de hoje: pega um daqueles três detalhes e escreve a sua abertura.",
    "old": 39.0,
-   "start": 35.025
+   "start": 36.313
   },
   {
    "id": "b06",
    "text": "Amanhã: como não deixar a conversa morrer depois que ela responde.",
    "old": 42.5,
-   "start": 38.895
+   "start": 40.183
   }
  ],
  "blocks": [
   {
-   "id": "b01",
+   "id": "b00",
    "start": 0.6,
+   "dur": 0.838
+  },
+  {
+   "id": "b01",
+   "start": 1.888,
    "dur": 4.601
   },
   {
    "id": "b02",
-   "start": 5.701,
+   "start": 6.989,
    "dur": 5.373
   },
   {
    "id": "b03",
-   "start": 12.101,
+   "start": 13.389,
    "dur": 1.944
   },
   {
    "id": "b03b",
-   "start": 16.445,
+   "start": 17.733,
    "dur": 5.204
   },
   {
    "id": "b04",
-   "start": 22.148,
+   "start": 23.436,
    "dur": 7.557
   },
   {
    "id": "b05",
-   "start": 30.205,
+   "start": 31.493,
    "dur": 4.32
   },
   {
    "id": "b06",
-   "start": 35.025,
+   "start": 36.313,
    "dur": 7.332
   }
  ]

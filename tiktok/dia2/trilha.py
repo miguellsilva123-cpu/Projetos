@@ -14,9 +14,12 @@ MSG_B = '1 mês sem faltar? qual foi o dia que quase te fez desistir?'
 mx = sfx.Mix(sys.argv[1])
 rng = sfx.np.random.default_rng(3)
 
-for t0, d, g in [(0.15, 1.2, .22), (4.2, .9, .3), (24.8, .9, .3), (33.8, .9, .3), (38.4, .9, .3)]:
+for t0, d, g in [(-4.5, 1.2, .22), (-0.6, .9, .3), (4.2, .9, .3), (24.8, .9, .3), (33.8, .9, .3), (38.4, .9, .3)]:
     mx.place(sfx.whoosh(d), t0, g, pan=-.3)
     mx.place(sfx.whoosh(d), t0 + .02, g, pan=.3)
+for t0 in (-3.2, -2.9, -2.6):                                             # os 3 detalhes de ontem
+    mx.place(sfx.tick(1900, .08), t0, .35)
+mx.place(sfx.boom(), -1.25, .45)                                          # "escrever com eles"
 for k, t0 in enumerate([0.6, 0.95, 1.3, 1.6, 1.9, 2.2, 2.45]):          # caixa de entrada enchendo
     mx.place(sfx.plim(1250 + 40 * k), t0, .32, pan=rng.uniform(-.4, .4))
 for t0, g in [(1.7, .6), (5.9, .5), (14.9, .45), (28.1, .55)]:
@@ -42,5 +45,5 @@ for t0 in (41.2, 41.6):
 mx.place(sfx.swell((220.0, 277.18, 329.63, 440.0), 2.6), 43.2, .4)
 
 # a trilha some no começo, corta no "Visto" (silêncio) e abaixa no rebobinar
-mx.render(sys.argv[3], sys.argv[2], ducks=[(0, .5, 0), (8.8, 11.8, 0), (12.8, 13.8, .3)])
+mx.render(sys.argv[3], sys.argv[2], ducks=[(-4.6, -4.1, 0), (8.8, 11.8, 0), (12.8, 13.8, .3)])
 print('ok', sys.argv[3])

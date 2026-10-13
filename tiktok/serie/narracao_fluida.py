@@ -68,7 +68,7 @@ def onsets(clip, segs):
     return out
 
 
-def build(blocks, old_end, cmd_tpl, outdir):
+def build(blocks, old_end, cmd_tpl, outdir, old_start=0.0):
     """Sintetiza os blocos, monta narracao.wav e a linha do tempo (WARP) para um vídeo da série."""
     os.makedirs(os.path.join(outdir, 'blocos'), exist_ok=True)
     clips, inner = [], []
@@ -81,7 +81,7 @@ def build(blocks, old_end, cmd_tpl, outdir):
         clips.append(c)
         inner.append(onsets(c, segs))
 
-    warp, starts, phrases = [[0.0, 0.0]], [], []
+    warp, starts, phrases = [[0.0, old_start]], [], []
     t = LEAD_IN
     for i, (bid, segs, pause) in enumerate(blocks):
         starts.append(t)

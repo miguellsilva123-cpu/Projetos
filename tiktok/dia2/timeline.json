@@ -1,76 +1,84 @@
 {
- "duration": 45.645,
+ "duration": 51.489,
  "warp": [
   [
    0.0,
-   0.0
+   -4.6
   ],
   [
    0.6,
-   0.15
+   -4.0
   ],
   [
-   1.888,
+   1.788,
+   -3.4
+  ],
+  [
+   5.078,
+   -1.6
+  ],
+  [
+   7.732,
    0.8
   ],
   [
-   4.338,
+   10.182,
    2.6
   ],
   [
-   6.989,
+   12.833,
    5.2
   ],
   [
-   9.039,
+   14.883,
    8.8
   ],
   [
-   11.789,
+   17.633,
    11.0
   ],
   [
-   13.389,
+   19.233,
    14.2
   ],
   [
-   17.733,
+   23.577,
    19.6
   ],
   [
-   19.423,
+   25.267,
    22.0
   ],
   [
-   23.436,
+   29.28,
    25.6
   ],
   [
-   25.886,
+   31.73,
    28.0
   ],
   [
-   28.546,
+   34.39,
    31.0
   ],
   [
-   31.493,
+   37.337,
    34.4
   ],
   [
-   33.033,
+   38.877,
    35.8
   ],
   [
-   36.313,
+   42.157,
    39.0
   ],
   [
-   40.183,
+   46.027,
    42.5
   ],
   [
-   45.645,
+   51.489,
    46.5
   ]
  ],
@@ -78,98 +86,110 @@
   {
    "id": "b00",
    "text": "Dia dois.",
-   "old": 0.15,
+   "old": -4.0,
    "start": 0.6
+  },
+  {
+   "id": "b00b",
+   "text": "Ontem eu te pedi pra anotar um detalhe de três stories.",
+   "old": -3.4,
+   "start": 1.788
+  },
+  {
+   "id": "b00b",
+   "text": "Hoje eu te mostro o que escrever com eles.",
+   "old": -1.6,
+   "start": 5.078
   },
   {
    "id": "b01",
    "text": "Ela recebe esse tipo de mensagem o dia todo.",
    "old": 0.8,
-   "start": 1.888
+   "start": 7.732
   },
   {
    "id": "b01",
    "text": "Por que ela responderia a sua?",
    "old": 2.6,
-   "start": 4.338
+   "start": 10.182
   },
   {
    "id": "b02",
    "text": "Elogio solto não abre conversa.",
    "old": 5.2,
-   "start": 6.989
+   "start": 12.833
   },
   {
    "id": "b02",
    "text": "Ela não tem nada pra responder, além de obrigada.",
    "old": 8.8,
-   "start": 9.039
+   "start": 14.883
   },
   {
    "id": "b02",
    "text": "Ou nada.",
    "old": 11.0,
-   "start": 11.789
+   "start": 17.633
   },
   {
    "id": "b03",
    "text": "Mesmo story, outra mensagem.",
    "old": 14.2,
-   "start": 13.389
+   "start": 19.233
   },
   {
    "id": "b03b",
    "text": "Agora ela tem o que contar.",
    "old": 19.6,
-   "start": 17.733
+   "start": 23.577
   },
   {
    "id": "b03b",
    "text": "Você não elogiou a aparência dela: você reparou no que ela fez.",
    "old": 22.0,
-   "start": 19.423
+   "start": 25.267
   },
   {
    "id": "b04",
    "text": "A fórmula é um detalhe do que ela mostrou,",
    "old": 25.6,
-   "start": 23.436
+   "start": 29.28
   },
   {
    "id": "b04",
    "text": "mais uma pergunta leve, que dá vontade de responder.",
    "old": 28.0,
-   "start": 25.886
+   "start": 31.73
   },
   {
    "id": "b04",
    "text": "Uma pergunta que não se responde com sim ou não.",
    "old": 31.0,
-   "start": 28.546
+   "start": 34.39
   },
   {
    "id": "b05",
    "text": "Ao vivo funciona igual:",
    "old": 34.4,
-   "start": 31.493
+   "start": 37.337
   },
   {
    "id": "b05",
    "text": "você entendeu alguma coisa dessa aula, ou fui só eu?",
    "old": 35.8,
-   "start": 33.033
+   "start": 38.877
   },
   {
    "id": "b06",
    "text": "Missão de hoje: pega um daqueles três detalhes e escreve a sua abertura.",
    "old": 39.0,
-   "start": 36.313
+   "start": 42.157
   },
   {
    "id": "b06",
    "text": "Amanhã: como não deixar a conversa morrer depois que ela responde.",
    "old": 42.5,
-   "start": 40.183
+   "start": 46.027
   }
  ],
  "blocks": [
@@ -179,38 +199,43 @@
    "dur": 0.838
   },
   {
+   "id": "b00b",
+   "start": 1.788,
+   "dur": 5.444
+  },
+  {
    "id": "b01",
-   "start": 1.888,
+   "start": 7.732,
    "dur": 4.601
   },
   {
    "id": "b02",
-   "start": 6.989,
+   "start": 12.833,
    "dur": 5.373
   },
   {
    "id": "b03",
-   "start": 13.389,
+   "start": 19.233,
    "dur": 1.944
   },
   {
    "id": "b03b",
-   "start": 17.733,
+   "start": 23.577,
    "dur": 5.204
   },
   {
    "id": "b04",
-   "start": 23.436,
+   "start": 29.28,
    "dur": 7.557
   },
   {
    "id": "b05",
-   "start": 31.493,
+   "start": 37.337,
    "dur": 4.32
   },
   {
    "id": "b06",
-   "start": 36.313,
+   "start": 42.157,
    "dur": 7.332
   }
  ]

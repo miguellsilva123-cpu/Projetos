@@ -10,10 +10,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 from narracao_fluida import build  # noqa: E402
 
 OLD_END = 46.5
+OLD_START = -4.6   # a retomada da promessa do vídeo anterior acontece antes do tempo 0
 
 # (id, [(trecho, âncora no tempo original), ...], pausa depois do bloco)
 BLOCKS = [
-    ('b00', [('Dia dois.', 0.15)], 0.45),
+    ('b00', [('Dia dois.', -4.0)], 0.35),
+    ('b00b', [('Ontem eu te pedi pra anotar um detalhe de três stories.', -3.4),
+              ('Hoje eu te mostro o que escrever com eles.', -1.6)], 0.5),
     ('b01', [('Ela recebe esse tipo de mensagem o dia todo.', 0.8), ('Por que ela responderia a sua?', 2.6)], 0.5),
     ('b02', [('Elogio solto não abre conversa.', 5.2), ('Ela não tem nada pra responder, além de obrigada.', 8.8),
              ('Ou nada.', 11.0)], 1.0),
@@ -28,4 +31,4 @@ BLOCKS = [
 ]
 
 if __name__ == '__main__':
-    build(BLOCKS, OLD_END, sys.argv[1], sys.argv[2])
+    build(BLOCKS, OLD_END, sys.argv[1], sys.argv[2], OLD_START)

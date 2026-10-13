@@ -93,6 +93,9 @@ mx.place(sfx.whoosh(.4), 32.55, .18)
 bar = sfx.murmur(mx.span(33.3, 40.9), 9)
 mx.place(bar * np.clip(np.arange(len(bar)) / sfx.SR / .6, 0, 1) * np.clip((len(bar) - np.arange(len(bar))) / sfx.SR / .4, 0, 1), 33.3, .15)
 mx.place(sfx.pop(), 34.6, .35)
+mx.place(sfx.whoosh(.4), 34.7, .22, pan=.3)                              # a foto do show entra
+show = sfx.bandnoise(1.6, 300, 4500) * (0.7 + 0.3 * np.sin(2 * np.pi * 3.1 * sfx.tt(1.6)))
+mx.place(show * np.sin(np.pi * np.clip(sfx.tt(1.6) / 1.6, 0, 1)) ** 2, 34.8, .12)   # plateia ao fundo
 mx.place(sfx.pop(700, 1000), 36.2, .3)
 mx.place(scratch(), 36.7, .3)
 mx.place(sfx.plim(1400), 38.05, .35)

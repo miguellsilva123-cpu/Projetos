@@ -1,0 +1,302 @@
+{
+ "duration": 53.903,
+ "warp": [
+  [
+   0.0,
+   -4.6
+  ],
+  [
+   0.6,
+   -4.0
+  ],
+  [
+   1.74,
+   -3.2
+  ],
+  [
+   3.36,
+   -1.4
+  ],
+  [
+   4.446,
+   0.6
+  ],
+  [
+   6.296,
+   3.0
+  ],
+  [
+   7.786,
+   4.3
+  ],
+  [
+   10.24,
+   6.5
+  ],
+  [
+   11.72,
+   8.0
+  ],
+  [
+   14.34,
+   11.0
+  ],
+  [
+   17.356,
+   13.6
+  ],
+  [
+   19.466,
+   15.5
+  ],
+  [
+   21.675,
+   17.5
+  ],
+  [
+   24.925,
+   20.0
+  ],
+  [
+   29.37,
+   25.2
+  ],
+  [
+   30.95,
+   26.5
+  ],
+  [
+   32.07,
+   28.0
+  ],
+  [
+   32.87,
+   29.5
+  ],
+  [
+   34.01,
+   31.0
+  ],
+  [
+   36.412,
+   33.3
+  ],
+  [
+   37.582,
+   34.6
+  ],
+  [
+   39.252,
+   36.2
+  ],
+  [
+   40.502,
+   38.0
+  ],
+  [
+   43.177,
+   41.2
+  ],
+  [
+   49.247,
+   46.6
+  ],
+  [
+   53.903,
+   50.5
+  ]
+ ],
+ "phrases": [
+  {
+   "id": "b00",
+   "text": "Dia três.",
+   "old": -4.0,
+   "start": 0.6
+  },
+  {
+   "id": "b00b",
+   "text": "Ela respondeu a sua abertura.",
+   "old": -3.2,
+   "start": 1.74
+  },
+  {
+   "id": "b00b",
+   "text": "E agora?",
+   "old": -1.4,
+   "start": 3.36
+  },
+  {
+   "id": "b01",
+   "text": "Se a sua conversa parece isso...",
+   "old": 0.6,
+   "start": 4.446
+  },
+  {
+   "id": "b01",
+   "text": "ela não tá te conhecendo.",
+   "old": 3.0,
+   "start": 6.296
+  },
+  {
+   "id": "b01",
+   "text": "Ela tá preenchendo um formulário.",
+   "old": 4.3,
+   "start": 7.786
+  },
+  {
+   "id": "b02",
+   "text": "O erro é pular de assunto.",
+   "old": 6.5,
+   "start": 10.24
+  },
+  {
+   "id": "b02",
+   "text": "Cada pergunta nova joga fora a resposta anterior.",
+   "old": 8.0,
+   "start": 11.72
+  },
+  {
+   "id": "b02",
+   "text": "A conversa fica sem fio... e morre.",
+   "old": 11.0,
+   "start": 14.34
+  },
+  {
+   "id": "b03",
+   "text": "Toda resposta dela tem um detalhe.",
+   "old": 13.6,
+   "start": 17.356
+  },
+  {
+   "id": "b03",
+   "text": "Pega esse detalhe e vai mais fundo.",
+   "old": 15.5,
+   "start": 19.466
+  },
+  {
+   "id": "b04",
+   "text": "Ela disse que trabalha o dia todo e faz faculdade à noite?",
+   "old": 17.5,
+   "start": 21.675
+  },
+  {
+   "id": "b04",
+   "text": "Pergunta: que horas você dorme?",
+   "old": 20.0,
+   "start": 24.925
+  },
+  {
+   "id": "b05",
+   "text": "E não fica só perguntando.",
+   "old": 25.2,
+   "start": 29.37
+  },
+  {
+   "id": "b05",
+   "text": "Comenta o que ela disse,",
+   "old": 26.5,
+   "start": 30.95
+  },
+  {
+   "id": "b05",
+   "text": "conta algo seu,",
+   "old": 28.0,
+   "start": 32.07
+  },
+  {
+   "id": "b05",
+   "text": "e devolve a bola.",
+   "old": 29.5,
+   "start": 32.87
+  },
+  {
+   "id": "b05",
+   "text": "É pingue-pongue, não interrogatório.",
+   "old": 31.0,
+   "start": 34.01
+  },
+  {
+   "id": "b06",
+   "text": "No encontro é igual.",
+   "old": 33.3,
+   "start": 36.412
+  },
+  {
+   "id": "b06",
+   "text": "Ela foi num show no fim de semana?",
+   "old": 34.6,
+   "start": 37.582
+  },
+  {
+   "id": "b06",
+   "text": "Não pergunta: foi bom?",
+   "old": 36.2,
+   "start": 39.252
+  },
+  {
+   "id": "b06",
+   "text": "Pergunta: qual música você mais gritou?",
+   "old": 38.0,
+   "start": 40.502
+  },
+  {
+   "id": "b07",
+   "text": "Missão de hoje: na próxima conversa, faz duas perguntas em cima da mesma resposta antes de mudar de assunto.",
+   "old": 41.2,
+   "start": 43.177
+  },
+  {
+   "id": "b07",
+   "text": "Amanhã: os cinco vacilos que fazem ela esfriar.",
+   "old": 46.6,
+   "start": 49.247
+  }
+ ],
+ "blocks": [
+  {
+   "id": "b00",
+   "start": 0.6,
+   "dur": 0.84
+  },
+  {
+   "id": "b00b",
+   "start": 1.74,
+   "dur": 2.206
+  },
+  {
+   "id": "b01",
+   "start": 4.446,
+   "dur": 5.094
+  },
+  {
+   "id": "b02",
+   "start": 10.24,
+   "dur": 6.315
+  },
+  {
+   "id": "b03",
+   "start": 17.356,
+   "dur": 3.919
+  },
+  {
+   "id": "b04",
+   "start": 21.675,
+   "dur": 4.995
+  },
+  {
+   "id": "b05",
+   "start": 29.37,
+   "dur": 6.442
+  },
+  {
+   "id": "b06",
+   "start": 36.412,
+   "dur": 6.165
+  },
+  {
+   "id": "b07",
+   "start": 43.177,
+   "dur": 8.726
+  }
+ ]
+}

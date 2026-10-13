@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O Protocolo da Presença — O fio da conversa</title>
+<style>
+@font-face{font-family:'Sora';src:url(../serie/fonts/sora.woff2) format('woff2');font-weight:100 800}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair.woff2) format('woff2');font-style:normal;font-weight:400 900}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair-italic.woff2) format('woff2');font-style:italic;font-weight:400 900}
+html,body{margin:0;background:#0B0C0F}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0B0C0F;font-family:'Sora',sans-serif;color:#F4F4F1}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 48%,#1A1C21 0%,#0B0C0F 72%)}
+#graphite{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 45%,#2A2C31 0%,#17181C 75%);opacity:0}
+#dots{position:absolute;left:0;right:0;top:-56px;height:2040px;background-image:radial-gradient(rgba(244,244,241,.06) 1.6px,transparent 2.2px);background-size:28px 28px}
+#cam{position:absolute;inset:0;transform-origin:540px 960px}
+#world{position:absolute;left:0;top:0;width:1080px;height:11520px}
+.scene{position:absolute;left:0;width:1080px;height:1920px}
+#vig{position:absolute;inset:0;box-shadow:inset 0 0 360px 120px rgba(0,0,0,.78);pointer-events:none}
+#logo{position:absolute;top:236px;left:64px;display:flex;align-items:center;gap:22px;font-size:24px;font-weight:600;letter-spacing:.32em}
+#logo b{position:relative;width:38px;height:38px;box-sizing:border-box;border:3px solid #F4F4F1;border-radius:50%}
+#logo b::after{content:'';position:absolute;right:-6px;top:-6px;width:14px;height:14px;border-radius:50%;background:#E11D2E;box-shadow:0 0 14px rgba(225,29,46,.9)}
+.serif{font-family:'Playfair Display',serif}
+.t{position:absolute;left:90px;right:90px;text-align:center}
+.w{display:inline-block}
+span.w+em.w{margin-left:.16em}
+em{font-family:'Playfair Display',serif;font-style:italic;color:#E11D2E}
+.r{color:#E11D2E}
+.pd{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:#E11D2E;margin-left:.05em;box-shadow:0 0 .14em rgba(225,29,46,.9)}
+.label{font-size:22px;font-weight:600;letter-spacing:.3em;color:#8C9099}
+.impact{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
+.grey{color:#8C9099}
+#line{position:absolute;left:0;top:0;overflow:visible}
+#pen{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:#E11D2E;box-shadow:0 0 30px 8px rgba(225,29,46,.35);z-index:5}
+.card{position:absolute;box-sizing:border-box;background:#15171B;border:1.5px solid rgba(255,255,255,.10);border-radius:24px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.bub{display:inline-block;box-sizing:border-box;padding:14px 22px;border-radius:26px;font-size:26px;line-height:1.35}
+.me{background:linear-gradient(160deg,#F0303F,#B5121F);color:#fff;border-bottom-right-radius:8px}
+.her{background:#26282E;color:#EDEDEF;border-bottom-left-radius:8px}
+.node{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#E11D2E;box-shadow:0 0 16px rgba(225,29,46,.8)}
+.frame{position:absolute;box-sizing:border-box;padding:16px 16px 0;background:#F4F4F1;box-shadow:0 80px 160px rgba(0,0,0,.8)}
+.frame .img{position:relative;overflow:hidden;background:#222}
+.frame .cap{height:60px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:600;letter-spacing:.3em;color:#4A4D55}
+.pill{padding:12px 26px;border-radius:999px;background:#E11D2E;font-size:24px;font-weight:600;letter-spacing:.15em;color:#FFFFFF}
+/* ficha */
+.frow{display:flex;flex-direction:column;gap:8px;padding:16px 0;border-bottom:1.5px dashed rgba(244,244,241,.14)}
+.flab{font-size:20px;font-weight:600;letter-spacing:.3em;color:#8C9099}
+.fval{font-size:40px;font-weight:600;min-height:52px;display:flex;align-items:center}
+.caret{display:inline-block;width:3px;height:40px;background:#E11D2E;margin-left:4px}
+#stamp{position:absolute;left:180px;top:470px;width:720px;box-sizing:border-box;padding:14px 0;border:8px solid #E11D2E;border-radius:14px;text-align:center;font-size:86px;font-weight:800;letter-spacing:.04em;color:#E11D2E;box-shadow:inset 0 0 0 5px #15171B,inset 0 0 0 9px rgba(225,29,46,.85);background:rgba(21,23,27,.55);opacity:0}
+/* fio cortado */
+.piece{position:absolute;left:0;width:1080px;transform-origin:540px 0}
+.thread{position:absolute;left:539px;width:2px;top:0;background:rgba(244,244,241,.5)}
+.qcard{position:absolute;width:380px;padding:20px 26px;transform:translateY(-50%)}
+.qcard .q{font-size:30px;font-weight:600;line-height:1.25}
+.qcard .a{font-family:'Playfair Display',serif;font-style:italic;font-size:34px;color:#A9ACB4;margin-top:6px}
+.conn{position:absolute;height:2px;width:40px;background:rgba(244,244,241,.5)}
+#scis{position:absolute;opacity:0;z-index:6}
+.spark{position:absolute;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;background:radial-gradient(circle,#fff 0,#E11D2E 30%,rgba(225,29,46,0) 70%);opacity:0;z-index:6}
+.frag{position:absolute;left:539px;width:2px;height:65px;background:rgba(244,244,241,.5)}
+/* mais fundo */
+.dcard{position:absolute;left:150px;width:780px;padding:24px 30px 26px}
+.dcard .tag{font-size:20px;font-weight:600;letter-spacing:.3em;color:#8C9099;display:flex;justify-content:space-between}
+.dcard .txt{font-size:38px;line-height:1.3;margin-top:12px}
+.hl{position:relative;white-space:nowrap}
+.hl .ul{position:absolute;left:0;right:0;bottom:-4px;height:5px;border-radius:3px;background:#E11D2E;transform-origin:left;transform:scaleX(0)}
+.rseg{position:absolute;left:538px;width:4px;background:#E11D2E;box-shadow:0 0 14px rgba(225,29,46,.8)}
+/* ping-pong */
+.pnode{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;box-sizing:border-box;border-radius:50%;border:3px solid #E11D2E;background:#17181C}
+.ring{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;box-sizing:border-box;border-radius:50%;border:3px solid #E11D2E;opacity:0}
+.pblk{position:absolute;display:flex;flex-direction:column;gap:12px}
+.pblk .lb{font-size:22px;font-weight:700;letter-spacing:.3em}
+#ball{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FF5A66,#E11D2E 60%,#9E0F1B);box-shadow:0 0 30px 6px rgba(225,29,46,.45);opacity:0;z-index:6}
+/* missão */
+.chk{position:absolute;right:0;width:46px;height:46px;box-sizing:border-box;border:2.5px solid rgba(244,244,241,.35);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.mdot{position:absolute;left:0;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:#E11D2E;box-shadow:0 0 24px rgba(225,29,46,.8);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;opacity:0}
+#wipe{position:absolute;inset:0;background:#E11D2E;pointer-events:none;opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="graphite"></div>
+  <div id="dots"></div>
+  <div id="cam">
+    <div id="world">
+      <svg id="line" width="1080" height="13440" viewBox="0 0 1080 13440" style="top:-1920px">
+        <defs><clipPath id="clip"><rect id="cliprect" x="0" y="0" width="1080" height="0"></rect></clipPath></defs>
+        <!-- o fio tem lacunas: cortado na cena 2, por dentro do círculo na cena 4 -->
+        <path d="M540 0 V4060 M540 6060 V8105 M540 8640 V11850" fill="none" stroke="rgba(244,244,241,.5)" stroke-width="2" clip-path="url(#clip)"></path>
+      </svg>
+
+      <!-- 0 · retomada: ela respondeu a abertura de ontem -->
+      <div class="scene" style="top:-1920px">
+        <div class="t label" data-words data-start="-4.3" style="top:330px">ONTEM: A SUA ABERTURA</div>
+        <div id="r0me" style="position:absolute;right:90px;top:400px;max-width:720px;text-align:right"><div class="bub me" style="font-size:34px;padding:20px 30px;text-align:left">1 mês sem faltar? qual foi o dia que quase te fez desistir?</div></div>
+        <div id="r0dots" style="position:absolute;left:90px;top:640px;opacity:0"><div class="bub her" style="display:flex;gap:10px;padding:24px 28px">
+          <span class="d" style="width:13px;height:13px;border-radius:50%;background:#B9BBC2;display:inline-block"></span><span class="d" style="width:13px;height:13px;border-radius:50%;background:#B9BBC2;display:inline-block"></span><span class="d" style="width:13px;height:13px;border-radius:50%;background:#B9BBC2;display:inline-block"></span></div></div>
+        <div id="r0her" style="position:absolute;left:90px;top:640px;max-width:780px;transform-origin:left bottom"><div class="bub her" style="font-size:34px;padding:20px 30px">kkkk o dia da chuva! tava tudo alagado e eu fui mesmo assim</div></div>
+        <div class="t impact" data-words data-start="-3.0" style="top:1010px;font-size:104px">Ela respondeu<span class="pd"></span></div>
+        <div class="t serif" data-words data-times="-1.4,-1.3" data-pop="agora?" style="top:1130px;font-size:130px;line-height:1.05">e <em>agora?</em></div>
+      </div>
+
+      <!-- 1 · a ficha: conversa que vira formulário -->
+      <div class="scene" style="top:0">
+        <div class="card" id="ficha" style="left:150px;top:330px;width:780px;padding:34px 48px 26px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1.5px solid rgba(244,244,241,.14)">
+            <div style="display:flex;align-items:center;gap:16px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="0.3" pathLength="1" d="M9 3h6v3H9zM9 4.5H6a1 1 0 0 0-1 1V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5.5a1 1 0 0 0-1-1h-3M8.5 11h7M8.5 15h5"></path></svg><span style="font-size:30px;font-weight:800;letter-spacing:.3em">FICHA</span></div>
+            <span class="label">Nº 0427</span>
+          </div>
+          <div class="frow"><div class="flab">PROFISSÃO</div><div class="fval"><span class="ftyped" data-txt="atendente" data-t0="0.8"></span><span class="caret"></span></div></div>
+          <div class="frow"><div class="flab">BAIRRO</div><div class="fval"><span class="ftyped" data-txt="zona sul" data-t0="1.5"></span><span class="caret"></span></div></div>
+          <div class="frow"><div class="flab">IRMÃOS</div><div class="fval"><span class="ftyped" data-txt="sim" data-t0="2.15"></span><span class="caret"></span></div></div>
+          <div class="frow" style="border-bottom:0"><div class="flab">HOBBIES</div><div class="fval"><span class="ftyped" data-txt="várias coisas" data-t0="2.6"></span><span class="caret"></span></div></div>
+        </div>
+        <div id="stamp">FORMULÁRIO</div>
+        <div class="t impact" data-words data-start="3.0" style="top:1000px;font-size:118px">isso não é conversa<span class="pd"></span></div>
+        <div class="t serif" data-words data-times="4.4,4.6,5.3,5.45" data-pop="formulário" style="top:1250px;font-size:100px;line-height:1.05">é um <em>formulário</em><span class="pd"></span></div>
+      </div>
+
+      <!-- 2 · cada pergunta nova corta o fio -->
+      <div class="scene" style="top:1920px" id="s2">
+        <svg id="scis" width="170" height="110" viewBox="0 0 170 110" fill="none" stroke="#E11D2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <g id="bladeA"><path d="M80 55 L6 52"></path><path d="M80 55 L112 75"></path><circle cx="128" cy="84" r="17"></circle></g>
+          <g id="bladeB"><path d="M80 55 L6 58"></path><path d="M80 55 L112 35"></path><circle cx="128" cy="26" r="17"></circle></g>
+          <circle cx="80" cy="55" r="3.5" fill="#E11D2E"></circle>
+        </svg>
+        <div class="t impact" data-words data-start="8.05" style="top:1130px;font-size:100px">cada pergunta nova</div>
+        <div class="t serif" data-words data-times="9.25,9.45,9.6,9.75" data-pop="corta" style="top:1345px;font-size:112px;line-height:1.05"><em>corta</em> o fio<span class="pd"></span></div>
+      </div>
+
+      <!-- 3 · a linha se reconstrói: pega o detalhe e vai mais fundo -->
+      <div class="scene" style="top:3840px" id="s3">
+        <div class="label" style="position:absolute;left:24px;top:812px;transform:rotate(-90deg);transform-origin:0 0;white-space:nowrap;font-size:18px" id="rlab">PROFUNDIDADE</div>
+        <div id="ruler" style="position:absolute;left:62px;top:330px;width:4px;height:676px;background:rgba(244,244,241,.14);border-radius:2px">
+          <div id="rfill" style="position:absolute;left:0;top:0;width:4px;height:0;background:#E11D2E;border-radius:2px;box-shadow:0 0 12px rgba(225,29,46,.8)"></div>
+        </div>
+        <div class="card dcard" id="d1" style="top:330px"><div class="tag"><span><span class="r">NÍVEL 1</span> · ELA</span></div>
+          <div class="txt">trabalho o dia todo e faço <span class="hl">facul à noite<span class="ul"></span></span></div>
+          <div id="dtag" style="position:absolute;right:30px;top:-24px;display:flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;background:#E11D2E;font-size:20px;font-weight:700;letter-spacing:.3em;box-shadow:0 0 30px rgba(225,29,46,.5)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><circle class="draw" data-start="14.9" pathLength="1" cx="10.5" cy="10.5" r="6.5"></circle><path class="draw" data-start="15.2" data-dur=".3" pathLength="1" d="M15.5 15.5L21 21"></path></svg>DETALHE</div>
+        </div>
+        <div class="card dcard" id="d2" style="top:590px;background:linear-gradient(160deg,#F0303F,#B5121F);border-color:rgba(255,255,255,.18)"><div class="tag" style="color:rgba(255,255,255,.8)"><span>NÍVEL 2 · VOCÊ</span></div><div class="txt" style="font-weight:600">que horas você dorme?</div></div>
+        <div id="d3dots" style="position:absolute;left:150px;top:810px;opacity:0"><div class="bub her" style="display:flex;gap:10px;padding:24px 28px">
+          <span class="d" style="width:13px;height:13px;border-radius:50%;background:#B9BBC2;display:inline-block"></span><span class="d" style="width:13px;height:13px;border-radius:50%;background:#B9BBC2;display:inline-block"></span><span class="d" style="width:13px;height:13px;border-radius:50%;background:#B9BBC2;display:inline-block"></span></div></div>
+        <div class="card dcard" id="d3" style="top:810px"><div class="tag"><span><span class="r">NÍVEL 3</span> · ELA</span></div><div class="txt">kkkk dormir? não conheço. chego 23h e ainda vou jantar</div></div>
+        <div class="t impact" data-words data-start="15.5" style="top:1110px;font-size:96px">pega o detalhe<span class="pd"></span></div>
+        <div class="t serif" data-words data-times="16.3,16.5,16.65,16.85" data-pop="fundo" style="top:1225px;font-size:108px;line-height:1.05">vai mais <em>fundo</em><span class="pd"></span></div>
+      </div>
+
+      <!-- 4 · ping-pong: comenta, conta algo seu, devolve -->
+      <div class="scene" style="top:5760px" id="s4">
+        <svg style="position:absolute;left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none">
+          <circle class="draw" data-start="25.0" data-dur=".9" pathLength="1" cx="540" cy="700" r="260" stroke="rgba(244,244,241,.13)" stroke-width="2"></circle>
+          <g id="arcs" stroke="rgba(244,244,241,.75)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></g>
+        </svg>
+        <div class="pblk" id="pb1" style="left:580px;top:292px"><div class="lb">COMENTA</div><div><div class="bub me" style="font-size:30px">que rotina pesada</div></div></div>
+        <div class="pblk" id="pb2" style="right:80px;top:995px;align-items:flex-end;text-align:left;max-width:440px"><div class="lb">CONTA ALGO SEU</div><div><div class="bub me" style="font-size:28px">eu saio do trampo direto pra academia</div></div></div>
+        <div class="pblk" id="pb3" style="left:80px;top:995px;max-width:420px"><div class="lb">DEVOLVE</div><div><div class="bub me" style="font-size:28px">e quando sobra um fim de semana?</div></div></div>
+        <div class="t impact" data-words data-start="31.0" style="top:1200px;font-size:124px;white-space:nowrap">ping-pong,</div>
+        <div class="t serif" data-words data-times="31.5,31.75,31.95" data-pop="interrogatório" style="top:1340px;font-size:84px;line-height:1.1">não <em>interrogatório</em><span class="pd"></span></div>
+      </div>
+
+      <!-- 5 · no encontro -->
+      <div class="scene" style="top:7680px">
+        <div class="frame" id="fEnc" style="left:200px;top:330px;width:680px"><div class="img" id="enc" style="height:600px"></div><div class="cap">NO ENCONTRO</div></div>
+        <div id="encHer" style="position:absolute;left:70px;top:400px;max-width:560px;transform-origin:left bottom"><div class="bub her" style="font-size:32px;padding:18px 28px">fui num show no fim de semana</div></div>
+        <div id="chip1" style="position:absolute;left:110px;top:1050px"><div class="bub" style="position:relative;font-size:36px;padding:18px 30px;background:#26282E;color:#8C9099;border-radius:999px">foi bom?<svg style="position:absolute;left:18px;top:50%;width:calc(100% - 36px);height:8px;margin-top:-4px;overflow:visible" viewBox="0 0 100 8" preserveAspectRatio="none"><path class="draw" data-start="36.7" data-dur=".35" pathLength="1" d="M0 4H100" stroke="#E11D2E" stroke-width="5" vector-effect="non-scaling-stroke"></path></svg></div></div>
+        <div id="chip2" style="position:absolute;right:70px;top:1160px"><div class="bub me" id="chip2b" style="display:flex;align-items:center;gap:16px;font-size:36px;padding:20px 32px;border-radius:999px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="38.2" pathLength="1" d="M9 18V5l11-2v13"></path><circle class="draw" data-start="38.4" pathLength="1" cx="6" cy="18" r="3"></circle><circle class="draw" data-start="38.5" pathLength="1" cx="17" cy="16" r="3"></circle></svg>qual música você mais gritou?</div></div>
+        <div class="t serif" data-words data-start="33.5" style="top:1360px;font-size:76px;line-height:1.1">no encontro é <em>igual</em><span class="pd"></span></div>
+      </div>
+
+      <!-- 6 · missão do dia -->
+      <div class="scene" style="top:9600px">
+        <div class="card" id="miss" style="left:110px;top:330px;width:860px;padding:44px 48px 40px">
+          <div class="label r" style="color:#E11D2E" data-words data-start="41.3">MISSÃO DO DIA 3</div>
+          <div class="impact" data-words data-start="41.6" style="font-size:66px;margin-top:18px;line-height:1.02">2 perguntas no mesmo fio<span class="pd"></span></div>
+          <div id="mans" style="margin-top:34px"><div class="bub her" style="font-size:30px">trabalho o dia todo e faço facul à noite</div></div>
+          <div id="mthr" style="position:relative;height:270px;margin-left:30px">
+            <div id="mline" style="position:absolute;left:-1px;top:0;width:2px;height:250px;background:rgba(244,244,241,.4);transform-origin:top"></div>
+            <div class="mdot" id="md1">1</div><div class="mdot" id="md2">2</div>
+            <div class="mrow" id="mr1" style="position:absolute;left:46px;right:0;top:95px;transform:translateY(-50%);display:flex;align-items:center">
+              <div style="font-size:31px;font-weight:600">que horas você dorme?</div>
+              <div class="chk" id="ck1"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="43.85" data-dur=".35" pathLength="1" d="M4 12l5 5L20 6"></path></svg></div>
+            </div>
+            <div class="mrow" id="mr2" style="position:absolute;left:46px;right:0;top:205px;transform:translateY(-50%);display:flex;align-items:center">
+              <div style="font-size:31px;font-weight:600;max-width:560px">e o que te faz aguentar essa rotina?</div>
+              <div class="chk" id="ck2"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="44.95" data-dur=".35" pathLength="1" d="M4 12l5 5L20 6"></path></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="t label" data-words data-start="46.7" style="top:1080px;font-size:28px;color:#F4F4F1">AMANHÃ: <span class="r">OS 5 VACILOS</span></div>
+        <div id="follow" style="position:absolute;left:0;right:0;top:1170px;display:flex;justify-content:center;align-items:center;gap:20px">
+          <div style="font-size:30px">@oprotocolodapresenca</div><div class="pill">+ SEGUIR</div>
+        </div>
+      </div>
+
+      <div id="ball"></div>
+      <div id="pen"></div>
+    </div>
+  </div>
+  <div id="wipe"></div>
+  <div id="vig"></div>
+  <div id="logo"><b></b>O PROTOCOLO</div>
+</div>
+
+<script src="timeline.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const PHOTO_ENC='../serie/fotos/bar-risada.jpg';
+$('#enc').innerHTML=`<img src="${PHOTO_ENC}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;filter:grayscale(1) contrast(1.12) brightness(1.04)">`;
+
+/* ---------- cena 2: os 4 pedaços do fio ---------- */
+const S2={top:220,nodes:[330,530,730,930],cuts:[430,630,830],end:930,
+  Q:[['trabalha com o quê?','atendente.'],['mora onde?','zona sul.'],['tem irmãos?','sim.'],['e hobbies?','várias coisas.']],
+  cardT:[6.65,7.65,8.85,9.95],snip:[8.1,9.25,10.35]};
+const pieces=[];
+S2.nodes.forEach((n,k)=>{
+  const top=k?S2.cuts[k-1]:S2.top,bot=k<3?S2.cuts[k]:S2.end,L=k%2===0;
+  const el=document.createElement('div');el.className='piece';el.style.top=top+'px';el.style.height=(bot-top)+'px';
+  el.innerHTML=`<div class="thread"></div><div class="node" style="left:540px;top:${n-top}px;opacity:0"></div>
+    <div class="conn" style="left:${L?500:540}px;top:${n-top-1}px;opacity:0"></div>
+    <div class="card qcard" style="left:${L?120:580}px;top:${n-top}px;opacity:0"><div class="q">${S2.Q[k][0]}</div><div class="a">${S2.Q[k][1]}</div></div>`;
+  $('#s2').insertBefore(el,$('#scis'));
+  pieces.push({el,top,len:bot-top,L,card:el.querySelector('.qcard'),node:el.querySelector('.node'),conn:el.querySelector('.conn'),thread:el.querySelector('.thread'),t:S2.cardT[k],cut:k<3?S2.snip[k]:null});
+});
+S2.cuts.forEach(()=>{const s=document.createElement('div');s.className='spark';$('#s2').appendChild(s)});
+/* ---------- cena 3: fragmentos que voltam ao lugar ---------- */
+const FR=[[-300,420,-50,13.2],[320,560,40,13.35],[-220,760,70,13.5],[260,900,-30,13.65]];
+FR.forEach(([dx,dy,rot],k)=>{const f=document.createElement('div');f.className='frag';f.style.top=(40+65*k)+'px';$('#s3').appendChild(f)});
+const RSEG=[[516,590],[728,810]];
+RSEG.forEach(([a,b])=>{const s=document.createElement('div');s.className='rseg';s.style.top=a+'px';s.style.height='0';$('#s3').appendChild(s)});
+/* ---------- cena 4: círculo com 3 pontos e setas ---------- */
+const PC={x:540,y:700,r:260},PANG=[-90,30,150];
+const ppos=a=>({x:PC.x+PC.r*Math.cos(a*Math.PI/180),y:PC.y+PC.r*Math.sin(a*Math.PI/180)});
+PANG.forEach((a,k)=>{const p=ppos(a);$('#s4').insertAdjacentHTML('beforeend',`<div class="ring" id="rg${k}" style="left:${p.x}px;top:${p.y}px"></div><div class="pnode" id="pn${k}" style="left:${p.x}px;top:${p.y}px"></div>`)});
+const ARCT=[26.6,28.05,29.55];
+$('#arcs').innerHTML=PANG.map((a,k)=>{
+  const a0=a+14,a1=a+120-14,p0=ppos(a0),p1=ppos(a1),r=a1*Math.PI/180,tx=-Math.sin(r),ty=Math.cos(r),nx=Math.cos(r),ny=Math.sin(r);
+  const h1=`${p1.x-18*tx+12*nx} ${p1.y-18*ty+12*ny}`,h2=`${p1.x-18*tx-12*nx} ${p1.y-18*ty-12*ny}`;
+  return `<path class="draw" data-start="${ARCT[k]}" data-dur="1.1" pathLength="1" d="M${p0.x} ${p0.y} A${PC.r} ${PC.r} 0 0 1 ${p1.x} ${p1.y}"></path><path class="draw" data-start="${ARCT[k]+1.0}" data-dur=".25" pathLength="1" d="M${h1} L${p1.x} ${p1.y} L${h2}"></path>`;
+}).join('');
+
+/* ---------- motor de animação (mesmo da série) ---------- */
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ei=x=>x*x*x;
+const back=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const prog=(t,a,d)=>clamp((t-a)/d);
+function keys(t,k,ease=eio){if(t<=k[0][0])return k[0][1];for(let i=0;i<k.length-1;i++){const[t0,v0]=k[i],[t1,v1]=k[i+1];if(t<=t1){const p=t1>t0?(t-t0)/(t1-t0):1;return v0+(v1-v0)*ease(p)}}return k[k.length-1][1]}
+const wordGroups=[];
+$$('[data-words]').forEach(el=>{
+  const nodes=[...el.childNodes];el.innerHTML='';const words=[];
+  nodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){el.appendChild(document.createTextNode(' '));return}const s=document.createElement('span');s.className='w';s.textContent=p;el.appendChild(s);words.push(s)})}else{n.classList.add('w');el.appendChild(n);words.push(n)}});
+  const times=el.dataset.times?el.dataset.times.split(',').map(Number):null;
+  wordGroups.push({words,start:+el.dataset.start,times,pop:el.dataset.pop||null});
+});
+const draws=$$('.draw').map(el=>({el,start:+el.dataset.start,dur:el.dataset.dur?+el.dataset.dur:.6}));
+draws.forEach(d=>{d.el.style.strokeDasharray='1';d.el.style.strokeDashoffset='1'});
+function warp(t){const W=window.WARP;if(!W||!W.length)return t;if(t<=W[0][0])return W[0][1];for(let i=0;i<W.length-1;i++){const[a0,b0]=W[i],[a1,b1]=W[i+1];if(t<=a1)return b0+(b1-b0)*(t-a0)/(a1-a0)}const[a,b]=W[W.length-1];return b+(t-a)}
+
+const CAM=[[-4.6,-1920],[-0.5,-1920],[0.2,0],[5.9,0],[6.5,1920],[12.6,1920],[13.3,3840],[24.78,3840],[24.8,5760],[33.0,5760],[33.6,7680],[40.8,7680],[41.4,9600]];
+const PEN=[[-4.5,-1920],[-3.9,-1660],[-0.5,-1660],[0.4,262],[5.9,262],[6.5,2140],[6.65,2250],[7.45,2250],[7.65,2450],[8.65,2450],[8.85,2650],[9.75,2650],[9.95,2850],[12.5,2850],[13.3,3880],[13.9,4170],[19.6,4170],[20.0,4430],[21.6,4430],[22.0,4650],[24.78,4650],[24.8,6060],[25.6,6200],[32.6,6200],[33.0,6720],[33.6,7970],[40.8,7970],[41.4,9930],[49.8,9930],[50.5,9540]];
+
+const pop=(el,t,at,d=.45,from=30)=>{const q=prog(t,at,d);el.style.opacity=q>0?clamp(q*2):0;el.style.transform=`translateY(${(1-eo(q))*from}px) scale(${.9+.1*back(q)})`;return q};
+function typed(el,t,t0,rate=.055){const s=el.dataset.txt,n=clamp(Math.floor((t-t0)/rate)+1,0,s.length);el.textContent=t<t0?'':s.slice(0,n);return t>=t0-.25&&t<t0+s.length*rate+.35}
+function dotsAnim(el,t){el.querySelectorAll('.d').forEach((d,i)=>d.style.transform=`translateY(${-7*Math.max(0,Math.sin(t*9-i*.9))}px)`)}
+
+function renderOld(t){
+  const camY=keys(t,CAM);
+  // carimbo: tranco na câmera
+  const sh=t>5.3&&t<5.75?(1-prog(t,5.3,.45))*14:0;
+  const zoom=1+0.012*Math.sin(2*Math.PI*t/46);
+  $('#world').style.transform=`translate(${sh*Math.sin(t*95)}px,${-camY+sh*Math.cos(t*80)}px)`;
+  $('#cam').style.transform=`scale(${zoom})`;
+  $('#dots').style.transform=`translateY(${-((camY*0.35)%28)}px)`;
+  const pen=keys(t,PEN);$('#cliprect').setAttribute('height',Math.max(0,pen+1920));
+  // a caneta morre na cena 2 ("e morre"), renasce na reconstrução e vira a bola no ping-pong
+  const dead=prog(t,11.5,.6),gone=prog(t,12.0,.3)*(1-prog(t,13.25,.15)),inBall=t>25.62&&t<32.98;
+  const pe=$('#pen');pe.style.left='540px';pe.style.top=pen+'px';
+  pe.style.opacity=pen>-1918&&!inBall?1-gone:0;
+  pe.style.background=dead>0&&t<13.25?`rgb(${225-150*dead},${29+60*dead},${46+50*dead})`:'#E11D2E';
+  pe.style.boxShadow=`0 0 ${30*(t<13.25?1-dead:1)}px ${8*(t<13.25?1-dead:1)}px rgba(225,29,46,.35)`;
+  const born=prog(t,13.25,.5);pe.style.transform=`scale(${(1+.12*Math.sin(t*5))*(t>=13.25&&t<13.75?1+1.2*Math.sin(Math.PI*born):1)})`;
+  wordGroups.forEach(g=>g.words.forEach((w,i)=>{const st=g.times?g.times[Math.min(i,g.times.length-1)]:g.start+i*.06;const p=eo(prog(t,st,.45));let sc=1;if(g.pop&&w.textContent===g.pop)sc=1+.12*Math.sin(Math.PI*prog(t,st,.5));if(g.times)sc*=1+.18*Math.sin(Math.PI*prog(t,st,.35));w.style.opacity=p;w.style.transform=`translateY(${(1-p)*12}px) scale(${sc})`;w.style.filter=p<1?`blur(${(1-p)*12}px)`:'none'}));
+  draws.forEach(d=>{d.el.style.strokeDashoffset=1-eo(prog(t,d.start,d.dur))});
+
+  // 0 · retomada
+  pop($('#r0me'),t,-4.2,.5);
+  $('#r0dots').style.opacity=prog(t,-3.7,.2)*(1-prog(t,-3.05,.12));dotsAnim($('#r0dots'),t);
+  const rh=prog(t,-3.0,.45);$('#r0her').style.opacity=rh>0?1:0;$('#r0her').style.transform=`scale(${.6+.4*back(rh)})`;
+
+  // 1 · ficha
+  const fc=eo(prog(t,0.2,.6));$('#ficha').style.opacity=fc;$('#ficha').style.transform=`perspective(2200px) translateY(${(1-fc)*50}px) rotateX(${6*(1-fc)+3}deg)`;
+  $$('.ftyped').forEach(el=>{const act=typed(el,t,+el.dataset.t0);el.nextElementSibling.style.opacity=act?(Math.floor(t*4)%2?.3:1):0});
+  const sp=prog(t,5.05,.25);const st=$('#stamp');st.style.opacity=sp>0?.94:0;st.style.transform=`rotate(-11deg) scale(${2.4-1.4*ei(sp)})`;st.style.filter=sp<1?`blur(${(1-sp)*6}px)`:'none';
+  $('#ficha').style.filter=`brightness(${1-.35*prog(t,5.3,.4)})`;
+
+  // 2 · cortes
+  const penL=pen-1920;
+  pieces.forEach((p,k)=>{
+    p.thread.style.height=clamp(penL-p.top,0,p.len)+'px';
+    const q=prog(t,p.t,.45);p.card.style.opacity=q>0?clamp(q*2):0;p.card.style.transform=`translateY(-50%) translateX(${(1-eo(q))*(p.L?40:-40)}px) scale(${.9+.1*back(q)})`;
+    p.node.style.opacity=t>=p.t-.05?1:0;p.conn.style.opacity=clamp(q*2);
+    let u=p.cut?prog(t,p.cut+.03,.7):0,drop=0;
+    if(p.cut)drop=u<.8?150*Math.pow(u/.8,2):150-10*Math.sin((u-.8)/.2*Math.PI);
+    const dir=p.L?-1:1,die=k===3?prog(t,11.2,.7):0;
+    p.el.style.transform=`translate(${dir*36*eo(u)}px,${drop}px) rotate(${-dir*9*eo(u)}deg)`;
+    p.el.style.opacity=1-.62*eo(u)-.55*die;
+    p.node.style.background=u>0||die>0?'#5A5D66':'#E11D2E';p.node.style.boxShadow=u>0||die>0?'none':'0 0 16px rgba(225,29,46,.8)';
+  });
+  const sc=$('#scis');let sv=0;
+  S2.snip.forEach((s,k)=>{const a=prog(t,s-.35,.3),b=prog(t,s+.12,.35);if(t>s-.4&&t<s+.5){sv=1;const y=S2.cuts[k];const open=t<s?22*(1-ei(prog(t,s-.12,.12))):0;
+    sc.style.left='536px';sc.style.top=(y-55)+'px';sc.style.opacity=a*(1-b);sc.style.transform=`translateX(${(1-eo(a))*90+b*60}px)`;
+    $('#bladeA').setAttribute('transform',`rotate(${-open} 80 55)`);$('#bladeB').setAttribute('transform',`rotate(${open} 80 55)`)}});
+  if(!sv)sc.style.opacity=0;
+  $$('#s2 .spark').forEach((s,k)=>{const q=prog(t,S2.snip[k],.3);s.style.left='540px';s.style.top=S2.cuts[k]+'px';s.style.opacity=q>0&&q<1?1-q:0;s.style.transform=`scale(${.4+1.4*eo(q)})`});
+
+  // 3 · reconstrução + mais fundo
+  $$('#s3 .frag').forEach((f,k)=>{const[dx,dy,rot,at]=FR[k];const q=eio(prog(t,at,.45));f.style.transform=`translate(${dx*(1-q)}px,${dy*(1-q)}px) rotate(${rot*(1-q)}deg)`;f.style.opacity=t<12.9?0:.3+.7*q;
+    const fl=prog(t,13.9,.7);f.style.background=fl>0&&fl<1?`rgba(225,29,46,${1-fl*.5})`:'rgba(244,244,241,.5)';f.style.boxShadow=fl>0&&fl<1?`0 0 ${16*(1-fl)}px #E11D2E`:'none'});
+  pop($('#d1'),t,13.8,.5);
+  const ul=eo(prog(t,14.55,.5));$('#d1 .ul').style.transform=`scaleX(${ul})`;$('#d1 .ul').style.boxShadow=`0 0 ${10+8*Math.sin(Math.PI*prog(t,17.5,.8))}px rgba(225,29,46,.8)`;
+  const dq=prog(t,14.8,.4);$('#dtag').style.opacity=dq>0?clamp(dq*2):0;$('#dtag').style.transform=`scale(${(.6+.4*back(dq))*(1+.1*Math.sin(Math.PI*prog(t,17.5,.6)))})`;
+  pop($('#d2'),t,19.95,.45);
+  $('#d3dots').style.opacity=prog(t,21.3,.2)*(1-prog(t,21.95,.12));dotsAnim($('#d3dots'),t);
+  const d3=prog(t,22.0,.45);$('#d3').style.opacity=d3>0?1:0;$('#d3').style.transformOrigin='left bottom';$('#d3').style.transform=`scale(${.7+.3*back(d3)})`;
+  $$('#s3 .rseg').forEach((s,k)=>{const[a,b]=RSEG[k];s.style.height=clamp(pen-3840-a,0,b-a)+'px'});
+  $('#ruler').style.opacity=$('#rlab').style.opacity=prog(t,13.6,.5);
+  $('#rfill').style.height=keys(t,[[13.6,0],[14.1,93],[19.95,93],[20.4,329],[22.0,329],[22.45,573],[24.0,676]])+'px';
+
+  // transição: círculo vermelho
+  const wg=eio(prog(t,24.4,.38)),wr=eio(prog(t,24.82,.4));const wp=$('#wipe');
+  if(t>24.4&&t<25.25){wp.style.opacity=1;wp.style.clipPath=`circle(${wg*1300}px at 540px 810px)`;wp.style.webkitMaskImage=wr>0?`radial-gradient(circle at 540px 440px, transparent ${wr*1400}px, #000 ${wr*1400+2}px)`:'none'}else wp.style.opacity=0;
+
+  // 4 · ping-pong
+  $('#graphite').style.opacity=eo(prog(t,24.8,.3))*(1-eo(prog(t,32.9,.5)));
+  $$('#s4 .pnode').forEach((n,k)=>{const q=prog(t,25.1+k*.12,.35);n.style.opacity=q;n.style.transform=`scale(${.3+.7*back(q)})`});
+  const HITS=[[0,26.5],[1,28.0],[2,29.5],[0,30.5],[1,31.45],[2,31.95],[0,32.45]];
+  HITS.forEach(([k,h],i)=>{if(t>=h&&t<h+.6){const q=prog(t,h,.6);const r=$('#rg'+k);r.style.opacity=1-q;r.style.transform=`scale(${1+2.4*eo(q)})`}});
+  [0,1,2].forEach(k=>{const last=HITS.filter(([kk,h])=>kk===k&&t>=h).length;if(!HITS.some(([kk,h])=>kk===k&&t>=h&&t<h+.6))$('#rg'+k).style.opacity=0;$('#pn'+k).style.background=last?'#E11D2E':'#17181C'});
+  [[1,26.5],[2,28.0],[3,29.5]].forEach(([k,h])=>{const b=$('#pb'+k);pop(b,t,h,.45,20)});
+  // a bola: desce pelo fio, quica em cada ponto e volta ao fio
+  const ball=$('#ball');
+  if(inBall){
+    let ang=-90,hop=0;
+    const legs=[[26.6,28.0,-90,30],[28.05,29.5,30,150],[29.55,30.5,150,270],[30.95,31.45,-90,30],[31.5,31.95,30,150],[32.0,32.45,150,270]];
+    for(const[a,b,a0,a1]of legs){if(t>=a){const u=prog(t,a,b-a);ang=a0+(a1-a0)*eio(u);hop=Math.sin(Math.PI*u)*(b-a>.6?70:50)}}
+    let x,y;const R=PC.r-hop;x=PC.x+R*Math.cos(ang*Math.PI/180);y=PC.y+R*Math.sin(ang*Math.PI/180);
+    const fall=prog(t,32.55,.42);if(fall>0){y=440+(960-440)*ei(fall);x=540}
+    let sq=1;HITS.forEach(([,h])=>{if(t>=h-.03&&t<h+.12)sq=1-.3*Math.sin(Math.PI*prog(t,h-.03,.15))});
+    ball.style.opacity=1;ball.style.left=x+'px';ball.style.top=(5760+y)+'px';ball.style.transform=`scale(${2-sq},${sq})`;
+  }else ball.style.opacity=0;
+
+  // 5 · no encontro
+  const fa=eo(prog(t,33.25,.8));$('#fEnc').style.opacity=fa;$('#fEnc').style.transform=`perspective(1800px) translateY(${(1-fa)*60}px) rotateY(-8deg) rotateX(4deg) rotateZ(-1.5deg)`;
+  const ei_=$('#enc img');if(ei_)ei_.style.transform=`scale(${1.02+.06*prog(t,33.3,7)})`;
+  const eh=prog(t,34.6,.45);$('#encHer').style.opacity=eh>0?1:0;$('#encHer').style.transform=`rotate(-2deg) scale(${.6+.4*back(eh)})`;
+  const c1=prog(t,36.2,.5);$('#chip1').style.opacity=c1>0?clamp(c1*2)*(1-.45*prog(t,37.1,.4)):0;$('#chip1').style.transform=`translate(${(1-eo(c1))*160}px,${(1-eo(c1))*-120}px) scale(${.5+.5*back(c1)})`;
+  const c2=prog(t,38.05,.55);$('#chip2').style.opacity=c2>0?clamp(c2*2):0;$('#chip2').style.transform=`translate(${(1-eo(c2))*-160}px,${(1-eo(c2))*-200}px) scale(${(.5+.5*back(c2))*(1+.025*Math.sin(Math.max(0,t-38.6)*5))})`;
+  $('#chip2b').style.boxShadow=`0 0 ${40+20*Math.sin(t*5)}px rgba(225,29,46,${.35+.25*prog(t,38.4,.5)}),0 20px 50px rgba(0,0,0,.5)`;
+
+  // 6 · missão
+  const mc=eo(prog(t,40.95,.6));$('#miss').style.opacity=mc;$('#miss').style.transform=`translateY(${(1-mc)*50}px) scale(${.96+.04*mc})`;
+  pop($('#mans'),t,42.2,.45,20);
+  $('#mline').style.transform=`scaleY(${eo(prog(t,42.5,.6))})`;
+  [['#md1','#mr1','#ck1',43.15,95],['#md2','#mr2','#ck2',44.25,205]].forEach(([d,r,c,a,y],i)=>{
+    const q=eio(prog(t,a,.55));const dd=$(d);dd.style.opacity=prog(t,a-.1,.15);dd.style.top=(-20+(y+20)*q)+'px';
+    const rq=prog(t,a+.5,.4);$(r).style.opacity=rq>0?clamp(rq*2):0;$(r).style.transform=`translateY(-50%) translateX(${(1-eo(rq))*30}px)`;
+    const k=prog(t,a+.65,.3);$(c).style.borderColor=k>0?`rgba(225,29,46,${.4+.6*k})`:'rgba(244,244,241,.35)';$(c).style.background=`rgba(225,29,46,${.14*k})`;$(c).style.boxShadow=k>0?`0 0 ${24*k}px rgba(225,29,46,.45)`:'none';
+  });
+  const fo=eo(prog(t,47.4,.5));$('#follow').style.opacity=fo;$('#follow').style.transform=`translateY(${(1-fo)*16}px) scale(${1+.04*Math.sin(Math.max(0,t-48)*4)})`;
+  $('#logo b').style.transform=`scale(${1+.04*Math.sin(t*3)})`;
+}
+window.render=t=>renderOld(warp(t));
+window.render(0);
+</script>
+</body>
+</html>

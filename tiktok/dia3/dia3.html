@@ -161,8 +161,9 @@ em{font-family:'Playfair Display',serif;font-style:italic;color:#E11D2E}
       <!-- 5 · no encontro -->
       <div class="scene" style="top:7680px">
         <div class="frame" id="fEnc" style="left:200px;top:330px;width:680px"><div class="img" id="enc" style="height:600px"></div><div class="cap">NO ENCONTRO</div></div>
-        <div id="encHer" style="position:absolute;left:70px;top:400px;max-width:560px;transform-origin:left bottom"><div class="bub her" style="font-size:32px;padding:18px 28px">fui num show no fim de semana</div></div>
-        <div id="chip1" style="position:absolute;left:110px;top:1050px"><div class="bub" style="position:relative;font-size:36px;padding:18px 30px;background:#26282E;color:#8C9099;border-radius:999px">foi bom?<svg style="position:absolute;left:18px;top:50%;width:calc(100% - 36px);height:8px;margin-top:-4px;overflow:visible" viewBox="0 0 100 8" preserveAspectRatio="none"><path class="draw" data-start="36.7" data-dur=".35" pathLength="1" d="M0 4H100" stroke="#E11D2E" stroke-width="5" vector-effect="non-scaling-stroke"></path></svg></div></div>
+        <div class="frame" id="fShow" style="left:470px;top:380px;width:540px;opacity:0"><div class="img" id="show" style="height:540px"></div><div class="cap">O SHOW DELA</div></div>
+        <div id="encHer" style="position:absolute;left:60px;top:850px;max-width:400px;transform-origin:left top;opacity:0"><div class="bub her" style="font-size:32px;padding:18px 28px">fui num show no fim de semana</div></div>
+        <div id="chip1" style="position:absolute;left:110px;top:1050px"><div class="bub" style="position:relative;font-size:36px;padding:18px 30px;background:#26282E;color:#8C9099;border-radius:999px">foi bom?<span id="strike" style="position:absolute;left:22px;right:22px;top:50%;height:5px;margin-top:-1px;border-radius:3px;background:#E11D2E;transform-origin:left;transform:scaleX(0)"></span></div></div>
         <div id="chip2" style="position:absolute;right:70px;top:1160px"><div class="bub me" id="chip2b" style="display:flex;align-items:center;gap:16px;font-size:36px;padding:20px 32px;border-radius:999px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="38.2" pathLength="1" d="M9 18V5l11-2v13"></path><circle class="draw" data-start="38.4" pathLength="1" cx="6" cy="18" r="3"></circle><circle class="draw" data-start="38.5" pathLength="1" cx="17" cy="16" r="3"></circle></svg>qual música você mais gritou?</div></div>
         <div class="t serif" data-words data-start="33.5" style="top:1360px;font-size:76px;line-height:1.1">no encontro é <em>igual</em><span class="pd"></span></div>
       </div>
@@ -204,8 +205,9 @@ em{font-family:'Playfair Display',serif;font-style:italic;color:#E11D2E}
 <script src="timeline.js"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const PHOTO_ENC='../serie/fotos/bar-risada.jpg';
+const PHOTO_ENC='../serie/fotos/bar-risada.jpg',PHOTO_SHOW='fotos/show.jpg';
 $('#enc').innerHTML=`<img src="${PHOTO_ENC}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;filter:grayscale(1) contrast(1.12) brightness(1.04)">`;
+$('#show').innerHTML=`<img src="${PHOTO_SHOW}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.15) brightness(1.06)" onerror="this.outerHTML='<div style=&quot;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#2a2c31;color:#8C9099;font-size:22px;letter-spacing:.2em&quot;>FOTO: O SHOW DELA</div>'">`;
 
 /* ---------- cena 2: os 4 pedaços do fio ---------- */
 const S2={top:220,nodes:[330,530,730,930],cuts:[430,630,830],end:930,
@@ -351,10 +353,13 @@ function renderOld(t){
   }else ball.style.opacity=0;
 
   // 5 · no encontro
-  const fa=eo(prog(t,33.25,.8));$('#fEnc').style.opacity=fa;$('#fEnc').style.transform=`perspective(1800px) translateY(${(1-fa)*60}px) rotateY(-8deg) rotateX(4deg) rotateZ(-1.5deg)`;
+  const fa=eo(prog(t,33.25,.8)),fb=eio(prog(t,34.45,.7));$('#fEnc').style.opacity=fa;$('#fEnc').style.transform=`perspective(1800px) translate(${-230*fb}px,${(1-fa)*60-36*fb}px) scale(${1-.38*fb}) rotateY(-8deg) rotateX(4deg) rotateZ(${-1.5-5*fb}deg)`;
   const ei_=$('#enc img');if(ei_)ei_.style.transform=`scale(${1.02+.06*prog(t,33.3,7)})`;
+  const fs=prog(t,34.75,.6);$('#fShow').style.opacity=fs>0?clamp(fs*2):0;$('#fShow').style.transform=`perspective(1800px) translate(${(1-eo(fs))*260}px,${(1-eo(fs))*120}px) rotateY(8deg) rotateX(3deg) rotateZ(${4+10*(1-eo(fs))}deg) scale(${.85+.15*back(fs)})`;
+  const si=$('#show img');if(si)si.style.transform=`scale(${1.03+.07*prog(t,34.75,6)})`;
   const eh=prog(t,34.6,.45);$('#encHer').style.opacity=eh>0?1:0;$('#encHer').style.transform=`rotate(-2deg) scale(${.6+.4*back(eh)})`;
   const c1=prog(t,36.2,.5);$('#chip1').style.opacity=c1>0?clamp(c1*2)*(1-.45*prog(t,37.1,.4)):0;$('#chip1').style.transform=`translate(${(1-eo(c1))*160}px,${(1-eo(c1))*-120}px) scale(${.5+.5*back(c1)})`;
+  $('#strike').style.transform=`scaleX(${eo(prog(t,36.7,.35))})`;
   const c2=prog(t,38.05,.55);$('#chip2').style.opacity=c2>0?clamp(c2*2):0;$('#chip2').style.transform=`translate(${(1-eo(c2))*-160}px,${(1-eo(c2))*-200}px) scale(${(.5+.5*back(c2))*(1+.025*Math.sin(Math.max(0,t-38.6)*5))})`;
   $('#chip2b').style.boxShadow=`0 0 ${40+20*Math.sin(t*5)}px rgba(225,29,46,${.35+.25*prog(t,38.4,.5)}),0 20px 50px rgba(0,0,0,.5)`;
 

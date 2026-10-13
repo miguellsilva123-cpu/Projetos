@@ -68,11 +68,11 @@ def onsets(clip, segs):
     return out
 
 
-def main():
-    cmd_tpl, outdir = sys.argv[1], sys.argv[2]
+def build(blocks, old_end, cmd_tpl, outdir):
+    """Sintetiza os blocos, monta narracao.wav e a linha do tempo (WARP) para um vídeo da série."""
     os.makedirs(os.path.join(outdir, 'blocos'), exist_ok=True)
     clips, inner = [], []
-    for bid, segs, _ in BLOCKS:
+    for bid, segs, _ in blocks:
         text = ' '.join(t for t, _ in segs)
         raw = os.path.join(outdir, 'blocos', bid + '.wav')
         cmd = cmd_tpl.replace('{text}', shlex.quote(text)).replace('{out}', shlex.quote(raw))
@@ -83,17 +83,17 @@ def main():
 
     warp, starts, phrases = [[0.0, 0.0]], [], []
     t = LEAD_IN
-    for i, (bid, segs, pause) in enumerate(BLOCKS):
+    for i, (bid, segs, pause) in enumerate(blocks):
         starts.append(t)
         for (txt, old), off in zip(segs, inner[i]):
             warp.append([round(t + off, 3), old])
             phrases.append({'id': bid, 'text': txt, 'old': old, 'start': round(t + off, 3)})
-        if i + 1 < len(BLOCKS):
+        if i + 1 < len(blocks):
             last_new, last_old = warp[-1]
-            nxt_old = BLOCKS[i + 1][1][0][1]
+            nxt_old = blocks[i + 1][1][0][1]
             t = max(t + len(clips[i]) / SR + pause, last_new + MIN_RATIO * (nxt_old - last_old))
     end = starts[-1] + len(clips[-1]) / SR + TAIL
-    warp.append([round(end, 3), OLD_END])
+    warp.append([round(end, 3), old_end])
     for a, b in zip(warp, warp[1:]):
         assert b[0] > a[0] and b[1] > a[1], (a, b)
 
@@ -103,12 +103,17 @@ def main():
         voice[i:i + len(c)] += c
     finish(voice[: int(end * SR)], outdir)
     info = {'duration': round(end, 3), 'warp': warp, 'phrases': phrases,
-            'blocks': [{'id': b[0], 'start': round(s, 3), 'dur': round(len(c) / SR, 3)} for b, s, c in zip(BLOCKS, starts, clips)]}
+            'blocks': [{'id': b[0], 'start': round(s, 3), 'dur': round(len(c) / SR, 3)} for b, s, c in zip(blocks, starts, clips)]}
     with open(os.path.join(outdir, 'timeline.json'), 'w', encoding='utf-8') as f:
         json.dump(info, f, ensure_ascii=False, indent=1)
     with open(os.path.join(outdir, 'timeline.js'), 'w', encoding='utf-8') as f:
         f.write('window.WARP=' + json.dumps(warp) + ';\nwindow.DURATION=' + str(round(end, 3)) + ';\n')
     print(json.dumps({'duration': info['duration'], 'blocks': len(clips)}))
+    return info
+
+
+def main():
+    build(BLOCKS, OLD_END, sys.argv[1], sys.argv[2])
 
 
 if __name__ == '__main__':

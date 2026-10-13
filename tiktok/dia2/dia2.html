@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O Protocolo da Presença — A primeira frase</title>
+<style>
+@font-face{font-family:'Sora';src:url(../serie/fonts/sora.woff2) format('woff2');font-weight:100 800}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair.woff2) format('woff2');font-style:normal;font-weight:400 900}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair-italic.woff2) format('woff2');font-style:italic;font-weight:400 900}
+html,body{margin:0;background:#0B0C0F}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0B0C0F;font-family:'Sora',sans-serif;color:#F4F4F1}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 48%,#1A1C21 0%,#0B0C0F 72%)}
+#graphite{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 45%,#2A2C31 0%,#17181C 75%);opacity:0}
+#dots{position:absolute;left:0;right:0;top:-56px;height:2040px;background-image:radial-gradient(rgba(244,244,241,.06) 1.6px,transparent 2.2px);background-size:28px 28px}
+#cam{position:absolute;inset:0;transform-origin:540px 960px}
+#world{position:absolute;left:0;top:0;width:1080px;height:11520px}
+.scene{position:absolute;left:0;width:1080px;height:1920px}
+#vig{position:absolute;inset:0;box-shadow:inset 0 0 360px 120px rgba(0,0,0,.78);pointer-events:none}
+#logo{position:absolute;top:236px;left:64px;display:flex;align-items:center;gap:22px;font-size:24px;font-weight:600;letter-spacing:.32em}
+#logo b{position:relative;width:38px;height:38px;box-sizing:border-box;border:3px solid #F4F4F1;border-radius:50%}
+#logo b::after{content:'';position:absolute;right:-6px;top:-6px;width:14px;height:14px;border-radius:50%;background:#E11D2E;box-shadow:0 0 14px rgba(225,29,46,.9)}
+.serif{font-family:'Playfair Display',serif}
+.t{position:absolute;left:90px;right:90px;text-align:center}
+.w{display:inline-block}
+em{font-family:'Playfair Display',serif;font-style:italic;color:#E11D2E}
+.r{color:#E11D2E}
+.label{font-size:24px;font-weight:600;letter-spacing:.3em;color:#8C9099}
+.impact{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
+.grey{color:#8C9099}
+#line{position:absolute;left:0;top:0;overflow:visible}
+#pen{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:#E11D2E;box-shadow:0 0 30px 8px rgba(225,29,46,.35)}
+.phone{position:absolute;box-sizing:border-box;background:#0D0E11;border:12px solid #2A2C31;border-radius:72px;box-shadow:-50px 80px 140px rgba(0,0,0,.85),-16px 0 60px rgba(225,29,46,.22);overflow:hidden}
+.screen{position:absolute;inset:0;overflow:hidden}
+.notch{position:absolute;left:50%;top:14px;margin-left:-60px;width:120px;height:32px;border-radius:999px;background:#000;z-index:5}
+.glass{position:absolute;box-sizing:border-box;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.018));border:1.5px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 40px 90px rgba(0,0,0,.6)}
+.row{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1.5px solid rgba(255,255,255,.05)}
+.av{width:58px;height:58px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff}
+.bub{display:inline-block;box-sizing:border-box;padding:14px 22px;border-radius:26px;font-size:26px;line-height:1.35}
+.me{background:linear-gradient(160deg,#F0303F,#B5121F);color:#fff;border-bottom-right-radius:8px}
+.her{background:#26282E;color:#EDEDEF;border-bottom-left-radius:8px}
+.fire{display:inline-block;width:1em;height:1.15em;vertical-align:-.2em}
+.frame{position:absolute;box-sizing:border-box;padding:16px 16px 0;background:#F4F4F1;box-shadow:0 80px 160px rgba(0,0,0,.8)}
+.frame .img{position:relative;overflow:hidden;background:#222}
+.frame .cap{height:60px;display:flex;align-items:center;justify-content:center;font-size:20px;letter-spacing:.2em;color:#4A4D55}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:radial-gradient(ellipse at 50% 40%,#3a3c42,#15161a);color:#8C9099;font-size:22px;letter-spacing:.2em}
+.pill{padding:12px 26px;border-radius:999px;background:#E11D2E;font-size:24px;font-weight:600;letter-spacing:.15em;color:#FFFFFF}
+#rewind{position:absolute;inset:0;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 3px,transparent 3px 9px)}
+#rewind .rw{position:absolute;left:64px;top:320px;display:flex;align-items:center;gap:18px;font-family:monospace;font-size:34px;letter-spacing:.2em;color:#F4F4F1;text-shadow:0 0 12px rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="graphite"></div>
+  <div id="dots"></div>
+  <div id="cam">
+    <div id="world">
+      <svg id="line" width="1080" height="11520" viewBox="0 0 1080 11520">
+        <defs><clipPath id="clip"><rect id="cliprect" x="0" y="0" width="1080" height="0"></rect></clipPath></defs>
+        <path d="M540 0 V11520" fill="none" stroke="rgba(244,244,241,.5)" stroke-width="2" clip-path="url(#clip)"></path>
+      </svg>
+
+      <!-- 1 · a caixa de mensagens dela -->
+      <div class="scene" style="top:0">
+        <div class="phone" id="inbox" style="left:300px;top:300px;width:480px;height:900px">
+          <div class="screen">
+            <div class="notch"></div>
+            <div style="padding:70px 26px 16px;display:flex;align-items:center;justify-content:space-between"><div style="font-size:30px;font-weight:700">bia.fit</div><div style="font-size:20px;color:#8C9099">Mensagens</div></div>
+            <div id="rows" style="position:relative"></div>
+          </div>
+        </div>
+        <div class="t impact" data-words data-start="0.9" style="top:1250px;font-size:92px">Ela recebe isso</div>
+        <div class="t serif" data-words data-start="1.7" style="top:1350px;font-size:96px;line-height:1.05;font-style:italic;color:#E11D2E">o dia todo.</div>
+        <div class="t serif grey" data-words data-start="2.6" style="top:1480px;font-size:52px;line-height:1.2">por que ela responderia <em>a sua?</em></div>
+      </div>
+
+      <!-- 2 · elogio solto -->
+      <div class="scene" style="top:1920px">
+        <div class="phone" id="phA" style="left:310px;top:270px;width:460px;height:900px"><div class="screen" id="storyA"></div><div class="screen" id="dmA"></div></div>
+        <div class="t impact" data-words data-start="5.3" style="top:1225px;font-size:84px">Elogio solto</div>
+        <div class="t serif" data-words data-start="5.9" style="top:1318px;font-size:84px;line-height:1.05;font-style:italic;color:#E11D2E">não abre conversa.</div>
+        <div class="t serif grey" data-words data-start="8.9" style="top:1440px;font-size:46px;line-height:1.25">ela não tem o que responder além de “obrigada”. ou nada.</div>
+      </div>
+
+      <!-- 3 · mesmo story, outra mensagem -->
+      <div class="scene" style="top:3840px">
+        <div class="phone" id="phB" style="left:310px;top:270px;width:460px;height:900px"><div class="screen" id="storyB"></div><div class="screen" id="dmB"></div></div>
+        <div class="t impact" data-words data-start="14.3" style="top:1225px;font-size:84px">Mesmo story.</div>
+        <div class="t serif" data-words data-start="14.9" style="top:1318px;font-size:84px;line-height:1.05;font-style:italic;color:#E11D2E">outra mensagem.</div>
+        <div class="t serif grey" data-words data-start="22.1" style="top:1440px;font-size:46px;line-height:1.25">você reparou no que ela fez. não na aparência.</div>
+      </div>
+
+      <!-- 4 · a fórmula -->
+      <div class="scene" style="top:5760px">
+        <div class="glass" id="cDet" style="left:80px;top:330px;width:410px;height:330px;padding:34px;display:flex;flex-direction:column;gap:18px">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="25.8" pathLength="1" d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle class="draw" data-start="26.0" pathLength="1" cx="12" cy="12" r="3"></circle></svg>
+          <div style="font-size:40px;font-weight:800;letter-spacing:.02em">DETALHE</div>
+          <div style="font-size:24px;color:#A9ACB4;line-height:1.35">do que ela mostrou</div>
+        </div>
+        <div id="plus" style="position:absolute;left:490px;top:430px;width:100px;text-align:center;font-size:110px;font-weight:300;color:#E11D2E;line-height:1">+</div>
+        <div class="glass" id="cPer" style="left:590px;top:330px;width:410px;height:330px;padding:34px;display:flex;flex-direction:column;gap:18px">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="28.2" pathLength="1" d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path class="draw" data-start="28.4" pathLength="1" d="M10.5 9.5a1.7 1.7 0 1 1 2.6 1.4c-.6.4-1.1.8-1.1 1.6M12 15h.01"></path></svg>
+          <div style="font-size:40px;font-weight:800;letter-spacing:.02em">PERGUNTA LEVE</div>
+          <div style="font-size:24px;color:#A9ACB4;line-height:1.35">que dá vontade de responder</div>
+        </div>
+        <div class="glass" id="exDet" style="left:80px;top:700px;width:410px;padding:22px 26px;font-size:26px;line-height:1.35;border-color:rgba(225,29,46,.4)">“1 mês sem faltar”</div>
+        <div class="glass" id="exPer" style="left:590px;top:700px;width:410px;padding:22px 26px;font-size:26px;line-height:1.35;border-color:rgba(225,29,46,.4)">“qual foi o dia que quase te fez desistir?”</div>
+        <div class="glass" id="simnao" style="left:290px;top:900px;width:500px;padding:20px 26px;display:flex;align-items:center;gap:18px;font-size:26px;color:#C9CAD0">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="2.6" stroke-linecap="round"><path class="draw" data-start="31.2" data-dur=".3" pathLength="1" d="M5 5l14 14"></path><path class="draw" data-start="31.4" data-dur=".3" pathLength="1" d="M19 5L5 19"></path></svg>
+          não se responde com <b style="color:#F4F4F1">sim</b> ou <b style="color:#F4F4F1">não</b>
+        </div>
+        <div class="t impact" data-words data-times="25.7,27.8,28.1,28.3" style="top:1150px;font-size:96px;line-height:1.05">Detalhe <span class="r">+</span> pergunta leve</div>
+      </div>
+
+      <!-- 5 · ao vivo -->
+      <div class="scene" style="top:7680px">
+        <div class="t label" data-words data-start="34.4" style="top:330px">AO VIVO</div>
+        <div class="frame" id="fAula" style="left:200px;top:390px;width:680px"><div class="img" id="aula" style="height:600px"></div><div class="cap">FIM DA AULA</div></div>
+        <div id="falaEle" style="position:absolute;left:90px;top:1110px;max-width:760px;z-index:2"><div class="bub me" style="font-size:34px;padding:20px 30px">você entendeu alguma coisa dessa aula ou fui só eu?</div></div>
+        <div id="falaEla" style="position:absolute;right:90px;top:1300px"><div class="bub her" style="font-size:34px;padding:20px 30px">kkkk nada! achei que era só eu</div></div>
+        <div class="t serif" data-words data-start="34.7" style="top:1450px;font-size:72px;line-height:1.1">ao vivo, funciona <em>igual.</em></div>
+      </div>
+
+      <!-- 6 · missão -->
+      <div class="scene" style="top:9600px">
+        <div id="seal" style="position:absolute;left:420px;top:280px;width:240px;height:240px;box-sizing:border-box;border-radius:50%;border:2px solid rgba(244,244,241,.28);display:flex;align-items:center;justify-content:center">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.2" stroke-linecap="round"><circle class="draw" data-start="39.0" pathLength="1" cx="12" cy="12" r="9"></circle><circle class="draw" data-start="39.2" pathLength="1" cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.6" fill="#E11D2E" stroke="none"></circle></svg>
+          <div style="position:absolute;right:30px;top:30px;width:20px;height:20px;border-radius:50%;background:#E11D2E;box-shadow:0 0 22px #E11D2E"></div>
+        </div>
+        <div class="t label" data-words data-start="39.2" style="top:590px">MISSÃO DE HOJE</div>
+        <div class="t serif" data-words data-start="39.6" data-pop="abertura." style="top:650px;font-size:62px;line-height:1.15">pega um daqueles 3 detalhes e escreve a sua <em>abertura.</em></div>
+        <div class="glass" id="modelo" style="left:110px;top:880px;width:860px;padding:30px 36px;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;align-items:center;gap:20px;font-size:26px"><span style="width:320px;font-weight:700;letter-spacing:.1em;white-space:nowrap">DETALHE</span><span class="fill" style="flex:1;height:2px;background:repeating-linear-gradient(90deg,rgba(244,244,241,.4) 0 12px,transparent 12px 22px)"></span></div>
+          <div style="display:flex;align-items:center;gap:20px;font-size:26px"><span style="width:320px;font-weight:700;letter-spacing:.1em;white-space:nowrap"><span class="r">+</span> PERGUNTA LEVE</span><span class="fill" style="flex:1;height:2px;background:repeating-linear-gradient(90deg,rgba(244,244,241,.4) 0 12px,transparent 12px 22px)"></span></div>
+        </div>
+        <div class="t serif grey" data-words data-start="42.6" style="top:1150px;font-size:46px;line-height:1.25">amanhã: como não deixar a conversa morrer depois que ela responde.</div>
+        <div id="follow" style="position:absolute;left:0;right:0;top:1330px;display:flex;justify-content:center;align-items:center;gap:20px">
+          <div style="font-size:30px">@oprotocolodapresenca</div><div class="pill">+ SEGUIR</div>
+        </div>
+      </div>
+
+      <div id="pen"></div>
+    </div>
+  </div>
+  <div id="rewind"><div class="rw"><svg width="46" height="30" viewBox="0 0 46 30" fill="#F4F4F1"><path d="M22 0v30L0 15zM46 0v30L24 15z"/></svg>REBOBINANDO</div></div>
+  <div id="vig"></div>
+  <div id="logo"><b></b>O PROTOCOLO</div>
+</div>
+
+<script src="timeline.js"></script>
+<script>
+/* ---------- peças de interface (story, DM, caixa de entrada) ---------- */
+const FIRE = '<svg class="fire" viewBox="0 0 24 28"><defs><linearGradient id="fg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E11D2E"/><stop offset=".55" stop-color="#FF7A1A"/><stop offset="1" stop-color="#FFD25A"/></linearGradient></defs><path fill="url(#fg)" d="M12 28c6 0 10-4 10-9.5 0-5-3.4-8-5-12-1.6 2.2-2.4 4-2.4 5.8C13 10.8 11.6 9 11 5.5 7.2 8.6 2 12.8 2 18.5 2 24 6 28 12 28z"/><path fill="#FFE9A8" d="M12 26c2.6 0 4.4-1.8 4.4-4.2 0-2.3-1.6-3.6-2.4-5.6-1 1.6-2 2.4-2.6 2.4-.4-1.3-.6-2.6-.4-4-2.4 1.8-3.4 4.3-3.4 6.6C7.6 24.2 9.4 26 12 26z" opacity=".75"/></svg>';
+const PHOTO_GYM = 'fotos/academia.jpg', PHOTO_AULA = 'fotos/sala-de-aula.jpg';
+function photoOr(src, label) {
+  return `<img src="${src}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.outerHTML='<div class=&quot;ph&quot;>FOTO: ${label}</div>'">`;
+}
+function story(id) {
+  document.getElementById(id).innerHTML = `${photoOr(PHOTO_GYM, 'ACADEMIA')}
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%,transparent 70%,rgba(0,0,0,.5))"></div>
+    <div style="position:absolute;left:16px;right:16px;top:58px;display:flex;gap:6px">${[1, .4, .4].map(o => `<div style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,${o})"></div>`).join('')}</div>
+    <div style="position:absolute;left:18px;top:78px;display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)"><div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f0a5b0,#8a3a52);border:2px solid #fff"></div>bia.fit <span style="font-weight:400;opacity:.85">3 h</span></div>
+    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) rotate(-5deg);padding:14px 26px;border-radius:14px;background:#fff;color:#111;font-size:32px;font-weight:800;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.35)">1 mês sem faltar</div>
+    <div class="reply" style="position:absolute;left:16px;right:16px;bottom:24px;min-height:58px;box-sizing:border-box;border-radius:30px;border:2px solid rgba(255,255,255,.8);display:flex;align-items:center;padding:12px 22px;font-size:22px;color:#fff;background:rgba(0,0,0,.25);line-height:1.3"><span class="typed"></span><span class="caret" style="display:inline-block;width:2px;height:26px;background:#fff;margin-left:2px"></span><span class="hint" style="opacity:.75">Responder a bia.fit…</span></div>`;
+}
+function dm(id, mine, herReply, compact) {
+  const th = compact ? 'width:76px;height:126px' : 'width:120px;height:200px', fs = compact ? 'font-size:22px;padding:12px 18px' : '';
+  document.getElementById(id).innerHTML = `<div class="notch"></div>
+    <div style="padding:66px 22px 16px;display:flex;align-items:center;gap:14px;border-bottom:1.5px solid rgba(255,255,255,.08)"><div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#f0a5b0,#8a3a52)"></div><div><div style="font-size:24px;font-weight:700">bia.fit</div><div style="font-size:17px;color:#8C9099">Ativa agora</div></div></div>
+    <div style="position:absolute;left:22px;right:22px;bottom:30px;display:flex;flex-direction:column;gap:12px">
+      <div style="align-self:flex-end;font-size:17px;color:#8C9099">Você respondeu ao story dela</div>
+      <div style="align-self:flex-end;${th};border-radius:14px;overflow:hidden;position:relative;opacity:.9">${photoOr(PHOTO_GYM, '')}</div>
+      <div style="align-self:flex-end;max-width:84%"><div class="bub me" style="${fs}">${mine}</div></div>
+      <div class="seen" style="align-self:flex-end;font-size:18px;color:#8C9099;opacity:0">Visto</div>
+      ${herReply ? `<div class="dots" style="align-self:flex-start;opacity:0"><div class="bub her" style="display:flex;gap:8px;padding:18px 22px">${[0, 1, 2].map(() => '<span class="d" style="width:11px;height:11px;border-radius:50%;background:#B9BBC2;display:inline-block"></span>').join('')}</div></div>
+      <div class="herr" style="align-self:flex-start;max-width:88%;opacity:0;transform-origin:left bottom"><div class="bub her" style="${fs}">${herReply}</div></div>` : ''}
+    </div>`;
+}
+story('storyA'); dm('dmA', `gata demais ${FIRE}`);
+story('storyB'); dm('dmB', '1 mês sem faltar? qual foi o dia que quase te fez desistir?', 'kkkk o dia da chuva! tava tudo alagado, quase fiquei em casa. fui mesmo assim e cheguei encharcada, o professor riu da minha cara', true);
+// caixa de entrada: mensagens chegando uma em cima da outra
+const INBOX = [['lucas_m', FIRE, '#5b6cff'], ['rafa.oli', 'linda', '#2fa37a'], ['gui.santos', 'gata', '#c46b2d'], ['theo_', FIRE + FIRE, '#8b5cf6'], ['joao.p', 'oi linda', '#d1477a'], ['marcos.r', 'gata demais', '#3b9bd1'], ['vini_', FIRE, '#a08b2d']];
+const ROWT = [0.6, 0.95, 1.3, 1.6, 1.9, 2.2, 2.45];
+document.getElementById('rows').innerHTML = INBOX.map(([u, m, c], i) => `<div class="row irow" data-t="${ROWT[i]}" style="position:absolute;left:0;right:0;top:0"><div class="av" style="background:${c}">${u[0].toUpperCase()}</div><div style="flex:1;min-width:0"><div style="font-size:23px;font-weight:700">${u}</div><div style="font-size:22px;color:#D8D9DC">${m}</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><span style="font-size:17px;color:#8C9099">agora</span><span style="width:12px;height:12px;border-radius:50%;background:#4f7cff"></span></div></div>`).join('');
+// foto da aula
+document.getElementById('aula').innerHTML = photoOr(PHOTO_AULA, 'SALA DE AULA');
+
+/* ---------- motor de animação (mesmo da série) ---------- */
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ei=x=>x*x*x;
+const back=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const prog=(t,a,d)=>clamp((t-a)/d);
+function keys(t,k,ease=eio){if(t<=k[0][0])return k[0][1];for(let i=0;i<k.length-1;i++){const[t0,v0]=k[i],[t1,v1]=k[i+1];if(t<=t1){const p=t1>t0?(t-t0)/(t1-t0):1;return v0+(v1-v0)*ease(p)}}return k[k.length-1][1]}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const wordGroups=[];
+$$('[data-words]').forEach(el=>{
+  const nodes=[...el.childNodes];el.innerHTML='';const words=[];
+  nodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){el.appendChild(document.createTextNode(' '));return}const s=document.createElement('span');s.className='w';s.textContent=p;el.appendChild(s);words.push(s)})}else{n.classList.add('w');el.appendChild(n);words.push(n)}});
+  const times=el.dataset.times?el.dataset.times.split(',').map(Number):null;
+  wordGroups.push({words,start:+el.dataset.start,times,pop:el.dataset.pop||null});
+});
+const draws=$$('.draw').map(el=>({el,start:+el.dataset.start,dur:el.dataset.dur?+el.dataset.dur:.6}));
+draws.forEach(d=>{d.el.style.strokeDasharray='1';d.el.style.strokeDashoffset='1'});
+function typing(t,segs){let txt='',active=false;for(const[s,st,rate,mode]of segs){if(t<st)continue;const n=Math.floor((t-st)/rate)+1;if(mode==='type'){txt=s.slice(0,clamp(n,0,s.length));active=n<=s.length}else{txt=s.slice(0,Math.max(0,s.length-n));active=n<=s.length}}return{txt,active}}
+function warp(t){const W=window.WARP;if(!W||!W.length)return t;if(t<=W[0][0])return W[0][1];for(let i=0;i<W.length-1;i++){const[a0,b0]=W[i],[a1,b1]=W[i+1];if(t<=a1)return b0+(b1-b0)*(t-a0)/(a1-a0)}const[a,b]=W[W.length-1];return b+(t-a)}
+
+const CAM=[[0,0],[4.2,0],[5.0,1920],[13.0,1920],[13.8,3840],[24.8,3840],[25.5,5760],[33.8,5760],[34.5,7680],[38.4,7680],[39.0,9600]];
+const PEN=[[0.2,0],[1.0,262],[4.2,262],[5.0,2160],[13.0,2160],[13.8,4080],[24.8,4080],[25.5,6050],[33.8,6050],[34.5,8000],[38.4,8000],[39.0,9860]];
+const MSG_A='gata demais', MSG_B='1 mês sem faltar? qual foi o dia que quase te fez desistir?';
+
+function phoneState(id,t,{show,type0,msg,rate,send,dots,reply,seen}){
+  const ph=$('#'+id);const p=eo(prog(t,show,.7));
+  ph.style.opacity=p;ph.style.transform=`perspective(2200px) translateY(${(1-p)*70+Math.sin(t*1.2)*5}px) rotateY(${-9*p}deg) rotateX(5deg) rotateZ(${-1.5*p}deg)`;
+  const st=ph.querySelector('.screen:first-child'),dmv=ph.querySelector('.screen:last-child');
+  const ty=typing(t,[[msg,type0,rate,'type']]);
+  st.querySelector('.typed').innerHTML=ty.txt+(id==='phA'&&t>=type0+msg.length*rate+.15?' '+FIRE:'');
+  st.querySelector('.hint').style.display=t<type0?'inline':'none';
+  st.querySelector('.caret').style.opacity=t<type0?0:(ty.active?1:(Math.floor(t*2)%2?0:1));
+  const sw=eo(prog(t,send,.4));st.style.opacity=1-sw;dmv.style.opacity=sw;dmv.style.transform=`translateY(${(1-sw)*30}px)`;
+  st.firstElementChild&&(st.firstElementChild.style.transform=`scale(${1.02+.04*prog(t,show,8)})`);
+  const se=dmv.querySelector('.seen');if(se)se.style.opacity=seen?eo(prog(t,seen,.3)):0;
+  const dt=dmv.querySelector('.dots');if(dt){dt.style.opacity=prog(t,dots,.2)*(1-prog(t,reply,.15));dt.querySelectorAll('.d').forEach((d,i)=>d.style.transform=`translateY(${-6*Math.max(0,Math.sin(t*9-i*.9))}px)`)}
+  const hr=dmv.querySelector('.herr');if(hr){const q=prog(t,reply,.45);hr.style.opacity=q>0?1:0;hr.style.transform=`scale(${.6+.4*back(q)})`}
+}
+
+function renderOld(t){
+  const camY=keys(t,CAM);
+  const zoom=1+0.012*Math.sin(2*Math.PI*t/46)+0.03*eio(prog(t,0.5,3.5))*(1-eio(prog(t,4.2,.8)));
+  $('#world').style.transform=`translateY(${-camY}px)`;
+  $('#cam').style.transform=`scale(${zoom})`;
+  $('#dots').style.transform=`translateY(${-((camY*0.35)%28)}px)`;
+  const pen=keys(t,PEN);$('#cliprect').setAttribute('height',Math.max(0,pen));
+  const pe=$('#pen');pe.style.left='540px';pe.style.top=pen+'px';pe.style.opacity=pen>2?1:0;pe.style.transform=`scale(${1+.12*Math.sin(t*5)})`;
+  wordGroups.forEach(g=>g.words.forEach((w,i)=>{const st=g.times?g.times[Math.min(i,g.times.length-1)]:g.start+i*.06;const p=eo(prog(t,st,.45));let sc=1;if(g.pop&&w.textContent===g.pop)sc=1+.12*Math.sin(Math.PI*prog(t,st,.5));if(g.times)sc*=1+.18*Math.sin(Math.PI*prog(t,st,.35));w.style.opacity=p;w.style.transform=`translateY(${(1-p)*12}px) scale(${sc})`;w.style.filter=p<1?`blur(${(1-p)*12}px)`:'none'}));
+  draws.forEach(d=>{d.el.style.strokeDashoffset=1-eo(prog(t,d.start,d.dur))});
+
+  // 1 · caixa de entrada enchendo
+  const ip=eo(prog(t,0.3,.6));$('#inbox').style.opacity=ip;$('#inbox').style.transform=`perspective(2000px) translateY(${(1-ip)*60}px) rotateY(-8deg) rotateX(5deg)`;
+  const rows=$$('.irow');const shown=rows.filter(r=>t>=+r.dataset.t);
+  rows.forEach(r=>{const t0=+r.dataset.t;const after=rows.filter(o=>+o.dataset.t>t0&&t>=+o.dataset.t).length;const q=prog(t,t0,.3);r.style.opacity=t>=t0?clamp(q*2):0;r.style.transform=`translateY(${after*94+(1-eo(q))*-40}px) scale(${.92+.08*back(q)})`;r.style.background=q<1?`rgba(79,124,255,${.25*(1-q)})`:'transparent'});
+
+  // 2 · elogio solto, visto e silêncio
+  phoneState('phA',t,{show:4.8,type0:6.3,msg:MSG_A,rate:.08,send:7.8,seen:8.8});
+  // rebobinar
+  const rw=prog(t,12.85,.15)*(1-prog(t,13.75,.2));$('#rewind').style.opacity=rw;
+  $('#cam').style.filter=rw>0?`saturate(${1-.7*rw}) contrast(${1+.3*rw})`:'none';
+  if(rw>0)$('#world').style.transform=`translate(${Math.sin(t*90)*8*rw}px,${-camY}px)`;
+  // 3 · mesmo story, outra mensagem
+  phoneState('phB',t,{show:13.8,type0:15.2,msg:MSG_B,rate:.048,send:18.2,dots:18.6,reply:19.6});
+  // 4 · fórmula (fundo grafite)
+  $('#graphite').style.opacity=eo(prog(t,25.0,.6))*(1-eo(prog(t,33.6,.5)));
+  const pop=(id,at)=>{const q=prog(t,at,.45);$(id).style.opacity=q>0?clamp(q*2):0;$(id).style.transform=`translateY(${(1-eo(q))*30}px) scale(${.9+.1*back(q)})`};
+  pop('#cDet',25.7);pop('#exDet',26.4);pop('#plus',27.6);pop('#cPer',28.0);pop('#exPer',28.6);pop('#simnao',31.0);
+  // 5 · ao vivo
+  const fa=eo(prog(t,34.2,.8));$('#fAula').style.opacity=fa;$('#fAula').style.transform=`perspective(1800px) translateY(${(1-fa)*60}px) rotateY(-8deg) rotateX(4deg) rotateZ(-1.5deg)`;
+  const ai=$('#aula img');if(ai)ai.style.transform=`scale(${1.02+.06*prog(t,34.2,4.5)})`;
+  pop('#falaEle',35.8);pop('#falaEla',37.4);
+  // 6 · missão
+  const se=back(prog(t,38.9,.6));$('#seal').style.opacity=prog(t,38.9,.3);$('#seal').style.transform=`scale(${.7+.3*se})`;
+  pop('#modelo',40.8);
+  $$('#modelo .fill').forEach((f,i)=>{f.style.transform=`scaleX(${eo(prog(t,41.2+i*.4,.6))})`;f.style.transformOrigin='left'});
+  const fo=eo(prog(t,43.4,.5));$('#follow').style.opacity=fo;$('#follow').style.transform=`translateY(${(1-fo)*16}px) scale(${1+.04*Math.sin(Math.max(0,t-44)*4)})`;
+  $('#logo b').style.transform=`scale(${1+.04*Math.sin(t*3)})`;
+}
+window.render=t=>renderOld(warp(t));
+window.render(0);
+</script>
+</body>
+</html>

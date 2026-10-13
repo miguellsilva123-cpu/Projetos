@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa — Elogio solto não abre conversa</title>
+<style>
+@font-face{font-family:'Sora';src:url(../serie/fonts/sora.woff2) format('woff2');font-weight:100 800}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair-italic.woff2) format('woff2');font-style:italic;font-weight:400 900}
+html,body{margin:0;background:#0B0C0F}
+#capa{position:relative;width:1080px;height:1920px;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 42%,#1d1f25 0%,#0B0C0F 72%);font-family:'Sora',sans-serif;color:#F4F4F1}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(244,244,241,.06) 1.6px,transparent 2.2px);background-size:28px 28px}
+.glow{position:absolute;left:220px;top:420px;width:640px;height:780px;border-radius:50%;background:#E11D2E;opacity:.3;filter:blur(150px)}
+.line{position:absolute;left:539px;top:0;width:2px;height:330px;background:rgba(244,244,241,.5)}
+.pen{position:absolute;left:530px;top:322px;width:20px;height:20px;border-radius:50%;background:#E11D2E;box-shadow:0 0 30px 8px rgba(225,29,46,.4)}
+.phone{position:absolute;left:330px;top:350px;width:420px;height:820px;box-sizing:border-box;border:12px solid #2A2C31;border-radius:68px;overflow:hidden;background:#0D0E11;box-shadow:-50px 80px 140px rgba(0,0,0,.85);transform:perspective(2000px) rotateY(-12deg) rotateX(5deg) rotateZ(-3deg)}
+.phone img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sticker{position:absolute;left:50%;top:72%;transform:translate(-50%,-50%) rotate(-5deg);padding:12px 22px;border-radius:12px;background:#fff;color:#111;font-size:28px;font-weight:800;white-space:nowrap}
+.bub{position:absolute;left:590px;top:1035px;padding:20px 30px;border-radius:30px;border-bottom-right-radius:8px;background:linear-gradient(160deg,#F0303F,#B5121F);font-size:40px;font-weight:600;display:flex;align-items:center;gap:12px;box-shadow:0 24px 60px rgba(225,29,46,.4);transform:rotate(-3deg)}
+.seen{position:absolute;left:830px;top:1145px;font-size:26px;color:#8C9099;transform:rotate(-3deg)}
+.title{position:absolute;left:60px;right:60px;top:1250px;text-align:center}
+.t1{font-weight:800;font-size:104px;line-height:1;letter-spacing:-.025em;text-transform:uppercase;text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.t2{font-family:'Playfair Display',serif;font-style:italic;font-size:118px;line-height:1.05;color:#E11D2E;margin-top:10px}
+.logo{position:absolute;top:276px;left:64px;display:flex;align-items:center;gap:22px;font-size:24px;font-weight:600;letter-spacing:.32em}
+.logo b{position:relative;width:38px;height:38px;box-sizing:border-box;border:3px solid #F4F4F1;border-radius:50%}
+.logo b::after{content:'';position:absolute;right:-6px;top:-6px;width:14px;height:14px;border-radius:50%;background:#E11D2E;box-shadow:0 0 14px rgba(225,29,46,.9)}
+.vig{position:absolute;inset:0;box-shadow:inset 0 0 360px 120px rgba(0,0,0,.78)}
+</style>
+</head>
+<body>
+<div id="capa">
+  <div class="dots"></div>
+  <div class="glow"></div>
+  <div class="line"></div>
+  <div class="phone"><img src="fotos/academia.jpg" alt="Story da academia"><div class="sticker">1 mês sem faltar</div></div>
+  <div class="pen"></div>
+  <div class="bub">gata demais <svg width="38" height="44" viewBox="0 0 24 28"><defs><linearGradient id="fg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFD25A"/><stop offset="1" stop-color="#FFF1C2"/></linearGradient></defs><path fill="url(#fg)" d="M12 28c6 0 10-4 10-9.5 0-5-3.4-8-5-12-1.6 2.2-2.4 4-2.4 5.8C13 10.8 11.6 9 11 5.5 7.2 8.6 2 12.8 2 18.5 2 24 6 28 12 28z"/></svg></div>
+  <div class="seen">Visto</div>
+  <div class="title">
+    <div class="t1">Elogio solto</div>
+    <div class="t2">não abre conversa.</div>
+  </div>
+  <div class="vig"></div>
+  <div class="logo"><b></b>O PROTOCOLO</div>
+</div>
+</body>
+</html>

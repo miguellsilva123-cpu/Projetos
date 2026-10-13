@@ -160,7 +160,7 @@ function story(id) {
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%,transparent 70%,rgba(0,0,0,.5))"></div>
     <div style="position:absolute;left:16px;right:16px;top:58px;display:flex;gap:6px">${[1, .4, .4].map(o => `<div style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,${o})"></div>`).join('')}</div>
     <div style="position:absolute;left:18px;top:78px;display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)"><div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f0a5b0,#8a3a52);border:2px solid #fff"></div>bia.fit <span style="font-weight:400;opacity:.85">3 h</span></div>
-    <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) rotate(-5deg);padding:14px 26px;border-radius:14px;background:#fff;color:#111;font-size:32px;font-weight:800;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.35)">1 mês sem faltar</div>
+    <div style="position:absolute;left:50%;top:72%;transform:translate(-50%,-50%) rotate(-5deg);padding:14px 26px;border-radius:14px;background:#fff;color:#111;font-size:32px;font-weight:800;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.35)">1 mês sem faltar</div>
     <div class="reply" style="position:absolute;left:16px;right:16px;bottom:24px;min-height:58px;box-sizing:border-box;border-radius:30px;border:2px solid rgba(255,255,255,.8);display:flex;align-items:center;padding:12px 22px;font-size:22px;color:#fff;background:rgba(0,0,0,.25);line-height:1.3"><span class="typed"></span><span class="caret" style="display:inline-block;width:2px;height:26px;background:#fff;margin-left:2px"></span><span class="hint" style="opacity:.75">Responder a bia.fit…</span></div>`;
 }
 function dm(id, mine, herReply, compact) {
@@ -184,6 +184,7 @@ const ROWT = [0.6, 0.95, 1.3, 1.6, 1.9, 2.2, 2.45];
 document.getElementById('rows').innerHTML = INBOX.map(([u, m, c], i) => `<div class="row irow" data-t="${ROWT[i]}" style="position:absolute;left:0;right:0;top:0"><div class="av" style="background:${c}">${u[0].toUpperCase()}</div><div style="flex:1;min-width:0"><div style="font-size:23px;font-weight:700">${u}</div><div style="font-size:22px;color:#D8D9DC">${m}</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><span style="font-size:17px;color:#8C9099">agora</span><span style="width:12px;height:12px;border-radius:50%;background:#4f7cff"></span></div></div>`).join('');
 // foto da aula
 document.getElementById('aula').innerHTML = photoOr(PHOTO_AULA, 'SALA DE AULA');
+document.querySelector('#aula img') && (document.querySelector('#aula img').style.objectPosition = '50% 45%');
 
 /* ---------- motor de animação (mesmo da série) ---------- */
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));

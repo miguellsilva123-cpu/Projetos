@@ -1,5 +1,5 @@
 {
- "duration": 53.715,
+ "duration": 54.09,
  "warp": [
   [
    0.0,
@@ -15,19 +15,7 @@
   ],
   [
    3.443,
-   1.4
-  ],
-  [
-   4.183,
-   1.9
-  ],
-  [
-   4.503,
-   2.7
-  ],
-  [
-   4.843,
-   3.3
+   1.6
   ],
   [
    6.186,
@@ -50,51 +38,55 @@
    15.6
   ],
   [
-   20.585,
+   20.959,
    20.5
   ],
   [
-   24.475,
+   24.849,
    24.0
   ],
   [
-   26.924,
+   27.299,
    27.5
   ],
   [
-   28.654,
+   29.029,
    29.2
   ],
   [
-   31.214,
+   31.589,
    31.8
   ],
   [
-   33.542,
+   33.917,
    34.5
   ],
   [
-   35.942,
+   36.317,
    37.2
   ],
   [
-   38.963,
+   39.337,
    41.0
   ],
   [
-   42.043,
+   41.297,
+   42.4
+  ],
+  [
+   42.417,
    43.4
   ],
   [
-   43.915,
+   44.289,
    45.0
   ],
   [
-   48.535,
+   48.909,
    49.5
   ],
   [
-   53.715,
+   54.09,
    54.0
   ]
  ],
@@ -113,27 +105,9 @@
   },
   {
    "id": "b01",
-   "text": "Do nada:",
-   "old": 1.4,
+   "text": "Do nada: resposta curta, demora, e sumiu.",
+   "old": 1.6,
    "start": 3.443
-  },
-  {
-   "id": "b01",
-   "text": "resposta curta,",
-   "old": 1.9,
-   "start": 4.183
-  },
-  {
-   "id": "b01",
-   "text": "demora,",
-   "old": 2.7,
-   "start": 4.503
-  },
-  {
-   "id": "b01",
-   "text": "e sumiu.",
-   "old": 3.3,
-   "start": 4.843
   },
   {
    "id": "b02",
@@ -161,7 +135,7 @@
   },
   {
    "id": "b04",
-   "text": "Sumiu? transforma interesse em obrigação.",
+   "text": "Aquele sumiu? transforma interesse em obrigação.",
    "old": 15.6,
    "start": 17.305
   },
@@ -169,67 +143,73 @@
    "id": "b05",
    "text": "Três: mandar mensagem atrás de mensagem sem ela responder.",
    "old": 20.5,
-   "start": 20.585
+   "start": 20.959
   },
   {
    "id": "b05",
    "text": "A ansiedade aparece no texto.",
    "old": 24.0,
-   "start": 24.475
+   "start": 24.849
   },
   {
    "id": "b06",
    "text": "Quatro: falar só de você.",
    "old": 27.5,
-   "start": 26.924
+   "start": 27.299
   },
   {
    "id": "b06",
    "text": "Se ela sai do encontro e você não sabe nada dela,",
    "old": 29.2,
-   "start": 28.654
+   "start": 29.029
   },
   {
    "id": "b06",
    "text": "foi um monólogo, não um encontro.",
    "old": 31.8,
-   "start": 31.214
+   "start": 31.589
   },
   {
    "id": "b07",
    "text": "Cinco: olhar o celular enquanto ela fala.",
    "old": 34.5,
-   "start": 33.542
+   "start": 33.917
   },
   {
    "id": "b07",
    "text": "Ela percebe na hora que não é prioridade.",
    "old": 37.2,
-   "start": 35.942
+   "start": 36.317
   },
   {
    "id": "b08",
-   "text": "Se você se viu em algum, tudo bem. Todo mundo já fez.",
+   "text": "Se você se viu em algum, tudo bem.",
    "old": 41.0,
-   "start": 38.963
+   "start": 39.337
+  },
+  {
+   "id": "b08",
+   "text": "Todo mundo já fez.",
+   "old": 42.4,
+   "start": 41.297
   },
   {
    "id": "b08",
    "text": "O que importa é parar agora.",
    "old": 43.4,
-   "start": 42.043
+   "start": 42.417
   },
   {
    "id": "b09",
    "text": "Missão de hoje: relê a última conversa que morreu e marca qual vacilo apareceu.",
    "old": 45.0,
-   "start": 43.915
+   "start": 44.289
   },
   {
    "id": "b09",
    "text": "Amanhã, último dia: o que fazer quando bate o silêncio.",
    "old": 49.5,
-   "start": 48.535
+   "start": 48.909
   }
  ],
  "blocks": [
@@ -256,31 +236,31 @@
   {
    "id": "b04",
    "start": 16.145,
-   "dur": 3.74
+   "dur": 4.115
   },
   {
    "id": "b05",
-   "start": 20.585,
+   "start": 20.959,
    "dur": 5.639
   },
   {
    "id": "b06",
-   "start": 26.924,
+   "start": 27.299,
    "dur": 5.918
   },
   {
    "id": "b07",
-   "start": 33.542,
+   "start": 33.917,
    "dur": 4.62
   },
   {
    "id": "b08",
-   "start": 38.963,
+   "start": 39.337,
    "dur": 4.452
   },
   {
    "id": "b09",
-   "start": 43.915,
+   "start": 44.289,
    "dur": 7.8
   }
  ]

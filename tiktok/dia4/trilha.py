@@ -25,13 +25,13 @@ for t0, d, g in [(-1.5, 1.0, .22), (6.0, .9, .3), (13.05, .9, .3), (20.05, .9, .
     mx.place(sfx.whoosh(d), t0, g, pan=-.3)
     mx.place(sfx.whoosh(d), t0 + .02, g, pan=.3)
 # 0 · a conversa esfriando
-for t0, f in [(.25, 1250), (1.9, 1150), (2.95, 1050)]:
+for t0, f in [(.25, 1250), (.8, 1200), (2.35, 1050)]:
     mx.place(sfx.plim(f), t0, .26)
-for t0 in (.85, 2.3, 3.15):
+for t0 in (1.3, 3.15):
     mx.place(sfx.whoosh(.3), t0, .14)
-mx.place(sfx.tick(2400, .07), 3.4, .4)
-mx.place(cool(1.2), 3.45, .3)
-mx.place(sfx.boom(), 4.5, .55)
+mx.place(sfx.tick(2400, .07), 3.45, .4)
+mx.place(cool(1.2), 3.5, .3)
+mx.place(sfx.boom(), -0.75, .5)                                          # título do gancho
 # mensagens dos vacilos (plim = ela, whoosh curto = ele enviando)
 for t0 in (6.95, 8.05, 13.95):
     mx.place(sfx.plim(1300), t0, .24)
@@ -53,9 +53,9 @@ for t0 in (28.1, 28.55, 29.0, 29.45):
 for k in range(4):
     mx.place(sfx.tick(3000, .03), 29.8 + k * .25, .2)                     # ponteiro do relógio
 # 5 · ela falando, notificação, frase cortada
-for i in range(int((36.15 - 34.95) / .026)):
+for i in range(int((36.15 - 34.65) / .032)):
     if i % 2 == 0:
-        mx.place(sfx.key(), 34.95 + i * .026, .12, pan=rng.uniform(-.2, .2))
+        mx.place(sfx.key(), 34.65 + i * .032, .12, pan=rng.uniform(-.2, .2))
 mx.place(sfx.plim(1500), 35.85, .4)
 for k in range(3):
     mx.place(sfx.bandnoise(.09, 120, 400) * np.exp(-sfx.tt(.09) * 30), 35.88 + k * .14, .35)   # vibração na mesa

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O Protocolo — Caixinha: bora marcar</title>
+<style>
+@font-face{font-family:'Sora';src:url(../serie/fonts/sora.woff2) format('woff2');font-weight:100 800}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair.woff2) format('woff2');font-style:normal;font-weight:400 900}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair-italic.woff2) format('woff2');font-style:italic;font-weight:400 900}
+html,body{margin:0;background:#0B0C0F}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0B0C0F;font-family:'Sora',sans-serif;color:#F4F4F1}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 48%,#1A1C21 0%,#0B0C0F 72%)}
+#photoBg{position:absolute;inset:-60px;background:url(../serie/fotos/bar-risada.jpg) center/cover;filter:blur(34px) brightness(.42) saturate(.8)}
+#graphite{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 45%,#2A2C31 0%,#17181C 75%);opacity:0}
+#dots{position:absolute;left:0;right:0;top:-56px;height:2040px;background-image:radial-gradient(rgba(244,244,241,.06) 1.6px,transparent 2.2px);background-size:28px 28px}
+#cam{position:absolute;inset:0;transform-origin:540px 960px}
+#world{position:absolute;left:0;top:0;width:1080px;height:13440px}
+.scene{position:absolute;left:0;width:1080px;height:1920px}
+#vig{position:absolute;inset:0;box-shadow:inset 0 0 360px 120px rgba(0,0,0,.78);pointer-events:none}
+#logo{position:absolute;top:220px;left:64px;display:flex;align-items:center;gap:22px;font-size:24px;font-weight:600;letter-spacing:.32em}
+#logo b{position:relative;width:38px;height:38px;box-sizing:border-box;border:3px solid #F4F4F1;border-radius:50%}
+#logo b::after{content:'';position:absolute;right:-6px;top:-6px;width:14px;height:14px;border-radius:50%;background:#E11D2E;box-shadow:0 0 14px rgba(225,29,46,.9)}
+.t{position:absolute;left:90px;right:90px;text-align:center}
+.w{display:inline-block}
+.t em.w{transform-origin:0 70%}
+em{font-family:'Playfair Display',serif;font-style:italic;color:#E11D2E}
+.serif{font-family:'Playfair Display',serif}
+.pd{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:#E11D2E;margin-left:.05em;box-shadow:0 0 .14em rgba(225,29,46,.9)}
+.label{font-size:26px;font-weight:600;letter-spacing:.3em;color:#8C9099}
+.impact{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
+.grey{color:#A9ACB4}
+#line{position:absolute;left:0;top:0;overflow:visible}
+#pen{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:#E11D2E;box-shadow:0 0 30px 8px rgba(225,29,46,.35);z-index:5}
+.card{position:absolute;box-sizing:border-box;background:#15171B;border:1.5px solid rgba(255,255,255,.10);border-radius:24px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.bub{display:inline-block;box-sizing:border-box;padding:16px 26px;border-radius:28px;font-size:32px;line-height:1.35}
+.me{background:linear-gradient(160deg,#F0303F,#B5121F);color:#fff;border-bottom-right-radius:8px}
+.her{background:#26282E;color:#EDEDEF;border-bottom-left-radius:8px}
+.row{display:flex;align-items:center;gap:20px;padding:20px 26px;border-bottom:1.5px solid rgba(255,255,255,.06)}
+.av{width:62px;height:62px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff}
+.tag{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;border:2px solid #E11D2E;color:#E11D2E;font-size:24px;white-space:nowrap;font-weight:700;letter-spacing:.22em;background:rgba(225,29,46,.08)}
+.chk{display:flex;align-items:center;justify-content:space-between;padding:22px 34px;border-bottom:1.5px solid rgba(255,255,255,.06);font-size:34px;font-weight:700;letter-spacing:.12em}
+.chk:last-child{border-bottom:0}
+.stamp{position:absolute;box-sizing:border-box;padding:14px 30px;border:8px solid #E11D2E;border-radius:14px;text-align:center;font-weight:800;letter-spacing:.04em;color:#E11D2E;box-shadow:inset 0 0 0 5px #15171B,inset 0 0 0 9px rgba(225,29,46,.85);background:rgba(21,23,27,.6);opacity:0}
+.pill{padding:12px 26px;border-radius:999px;background:#E11D2E;font-size:24px;font-weight:600;letter-spacing:.15em;color:#FFFFFF}
+/* caixinha de perguntas */
+#box{position:absolute;left:110px;top:0;width:860px;transform-origin:50% 0;border-radius:36px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6);opacity:0;z-index:3}
+#box .hd{background:#15171B;color:#F4F4F1;font-size:30px;font-weight:600;text-align:center;padding:26px 30px}
+#box .bd{background:#F4F4F1;color:#3a3c42;font-size:44px;line-height:1.3;text-align:center;padding:34px 46px 40px;min-height:60px}
+#box .ph{color:#9a9ca3}
+#wipe{position:absolute;inset:0;background:#E11D2E;pointer-events:none;opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="photoBg"></div>
+  <div id="graphite"></div>
+  <div id="dots"></div>
+  <div id="cam">
+    <div id="world">
+      <svg id="line" width="1080" height="13440" viewBox="0 0 1080 13440">
+        <defs><clipPath id="clip"><rect id="cliprect" x="0" y="0" width="1080" height="0"></rect></clipPath></defs>
+        <path d="M540 0 V12100" fill="none" stroke="rgba(244,244,241,.5)" stroke-width="2" clip-path="url(#clip)"></path>
+      </svg>
+
+      <!-- 0 · gancho -->
+      <div class="scene" style="top:0">
+        <div class="t impact" data-words data-start="4.3" style="top:800px;font-size:124px">para de insistir<span class="pd"></span></div>
+        <div class="t serif" data-words data-times="5.5,5.6,5.7,5.9" data-pop="assim" style="top:1075px;font-size:92px;line-height:1.05">e de convidar <em>assim</em><span class="pd"></span></div>
+        <div class="t grey" data-words data-start="7.3" style="top:1215px;font-size:40px">porque assim não vai sair nunca.</div>
+      </div>
+
+      <!-- 1 · o outro lado da tela -->
+      <div class="scene" style="top:1920px">
+        <div class="t label" data-words data-start="9.0" style="top:560px">O OUTRO LADO DA TELA</div>
+        <div class="card" id="inbox" style="left:110px;top:620px;width:860px;padding:8px 0">
+          <div class="row" data-at="10.9"><div class="av" style="background:#5b6cff">L</div><div style="flex:1"><div style="font-size:26px;font-weight:700">lucas_m</div><div style="font-size:30px;color:#D8D9DC">bora marcar qualquer dia</div></div><span style="font-size:20px;color:#8C9099">seg</span></div>
+          <div class="row" data-at="13.5"><div class="av" style="background:#2fa37a">R</div><div style="flex:1"><div style="font-size:26px;font-weight:700">rafa.oli</div><div style="font-size:30px;color:#D8D9DC">a gente tem que se ver</div></div><span style="font-size:20px;color:#8C9099">qua</span></div>
+          <div class="row" data-at="14.6" style="border-bottom:0"><div class="av" style="background:#c46b2d">G</div><div style="flex:1"><div style="font-size:26px;font-weight:700">gui.santos</div><div style="font-size:30px;color:#D8D9DC">bora tomar algo um dia desses</div></div><span style="font-size:20px;color:#8C9099">sex</span></div>
+        </div>
+        <div class="t impact" data-words data-times="16.0,16.15,16.3" data-pop="igual" style="top:1080px;font-size:118px">é tudo <span class="r" style="color:#E11D2E">igual</span><span class="pd"></span></div>
+        <div class="t serif" data-words data-start="17.7" style="top:1230px;font-size:66px;line-height:1.15">por que ela sairia com <em>você</em>?</div>
+      </div>
+
+      <!-- 2 · o princípio -->
+      <div class="scene" style="top:3840px">
+        <div id="vago" style="position:absolute;right:110px;top:570px;transform-origin:right bottom"><div class="bub me" style="font-size:40px;padding:22px 34px">bora marcar algum dia?</div></div>
+        <div class="card" id="falta" style="left:110px;top:710px;width:860px">
+          <div class="chk" data-at="25.2">DIA<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="3" stroke-linecap="round"><path class="draw" data-start="25.3" data-dur=".25" pathLength="1" d="M6 6l12 12"></path><path class="draw" data-start="25.45" data-dur=".25" pathLength="1" d="M18 6L6 18"></path></svg></div>
+          <div class="chk" data-at="25.9">LUGAR<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="3" stroke-linecap="round"><path class="draw" data-start="26.0" data-dur=".25" pathLength="1" d="M6 6l12 12"></path><path class="draw" data-start="26.15" data-dur=".25" pathLength="1" d="M18 6L6 18"></path></svg></div>
+          <div class="chk" data-at="26.6">PLANO<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="3" stroke-linecap="round"><path class="draw" data-start="26.7" data-dur=".25" pathLength="1" d="M6 6l12 12"></path><path class="draw" data-start="26.85" data-dur=".25" pathLength="1" d="M18 6L6 18"></path></svg></div>
+        </div>
+        <div class="stamp" id="stamp" style="left:140px;top:820px;width:800px;font-size:66px">SERVE PRA QUALQUER UMA</div>
+        <div class="t serif" data-words data-start="28.5" style="top:1110px;font-size:62px;line-height:1.15">ela organiza um encontro que <em>nem você</em> organizou?</div>
+        <div class="t grey" data-words data-start="31.8" style="top:1290px;font-size:38px;line-height:1.3">ela não tem obrigação de transformar o seu “algum dia” numa data.</div>
+      </div>
+
+      <!-- 3 · a virada -->
+      <div class="scene" style="top:5760px">
+        <div class="t label" data-words data-start="39.3" style="top:550px;color:#E11D2E">A VIRADA</div>
+        <div class="t serif" data-words data-start="42.3" data-pop="pronto" style="top:600px;font-size:64px;line-height:1.12">ela sai com quem chega com o convite <em>pronto</em><span class="pd"></span></div>
+        <div id="convite" style="position:absolute;left:90px;right:90px;top:790px;display:flex;flex-direction:column;gap:18px">
+          <div class="cv" data-at="47.0" style="display:flex;align-items:center;justify-content:space-between;gap:16px"><span class="tag">MOTIVO</span><div class="bub me">você falou que ama café coado</div></div>
+          <div class="cv" data-at="48.6" style="display:flex;align-items:center;justify-content:space-between;gap:16px"><span class="tag">LUGAR</span><div class="bub me" style="max-width:640px">tem um lugar perto do seu trampo que é absurdo</div></div>
+          <div class="cv" data-at="50.8" style="display:flex;align-items:center;justify-content:space-between;gap:16px"><span class="tag">DIA</span><div class="bub me">quinta, 19h?</div></div>
+          <div class="cv" data-at="52.2" style="display:flex;align-items:center;justify-content:space-between;gap:16px"><span class="tag">PORTA ABERTA</span><div class="bub me" style="max-width:600px">se não der, me fala um dia bom pra você</div></div>
+        </div>
+        <div class="t impact" data-words data-start="55.0" style="top:1370px;font-size:76px">vale mais que</div>
+        <div class="t serif" data-words data-times="55.4,55.55,55.7,55.85" data-pop="cem" style="top:1450px;font-size:80px;line-height:1.05"><em>cem</em> “bora marcar”<span class="pd"></span></div>
+      </div>
+
+      <!-- 4 · a resposta dela -->
+      <div class="scene" style="top:7680px">
+        <div class="card" id="sim" style="left:110px;top:570px;width:860px;padding:30px 40px;display:flex;align-items:center;gap:28px">
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle class="draw" data-start="57.9" pathLength="1" cx="12" cy="12" r="10"></circle><path class="draw" data-start="58.3" data-dur=".35" pathLength="1" d="M7 12.5l3.2 3.2L17 9"></path></svg>
+          <div><div style="font-size:34px;font-weight:700">topa, ou sugere outro dia</div><div style="font-size:26px;color:#A9ACB4;margin-top:6px;letter-spacing:.2em;font-weight:600">TEM INTERESSE</div></div>
+        </div>
+        <div class="card" id="nao" style="left:110px;top:790px;width:860px;padding:30px 40px;display:flex;align-items:center;gap:28px;border-color:rgba(225,29,46,.5)">
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="2.6" stroke-linecap="round"><circle class="draw" data-start="60.5" pathLength="1" cx="12" cy="12" r="10"></circle><path class="draw" data-start="60.9" data-dur=".25" pathLength="1" d="M8.5 8.5l7 7"></path><path class="draw" data-start="61.05" data-dur=".25" pathLength="1" d="M15.5 8.5l-7 7"></path></svg>
+          <div><div style="font-size:34px;font-weight:700">foge do convite e não propõe nada</div><div style="font-size:26px;color:#E11D2E;margin-top:6px;letter-spacing:.2em;font-weight:600">ESSA É A RESPOSTA</div></div>
+        </div>
+        <div class="t impact" data-words data-start="64.1" style="top:1090px;font-size:104px">não insiste<span class="pd"></span></div>
+        <div class="t serif" data-words data-times="64.9,65.05,65.2,65.4" data-pop="raiva" style="top:1210px;font-size:84px;line-height:1.05">nem some com <em>raiva</em><span class="pd"></span></div>
+      </div>
+
+      <!-- 5 · o quadro maior -->
+      <div class="scene" style="top:9600px">
+        <svg style="position:absolute;left:465px;top:550px" width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="67.3" data-dur=".8" pathLength="1" d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17M3 21h18"></path><circle cx="15.2" cy="12.5" r="1.1" fill="#E11D2E" stroke="none"></circle></svg>
+        <div class="t serif" data-words data-start="67.5" data-pop="porta" style="top:730px;font-size:72px;line-height:1.1">o convite é só a <em>porta</em><span class="pd"></span></div>
+        <div class="t label" data-words data-start="69.3" style="top:860px">QUEM SEGURA O ENCONTRO É A SUA VIDA</div>
+        <div class="card" id="vida" style="left:150px;top:915px;width:780px;padding:10px 0">
+          <div class="chk" data-at="70.9" style="font-size:30px;letter-spacing:0;font-weight:600;justify-content:flex-start;gap:20px"><span class="pd" style="font-size:80px"></span>os lugares que você conhece</div>
+          <div class="chk" data-at="72.0" style="font-size:30px;letter-spacing:0;font-weight:600;justify-content:flex-start;gap:20px"><span class="pd" style="font-size:80px"></span>o que você gosta de fazer</div>
+          <div class="chk" data-at="73.2" style="font-size:30px;letter-spacing:0;font-weight:600;justify-content:flex-start;gap:20px"><span class="pd" style="font-size:80px"></span>a conversa que você tem</div>
+        </div>
+        <div class="t impact" data-words data-start="75.3" style="top:1230px;font-size:72px">chamar pra sair vira detalhe<span class="pd"></span></div>
+        <div class="t serif grey" data-words data-start="77.7" style="top:1405px;font-size:46px;line-height:1.2">tenha uma vida que dá vontade de <em>fazer parte</em><span class="pd"></span></div>
+      </div>
+
+      <!-- 6 · CTA -->
+      <div class="scene" style="top:11520px">
+        <div class="t impact" data-words data-start="82.2" style="top:1010px;font-size:96px">comenta a sua pergunta</div>
+        <div class="t grey" data-words data-start="84.6" style="top:1225px;font-size:40px">eu respondo no próximo vídeo.</div>
+        <div id="follow" style="position:absolute;left:0;right:0;top:1330px;display:flex;justify-content:center;align-items:center;gap:20px">
+          <div style="font-size:30px">@oprotocolodapresenca</div><div class="pill">+ SEGUIR</div>
+        </div>
+      </div>
+
+      <div id="pen"></div>
+    </div>
+  </div>
+  <div id="box"><div class="hd">Manda a sua melhor pergunta…</div><div class="bd"><span id="q">Ela sempre fala “bora marcar sim!”, mas nunca marca. Insisto ou desisto?</span></div></div>
+  <div id="wipe"></div>
+  <div id="vig"></div>
+  <div id="logo"><b></b>O PROTOCOLO</div>
+</div>
+
+<script src="timeline.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ei=x=>x*x*x;
+const back=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const prog=(t,a,d)=>clamp((t-a)/d);
+function keys(t,k,ease=eio){if(t<=k[0][0])return k[0][1];for(let i=0;i<k.length-1;i++){const[t0,v0]=k[i],[t1,v1]=k[i+1];if(t<=t1){const p=t1>t0?(t-t0)/(t1-t0):1;return v0+(v1-v0)*ease(p)}}return k[k.length-1][1]}
+const wordGroups=[];
+$$('[data-words]').forEach(el=>{
+  const nodes=[...el.childNodes];el.innerHTML='';const words=[];
+  nodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){el.appendChild(document.createTextNode(' '));return}const s=document.createElement('span');s.className='w';s.textContent=p;el.appendChild(s);words.push(s)})}else{n.classList.add('w');el.appendChild(n);words.push(n)}});
+  const times=el.dataset.times?el.dataset.times.split(',').map(Number):null;
+  wordGroups.push({words,start:+el.dataset.start,times,pop:el.dataset.pop||null});
+});
+const draws=$$('.draw').map(el=>({el,start:+el.dataset.start,dur:el.dataset.dur?+el.dataset.dur:.6}));
+draws.forEach(d=>{d.el.style.strokeDasharray='1';d.el.style.strokeDashoffset='1'});
+function warp(t){const W=window.WARP;if(!W||!W.length)return t;if(t<=W[0][0])return W[0][1];for(let i=0;i<W.length-1;i++){const[a0,b0]=W[i],[a1,b1]=W[i+1];if(t<=a1)return b0+(b1-b0)*(t-a0)/(a1-a0)}const[a,b]=W[W.length-1];return b+(t-a)}
+
+// a caixinha: grande no centro, depois fixa no alto (como no reel de referência), e vazia no CTA
+const BOXY=[[0,560],[3.9,560],[4.5,262],[81.2,262],[81.8,560]];
+const BOXS=[[0,1],[3.9,1],[4.5,.7],[81.2,.7],[81.8,1]];
+const CAM=[[0,0],[8.4,0],[9.0,1920],[21.8,1920],[22.4,3840],[38.78,3840],[38.8,5760],[56.4,5760],[57.0,7680],[66.4,7680],[67.0,9600],[81.2,9600],[81.8,11520]];
+const PEN=[[0,0],[4.5,520],[8.4,520],[9.0,2440],[21.8,2440],[22.4,4360],[38.78,4360],[38.8,6280],[56.4,6280],[57.0,8200],[66.4,8200],[67.0,10120],[81.2,10120],[81.8,12040],[87.2,12040],[88.0,11500]];
+const pop=(el,t,at,d=.45,from=30)=>{const q=prog(t,at,d);el.style.opacity=q>0?clamp(q*2):0;el.style.transform=`translateY(${(1-eo(q))*from}px) scale(${.9+.1*back(q)})`;return q};
+
+function renderOld(t){
+  const camY=keys(t,CAM);
+  const zoom=1+0.012*Math.sin(2*Math.PI*t/46);
+  $('#world').style.transform=`translateY(${-camY}px)`;
+  $('#cam').style.transform=`scale(${zoom})`;
+  $('#dots').style.transform=`translateY(${-((camY*0.35)%28)}px)`;
+  const pen=keys(t,PEN);$('#cliprect').setAttribute('height',Math.max(0,pen));
+  const pe=$('#pen');pe.style.left='540px';pe.style.top=pen+'px';pe.style.opacity=pen>2&&t>4.4?1:0;pe.style.transform=`scale(${1+.12*Math.sin(t*5)})`;
+  wordGroups.forEach(g=>g.words.forEach((w,i)=>{const st=g.times?g.times[Math.min(i,g.times.length-1)]:g.start+i*.06;const p=eo(prog(t,st,.45));let sc=1;if(g.pop&&w.textContent.replace(/[“”]/g,'')===g.pop)sc=1+.12*Math.sin(Math.PI*prog(t,st,.5));if(g.times)sc*=1+.12*Math.sin(Math.PI*prog(t,st,.35));w.style.opacity=p;w.style.transform=`translateY(${(1-p)*12}px) scale(${sc})`;w.style.filter=p<1?`blur(${(1-p)*12}px)`:'none'}));
+  draws.forEach(d=>{d.el.style.strokeDashoffset=1-eo(prog(t,d.start,d.dur))});
+
+  // fundo: foto desfocada atrás da caixinha no começo, depois o fundo da marca
+  $('#photoBg').style.opacity=1-eo(prog(t,4.2,.9));
+  // caixinha de perguntas
+  const bq=prog(t,0.15,.5),box=$('#box');box.style.opacity=bq>0?clamp(bq*2):0;
+  box.style.transform=`translateY(${keys(t,BOXY)}px) scale(${keys(t,BOXS)*(t<1?.85+.15*back(bq):1)})`;
+  const cta=t>=81.5;$('#q').textContent=cta?'':'Ela sempre fala “bora marcar sim!”, mas nunca marca. Insisto ou desisto?';
+  if(cta){$('#q').innerHTML=`<span class="ph">${'escreve a sua aqui…'.slice(0,clamp(Math.floor((t-82.6)/.05)+1,0,19))}</span><span style="display:inline-block;width:3px;height:44px;background:#E11D2E;vertical-align:-8px;margin-left:3px;opacity:${Math.floor(t*2.5)%2?0.2:1}"></span>`}
+
+  // 1 · caixa de entrada dela
+  const ib=eo(prog(t,9.2,.6));$('#inbox').style.opacity=ib;$('#inbox').style.transform=`translateY(${(1-ib)*40}px)`;
+  $$('#inbox .row').forEach(r=>{const q=prog(t,+r.dataset.at,.4);r.style.opacity=clamp(q*2);r.style.transform=`translateX(${(1-eo(q))*-40}px)`;r.style.background=q>0&&q<1?`rgba(79,124,255,${.2*(1-q)})`:'transparent'});
+  // 2 · convite vago
+  const vq=prog(t,22.7,.45);$('#vago').style.opacity=vq>0?clamp(vq*2):0;$('#vago').style.transform=`scale(${.7+.3*back(vq)})`;
+  const fq=eo(prog(t,24.8,.5));$('#falta').style.opacity=fq;$('#falta').style.transform=`translateY(${(1-fq)*30}px)`;
+  $$('#falta .chk').forEach(r=>{const q=prog(t,+r.dataset.at,.35);r.style.opacity=.25+.75*clamp(q*2)});
+  const sp=prog(t,35.4,.25);$('#stamp').style.opacity=sp>0?.95:0;$('#stamp').style.transform=`rotate(-9deg) scale(${2.3-1.3*ei(sp)})`;$('#stamp').style.filter=sp<1?`blur(${(1-sp)*6}px)`:'none';
+  // transição: círculo vermelho na virada
+  const wg=eio(prog(t,38.42,.33)),wr=eio(prog(t,38.82,.4));const wp=$('#wipe');
+  if(t>38.42&&t<39.25){wp.style.opacity=1;wp.style.clipPath=`circle(${wg*2000}px at 540px 520px)`;wp.style.webkitMaskImage=wr>0?`radial-gradient(circle at 540px 520px, transparent ${wr*2000}px, #000 ${wr*2000+2}px)`:'none'}else wp.style.opacity=0;
+  // 3 · convite pronto
+  $$('#convite .cv').forEach(c=>{const q=prog(t,+c.dataset.at,.45);c.style.opacity=q>0?clamp(q*2):0;c.style.transform=`translateY(${(1-eo(q))*24}px)`;const b=c.querySelector('.bub');b.style.transform=`scale(${.8+.2*back(q)})`;b.style.transformOrigin='right bottom';const tg=c.querySelector('.tag'),tq=prog(t,+c.dataset.at+.25,.35);tg.style.opacity=clamp(tq*2);tg.style.transform=`scale(${.6+.4*back(tq)})`});
+  // 4 · a resposta dela
+  pop($('#sim'),t,57.85);pop($('#nao'),t,60.45);
+  $('#nao').style.boxShadow=`0 40px 90px rgba(0,0,0,.6),0 0 ${50*prog(t,61.2,.5)}px rgba(225,29,46,.3)`;
+  // 5 · o quadro maior
+  $('#graphite').style.opacity=eo(prog(t,66.8,.6))*(1-eo(prog(t,81.0,.6)));
+  const vd=eo(prog(t,70.6,.5));$('#vida').style.opacity=vd;$('#vida').style.transform=`translateY(${(1-vd)*30}px)`;
+  $$('#vida .chk').forEach(r=>{const q=prog(t,+r.dataset.at,.4);r.style.opacity=clamp(q*2);r.style.transform=`translateX(${(1-eo(q))*30}px)`});
+  // CTA
+  const fo=eo(prog(t,85.2,.5));$('#follow').style.opacity=fo;$('#follow').style.transform=`translateY(${(1-fo)*16}px) scale(${1+.04*Math.sin(Math.max(0,t-85.7)*4)})`;
+  $('#logo b').style.transform=`scale(${1+.04*Math.sin(t*3)})`;
+}
+window.render=t=>renderOld(warp(t));
+window.render(0);
+</script>
+</body>
+</html>

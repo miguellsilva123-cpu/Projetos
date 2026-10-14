@@ -1,396 +1,436 @@
 {
- "duration": 98.964,
+ "duration": 97.82,
  "warp": [
   [
    0.0,
    0.0
   ],
   [
-   0.6,
+   0.25,
    0.4
   ],
   [
-   4.72,
+   4.27,
    4.2
   ],
   [
-   5.59,
-   5.4
+   5.19,
+   5.2
   ],
   [
-   7.99,
-   7.2
+   7.73,
+   7.3
   ],
   [
-   10.503,
+   9.992,
    9.0
   ],
   [
-   12.843,
-   10.8
+   11.452,
+   10.6
   ],
   [
-   16.273,
+   14.832,
    13.4
   ],
   [
-   19.683,
+   18.222,
    16.0
   ],
   [
-   20.785,
+   19.299,
    17.6
   ],
   [
-   26.365,
+   22.209,
+   19.7
+  ],
+  [
+   24.234,
    22.4
   ],
   [
-   30.365,
-   25.2
+   25.934,
+   23.9
   ],
   [
-   33.324,
-   28.4
+   29.734,
+   26.6
   ],
   [
-   37.364,
-   31.6
+   32.593,
+   29.6
   ],
   [
-   41.766,
-   35.4
+   36.303,
+   32.6
   ],
   [
-   46.023,
+   38.788,
+   35.0
+  ],
+  [
+   40.258,
+   36.0
+  ],
+  [
+   43.165,
    39.2
   ],
   [
-   47.313,
-   40.4
+   44.705,
+   40.6
   ],
   [
-   49.253,
-   42.2
+   46.485,
+   42.0
   ],
   [
-   54.545,
+   48.085,
+   44.0
+  ],
+  [
+   50.538,
    47.0
   ],
   [
-   56.525,
+   52.518,
    48.6
   ],
   [
-   59.005,
+   54.998,
    50.8
   ],
   [
-   60.095,
+   56.088,
    52.2
   ],
   [
-   63.071,
+   59.064,
    55.0
   ],
   [
-   66.328,
-   57.8
+   64.404,
+   58.4
   ],
   [
-   69.308,
-   60.4
+   67.284,
+   61.0
   ],
   [
-   72.918,
-   64.0
+   71.174,
+   64.6
   ],
   [
-   76.211,
-   67.2
+   75.021,
+   68.2
   ],
   [
-   78.421,
-   69.2
+   78.521,
+   71.0
   ],
   [
-   80.441,
-   70.8
+   83.623,
+   75.6
   ],
   [
-   85.338,
-   75.2
+   86.463,
+   77.8
   ],
   [
-   88.278,
-   77.6
+   88.743,
+   79.6
   ],
   [
-   93.069,
+   91.925,
    82.0
   ],
   [
-   98.964,
+   97.82,
    88.0
   ]
  ],
  "phrases": [
   {
    "id": "b01",
-   "text": "Ela sempre fala: bora marcar! Mas nunca marca. Insisto ou desisto?",
+   "text": "Ela sempre fala: bora marcar sim! Mas nunca marca. Insisto ou desisto?",
    "old": 0.4,
-   "start": 0.6
+   "start": 0.25
   },
   {
    "id": "b02",
-   "text": "Para de insistir, cara.",
+   "text": "Nenhum dos dois.",
    "old": 4.2,
-   "start": 4.72
+   "start": 4.27
   },
   {
    "id": "b02",
-   "text": "E aproveita e para de convidar desse jeito.",
-   "old": 5.4,
-   "start": 5.59
+   "text": "Para de repetir o convite, e muda o convite.",
+   "old": 5.2,
+   "start": 5.19
   },
   {
    "id": "b02",
-   "text": "Porque assim, não vai sair nunca.",
-   "old": 7.2,
-   "start": 7.99
+   "text": "Do jeito que tá, não sai nunca.",
+   "old": 7.3,
+   "start": 7.73
   },
   {
    "id": "b03",
-   "text": "Deixa eu te mostrar o outro lado da tela.",
+   "text": "Agora olha do lado dela.",
    "old": 9.0,
-   "start": 10.503
+   "start": 9.992
   },
   {
    "id": "b03",
-   "text": "Essa semana ela ouviu bora marcar de três caras diferentes.",
-   "old": 10.8,
-   "start": 12.843
+   "text": "Essa semana, três caras diferentes já mandaram bora marcar.",
+   "old": 10.6,
+   "start": 11.452
   },
   {
    "id": "b03",
    "text": "A gente tem que se ver. Bora tomar algo qualquer dia.",
    "old": 13.4,
-   "start": 16.273
+   "start": 14.832
   },
   {
    "id": "b03",
    "text": "É tudo igual.",
    "old": 16.0,
-   "start": 19.683
+   "start": 18.222
   },
   {
    "id": "b04",
-   "text": "Pensa comigo: por que ela sairia com você, se o seu convite é igualzinho ao de todo mundo?",
+   "text": "Pensa: o que no seu convite faria ela lembrar de você,",
    "old": 17.6,
-   "start": 20.785
+   "start": 19.299
+  },
+  {
+   "id": "b04",
+   "text": "e não dos outros dois?",
+   "old": 19.7,
+   "start": 22.209
   },
   {
    "id": "b05",
-   "text": "Bora marcar algum dia é convite de quem não pensou nem dez segundos.",
+   "text": "Bora marcar algum dia não é convite.",
    "old": 22.4,
-   "start": 26.365
+   "start": 24.234
+  },
+  {
+   "id": "b05",
+   "text": "É uma ideia solta. E ideia solta, ninguém precisa recusar.",
+   "old": 23.9,
+   "start": 25.934
   },
   {
    "id": "b05",
    "text": "Não tem dia. Não tem lugar. Não tem plano.",
-   "old": 25.2,
-   "start": 30.365
+   "old": 26.6,
+   "start": 29.734
   },
   {
    "id": "b06",
-   "text": "É você querendo que ela organize um encontro que nem você organizou.",
-   "old": 28.4,
-   "start": 33.324
+   "text": "Você joga a ideia, e espera que ela monte o encontro sozinha.",
+   "old": 29.6,
+   "start": 32.593
   },
   {
    "id": "b06",
-   "text": "E ela não tem obrigação nenhuma de transformar o seu algum dia numa data.",
-   "old": 31.6,
-   "start": 37.364
+   "text": "E montar a sua agenda não é tarefa dela.",
+   "old": 32.6,
+   "start": 36.303
   },
   {
    "id": "b07",
-   "text": "Ela entende na hora: esse convite serviria pra qualquer uma.",
-   "old": 35.4,
-   "start": 41.766
+   "text": "E fica claro pra ela:",
+   "old": 35.0,
+   "start": 38.788
+  },
+  {
+   "id": "b07",
+   "text": "esse convite serviria pra qualquer uma.",
+   "old": 36.0,
+   "start": 40.258
   },
   {
    "id": "b08",
-   "text": "Agora vem a virada.",
+   "text": "Só que repara: ela sai, sim.",
    "old": 39.2,
-   "start": 46.023
+   "start": 43.165
   },
   {
    "id": "b08",
-   "text": "Não é que ela não sai com ninguém.",
-   "old": 40.4,
-   "start": 47.313
+   "text": "Só não sai com convite vago.",
+   "old": 40.6,
+   "start": 44.705
   },
   {
    "id": "b08",
-   "text": "Ela sai com quem chega com o convite pronto: dia, lugar, e um motivo que tem a ver com ela.",
-   "old": 42.2,
-   "start": 49.253
+   "text": "Ela topa quando o convite chega pronto:",
+   "old": 42.0,
+   "start": 46.485
+  },
+  {
+   "id": "b08",
+   "text": "um motivo, um lugar e um dia.",
+   "old": 44.0,
+   "start": 48.085
   },
   {
    "id": "b09",
    "text": "Você falou que ama café coado.",
    "old": 47.0,
-   "start": 54.545
+   "start": 50.538
   },
   {
    "id": "b09",
    "text": "Tem um lugar perto do seu trampo que é absurdo.",
    "old": 48.6,
-   "start": 56.525
+   "start": 52.518
   },
   {
    "id": "b09",
    "text": "Quinta, sete da noite?",
    "old": 50.8,
-   "start": 59.005
+   "start": 54.998
   },
   {
    "id": "b09",
    "text": "E se não der, me fala um dia bom pra você.",
    "old": 52.2,
-   "start": 60.095
+   "start": 56.088
   },
   {
    "id": "b10",
-   "text": "Um convite assim vale mais que cem bora marcar.",
+   "text": "Uma mensagem dessas resolve o que três meses de bora marcar não resolveram.",
    "old": 55.0,
-   "start": 63.071
+   "start": 59.064
   },
   {
    "id": "b11",
-   "text": "Se ela topa, ou sugere outro dia: tem interesse.",
-   "old": 57.8,
-   "start": 66.328
+   "text": "Se ela topa ou sugere outro dia: tem interesse.",
+   "old": 58.4,
+   "start": 64.404
   },
   {
    "id": "b11",
    "text": "Se ela foge de um convite concreto e não propõe nada: essa é a resposta.",
-   "old": 60.4,
-   "start": 69.308
+   "old": 61.0,
+   "start": 67.284
   },
   {
    "id": "b11",
-   "text": "Você não insiste, e nem some com raiva.",
-   "old": 64.0,
-   "start": 72.918
+   "text": "Aí você não insiste, nem some com raiva. Só segue.",
+   "old": 64.6,
+   "start": 71.174
   },
   {
    "id": "b12",
-   "text": "E o principal: o convite é só a porta.",
-   "old": 67.2,
-   "start": 76.211
+   "text": "E tem mais: convite bom não salva uma vida sem graça.",
+   "old": 68.2,
+   "start": 75.021
   },
   {
    "id": "b12",
-   "text": "Quem segura o encontro é a sua vida:",
-   "old": 69.2,
-   "start": 78.421
-  },
-  {
-   "id": "b12",
-   "text": "os lugares que você conhece, o que você gosta de fazer, a conversa que você tem.",
-   "old": 70.8,
-   "start": 80.441
+   "text": "Os lugares que você conhece, o que você faz no fim de semana, a conversa que você tem.",
+   "old": 71.0,
+   "start": 78.521
   },
   {
    "id": "b13",
-   "text": "Constrói isso, e chamar pra sair vira detalhe.",
-   "old": 75.2,
-   "start": 85.338
+   "text": "Cuida disso, e chamar pra sair vira detalhe.",
+   "old": 75.6,
+   "start": 83.623
   },
   {
    "id": "b13",
-   "text": "Tenha uma vida que dá vontade de fazer parte, e convida ela pra um pedaço dela.",
-   "old": 77.6,
-   "start": 88.278
+   "text": "Tenha uma vida que dá vontade de dividir,",
+   "old": 77.8,
+   "start": 86.463
+  },
+  {
+   "id": "b13",
+   "text": "e chama ela pra viver um pedaço disso com você.",
+   "old": 79.6,
+   "start": 88.743
   },
   {
    "id": "b14",
    "text": "Manda a sua pergunta nos comentários, que eu respondo no próximo vídeo.",
    "old": 82.0,
-   "start": 93.069
+   "start": 91.925
   }
  ],
  "blocks": [
   {
    "id": "b01",
-   "start": 0.6,
-   "dur": 3.62
+   "start": 0.25,
+   "dur": 3.87
   },
   {
    "id": "b02",
-   "start": 4.72,
-   "dur": 5.183
+   "start": 4.27,
+   "dur": 5.123
   },
   {
    "id": "b03",
-   "start": 10.503,
-   "dur": 9.782
+   "start": 9.992,
+   "dur": 8.807
   },
   {
    "id": "b04",
-   "start": 20.785,
-   "dur": 4.88
+   "start": 19.299,
+   "dur": 4.235
   },
   {
    "id": "b05",
-   "start": 26.365,
-   "dur": 6.559
+   "start": 24.234,
+   "dur": 7.959
   },
   {
    "id": "b06",
-   "start": 33.324,
-   "dur": 8.042
+   "start": 32.593,
+   "dur": 5.794
   },
   {
    "id": "b07",
-   "start": 41.766,
-   "dur": 3.457
+   "start": 38.788,
+   "dur": 3.577
   },
   {
    "id": "b08",
-   "start": 46.023,
-   "dur": 8.022
+   "start": 43.165,
+   "dur": 6.873
   },
   {
    "id": "b09",
-   "start": 54.545,
+   "start": 50.538,
    "dur": 8.026
   },
   {
    "id": "b10",
-   "start": 63.071,
-   "dur": 2.656
+   "start": 59.064,
+   "dur": 4.54
   },
   {
    "id": "b11",
-   "start": 66.328,
-   "dur": 9.183
+   "start": 64.404,
+   "dur": 9.817
   },
   {
    "id": "b12",
-   "start": 76.211,
-   "dur": 8.627
+   "start": 75.021,
+   "dur": 8.103
   },
   {
    "id": "b13",
-   "start": 85.338,
-   "dur": 7.131
+   "start": 83.623,
+   "dur": 7.702
   },
   {
    "id": "b14",
-   "start": 93.069,
+   "start": 91.925,
    "dur": 3.895
   }
  ]

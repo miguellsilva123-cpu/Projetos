@@ -175,6 +175,8 @@ def push(t0):
 
 # 1 · a caixinha e o gancho
 mx.place(sfx.pop(700, 1200), .1, .3)
+mx.place(sfx.pop(900, 1500), .95, .26)                                   # a mensagem dele
+mx.place(sfx.tick(2600, .04), 2.15, .2)                                   # Visto
 mx.place(sfx.whoosh(.7), 3.75, .25)
 mx.place(soft_hit(), 4.05, .45)
 mx.place(sfx.pop(800, 1300), 5.0, .3)
@@ -187,9 +189,9 @@ push(30.75)
 for w in (17.75, 24.55, 38.95, 47.85):
     wipe(w)
 # 2 · o celular acende e os foguinhos chegam
-mx.place(sfx.tick(2200, .05), 8.3, .3)
-NT, tt, g = [], 8.65, .34
-for i in range(20):
+mx.place(sfx.tick(2200, .05), 7.5, .3)
+NT, tt, g = [7.6], 8.65, .34
+for i in range(19):
     NT.append(tt)
     tt += g
     g = max(.055, g * .83)
@@ -216,9 +218,9 @@ for k in range(12):
     mx.place(sfx.tick(2600 + 90 * k, .03), 22.95 + (k % 5) * .07, .1, pan=rng.uniform(-.4, .4))
 mx.place(sweep_down(), 23.75, .4)
 # 5 · a iniciativa
+mx.place(sfx.whoosh(.45), 25.3, .2)
 for t0 in (26.6, 28.25):
-    mx.place(sfx.whoosh(.35), t0, .18)
-    mx.place(sfx.pop(900, 1500), t0 + .1, .26)
+    mx.place(sfx.pop(900, 1500), t0 + .05, .26)
 mx.place(sfx.plim(1760), 29.8, .25)
 # 6 · o exemplo
 mx.place(sfx.whoosh(.5), 32.6, .22)

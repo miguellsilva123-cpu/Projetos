@@ -1,0 +1,307 @@
+{
+ "duration": 61.454,
+ "warp": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.3,
+   0.3
+  ],
+  [
+   4.856,
+   4.0
+  ],
+  [
+   5.976,
+   5.0
+  ],
+  [
+   7.888,
+   6.6
+  ],
+  [
+   10.438,
+   8.6
+  ],
+  [
+   12.198,
+   10.8
+  ],
+  [
+   14.167,
+   13.0
+  ],
+  [
+   16.707,
+   15.2
+  ],
+  [
+   19.477,
+   18.0
+  ],
+  [
+   21.377,
+   20.4
+  ],
+  [
+   24.805,
+   22.8
+  ],
+  [
+   27.091,
+   25.0
+  ],
+  [
+   30.141,
+   26.6
+  ],
+  [
+   32.461,
+   28.3
+  ],
+  [
+   35.217,
+   31.0
+  ],
+  [
+   38.507,
+   33.0
+  ],
+  [
+   41.89,
+   36.4
+  ],
+  [
+   45.125,
+   39.4
+  ],
+  [
+   47.045,
+   41.2
+  ],
+  [
+   48.705,
+   42.8
+  ],
+  [
+   51.965,
+   46.0
+  ],
+  [
+   54.178,
+   48.4
+  ],
+  [
+   57.008,
+   51.0
+  ],
+  [
+   61.454,
+   57.5
+  ]
+ ],
+ "phrases": [
+  {
+   "id": "b01",
+   "text": "Eu mando foguinho no direct dela, e ela não responde. Devo desistir dela?",
+   "old": 0.3,
+   "start": 0.3
+  },
+  {
+   "id": "b02",
+   "text": "Não desiste dela.",
+   "old": 4.0,
+   "start": 4.856
+  },
+  {
+   "id": "b02",
+   "text": "Desiste do foguinho.",
+   "old": 5.0,
+   "start": 5.976
+  },
+  {
+   "id": "b03",
+   "text": "Foguinho é a mensagem mais fácil de mandar.",
+   "old": 6.6,
+   "start": 7.888
+  },
+  {
+   "id": "b03",
+   "text": "Por isso é a que ela mais recebe.",
+   "old": 8.6,
+   "start": 10.438
+  },
+  {
+   "id": "b03",
+   "text": "E é a primeira que ela esquece.",
+   "old": 10.8,
+   "start": 12.198
+  },
+  {
+   "id": "b04",
+   "text": "E foguinho não deixa nada pra ela responder.",
+   "old": 13.0,
+   "start": 14.167
+  },
+  {
+   "id": "b04",
+   "text": "Ou ela devolve outro emoji, ou ignora.",
+   "old": 15.2,
+   "start": 16.707
+  },
+  {
+   "id": "b05",
+   "text": "Então, antes de mandar, usa o filtro:",
+   "old": 18.0,
+   "start": 19.477
+  },
+  {
+   "id": "b05",
+   "text": "essa mensagem serviria pra qualquer outra mulher?",
+   "old": 20.4,
+   "start": 21.377
+  },
+  {
+   "id": "b06",
+   "text": "Se sim, você é invisível.",
+   "old": 22.8,
+   "start": 24.805
+  },
+  {
+   "id": "b07",
+   "text": "Pra passar no filtro, toma a iniciativa de verdade:",
+   "old": 25.0,
+   "start": 27.091
+  },
+  {
+   "id": "b07",
+   "text": "repara no que ela faz, não no corpo dela,",
+   "old": 26.6,
+   "start": 30.141
+  },
+  {
+   "id": "b07",
+   "text": "e pergunta algo que só ela sabe responder.",
+   "old": 28.3,
+   "start": 32.461
+  },
+  {
+   "id": "b08",
+   "text": "Ela postou o cachorro que destruiu o sofá. Manda assim:",
+   "old": 31.0,
+   "start": 35.217
+  },
+  {
+   "id": "b08",
+   "text": "Ele acabou com o sofá inteiro, ou sobrou alguma almofada?",
+   "old": 33.0,
+   "start": 38.507
+  },
+  {
+   "id": "b09",
+   "text": "Agora ela tem do que rir. E vocês têm assunto.",
+   "old": 36.4,
+   "start": 41.89
+  },
+  {
+   "id": "b10",
+   "text": "E se mesmo assim ela não responder?",
+   "old": 39.4,
+   "start": 45.125
+  },
+  {
+   "id": "b10",
+   "text": "Aí sim: segue a vida.",
+   "old": 41.2,
+   "start": 47.045
+  },
+  {
+   "id": "b11",
+   "text": "Uma mensagem boa. Nada de segundo foguinho, nada de sumiu.",
+   "old": 42.8,
+   "start": 48.705
+  },
+  {
+   "id": "b11",
+   "text": "Quem tem interesse, responde.",
+   "old": 46.0,
+   "start": 51.965
+  },
+  {
+   "id": "b12",
+   "text": "Agora é com você: ela postou um bolo que queimou.",
+   "old": 48.4,
+   "start": 54.178
+  },
+  {
+   "id": "b12",
+   "text": "Comenta o que você mandaria, que eu passo no filtro.",
+   "old": 51.0,
+   "start": 57.008
+  }
+ ],
+ "blocks": [
+  {
+   "id": "b01",
+   "start": 0.3,
+   "dur": 4.206
+  },
+  {
+   "id": "b02",
+   "start": 4.856,
+   "dur": 2.332
+  },
+  {
+   "id": "b03",
+   "start": 7.888,
+   "dur": 5.779
+  },
+  {
+   "id": "b04",
+   "start": 14.167,
+   "dur": 4.709
+  },
+  {
+   "id": "b05",
+   "start": 19.477,
+   "dur": 4.979
+  },
+  {
+   "id": "b06",
+   "start": 24.805,
+   "dur": 1.586
+  },
+  {
+   "id": "b07",
+   "start": 27.091,
+   "dur": 7.626
+  },
+  {
+   "id": "b08",
+   "start": 35.217,
+   "dur": 6.173
+  },
+  {
+   "id": "b09",
+   "start": 41.89,
+   "dur": 2.635
+  },
+  {
+   "id": "b10",
+   "start": 45.125,
+   "dur": 3.18
+  },
+  {
+   "id": "b11",
+   "start": 48.705,
+   "dur": 4.873
+  },
+  {
+   "id": "b12",
+   "start": 54.178,
+   "dur": 5.276
+  }
+ ]
+}

@@ -1,0 +1,287 @@
+{
+ "duration": 53.715,
+ "warp": [
+  [
+   0.0,
+   -1.6
+  ],
+  [
+   0.6,
+   -1.2
+  ],
+  [
+   1.793,
+   0.2
+  ],
+  [
+   3.443,
+   1.4
+  ],
+  [
+   4.183,
+   1.9
+  ],
+  [
+   4.503,
+   2.7
+  ],
+  [
+   4.843,
+   3.3
+  ],
+  [
+   6.186,
+   4.4
+  ],
+  [
+   10.175,
+   7.0
+  ],
+  [
+   13.225,
+   10.2
+  ],
+  [
+   16.145,
+   13.5
+  ],
+  [
+   17.305,
+   15.6
+  ],
+  [
+   20.585,
+   20.5
+  ],
+  [
+   24.475,
+   24.0
+  ],
+  [
+   26.924,
+   27.5
+  ],
+  [
+   28.654,
+   29.2
+  ],
+  [
+   31.214,
+   31.8
+  ],
+  [
+   33.542,
+   34.5
+  ],
+  [
+   35.942,
+   37.2
+  ],
+  [
+   38.963,
+   41.0
+  ],
+  [
+   42.043,
+   43.4
+  ],
+  [
+   43.915,
+   45.0
+  ],
+  [
+   48.535,
+   49.5
+  ],
+  [
+   53.715,
+   54.0
+  ]
+ ],
+ "phrases": [
+  {
+   "id": "b00",
+   "text": "Dia quatro.",
+   "old": -1.2,
+   "start": 0.6
+  },
+  {
+   "id": "b01",
+   "text": "Ela tava respondendo bem.",
+   "old": 0.2,
+   "start": 1.793
+  },
+  {
+   "id": "b01",
+   "text": "Do nada:",
+   "old": 1.4,
+   "start": 3.443
+  },
+  {
+   "id": "b01",
+   "text": "resposta curta,",
+   "old": 1.9,
+   "start": 4.183
+  },
+  {
+   "id": "b01",
+   "text": "demora,",
+   "old": 2.7,
+   "start": 4.503
+  },
+  {
+   "id": "b01",
+   "text": "e sumiu.",
+   "old": 3.3,
+   "start": 4.843
+  },
+  {
+   "id": "b02",
+   "text": "Quase sempre foi um dos cinco vacilos que eu te prometi ontem.",
+   "old": 4.4,
+   "start": 6.186
+  },
+  {
+   "id": "b03",
+   "text": "Um: puxar pro lado sexual antes de ela te conhecer.",
+   "old": 7.0,
+   "start": 10.175
+  },
+  {
+   "id": "b03",
+   "text": "Ela entende que você só quer uma coisa.",
+   "old": 10.2,
+   "start": 13.225
+  },
+  {
+   "id": "b04",
+   "text": "Dois: cobrar resposta.",
+   "old": 13.5,
+   "start": 16.145
+  },
+  {
+   "id": "b04",
+   "text": "Sumiu? transforma interesse em obrigação.",
+   "old": 15.6,
+   "start": 17.305
+  },
+  {
+   "id": "b05",
+   "text": "Três: mandar mensagem atrás de mensagem sem ela responder.",
+   "old": 20.5,
+   "start": 20.585
+  },
+  {
+   "id": "b05",
+   "text": "A ansiedade aparece no texto.",
+   "old": 24.0,
+   "start": 24.475
+  },
+  {
+   "id": "b06",
+   "text": "Quatro: falar só de você.",
+   "old": 27.5,
+   "start": 26.924
+  },
+  {
+   "id": "b06",
+   "text": "Se ela sai do encontro e você não sabe nada dela,",
+   "old": 29.2,
+   "start": 28.654
+  },
+  {
+   "id": "b06",
+   "text": "foi um monólogo, não um encontro.",
+   "old": 31.8,
+   "start": 31.214
+  },
+  {
+   "id": "b07",
+   "text": "Cinco: olhar o celular enquanto ela fala.",
+   "old": 34.5,
+   "start": 33.542
+  },
+  {
+   "id": "b07",
+   "text": "Ela percebe na hora que não é prioridade.",
+   "old": 37.2,
+   "start": 35.942
+  },
+  {
+   "id": "b08",
+   "text": "Se você se viu em algum, tudo bem. Todo mundo já fez.",
+   "old": 41.0,
+   "start": 38.963
+  },
+  {
+   "id": "b08",
+   "text": "O que importa é parar agora.",
+   "old": 43.4,
+   "start": 42.043
+  },
+  {
+   "id": "b09",
+   "text": "Missão de hoje: relê a última conversa que morreu e marca qual vacilo apareceu.",
+   "old": 45.0,
+   "start": 43.915
+  },
+  {
+   "id": "b09",
+   "text": "Amanhã, último dia: o que fazer quando bate o silêncio.",
+   "old": 49.5,
+   "start": 48.535
+  }
+ ],
+ "blocks": [
+  {
+   "id": "b00",
+   "start": 0.6,
+   "dur": 0.893
+  },
+  {
+   "id": "b01",
+   "start": 1.793,
+   "dur": 3.993
+  },
+  {
+   "id": "b02",
+   "start": 6.186,
+   "dur": 3.389
+  },
+  {
+   "id": "b03",
+   "start": 10.175,
+   "dur": 5.27
+  },
+  {
+   "id": "b04",
+   "start": 16.145,
+   "dur": 3.74
+  },
+  {
+   "id": "b05",
+   "start": 20.585,
+   "dur": 5.639
+  },
+  {
+   "id": "b06",
+   "start": 26.924,
+   "dur": 5.918
+  },
+  {
+   "id": "b07",
+   "start": 33.542,
+   "dur": 4.62
+  },
+  {
+   "id": "b08",
+   "start": 38.963,
+   "dur": 4.452
+  },
+  {
+   "id": "b09",
+   "start": 43.915,
+   "dur": 7.8
+  }
+ ]
+}

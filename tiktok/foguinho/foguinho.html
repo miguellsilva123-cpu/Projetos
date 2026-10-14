@@ -4,356 +4,440 @@
 <meta charset="utf-8">
 <title>O Protocolo — Desiste do foguinho</title>
 <style>
-@font-face{font-family:'Sora';src:url(../serie/fonts/sora.woff2) format('woff2');font-weight:100 800}
-@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair-italic.woff2) format('woff2');font-style:italic;font-weight:400 900}
-html,body{margin:0;background:#060607}
-#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#060607;font-family:'Sora',sans-serif;color:#F5F3F0}
-#mesh{position:absolute;inset:-200px;filter:blur(90px)}
-#mesh i{position:absolute;border-radius:50%;display:block}
-#embers{position:absolute;inset:0;pointer-events:none}
-#embers b{position:absolute;width:6px;height:6px;margin:-3px;border-radius:50%;background:#FF7A3D;box-shadow:0 0 12px 3px rgba(255,90,40,.6)}
-#grain{position:absolute;inset:0;width:1080px;height:1920px;opacity:.085;mix-blend-mode:overlay;image-rendering:pixelated}
-#vig{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 50% 48%,transparent 55%,rgba(0,0,0,.75) 100%);pointer-events:none}
-#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;mix-blend-mode:overlay}
-#world{position:absolute;inset:0;transform-origin:540px 960px}
-.sc{position:absolute;inset:0;opacity:0;transform-origin:540px 1000px}
-#logo{position:absolute;top:150px;left:64px;display:flex;align-items:center;gap:20px;font-size:22px;font-weight:600;letter-spacing:.32em;opacity:.9}
-#logo b{position:relative;width:34px;height:34px;box-sizing:border-box;border:3px solid #F5F3F0;border-radius:50%}
-#logo b::after{content:'';position:absolute;right:-6px;top:-6px;width:13px;height:13px;border-radius:50%;background:#E11D2E;box-shadow:0 0 14px rgba(225,29,46,.9)}
+@font-face{font-family:'Geist';src:url(fonts/geist.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:'Geist Mono';src:url(fonts/geist-mono.woff2) format('woff2');font-weight:100 900}
+:root{--paper:#F2EEE7;--ink:#0E1726;--ink2:#4B5565;--mute:#8E95A2;--line:rgba(14,23,38,.10);--co:#2443F0;--co2:#5B74FF;--cos:#E3E8FF;--mint:#0E9F7A;--mints:#DDF3EC}
+html,body{margin:0;background:var(--paper)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--paper);font-family:'Geist',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.emo{font-family:'Noto Color Emoji';font-weight:400;line-height:1;letter-spacing:0}
+.mono{font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:.14em}
+/* fundo: porcelana com luz suave */
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 95% 65% at 50% 38%,#FCFAF6 0%,#F2EEE7 58%,#E7E1D6 100%)}
+#blobs{position:absolute;inset:-200px;filter:blur(130px)}
+#blobs i{position:absolute;border-radius:50%;display:block}
+#hair{position:absolute;inset:0;pointer-events:none}
+#hair b{position:absolute;top:0;bottom:0;width:1px;background:rgba(14,23,38,.06)}
+#grain{position:absolute;inset:0;width:1080px;height:1920px;opacity:.07;mix-blend-mode:multiply;pointer-events:none}
+#world{position:absolute;inset:0;transform-origin:540px 1000px}
+.sc{position:absolute;inset:0;visibility:hidden}
+/* marca */
+#logo{position:absolute;top:150px;left:90px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;color:var(--ink);z-index:30}
+#logo b{position:relative;width:28px;height:28px;box-sizing:border-box;border:2.5px solid var(--ink);border-radius:50%}
+#logo b::after{content:'';position:absolute;right:-5px;top:-5px;width:11px;height:11px;border-radius:50%;background:var(--co)}
+/* capítulo */
+#chap{position:absolute;left:90px;top:476px;height:34px;width:700px;overflow:hidden;z-index:20}
+.chp{position:absolute;left:0;top:0;display:flex;align-items:center;gap:16px;font-size:22px;color:var(--ink2);white-space:nowrap}
+.chp b{color:var(--co);font-weight:600}
+.chp i{display:block;width:44px;height:2px;background:var(--co);transform-origin:0 50%}
 /* caixinha (igual à do reel de referência) */
-#box{position:absolute;left:120px;top:0;width:840px;transform-origin:50% 0;border-radius:34px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);z-index:6}
+#box{position:absolute;left:120px;top:0;width:840px;transform-origin:50% 0;border-radius:34px;overflow:hidden;box-shadow:0 40px 90px -20px rgba(14,23,38,.35),0 0 0 1px rgba(14,23,38,.06);z-index:40}
 #box .hd{background:#262626;color:#fff;font-size:30px;font-weight:600;text-align:center;padding:24px 30px}
 #box .bd{background:#fff;color:#4a4a4a;font-size:46px;line-height:1.3;text-align:center;padding:34px 46px 40px}
-.fire{display:inline-block;width:.95em;height:1.1em;vertical-align:-.18em}
 /* tipografia */
-.k{position:absolute;left:80px;right:80px;text-align:center}
-.h{font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.92}
-.s{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.01em}
-em{font-family:'Playfair Display',serif;font-style:italic;color:#FF3B3B;text-transform:none;letter-spacing:-.01em}
-.kw{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .02em .16em;margin-bottom:-.12em}
-.kl{display:inline-block;will-change:transform}
-.pd{display:inline-block;width:.16em;height:.16em;border-radius:50%;background:#FF3B3B;margin-left:.05em;box-shadow:0 0 .2em rgba(255,59,59,.9)}
-.lab{font-size:24px;font-weight:600;letter-spacing:.34em;color:#B8B4AE;text-transform:uppercase}
-/* vidro */
-.glass{position:absolute;box-sizing:border-box;border-radius:34px;background:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 50px 120px rgba(0,0,0,.55);backdrop-filter:blur(22px) saturate(140%)}
-/* celular 3D */
-.phone{position:absolute;box-sizing:border-box;border-radius:76px;background:#0B0B0D;border:14px solid #1D1D21;box-shadow:inset 0 0 0 2px #333,0 80px 160px rgba(0,0,0,.8),-30px 0 90px rgba(225,29,46,.18);overflow:hidden}
-.phone .isl{position:absolute;left:50%;top:16px;width:150px;height:42px;margin-left:-75px;border-radius:999px;background:#000;z-index:4}
-.phone .shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.10) 45%,transparent 55%);z-index:5;pointer-events:none}
-.row{display:flex;align-items:center;gap:18px;padding:16px 26px;border-bottom:1px solid rgba(255,255,255,.05)}
-.av{width:62px;height:62px;border-radius:50%;flex-shrink:0;position:relative}
-.av::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:3px solid transparent;background:linear-gradient(45deg,#FFB13D,#E11D2E,#B02AC9) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-.bub{display:inline-block;box-sizing:border-box;padding:18px 28px;border-radius:30px;font-size:34px;line-height:1.32}
-.me{background:linear-gradient(150deg,#FF4A3D,#C8102E);color:#fff;border-bottom-right-radius:8px;box-shadow:0 20px 50px rgba(225,29,46,.35)}
-.her{background:#2A2A2E;color:#F0F0F2;border-bottom-left-radius:8px}
-.chip{display:inline-flex;align-items:center;gap:14px;padding:16px 28px;border-radius:999px;font-size:30px;font-weight:600}
-.mono{font-family:'Sora',sans-serif;font-weight:500;letter-spacing:.06em}
-#glitch{position:absolute;inset:0;pointer-events:none}
+.hl{position:absolute;left:90px;right:90px;top:535px;font-weight:700;font-size:76px;line-height:1.04;letter-spacing:-.045em}
+.w{display:inline-block;will-change:transform,filter,opacity}
+mark{background:none;color:inherit;position:relative;display:inline-block;padding:0 .12em;margin:0 -.06em;z-index:0}
+mark::before{content:'';position:absolute;left:0;right:0;top:.12em;bottom:.02em;background:var(--co);border-radius:.14em;transform:scaleX(var(--p,0));transform-origin:0 50%;z-index:-1}
+mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#fff;white-space:nowrap;clip-path:inset(0 100% 0 0)}
+/* superfícies */
+.card{position:absolute;box-sizing:border-box;background:#fff;border-radius:44px;box-shadow:0 1px 0 #fff inset,0 50px 100px -30px rgba(14,23,38,.28),0 14px 34px -14px rgba(14,23,38,.14),0 0 0 1px rgba(14,23,38,.05)}
+.photo{position:absolute;overflow:hidden;border-radius:44px;background:#d9d3c9;box-shadow:0 60px 120px -30px rgba(14,23,38,.38),0 18px 40px -16px rgba(14,23,38,.2)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
+.sheen{position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);pointer-events:none}
+/* iPhone em titânio claro */
+.phone{position:absolute;border-radius:100px;background:linear-gradient(140deg,#F5F3EF 0%,#C8C2B9 16%,#EEEBE6 38%,#B4AEA5 72%,#E8E4DE 100%);box-shadow:0 90px 150px -40px rgba(14,23,38,.42),0 30px 60px -24px rgba(14,23,38,.28),inset 0 0 0 1.5px rgba(255,255,255,.8),inset 0 0 0 5px rgba(118,112,103,.35)}
+.phone .scr{position:absolute;inset:16px;border-radius:86px;overflow:hidden;background:#000}
+.phone .isl{position:absolute;left:50%;top:22px;width:168px;height:48px;margin-left:-84px;border-radius:999px;background:#000;z-index:9}
+.phone .gl{position:absolute;inset:16px;border-radius:86px;background:linear-gradient(125deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 28%);z-index:10;pointer-events:none}
+.phone .bt{position:absolute;width:7px;border-radius:4px;background:linear-gradient(90deg,#9E978D,#D8D3CC)}
+/* notificação do iOS (material claro) */
+.nt{position:absolute;left:0;right:0;top:0;box-sizing:border-box;display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:38px;background:rgba(244,242,238,.80);backdrop-filter:blur(22px) saturate(180%);box-shadow:0 12px 30px rgba(0,0,0,.20);color:#111}
+.nt .tx{flex:1;min-width:0}
+.nt .hd{display:flex;justify-content:space-between;align-items:baseline}
+.nt .hd b{font-size:27px;font-weight:650}
+.nt .hd span{font-size:21px;color:#6E6E73}
+.nt .ms{font-size:30px;margin-top:3px}
+/* Instagram (modo claro) */
+.av{border-radius:50%;flex-shrink:0;position:relative}
+.ring::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:3px solid transparent;background:linear-gradient(45deg,#FFC24A,#F2683C,#C837AB) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.igbub{display:inline-block;box-sizing:border-box;padding:20px 30px;border-radius:40px;font-size:32px;line-height:1.3}
+.out{background:linear-gradient(160deg,#6A4CF5,#3D7BF6);color:#fff}
+.in{background:#EFEFF1;color:#111}
+.pill{display:inline-flex;align-items:center;gap:14px;box-sizing:border-box;border-radius:999px;white-space:nowrap}
+/* transição de capítulo */
+.wp{position:absolute;inset:0;z-index:35;transform:translateY(100%)}
+#wpA{background:#9AAAFF}
+#wpB{background:linear-gradient(170deg,#2E4CF6,#1B34D6);color:#fff;overflow:hidden}
+#wpB .num{position:absolute;left:84px;top:700px;font-size:300px;font-weight:200;letter-spacing:-.06em;line-height:1}
+#wpB .tit{position:absolute;left:96px;top:1030px;font-size:96px;font-weight:650;letter-spacing:-.04em}
+#wpB .lab{position:absolute;left:100px;top:650px;font-size:24px;opacity:.75}
+#wpB .rule{position:absolute;left:100px;top:1160px;width:880px;height:2px;background:rgba(255,255,255,.35);transform-origin:0 50%}
 </style>
 </head>
 <body>
 <div id="stage">
-  <div id="mesh"><i id="m1"></i><i id="m2"></i><i id="m3"></i><i id="m4"></i></div>
-  <div id="embers"></div>
+  <div id="bg"></div>
+  <div id="blobs"><i id="b1"></i><i id="b2"></i><i id="b3"></i></div>
+  <div id="hair"><b style="left:64px"></b><b style="left:1015px"></b></div>
+
   <div id="world">
 
     <!-- 1 · gancho -->
     <div class="sc" id="s1">
-      <div id="bg1" style="position:absolute;inset:-40px;background:url(fotos/mao-celular.jpg) center/cover"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,7,.55),rgba(6,6,7,.25) 40%,rgba(6,6,7,.85))"></div>
-      <div class="k h" data-k="4.15" style="top:620px;font-size:112px">não desiste dela<span class="pd"></span></div>
-      <div class="k s" data-k="5.05" style="top:880px;font-size:120px;line-height:1">desiste do</div>
-      <div id="bigfire" style="position:absolute;left:400px;top:1040px;width:280px;height:320px"></div>
-      <svg id="cross" style="position:absolute;left:350px;top:1010px" width="380" height="380" viewBox="0 0 100 100" fill="none" stroke="#FF3B3B" stroke-width="5" stroke-linecap="round"><path class="draw" data-start="5.55" data-dur=".3" pathLength="1" d="M12 12L88 88"></path></svg>
-      <div id="smoke" style="position:absolute;left:340px;top:820px;width:400px;height:400px;opacity:0"></div>
+      <div class="photo" id="ph1"><img src="fotos/mao-dia-hd.jpg" alt="" id="im1"><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,23,38,.0) 55%,rgba(14,23,38,.25))"></div><div class="sheen" id="sh1"></div></div>
+      <div class="hl" data-in="4.05" style="top:540px;font-size:96px">Não desiste dela.</div>
+      <div class="hl" data-in="5.0" style="top:648px;font-size:96px">Desiste do <span id="pill1" style="display:inline-block;position:relative;padding:4px 22px 10px;border-radius:30px;background:var(--cos);vertical-align:-.04em"><span class="emo" id="fire1" style="display:inline-block;font-size:84px">🔥</span><span id="smoke1" style="position:absolute;left:50%;top:10px"></span></span></div>
     </div>
 
-    <!-- 2 · o celular dela: bloqueado, acende e as notificações chegam -->
+    <!-- 2 · o celular dela: bloqueado, acende e os foguinhos chegam -->
     <div class="sc" id="s2">
-      <div class="phone" id="ph2" style="left:310px;top:550px;width:460px;height:830px;border-radius:66px;border-width:12px">
-        <img src="../serie/fotos/cachorro-sofa.jpg" alt="" id="wall" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 35%,rgba(0,0,0,.25) 60%,rgba(0,0,0,.55))"></div>
-        <div class="isl" style="width:120px;height:34px;margin-left:-60px;top:14px"></div>
-        <svg style="position:absolute;left:50%;top:66px;margin-left:-11px" width="22" height="28" viewBox="0 0 22 28" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3" y="12" width="16" height="13" rx="3" fill="#fff" stroke="none"/><path d="M6.5 12V8a4.5 4.5 0 0 1 9 0v4"/></svg>
-        <div style="position:absolute;left:0;right:0;top:104px;text-align:center;font-size:21px;font-weight:600;color:rgba(255,255,255,.92)">terça-feira, 14 de outubro</div>
-        <div style="position:absolute;left:0;right:0;top:128px;text-align:center;font-size:128px;font-weight:600;letter-spacing:-.04em;color:rgba(255,255,255,.95);line-height:1.05">21:47</div>
-        <div id="notifs" style="position:absolute;left:14px;right:14px;top:330px"></div>
-        <div style="position:absolute;left:34px;bottom:44px;width:62px;height:62px;border-radius:50%;background:rgba(40,40,44,.55);backdrop-filter:blur(10px)"></div>
-        <div style="position:absolute;right:34px;bottom:44px;width:62px;height:62px;border-radius:50%;background:rgba(40,40,44,.55);backdrop-filter:blur(10px)"></div>
-        <div style="position:absolute;left:50%;bottom:14px;width:150px;height:6px;margin-left:-75px;border-radius:3px;background:rgba(255,255,255,.85)"></div>
-        <div id="off" style="position:absolute;inset:0;background:#000"></div>
-        <div class="shine"></div>
+      <div class="hl" data-in="6.65" data-out="8.45">A mensagem mais <mark data-at="7.5">fácil</mark> de mandar.</div>
+      <div class="hl" data-in="8.62" data-out="10.7">É a que ela <mark data-at="9.3">mais recebe</mark>.</div>
+      <div class="hl" data-in="10.82">E a primeira que ela <mark data-at="11.5">esquece</mark>.</div>
+      <div class="phone" id="ph2" style="left:240px;top:722px;width:600px;height:1240px">
+        <div class="bt" style="left:-5px;top:230px;height:60px"></div><div class="bt" style="left:-5px;top:330px;height:110px"></div><div class="bt" style="left:-5px;top:460px;height:110px"></div><div class="bt" style="right:-5px;top:360px;height:170px"></div>
+        <div class="scr">
+          <img src="../serie/fotos/cachorro-sofa.jpg" alt="" id="wall2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,0) 32%,rgba(0,0,0,.08) 60%,rgba(0,0,0,.35))"></div>
+          <svg style="position:absolute;left:50%;top:84px;margin-left:-13px" width="26" height="32" viewBox="0 0 22 28" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3" y="12" width="16" height="13" rx="3" fill="#fff" stroke="none"/><path d="M6.5 12V8a4.5 4.5 0 0 1 9 0v4"/></svg>
+          <div style="position:absolute;left:0;right:0;top:126px;text-align:center;font-size:27px;font-weight:600;color:rgba(255,255,255,.92)">terça-feira, 14 de outubro</div>
+          <div style="position:absolute;left:0;right:0;top:152px;text-align:center;font-size:150px;font-weight:600;letter-spacing:-.04em;color:rgba(255,255,255,.94);line-height:1.02">21:47</div>
+          <div id="notifs" style="position:absolute;left:16px;right:16px;top:318px"></div>
+          <div id="off2" style="position:absolute;inset:0;background:#050505"></div>
+        </div>
+        <div class="isl"></div><div class="gl"></div>
       </div>
-      <div class="k h" id="s2t1" data-k="6.75" style="top:1410px;font-size:92px">a mais fácil<span class="pd"></span></div>
-      <div class="k s" data-k="10.9" style="top:1505px;font-size:60px">e a primeira que ela <em>esquece</em><span class="pd"></span></div>
+      <div class="card pill" id="cnt2" style="left:70px;top:1000px;padding:16px 28px 16px 22px;border-radius:30px;z-index:5"><span class="emo" style="font-size:46px">🔥</span><span style="font-family:'Geist Mono';font-size:30px;color:var(--mute)">×</span><span id="cntn" style="font-family:'Geist Mono';font-size:52px;font-weight:600;letter-spacing:-.02em;min-width:64px">0</span></div>
     </div>
 
     <!-- 3 · nada pra responder -->
     <div class="sc" id="s3">
-      <div class="k h" data-k="13.1" style="top:560px;font-size:100px">nada pra</div>
-      <div class="k s" data-k="13.55" style="top:660px;font-size:110px;line-height:1"><em>responder</em><span class="pd"></span></div>
-      <div id="fbub" style="position:absolute;right:150px;top:860px;transform-origin:right bottom"><div class="bub me" style="padding:30px 44px;border-radius:50px;border-bottom-right-radius:12px"><span id="fbfire"></span></div></div>
-      <div id="seen" style="position:absolute;right:160px;top:1075px;font-size:30px;color:#B8B4AE;opacity:0">Visto</div>
-      <div class="glass" id="reply" style="left:110px;top:1150px;width:860px;height:110px;border-radius:999px;display:flex;align-items:center;padding:0 40px;font-size:34px;color:#8E8A86">
-        <span id="rcaret" style="display:inline-block;width:3px;height:44px;background:#FF3B3B;margin-right:14px"></span>Responder…
+      <div class="hl" data-in="13.05">Não deixa nada pra ela <mark data-at="13.9">responder</mark>.</div>
+      <div class="card" id="dm3" style="left:90px;top:740px;width:900px;height:430px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:20px;padding:24px 34px;border-bottom:1px solid #EFEFEF">
+          <svg width="22" height="38" viewBox="0 0 12 20" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg>
+          <div class="av" style="width:64px;height:64px;background:linear-gradient(135deg,#9FB0C8,#4E5D78)"></div>
+          <div style="flex:1"><div style="font-size:30px;font-weight:650">lucas_m</div><div style="font-size:22px;color:#737373">lucas</div></div>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3"/></svg>
+        </div>
+        <div style="position:relative;height:198px">
+          <div class="mono" style="position:absolute;left:0;right:0;top:16px;text-align:center;font-size:19px;color:#9A9A9F">hoje 21:47</div>
+          <div style="position:absolute;left:34px;top:62px;display:flex;align-items:flex-end;gap:16px"><div class="av" style="width:46px;height:46px;background:linear-gradient(135deg,#9FB0C8,#4E5D78)"></div><span class="emo" id="fb3" style="display:inline-block;font-size:104px;transform-origin:0 100%">🔥</span></div>
+        </div>
+        <div style="position:absolute;left:28px;right:28px;bottom:24px;height:86px;border-radius:999px;background:#EFEFF1;display:flex;align-items:center;gap:18px;padding:0 12px">
+          <div style="width:64px;height:64px;border-radius:50%;background:#3797F0;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+          <span id="car3" style="display:inline-block;width:3px;height:38px;background:#3797F0"></span><span style="flex:1;font-size:29px;color:#8E8E93;margin-left:-12px">Mensagem…</span>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="9" r="2"/><path d="M21 16l-5-5-9 10"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" style="margin-right:14px"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0"/><circle cx="9" cy="10" r=".6" fill="#111"/><circle cx="15" cy="10" r=".6" fill="#111"/></svg>
+        </div>
       </div>
-      <div id="opts" style="position:absolute;left:0;right:0;top:1310px;display:flex;justify-content:center;gap:24px">
-        <div class="chip glass" id="o1" style="position:relative">devolve um emoji</div>
-        <div class="chip glass" id="o2" style="position:relative">ignora</div>
-      </div>
+      <svg id="br3" style="position:absolute;left:0;top:1170px" width="1080" height="130" viewBox="0 0 1080 130" fill="none" stroke="rgba(14,23,38,.28)" stroke-width="3" stroke-linecap="round">
+        <path class="draw" data-start="15.25" data-dur=".45" pathLength="1" d="M540 0V40C540 70 520 80 480 80H340C310 80 300 95 300 125"/>
+        <path class="draw" data-start="15.55" data-dur=".45" pathLength="1" d="M540 40C540 70 560 80 600 80H740C770 80 780 95 780 125"/>
+      </svg>
+      <div class="card" id="o3a" style="left:110px;top:1300px;width:390px;height:118px;border-radius:32px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:34px;font-weight:600">devolve <span class="emo" style="font-size:40px">🔥</span></div>
+      <div class="card" id="o3b" style="left:585px;top:1300px;width:390px;height:118px;border-radius:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;font-weight:600">ignora<span style="font-size:21px;font-weight:400;color:#8E8E93;margin-top:4px">Visto às 21:48</span></div>
+      <div class="mono" id="cap3" style="position:absolute;left:90px;right:90px;top:1446px;text-align:center;font-size:22px;color:var(--ink2)">nenhum dos dois vira assunto</div>
     </div>
 
     <!-- 4 · o filtro -->
     <div class="sc" id="s4">
-      <div class="k s" data-k="20.45" style="top:560px;font-size:72px;line-height:1.1">serviria pra <em>qualquer outra</em>?</div>
-      <div class="glass" id="filtro" style="left:110px;top:690px;width:860px;height:650px;padding:36px 46px">
-        <div style="display:flex;align-items:center;justify-content:space-between"><div class="lab" style="color:#FF3B3B">● filtro de mensagem</div><div class="lab" id="fstat">pronto</div></div>
-        <div id="slot" style="position:relative;margin-top:26px;height:210px;border-radius:26px;background:rgba(0,0,0,.35);border:1.5px dashed rgba(255,255,255,.16);overflow:hidden">
-          <div id="grid" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,59,59,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,59,59,.12) 1px,transparent 1px);background-size:32px 32px;opacity:0"></div>
-          <div id="smsg" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)"><div class="bub me" style="padding:24px 40px;border-radius:44px"><span id="sfire"></span></div></div>
-          <div id="laser" style="position:absolute;left:0;right:0;height:4px;background:#FF3B3B;box-shadow:0 0 24px 8px rgba(255,59,59,.6),0 0 80px 20px rgba(255,59,59,.25);opacity:0"></div>
+      <div class="hl" data-in="18.1" data-out="22.62">Antes de mandar, usa o <mark data-at="19.4">filtro</mark>.</div>
+      <div class="hl" data-in="22.85">Se sim, você é</div>
+      <div class="card" id="flt" style="left:90px;top:730px;width:900px;height:640px;padding:36px 40px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div class="mono" style="font-size:22px;color:var(--ink);display:flex;align-items:center;gap:12px"><i style="display:block;width:14px;height:14px;border-radius:4px;background:var(--co)"></i>filtro</div><div class="mono" id="fst" style="font-size:20px;color:var(--mute)">pronto</div></div>
+        <div id="fld" style="position:relative;margin-top:26px;height:132px;border-radius:30px;background:#F5F2EC;display:flex;align-items:center;justify-content:space-between;padding:0 34px;overflow:hidden">
+          <span class="mono" style="font-size:20px;color:var(--mute)">sua mensagem</span><span class="emo" id="fe4" style="font-size:78px">🔥</span>
+          <div id="scan4" style="position:absolute;top:0;bottom:0;width:180px;background:linear-gradient(90deg,rgba(36,67,240,0),rgba(36,67,240,.22) 70%,rgba(36,67,240,.9) 98%,rgba(36,67,240,0));left:-200px"></div>
         </div>
-        <div id="read" class="mono" style="margin-top:30px;display:flex;flex-direction:column;gap:18px;font-size:32px">
-          <div class="rd" data-at="20.95" style="display:flex;justify-content:space-between"><span style="color:#B8B4AE">detalhe dela</span><b>0</b></div>
-          <div class="rd" data-at="21.4" style="display:flex;justify-content:space-between"><span style="color:#B8B4AE">pergunta</span><b>0</b></div>
-          <div class="rd" data-at="21.85" style="display:flex;justify-content:space-between"><span style="color:#B8B4AE">serve pra qualquer uma</span><b style="color:#FF3B3B">SIM</b></div>
+        <div id="q4" data-in="20.45" style="margin-top:34px;font-size:46px;font-weight:650;line-height:1.14;letter-spacing:-.03em">Essa mensagem serviria pra qualquer outra mulher?</div>
+        <div style="display:flex;gap:20px;margin-top:34px">
+          <div id="yes4" style="position:relative;flex:1;height:118px;border-radius:30px;border:2px solid rgba(14,23,38,.12);display:flex;align-items:center;justify-content:center;gap:14px;font-size:42px;font-weight:600;overflow:hidden"><svg id="ck4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path class="draw" data-start="22.62" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>Sim</div>
+          <div id="no4" style="flex:1;height:118px;border-radius:30px;border:2px solid rgba(14,23,38,.12);display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:600">Não</div>
         </div>
       </div>
-      <div class="k h" id="invis" style="top:1380px;font-size:130px;opacity:0">invisível<span class="pd"></span></div>
+      <div id="tap4" style="position:absolute;left:0;top:0;width:76px;height:76px;margin:-38px;border-radius:50%;background:rgba(14,23,38,.22);border:3px solid rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(14,23,38,.25);opacity:0;z-index:4"></div>
+      <div id="crowd" style="position:absolute;left:90px;top:740px;width:900px"></div>
+      <div id="inv4" style="position:absolute;left:84px;top:1205px;font-size:172px;font-weight:800;letter-spacing:-.055em;line-height:1">invisível.</div>
     </div>
 
     <!-- 5 · o que passa no filtro -->
     <div class="sc" id="s5">
-      <div class="k s" data-k="25.05" style="top:560px;font-size:84px">toma a <em>iniciativa</em><span class="pd"></span></div>
-      <div class="glass" id="c1" style="left:110px;top:740px;width:860px;padding:44px 50px;display:flex;align-items:center;gap:40px">
-        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#F5F3F0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="26.7" pathLength="1" d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle class="draw" data-start="26.95" pathLength="1" cx="12" cy="12" r="3"></circle></svg>
-        <div><div class="wnum" data-at="26.6" style="font-size:96px;line-height:.9;font-weight:200">1 detalhe</div><div style="font-size:36px;color:#C9C5BF;margin-top:12px">do que ela faz, não do corpo</div></div>
+      <div class="hl" data-in="24.98">Pra passar: toma a <mark data-at="25.9">iniciativa</mark>.</div>
+      <div class="card" id="c51" style="left:90px;top:745px;width:900px;height:300px;padding:44px 48px 0 46px">
+        <div style="position:absolute;left:46px;top:30px;font-size:210px;font-weight:200;line-height:1;color:var(--co);letter-spacing:-.06em">1</div>
+        <div style="margin-left:170px"><div data-in="26.7" style="font-size:52px;font-weight:680;letter-spacing:-.035em;line-height:1.08">Repara no que ela faz,</div><div data-in="27.55" style="margin-top:14px;font-size:40px;color:var(--ink2);letter-spacing:-.02em">não no corpo dela.</div></div>
+        <svg style="position:absolute;right:44px;bottom:40px" width="66" height="66" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="26.8" pathLength="1" d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle class="draw" data-start="27.05" pathLength="1" cx="12" cy="12" r="3"/></svg>
       </div>
-      <div id="plus" style="position:absolute;left:0;right:0;top:1020px;text-align:center;font-size:120px;font-weight:200;color:#FF3B3B;line-height:1">+</div>
-      <div class="glass" id="c2" style="left:110px;top:1160px;width:860px;padding:44px 50px;display:flex;align-items:center;gap:40px">
-        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#F5F3F0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="28.4" pathLength="1" d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path class="draw" data-start="28.65" pathLength="1" d="M10.5 9.5a1.7 1.7 0 1 1 2.6 1.4c-.6.4-1.1.8-1.1 1.6M12 15h.01"></path></svg>
-        <div><div class="wnum" data-at="28.3" style="font-size:96px;line-height:.9;font-weight:200">1 pergunta</div><div style="font-size:36px;color:#C9C5BF;margin-top:12px">que só ela sabe responder</div></div>
+      <div class="card" id="c52" style="left:90px;top:1075px;width:900px;height:300px;padding:44px 48px 0 46px">
+        <div style="position:absolute;left:46px;top:30px;font-size:210px;font-weight:200;line-height:1;color:var(--co);letter-spacing:-.06em">2</div>
+        <div style="margin-left:170px"><div data-in="28.35" style="font-size:52px;font-weight:680;letter-spacing:-.035em;line-height:1.08">Pergunta algo</div><div data-in="28.75" style="margin-top:14px;font-size:40px;color:var(--ink2);letter-spacing:-.02em">que só ela sabe responder.</div></div>
+        <svg style="position:absolute;right:44px;bottom:40px" width="66" height="66" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="28.5" pathLength="1" d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path class="draw" data-start="28.8" pathLength="1" d="M10.3 9.6a1.8 1.8 0 1 1 2.7 1.5c-.6.4-1 .8-1 1.5M12 15.2h.01"/></svg>
       </div>
+      <div class="pill mono" id="sum5" style="position:absolute;left:90px;top:1408px;padding:18px 30px;background:var(--mints);color:#0B6E55;font-size:22px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0E9F7A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="29.8" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>detalhe + pergunta = passa no filtro</div>
     </div>
 
     <!-- 6 · o exemplo -->
     <div class="sc" id="s6">
-      <div class="phone" id="ph6" style="left:270px;top:540px;width:540px;height:840px">
-        <img src="../serie/fotos/cachorro-sofa.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" id="dog">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 20%,transparent 62%,rgba(0,0,0,.65))"></div>
-        <div class="isl"></div>
-        <div style="position:absolute;left:22px;right:22px;top:74px;display:flex;gap:8px"><i style="flex:1;height:6px;border-radius:3px;background:#fff"></i><i style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.4)"></i></div>
-        <div style="position:absolute;left:24px;top:98px;display:flex;align-items:center;gap:14px;font-size:26px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.6)"><div class="av" style="width:52px;height:52px;background:linear-gradient(135deg,#f3b3a6,#7d3a4e)"></div>carol.m <span style="font-weight:400;opacity:.8">2 h</span></div>
-        <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) rotate(-6deg);padding:16px 30px;border-radius:16px;background:#fff;color:#111;font-size:40px;font-weight:800;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.4)">RIP sofá</div>
-        <div id="sreply" style="position:absolute;left:22px;right:22px;bottom:30px;min-height:76px;box-sizing:border-box;border-radius:40px;border:2px solid rgba(255,255,255,.85);display:flex;align-items:center;padding:14px 26px;font-size:28px;line-height:1.3;background:rgba(0,0,0,.3)"><span id="stx"></span><span id="scar" style="display:inline-block;width:3px;height:34px;background:#fff;margin-left:3px"></span><span id="shint" style="opacity:.8">Responder a carol.m…</span></div>
-        <div class="shine"></div>
+      <div class="hl" data-in="31.05" data-out="32.3">Ela postou o cachorro que destruiu o sofá.</div>
+      <div class="hl" data-in="32.45" data-out="36.25">Manda <mark data-at="32.9">assim</mark>:</div>
+      <div class="hl" data-in="36.45" data-out="37.6">Agora ela tem do que <mark data-at="37.0">rir</mark>.</div>
+      <div class="hl" data-in="37.72">E vocês têm <mark data-at="38.2">assunto</mark>.</div>
+      <div class="card" id="dm6" style="left:90px;top:700px;width:900px;height:770px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:20px;padding:24px 34px;border-bottom:1px solid #EFEFEF">
+          <svg width="22" height="38" viewBox="0 0 12 20" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg>
+          <div class="av ring" style="width:64px;height:64px;background:linear-gradient(135deg,#E9C8A8,#9C6B4E)"></div>
+          <div style="flex:1"><div style="font-size:30px;font-weight:650">carol.m</div><div style="font-size:22px;color:#737373">Carolina</div></div>
+        </div>
+        <div style="position:absolute;right:40px;top:132px;font-size:22px;color:#8E8E93">Você respondeu ao story dela</div>
+        <div id="bub6" class="igbub out" style="position:absolute;right:40px;top:500px;max-width:620px;border-bottom-right-radius:12px"><span id="tx6"></span><span id="car6" style="display:inline-block;width:3px;height:36px;background:#fff;margin-left:3px;vertical-align:-6px"></span></div>
+        <div class="pill" id="ok6" style="position:absolute;right:40px;top:690px;padding:12px 22px;background:var(--mints);color:#0B6E55;font-size:23px;font-weight:600"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E9F7A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="35.95" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>passou no filtro: só serve pra ela</div>
       </div>
-      <div class="chip" id="pass" style="position:absolute;left:50%;top:1398px;transform:translateX(-50%);background:#F5F3F0;color:#111;opacity:0;white-space:nowrap"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E11D2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="36.25" data-dur=".35" pathLength="1" d="M4 12l5 5L20 6"></path></svg>passou no filtro: só serve pra ela</div>
-      <div id="herrep" style="position:absolute;left:90px;top:1300px;max-width:900px;transform-origin:left bottom;opacity:0"><div class="bub her" style="font-size:34px">KKKKK sobrou UMA. e ele tá deitado nela agora</div></div>
-      <div class="k s" data-k="37.4" style="top:1490px;font-size:62px">agora vocês têm <em>assunto</em><span class="pd"></span></div>
+      <div class="photo" id="st6" style="left:250px;top:720px;width:580px;height:740px;border-radius:40px">
+        <img src="../serie/fotos/cachorro-sofa.jpg" alt="" id="im6" style="object-position:50% 55%">
+        <div id="ui6" style="position:absolute;inset:0">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),transparent 22%,transparent 70%,rgba(0,0,0,.5))"></div>
+          <div style="position:absolute;left:22px;right:22px;top:20px;display:flex;gap:8px"><i style="flex:1;height:5px;border-radius:3px;background:#fff"></i><i style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.45)"></i></div>
+          <div style="position:absolute;left:24px;top:44px;display:flex;align-items:center;gap:14px;font-size:26px;font-weight:650;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5)"><div class="av" style="width:50px;height:50px;background:linear-gradient(135deg,#E9C8A8,#9C6B4E);border:2px solid #fff"></div>carol.m <span style="font-weight:400;opacity:.85">2 h</span></div>
+          <div style="position:absolute;left:24px;right:24px;bottom:24px;height:74px;box-sizing:border-box;border-radius:999px;border:2px solid rgba(255,255,255,.85);display:flex;align-items:center;padding:0 28px;font-size:26px;color:#fff">Enviar mensagem</div>
+        </div>
+        <div id="stk6" style="position:absolute;left:50%;top:26%;transform:translate(-50%,-50%) rotate(-6deg);padding:14px 28px;border-radius:16px;background:#fff;color:#111;font-size:40px;font-weight:800;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.3)">RIP sofá</div>
+      </div>
+      <div class="photo" id="her6" style="left:150px;top:700px;width:780px;height:720px"><img src="fotos/ela-rindo-hd.jpg" alt="" id="im6b" style="object-position:40% 30%"><div class="sheen" id="sh6"></div></div>
+      <div id="rep6" style="position:absolute;left:96px;top:1290px;display:flex;align-items:flex-end;gap:14px;transform-origin:0 100%"><div class="av ring" style="width:56px;height:56px;background:linear-gradient(135deg,#E9C8A8,#9C6B4E)"></div><div class="igbub in" style="max-width:700px;border-bottom-left-radius:12px;box-shadow:0 20px 50px -10px rgba(14,23,38,.25);background:#fff">KKKKK sobrou UMA. e ele tá deitado nela agora</div></div>
+      <div id="dots6" style="position:absolute;left:166px;top:1440px;padding:20px 26px;border-radius:36px;background:#fff;display:flex;gap:10px;box-shadow:0 14px 34px -10px rgba(14,23,38,.25)"><i style="width:14px;height:14px;border-radius:50%;background:#9A9AA0;display:block"></i><i style="width:14px;height:14px;border-radius:50%;background:#9A9AA0;display:block"></i><i style="width:14px;height:14px;border-radius:50%;background:#9A9AA0;display:block"></i></div>
     </div>
 
     <!-- 7 · quando parar -->
     <div class="sc" id="s7">
-      <div id="bg7" style="position:absolute;inset:-40px;background:url(fotos/segue-a-vida.jpg) center 35%/cover"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,7,.8),rgba(6,6,7,.25) 38%,rgba(6,6,7,.35) 55%,rgba(6,6,7,.9))"></div>
-      <div class="k s" data-k="39.45" style="top:560px;font-size:80px;line-height:1.1">e se ela <em>não responder</em>?</div>
-      <div class="k h" data-k="41.25" id="segue" style="top:770px;font-size:150px">segue a vida<span class="pd"></span></div>
-      <div class="glass" id="rules" style="left:110px;top:1075px;width:860px;padding:14px 46px">
-        <div class="ru" data-at="42.9" style="display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:38px;font-weight:600">1 mensagem boa<svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#F5F3F0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="43.0" data-dur=".35" pathLength="1" d="M4 12l5 5L20 6"></path></svg></div>
-        <div class="ru" data-at="43.9" style="display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:38px;font-weight:600;color:#9C9893">segundo foguinho<svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#FF3B3B" stroke-width="2.6" stroke-linecap="round"><path class="draw" data-start="44.0" data-dur=".25" pathLength="1" d="M6 6l12 12"></path><path class="draw" data-start="44.15" data-dur=".25" pathLength="1" d="M18 6L6 18"></path></svg></div>
-        <div class="ru" data-at="44.7" style="display:flex;align-items:center;justify-content:space-between;padding:26px 0;font-size:38px;font-weight:600;color:#9C9893">“sumiu?”<svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#FF3B3B" stroke-width="2.6" stroke-linecap="round"><path class="draw" data-start="44.8" data-dur=".25" pathLength="1" d="M6 6l12 12"></path><path class="draw" data-start="44.95" data-dur=".25" pathLength="1" d="M18 6L6 18"></path></svg></div>
+      <div class="hl" data-in="39.45" data-out="45.85">E se ela <mark data-at="40.3">não responder</mark>?</div>
+      <div class="hl" data-in="46.02">Quem tem interesse, <mark data-at="46.9">responde</mark>.</div>
+      <div class="photo" id="seg7" style="left:90px;top:720px;width:900px;height:640px">
+        <img src="fotos/segue-dia-hd.jpg" alt="" id="im7" style="object-position:50% 42%">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,23,38,0) 45%,rgba(14,23,38,.62))"></div>
+        <div data-in="41.25" style="position:absolute;left:48px;bottom:40px;font-size:112px;font-weight:750;letter-spacing:-.05em;color:#fff;line-height:1">Segue a vida.</div>
+        <div class="sheen" id="sh7"></div>
       </div>
-      <div class="k s" data-k="46.05" style="top:1440px;font-size:66px">quem tem interesse, <em>responde</em><span class="pd"></span></div>
+      <div class="card" id="rul7" style="left:90px;top:1125px;width:900px;height:340px;padding:4px 44px">
+        <div class="ru" data-at="42.9" style="display:flex;align-items:center;justify-content:space-between;height:110px;border-bottom:1px solid #EEE;font-size:40px;font-weight:620;letter-spacing:-.02em">1 mensagem boa<svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="var(--co)"/><path class="draw" data-start="43.0" data-dur=".3" pathLength="1" d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ru" data-at="43.95" style="position:relative;display:flex;align-items:center;justify-content:space-between;height:110px;border-bottom:1px solid #EEE;font-size:40px;font-weight:620;letter-spacing:-.02em;color:#9AA0AA"><span style="position:relative">segundo foguinho<i class="strike" data-at="44.2" style="position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:#9AA0AA;transform-origin:0 50%"></i></span><svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E9E6E0"/><path class="draw" data-start="44.1" data-dur=".25" pathLength="1" d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#7D8490" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+        <div class="ru" data-at="44.95" style="position:relative;display:flex;align-items:center;justify-content:space-between;height:110px;font-size:40px;font-weight:620;letter-spacing:-.02em;color:#9AA0AA"><span style="position:relative">“sumiu?”<i class="strike" data-at="45.2" style="position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:#9AA0AA;transform-origin:0 50%"></i></span><svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E9E6E0"/><path class="draw" data-start="45.1" data-dur=".25" pathLength="1" d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#7D8490" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+      </div>
     </div>
 
-    <!-- 8 · CTA -->
+    <!-- 8 · desafio -->
     <div class="sc" id="s8">
-      <div class="k lab" data-k="48.45" style="top:545px;color:#FF3B3B">agora é com você</div>
-      <div id="bolo" style="position:absolute;left:320px;top:595px;width:440px;height:560px;border-radius:44px;overflow:hidden;background:#111;box-shadow:0 60px 140px rgba(0,0,0,.7),0 0 0 1.5px rgba(255,255,255,.12)">
-        <img src="fotos/bolo.jpg" alt="" id="boloimg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 25%,transparent 55%,rgba(0,0,0,.6))"></div>
-        <div style="position:absolute;left:18px;right:18px;top:20px;display:flex;gap:6px"><i style="flex:1;height:5px;border-radius:3px;background:#fff"></i></div>
-        <div style="position:absolute;left:22px;top:40px;display:flex;align-items:center;gap:12px;font-size:22px;font-weight:700"><div class="av" style="width:44px;height:44px;background:linear-gradient(135deg,#f6c38b,#9c4a2a)"></div>ju.ferraz <span style="font-weight:400;opacity:.8">1 h</span></div>
-        <div style="position:absolute;left:26px;right:26px;top:385px;text-align:center;font-size:38px;font-weight:800;line-height:1.15">primeira vez fazendo bolo</div>
-        <div style="position:absolute;left:50%;top:490px;transform:translateX(-50%) rotate(-5deg);padding:10px 22px;border-radius:12px;background:#fff;color:#111;font-size:28px;font-weight:800;white-space:nowrap">deu ruim kkk</div>
+      <div class="hl" data-in="48.45" data-out="50.85">Agora é <mark data-at="49.0">com você</mark>.</div>
+      <div class="hl" data-in="51.02">Comenta o que você <mark data-at="52.0">mandaria</mark>.</div>
+      <div class="photo" id="bolo8" style="left:300px;top:700px;width:480px;height:560px;border-radius:40px">
+        <img src="fotos/bolo-hd.jpg" alt="" id="im8">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),transparent 24%,transparent 58%,rgba(0,0,0,.55))"></div>
+        <div style="position:absolute;left:20px;right:20px;top:18px;display:flex"><i style="flex:1;height:5px;border-radius:3px;background:#fff"></i></div>
+        <div style="position:absolute;left:22px;top:38px;display:flex;align-items:center;gap:12px;font-size:23px;font-weight:650;color:#fff"><div class="av" style="width:44px;height:44px;background:linear-gradient(135deg,#F1D3A8,#A8744A);border:2px solid #fff"></div>ju.ferraz <span style="font-weight:400;opacity:.85">1 h</span></div>
+        <div style="position:absolute;left:24px;right:24px;top:392px;text-align:center;font-size:36px;font-weight:750;line-height:1.15;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)">primeira vez fazendo bolo</div>
+        <div style="position:absolute;left:50%;top:478px;transform:translateX(-50%) rotate(-5deg);padding:10px 22px;border-radius:12px;background:#fff;color:#111;font-size:28px;font-weight:800;white-space:nowrap">deu ruim kkk</div>
+        <div class="sheen" id="sh8"></div>
       </div>
-      <div class="k s" data-k="51.05" style="top:1185px;font-size:64px">comenta o que você <em>mandaria</em><span class="pd"></span></div>
-      <div class="glass" id="comp" style="left:90px;top:1290px;width:900px;height:120px;border-radius:999px;display:flex;align-items:center;gap:22px;padding:0 26px">
-        <div class="av" style="width:72px;height:72px;background:linear-gradient(135deg,#5b6cff,#2fa37a)"></div>
-        <div style="flex:1;font-size:32px;color:#C9C5BF"><span id="ctx"></span><span id="ccar" style="display:inline-block;width:3px;height:38px;background:#FF3B3B;margin-left:3px;vertical-align:-6px"></span></div>
-        <div style="font-size:24px;font-weight:700;letter-spacing:.2em;color:#FF3B3B">EU PASSO NO FILTRO</div>
+      <div class="pill" id="badge8" style="position:absolute;left:610px;top:1218px;padding:16px 26px;background:var(--co);color:#fff;font-size:26px;font-weight:650;box-shadow:0 20px 40px -12px rgba(36,67,240,.55);z-index:3"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="53.75" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>eu passo no filtro</div>
+      <div class="card pill" id="cmp8" style="left:90px;top:1296px;width:900px;height:104px;padding:0 30px 0 18px;gap:20px">
+        <div class="av" style="width:68px;height:68px;background:linear-gradient(135deg,#C9D3FF,#2443F0)"></div>
+        <div style="flex:1;font-size:30px;color:#111;white-space:nowrap;overflow:hidden"><span id="tx8"></span><span id="car8" style="display:inline-block;width:3px;height:36px;background:#3797F0;margin-left:2px;vertical-align:-6px"></span><span id="ph8" style="color:#8E8E93">Adicione um comentário…</span></div>
+        <div style="font-size:28px;font-weight:650;color:#3797F0">Publicar</div>
       </div>
-      <div id="follow" style="position:absolute;left:0;right:0;top:1450px;display:flex;justify-content:center;align-items:center;gap:22px;opacity:0">
-        <div style="font-size:34px;font-weight:600">@oprotocolodapresenca</div><div style="padding:14px 30px;border-radius:999px;background:#E11D2E;font-size:28px;font-weight:700;letter-spacing:.12em">+ SEGUIR</div>
+      <div id="fol8" style="position:absolute;left:90px;right:90px;top:1428px;display:flex;align-items:center;justify-content:center;gap:20px">
+        <div style="position:relative;width:54px;height:54px;border-radius:50%;background:var(--ink)"><b style="position:absolute;left:14px;top:14px;width:26px;height:26px;box-sizing:border-box;border:2.5px solid #fff;border-radius:50%"></b><b style="position:absolute;left:33px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--co2)"></b></div>
+        <div style="font-size:31px;font-weight:650;letter-spacing:-.01em">@oprotocolodapresenca</div>
+        <div id="sbtn" class="pill" style="padding:14px 30px;background:var(--co);color:#fff;font-size:26px;font-weight:650">Seguir</div>
       </div>
     </div>
   </div>
 
+  <div class="wp" id="wpA"></div>
+  <div class="wp" id="wpB"><div class="lab mono">capítulo</div><div class="num" id="wnum">02</div><div class="tit" id="wtit">O filtro</div><div class="rule" id="wrule"></div></div>
+  <div id="chap"></div>
+  <div id="box"><div class="hd">Manda a sua melhor pergunta…</div><div class="bd">Mando <span class="emo" id="boxfire" style="display:inline-block">🔥</span> no direct dela e ela não responde, devo desistir dela?</div></div>
+  <div id="logo"><b></b><span class="mono" style="letter-spacing:.3em">O Protocolo</span></div>
   <canvas id="grain" width="540" height="960"></canvas>
-  <div id="vig"></div>
-  <div id="box"><div class="hd">Manda a sua melhor pergunta…</div><div class="bd">Mando <span class="fire" data-fire></span> no direct dela e ela não responde, devo desistir dela?</div></div>
-  <div id="flash"></div>
-  <div id="logo"><b></b>O PROTOCOLO</div>
 </div>
 
 <script src="timeline.js"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const FIRE=(id)=>`<svg viewBox="0 0 24 28" style="width:100%;height:100%;display:block"><defs><linearGradient id="${id}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E11D2E"/><stop offset=".55" stop-color="#FF7A1A"/><stop offset="1" stop-color="#FFD25A"/></linearGradient></defs><path fill="url(#${id})" d="M12 28c6 0 10-4 10-9.5 0-5-3.4-8-5-12-1.6 2.2-2.4 4-2.4 5.8C13 10.8 11.6 9 11 5.5 7.2 8.6 2 12.8 2 18.5 2 24 6 28 12 28z"/><path fill="#FFE9A8" d="M12 26c2.6 0 4.4-1.8 4.4-4.2 0-2.3-1.6-3.6-2.4-5.6-1 1.6-2 2.4-2.6 2.4-.4-1.3-.6-2.6-.4-4-2.4 1.8-3.4 4.3-3.4 6.6C7.6 24.2 9.4 26 12 26z" opacity=".75"/></svg>`;
-const HEART='<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-.12em"><path fill="#FF3B5C" d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2.2 4.5 6 4.5c2.2 0 3.6 1.3 4.6 2.6.4.5.4.5.8 0 1-1.3 2.4-2.6 4.6-2.6 3.8 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z"/></svg>';
-let fid=0;$$('[data-fire]').forEach(e=>e.innerHTML=FIRE('fg'+(fid++)));
-$('#bigfire').innerHTML=FIRE('fgbig');
-$('#fbfire').innerHTML=`<span style="display:inline-block;width:120px;height:140px">${FIRE('fgb2')}</span>`;
-$('#sfire').innerHTML=`<span style="display:inline-block;width:90px;height:105px">${FIRE('fgb3')}</span>`;
-// caixa de entrada: vinte caras, a mesma mensagem
-const NAMES=['lucas_m','rafa.oli','gui.santos','theo_','joao.p','marcos.r','vini_','dudu.lima','caio.f','pedro_h','bruno.s','leo.mt','andre.c','felipe_','renan.x','matheus','igor.b','diego.a','tiago_','hugo.r'];
-const MSGS=['F','F','FF','F','F','F','FF','F','F','F','F','FF','F','F','F','F','FF','F','F','F'];
-const COL=['#5b6cff','#2fa37a','#c46b2d','#8b5cf6','#d1477a','#3b9bd1','#a08b2d','#6b7280','#e0592a','#2a9d8f','#9d4edd','#43aa8b','#f3722c','#577590','#f94144','#90be6d','#4d908e','#f8961e','#277da1','#b5838d'];
-const ROWT=NAMES.map((_,i)=>8.65+i*0.11);
-let ff=0;const msgHTML=m=>m.split('').map(c=>c==='F'?`<span style="display:inline-block;width:34px;height:40px;vertical-align:-8px">${FIRE('fr'+(ff++))}</span>`:c==='H'?HEART:'').join('')||m;
-const NT=[];{let tt=8.65,g=.34;for(let i=0;i<20;i++){NT.push(+tt.toFixed(3));tt+=g;g=Math.max(.055,g*.83)}}
-const IGI='<div style="width:40px;height:40px;border-radius:11px;flex-shrink:0;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="#fff" stroke="none"/></svg></div>';
-$('#notifs').innerHTML=NAMES.map((n,i)=>`<div class="nt" data-t="${NT[i]}" style="position:absolute;left:0;right:0;top:0;display:flex;gap:12px;padding:12px 14px;border-radius:22px;background:rgba(28,28,30,.66);backdrop-filter:blur(14px) saturate(160%);box-shadow:0 8px 24px rgba(0,0,0,.25)">${IGI}<div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;font-size:17px;color:rgba(255,255,255,.62);font-weight:600"><span>INSTAGRAM</span><span>agora</span></div><div style="font-size:19px;font-weight:700;margin-top:2px">${n}</div><div style="font-size:19px;color:rgba(255,255,255,.9)">${msgHTML(MSGS[i]).replace(/width:34px;height:40px/g,'width:20px;height:24px')}</div></div></div>`).join('');
-// fumaça do foguinho apagado
-$('#smoke').innerHTML=Array.from({length:9},(_,i)=>`<i class="sm" style="position:absolute;left:${150+((i*53)%100)}px;top:${240}px;width:${90+i*8}px;height:${90+i*8}px;border-radius:50%;background:radial-gradient(circle,rgba(200,200,205,.35),rgba(200,200,205,0) 70%)"></i>`).join('');
-// faíscas
-const EMB=Array.from({length:42},(_,i)=>({x:(i*137.5)%1080,s:40+((i*53)%70),p:(i*0.37)%1,w:6+((i*29)%40),sz:3+((i*7)%6)}));
-$('#embers').innerHTML=EMB.map(()=>'<b></b>').join('');
-
 /* ---------- motor ---------- */
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const eo=x=>1-Math.pow(1-x,3);
 const ex=x=>x>=1?1:1-Math.pow(2,-10*x);
 const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
 const ei=x=>x*x*x;
-const back=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
-const spring=x=>x>=1?1:1-Math.exp(-6*x)*Math.cos(10*x);
+const back=x=>{const c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const spring=x=>x>=1?1:1-Math.exp(-6.5*x)*Math.cos(9*x);
 const prog=(t,a,d)=>clamp((t-a)/d);
+const lerp=(a,b,p)=>a+(b-a)*p;
 function keys(t,k,ease=eio){if(t<=k[0][0])return k[0][1];for(let i=0;i<k.length-1;i++){const[t0,v0]=k[i],[t1,v1]=k[i+1];if(t<=t1){const p=t1>t0?(t-t0)/(t1-t0):1;return v0+(v1-v0)*ease(p)}}return k[k.length-1][1]}
 function warp(t){const W=window.WARP;if(!W||!W.length)return t;if(t<=W[0][0])return W[0][1];for(let i=0;i<W.length-1;i++){const[a0,b0]=W[i],[a1,b1]=W[i+1];if(t<=a1)return b0+(b1-b0)*(t-a0)/(a1-a0)}const[a,b]=W[W.length-1];return b+(t-a)}
+const S=(el,o)=>{for(const k in o)el.style[k]=o[k]};
 
-// texto cinético: cada letra sobe de dentro de uma máscara
-const KT=[];
-$$('[data-k]').forEach(el=>{
-  const nodes=[...el.childNodes];el.innerHTML='';const letters=[];
-  const addWord=(build)=>{const w=document.createElement('span');w.className='kw';build(w);el.appendChild(w);return w};
+/* ---------- conteúdo gerado ---------- */
+const IGI='<div style="width:66px;height:66px;border-radius:16px;flex-shrink:0;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="#fff" stroke="none"/></svg></div>';
+const NAMES=['lucas_m','rafa.oli','gui.santos','theo_','joao.p','marcos.r','vini_','dudu.lima','caio.f','pedro_h','bruno.s','leo.mt','andre.c','felipe_','renan.x','matheus','igor.b','diego.a','tiago_','hugo.r'];
+const MSGS=['🔥','🔥','🔥🔥','🔥','🔥','🔥','🔥🔥','🔥','🔥','🔥','🔥','🔥🔥','🔥','🔥','🔥','🔥','🔥🔥','🔥','🔥','🔥'];
+const NT=[];{let tt=8.65,g=.34;for(let i=0;i<20;i++){NT.push(+tt.toFixed(3));tt+=g;g=Math.max(.055,g*.83)}}
+$('#notifs').innerHTML=NAMES.map((n,i)=>`<div class="nt" data-t="${NT[i]}">${IGI}<div class="tx"><div class="hd"><b>${n}</b><span>agora</span></div><div class="ms emo">${MSGS[i]}</div></div></div>`).join('');
+// a multidão: a mesma mensagem, de todo mundo
+const CR=['lucas_m','rafa.oli','gui.santos','theo_','você','joao.p','marcos.r','vini_','dudu.lima','caio.f','pedro_h','bruno.s'];
+const CRC=[['#B9C4D8','#5A6A86'],['#D8CBB8','#8C7559'],['#BFD3C9','#4F7666'],['#C9C3D9','#655B86'],['#C9D3FF','#2443F0'],['#D9D2C6','#7B7266'],['#B8C9D9','#4E6A86'],['#D6C7BE','#8A6A5A'],['#C4CFC0','#5D7356'],['#CFC9DB','#6C6390'],['#C2CCD6','#566577'],['#D8CFC0','#86775F']];
+$('#crowd').innerHTML=CR.map((n,i)=>`<div class="cr" style="position:absolute;left:${(i%3)*310}px;top:${Math.floor(i/3)*112}px;width:280px;height:94px;box-sizing:border-box;border-radius:28px;background:#fff;box-shadow:0 18px 40px -16px rgba(14,23,38,.22),0 0 0 1px rgba(14,23,38,.05);display:flex;align-items:center;gap:14px;padding:0 20px"><div class="av" style="width:52px;height:52px;background:linear-gradient(135deg,${CRC[i][0]},${CRC[i][1]})"></div><div style="flex:1;font-size:23px;font-weight:620;white-space:nowrap" class="crn">${n}</div><span class="emo" style="font-size:36px">🔥</span></div>`).join('');
+// fumaça do foguinho apagado
+$('#smoke1').innerHTML=Array.from({length:7},(_,i)=>`<i class="sm" style="position:absolute;left:${-40+((i*37)%60)}px;top:0;width:${70+i*10}px;height:${70+i*10}px;margin:-35px;border-radius:50%;background:radial-gradient(circle,rgba(110,114,122,.5),rgba(110,114,122,0) 70%);opacity:0"></i>`).join('');
+// capítulos
+const CH=[['01','O problema',6.35,18.05],['02','O filtro',18.05,24.85],['03','A iniciativa',24.85,39.25],['04','O limite',39.25,48.15],['05','Sua vez',48.15,999]];
+$('#chap').innerHTML=CH.map(c=>`<div class="chp mono"><b>${c[0]}</b><i></i><span>${c[1]}</span></div>`).join('');
+const WIPES=[[17.75,'02','O filtro'],[24.55,'03','A iniciativa'],[38.95,'04','O limite'],[47.85,'05','Sua vez']];
+
+// texto: palavra por palavra, sobe e entra em foco
+const TX=[];
+$$('[data-in]').forEach(el=>{
+  const nodes=[...el.childNodes];el.innerHTML='';const units=[];
   nodes.forEach(n=>{
     if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){el.appendChild(document.createTextNode(' '));return}
-      addWord(w=>{[...p].forEach(ch=>{const l=document.createElement('span');l.className='kl';l.textContent=ch;w.appendChild(l);letters.push(l)})})})}
-    else{addWord(w=>{n.classList.add('kl');w.appendChild(n);letters.push(n)})}
+      const w=document.createElement('span');w.className='w';w.textContent=p;el.appendChild(w);units.push(w)})}
+    else{n.classList.add('w');el.appendChild(n);units.push(n)}
   });
-  KT.push({el,letters,start:+el.dataset.k});
+  TX.push({el,units,a:+el.dataset.in,b:el.dataset.out?+el.dataset.out:null});
 });
+const MK=$$('mark').map(m=>{const t=document.createElement('span');t.className='mt';t.textContent=m.textContent;m.appendChild(t);return{m,t,at:+m.dataset.at}});
 const draws=$$('.draw').map(el=>({el,start:+el.dataset.start,dur:el.dataset.dur?+el.dataset.dur:.6}));
 draws.forEach(d=>{d.el.style.strokeDasharray='1';d.el.style.strokeDashoffset='1'});
 
-// cenas: [id, entra, sai, efeito de saída]
-const SC=[['#s1',0,6.25,'zoom'],['#s2',6.3,12.75,'whip'],['#s3',12.8,17.75,'flash'],['#s4',17.8,24.55,'glitch'],['#s5',24.6,30.75,'zoom'],['#s6',30.8,38.95,'whip'],['#s7',39.0,47.85,'zoom'],['#s8',47.9,99,'none']];
-const IMPACTS=[4.15,5.55,10.85,22.8,41.25];
+// cenas: [id, entra, sai, tipo de entrada, tipo de saída]
+const SC=[['#s1',0,6.25,'cut','push'],['#s2',6.25,12.75,'push','push'],['#s3',12.75,17.75,'push','wipe'],['#s4',17.75,24.55,'wipe','wipe'],['#s5',24.55,30.75,'wipe','push'],['#s6',30.75,38.95,'push','wipe'],['#s7',38.95,47.85,'wipe','wipe'],['#s8',47.85,999,'wipe','none']];
 
 // granulação determinística
 const gc=$('#grain').getContext('2d'),gimg=gc.createImageData(540,960);
-function grain(seed){let x=seed*2654435761>>>0;const d=gimg.data;for(let i=0;i<d.length;i+=4){x^=x<<13;x^=x>>>17;x^=x<<5;const v=(x>>>0)&255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gc.putImageData(gimg,0,0)}
+function grain(seed){let x=(seed*2654435761)>>>0||1;const d=gimg.data;for(let i=0;i<d.length;i+=4){x^=x<<13;x^=x>>>17;x^=x<<5;const v=128+(((x>>>0)&255)-128)*.9;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gc.putImageData(gimg,0,0)}
 
-function renderOld(t,frame){
+function paint(T,frame){
   grain(frame+1);
-  // fundo vivo
-  const M=[['#m1','#E11D2E',.30,900],['#m2','#FF5A1F',.20,700],['#m3','#5A0A14',.55,1000],['#m4','#B0124A',.18,600]];
-  M.forEach(([id,c,a,sz],i)=>{const e=$(id);const x=540+Math.sin(t*.23+i*1.7)*320+(i-1.5)*120,y=980+Math.cos(t*.19+i*2.3)*520;e.style.cssText=`left:${x-sz/2+200}px;top:${y-sz/2+200}px;width:${sz}px;height:${sz}px;background:${c};opacity:${a}`});
-  $$('#embers b').forEach((b,i)=>{const e=EMB[i];const ph=(t/(1920/e.s)+e.p)%1;const y=1960-ph*2100;const x=e.x+Math.sin(t*1.3+i)*e.w;b.style.left=x+'px';b.style.top=y+'px';b.style.opacity=(Math.sin(Math.PI*ph)*(.5+.5*Math.sin(t*9+i*3))).toFixed(3);b.style.transform=`scale(${e.sz/6})`});
-  // impactos: tremida + aberração cromática
-  let shake=0,ab=0;IMPACTS.forEach(a=>{const q=prog(t,a,.35);if(q>0&&q<1){shake=Math.max(shake,(1-q)*16);ab=Math.max(ab,(1-q))}});
-  $('#world').style.transform=`translate(${shake*Math.sin(t*97)}px,${shake*Math.cos(t*83)}px)`;
-  // cenas e transições
-  let fl=0;
-  SC.forEach(([id,a,b,fx],k)=>{const e=$(id);const qi=eo(prog(t,a,.4)),qo=prog(t,b,.35);let op=t<a?0:qi*(1-qo),tr='',fi='none';
-    const drift=1+.035*prog(t,a,b-a);
-    if(k===0)op=t<b?1:1-qo;
-    const inFx=k?SC[k-1][3]:'none';
-    let s=drift,y=0,bl=0;
-    if(t<a+.4&&k){if(inFx==='zoom'){s*=.88+.12*qi;bl=(1-qi)*14}else if(inFx==='whip'){y=(1-qi)*500;bl=(1-qi)*20}else if(inFx==='glitch'){bl=(1-qi)*6}else{bl=(1-qi)*8}}
-    if(qo>0){if(fx==='zoom'){s*=1+.3*ei(qo);bl=qo*18}else if(fx==='whip'){y=-ei(qo)*700;bl=qo*24}else if(fx==='flash'){bl=qo*10;fl=Math.max(fl,Math.sin(Math.PI*qo))}else if(fx==='glitch'){bl=qo*4}}
-    if(inFx==='flash'&&t>=a&&t<a+.25)fl=Math.max(fl,1-prog(t,a,.25));
-    e.style.opacity=op;e.style.transform=`translateY(${y}px) scale(${s}${fx==='whip'&&qo>0?`,${1+qo*.25}`:''})`;e.style.filter=bl>.1?`blur(${bl}px)`:'none';
-    e.style.visibility=op<=0.001?'hidden':'visible';
-  });
-  $('#flash').style.opacity=fl*.9;
-  // glitch na saída do filtro (fatias + RGB)
-  const gq=prog(t,24.55,.4);const gl=gq>0&&gq<1?Math.sin(Math.PI*gq):0;
-  // texto cinético
-  KT.forEach(g=>g.letters.forEach((l,i)=>{const p=ex(prog(t,g.start+i*.018,.55));l.style.transform=`translateY(${(1-p)*105}%) rotate(${(1-p)*6}deg)`;l.style.opacity=p>0?1:0}));
-  $$('.k').forEach(e=>{e.style.textShadow=ab>0.02?`${-6*ab}px 0 rgba(255,0,60,${.7*ab}), ${6*ab}px 0 rgba(0,220,255,${.6*ab})`:'none'});
-  draws.forEach(d=>{d.el.style.strokeDashoffset=1-eo(prog(t,d.start,d.dur))});
+  // luz ambiente
+  const B=[['#b1','#C7D1FF',.55,820],['#b2','#EBDDC6',.7,900],['#b3','#FFFFFF',.8,640]];
+  B.forEach(([id,c,a,sz],i)=>{const x=540+Math.sin(T*.17+i*2.1)*300+(i-1)*140,y=900+Math.cos(T*.13+i*1.7)*520;S($(id),{left:(x-sz/2+200)+'px',top:(y-sz/2+200)+'px',width:sz+'px',height:sz+'px',background:c,opacity:a})});
+  $('#world').style.transform=`scale(${1+.006*Math.sin(T*.4)})`;
+
+  // cenas
+  SC.forEach(([id,a,b,ik,ok])=>{const e=$(id);let op=1,y=0,bl=0,s=1,vis=true;
+    if(ik==='push'){if(T<a+.05)vis=false;const q=eo(prog(T,a+.05,.6));op*=q;y+=(1-q)*170;bl+=(1-q)*12;s*=.97+.03*q}
+    else if(ik==='wipe'){if(T<a+.3)vis=false}
+    if(ok==='push'){const q=prog(T,b,.45);if(q>=1)vis=false;op*=1-q;y-=eio(q)*170;bl+=q*12;s*=1-.03*q}
+    else if(ok==='wipe'){if(T>=b+.3)vis=false}
+    e.style.visibility=vis&&op>.001?'visible':'hidden';e.style.opacity=op;e.style.transform=`translateY(${y}px) scale(${s})`;e.style.filter=bl>.2?`blur(${bl}px)`:'none'});
+
+  // cortina dos capítulos
+  let wy=100,wya=100;WIPES.forEach(([w,n,tit])=>{if(T>w-.2&&T<w+1){const q1=prog(T,w-.12,.42),q2=prog(T,w+.42,.42),a1=prog(T,w-.2,.4),a2=prog(T,w+.5,.42);
+    wy=q2>0?-100*eio(q2):100*(1-eio(q1));wya=a2>0?-100*eio(a2):100*(1-eio(a1));$('#wnum').textContent=n;$('#wtit').textContent=tit;
+    const tq=eo(prog(T,w+.0,.35));$('#wnum').style.transform=`translateY(${(1-tq)*60}px)`;$('#wnum').style.opacity=tq;$('#wtit').style.transform=`translateY(${(1-eo(prog(T,w+.06,.35)))*60}px)`;$('#wrule').style.transform=`scaleX(${eo(prog(T,w+.05,.5))})`}});
+  $('#wpB').style.transform=`translateY(${wy}%)`;$('#wpA').style.transform=`translateY(${wya}%)`;
+
+  // rótulo do capítulo
+  $$('.chp').forEach((c,i)=>{const[,, a,b]=CH[i];const qi=eo(prog(T,a,.5)),qo=eio(prog(T,b-.05,.3));const on=T>=a&&T<b+.3;c.style.visibility=on?'visible':'hidden';c.style.transform=`translateY(${(1-qi)*40-qo*40}px)`;c.style.opacity=qi*(1-qo);c.querySelector('i').style.transform=`scaleX(${eo(prog(T,a+.15,.5))})`});
+
+  // texto
+  TX.forEach(g=>{g.units.forEach((u,i)=>{const p=ex(prog(T,g.a+i*.06,.75));u.style.opacity=p;u.style.transform=`translateY(${(1-p)*.45}em)`;u.style.filter=p<.98?`blur(${(1-p)*14}px)`:'none'});
+    if(g.b!=null){const q=prog(T,g.b,.32);g.el.style.opacity=1-q;g.el.style.transform=`translateY(${-q*36}px)`;g.el.style.filter=q>0?`blur(${q*10}px)`:'none';g.el.style.visibility=q>=1?'hidden':'visible'}});
+  MK.forEach(({m,t,at})=>{const p=eio(prog(T,at,.45));m.style.setProperty('--p',p);t.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`});
+  draws.forEach(d=>{d.el.style.strokeDashoffset=1-eo(prog(T,d.start,d.dur))});
 
   // caixinha: grande no começo, fixa no alto depois (como no reel de referência)
-  const bx=$('#box'),bin=prog(t,.05,.7);
-  const by=keys(t,[[0,560],[3.95,560],[4.55,290],[99,290]]),bs=keys(t,[[0,1],[.7,1],[3.95,1.04],[4.55,.72],[99,.72]]);
-  bx.style.opacity=bin>0?clamp(bin*3):0;bx.style.transform=`translateY(${by+(1-spring(bin))*120}px) scale(${bs*(t<1?.9+.1*spring(bin):1)}) rotate(${(1-spring(bin))*-4}deg)`;
-  bx.querySelector('.fire').style.transform=`scale(${1+.12*Math.sin(t*7)})`;
+  const bx=$('#box'),bin=prog(T,.05,.7);
+  const by=keys(T,[[0,600],[3.9,600],[4.5,236],[999,236]]),bs=keys(T,[[0,1],[3.9,1.02],[4.5,.62],[999,.62]]);
+  bx.style.opacity=clamp(bin*3);bx.style.transform=`translateY(${by+(1-spring(bin))*90}px) scale(${bs*(T<1?.92+.08*spring(bin):1)})`;
+  $('#boxfire').style.transform=`scale(${1+.08*Math.sin(T*6)})`;
 
-  $('#bg1').style.transform=`scale(${1.12-.08*prog(t,0,6.3)}) translate(${-12*prog(t,0,6.3)}px,${8*prog(t,0,6.3)}px)`;$('#bg1').style.filter=`brightness(${.75-.35*prog(t,3.9,.8)}) blur(${3*prog(t,3.9,.8)}px)`;
-  $('#bg7').style.transform=`scale(${1.02+.12*prog(t,39.0,9)})`;$('#bg7').style.filter=`brightness(${.62+.08*Math.sin(t*2)})`;
-  $('#boloimg').style.transform=`scale(${1.04+.08*prog(t,48.6,8)})`;
-  // 1 · o foguinho apaga
-  const bf=$('#bigfire'),fq=prog(t,5.2,.5),out=prog(t,5.6,.6);
-  bf.style.opacity=fq>0?clamp(fq*2)*(1-.75*out):0;bf.style.transform=`scale(${(.6+.4*back(fq))*(1-.15*out)}) rotate(${Math.sin(t*6)*3}deg)`;bf.style.filter=`grayscale(${out}) brightness(${1-.4*out}) drop-shadow(0 0 ${60*(1-out)}px rgba(255,90,40,.7))`;
-  $$('#smoke .sm').forEach((m,i)=>{const q=prog(t,5.65+i*.05,1.4);m.style.opacity=(Math.sin(Math.PI*q)*.9).toFixed(3);m.style.transform=`translate(${Math.sin(i*2.1)*60*q}px,${-260*q}px) scale(${.4+1.2*q})`});
-  $('#s1').querySelector('#cross').style.opacity=1;
+  /* 1 · gancho */
+  {const q=prog(T,3.9,.65),e=eio(q);S($('#ph1'),{left:lerp(60,300,e)+'px',top:lerp(330,850,e)+'px',width:lerp(960,480,e)+'px',height:lerp(1200,600,e)+'px',borderRadius:lerp(48,40,e)+'px'});
+   $('#im1').style.transform=`scale(${1.12-.08*prog(T,0,6.3)}) translate(${-10*prog(T,0,6.3)}px,${6*prog(T,0,6.3)}px)`;
+   $('#sh1').style.transform=`translateX(${-120+240*eio(prog(T,4.3,1.1))}%)`;
+   const fo=eo(prog(T,5.55,.5));S($('#fire1'),{filter:`grayscale(${fo}) brightness(${1-.1*fo})`,transform:`scale(${1-.22*fo}) rotate(${-8*fo}deg)`,opacity:1-.55*fo});
+   $('#pill1').style.background=`rgb(${Math.round(227+(233-227)*fo)},${Math.round(232+(230-232)*fo)},${Math.round(255+(225-255)*fo)})`;
+   $$('#smoke1 .sm').forEach((m,i)=>{const q=prog(T,5.6+i*.06,1.3);m.style.opacity=(Math.sin(Math.PI*q)*.9).toFixed(3);m.style.transform=`translate(${Math.sin(i*2.3)*40*q}px,${-200*q}px) scale(${.4+1.1*q})`});}
 
-  // 2 · a caixa de entrada lotando
-  const ph=eo(prog(t,6.4,.7)),zz=1+.22*(eio(prog(t,8.35,.5))-eio(prog(t,10.55,.45)));$('#ph2').style.transformOrigin='50% 200px';$('#ph2').style.transform=`perspective(2400px) rotateY(${(-12+5*prog(t,6.4,6))*(1-.7*(zz-1)/.22)}deg) rotateX(${6*(1-.7*(zz-1)/.22)}deg) translateY(${(1-ph)*120}px) scale(${zz})`;$('#s2t1').style.opacity=1-prog(t,8.3,.3)+prog(t,10.6,.3);
-  const wake=eo(prog(t,8.3,.35)),sleep=prog(t,11.75,.25);$('#off').style.opacity=Math.max(1-wake,sleep);$('#wall').style.filter=`brightness(${.55+.15*Math.sin(Math.PI*prog(t,8.3,.6))}) blur(${8*prog(t,8.65,.6)}px)`;
-  const nts=$$('#notifs .nt');let n=0;nts.forEach(e=>{if(t>=+e.dataset.t)n++});
-  nts.forEach((e,i)=>{const t0=+e.dataset.t;const j=n-1-i;const q=prog(t,t0,.3);const clr=prog(t,11.15+Math.max(0,Math.min(j,5))*.05,.35);
-    let y,sc,op;if(j<4){y=j*98;sc=1;op=1}else{const k=Math.min(j-4,2);y=4*98+k*12;sc=1-(k+1)*.05;op=j-4<3?.75:0}
-    e.style.zIndex=50-j;e.style.opacity=t>=t0?clamp(q*3)*op*(1-clr):0;e.style.transform=`translateX(${-ei(clr)*520}px) translateY(${y+(1-spring(q))*-36}px) scale(${sc*(.92+.08*spring(q))})`});
+  /* 2 · o celular dela */
+  {const p=eo(prog(T,6.3,.8)),st=eio(prog(T,6.6,1.7));$('#ph2').style.transform=`perspective(2600px) rotateY(${-16*(1-st)}deg) rotateX(${10*(1-st)}deg) translateY(${(1-p)*140}px) scale(${1+.03*prog(T,8.3,4)})`;
+   const wake=eo(prog(T,8.3,.35)),sleep=eo(prog(T,11.8,.3));$('#off2').style.opacity=Math.max(1-wake,sleep);
+   $('#wall2').style.filter=`blur(${10*eo(prog(T,8.65,.6))}px) brightness(${1-.12*eo(prog(T,8.65,.6))})`;$('#wall2').style.transform='scale(1.06)';
+   const nts=$$('#notifs .nt');let n=0;nts.forEach(e=>{if(T>=+e.dataset.t)n++});
+   nts.forEach((e,i)=>{const t0=+e.dataset.t,j=n-1-i,q=prog(T,t0,.32),clr=prog(T,11.15+Math.max(0,Math.min(j,5))*.045,.38);
+     let y,sc,op;if(j<4){y=j*120;sc=1;op=1}else{const k=Math.min(j-4,2);y=4*120+k*14;sc=1-(k+1)*.05;op=j-4<3?.8:0}
+     e.style.zIndex=50-j;e.style.opacity=T>=t0?clamp(q*3)*op*(1-clr):0;e.style.transform=`translateX(${-ei(clr)*600}px) translateY(${y+(1-spring(q))*-40}px) scale(${sc*(.9+.1*spring(q))})`});
+   const cq=prog(T,8.62,.5);$('#cnt2').style.opacity=clamp(cq*3)*(1-prog(T,11.3,.4));$('#cnt2').style.transform=`scale(${.6+.4*spring(cq)}) translateY(${(1-eo(cq))*30}px)`;$('#cntn').textContent=n;}
 
-  // 3 · nada pra responder
-  const fb=prog(t,13.2,.5);$('#fbub').style.opacity=fb>0?1:0;$('#fbub').style.transform=`scale(${.3+.7*spring(fb)})`;
-  $('#rcaret').style.opacity=Math.floor(t*2.2)%2?0.15:1;
-  const rp=eo(prog(t,13.6,.5));$('#reply').style.opacity=rp;$('#reply').style.transform=`translateY(${(1-rp)*40}px)`;
-  [['#o1',15.3],['#o2',15.75]].forEach(([id,a])=>{const q=prog(t,a,.45);$(id).style.opacity=q>0?clamp(q*2):0;$(id).style.transform=`translateY(${(1-eo(q))*30}px) scale(${.85+.15*back(q)})`});
-  const sel=prog(t,16.4,.3);$('#o2').style.background=`rgba(255,59,59,${.9*sel})`;$('#o2').style.borderColor=`rgba(255,59,59,${sel})`;$('#o1').style.opacity=t>16.4?1-.6*sel:$('#o1').style.opacity;
-  $('#seen').style.opacity=prog(t,16.6,.3);
+  /* 3 · nada pra responder */
+  {const d=eo(prog(T,12.95,.6));$('#dm3').style.transform=`translateY(${(1-d)*60}px)`;$('#dm3').style.opacity=d;
+   const f=prog(T,13.25,.55);$('#fb3').style.transform=`scale(${.2+.8*spring(f)})`;$('#fb3').style.opacity=f>0?1:0;
+   $('#car3').style.opacity=Math.floor(T*2.2)%2?0:1;
+   const dim=eo(prog(T,16.55,.5));
+   [['#o3a',15.45],['#o3b',15.8]].forEach(([id,a])=>{const q=prog(T,a,.5);$(id).style.opacity=clamp(q*2.5)*(1-.35*dim);$(id).style.transform=`translateY(${(1-eo(q))*40}px) scale(${.9+.1*back(q)})`;$(id).style.filter=`saturate(${1-dim})`});
+   const c=eo(prog(T,16.55,.5));$('#cap3').style.opacity=c;$('#cap3').style.transform=`translateY(${(1-c)*16}px)`;}
 
-  // 4 · o filtro escaneando o foguinho
-  const fi=eo(prog(t,18.1,.6));$('#filtro').style.opacity=fi;$('#filtro').style.transform=`perspective(2000px) rotateX(${(1-fi)*14}deg) translateY(${(1-fi)*80}px)`;
-  const sm=prog(t,18.8,.5);$('#smsg').style.opacity=sm>0?1:0;$('#smsg').style.transform=`translate(-50%,${-50+(1-spring(sm))*-120}%) scale(${.6+.4*spring(sm)})`;
-  const sc=prog(t,19.3,1.5);$('#laser').style.opacity=sc>0&&sc<1?1:0;$('#laser').style.top=(Math.abs(Math.sin(sc*Math.PI*1.5))*206)+'px';$('#grid').style.opacity=(sc>0&&sc<1?.9:0);
-  $('#fstat').textContent=t<19.3?'pronto':t<20.85?'escaneando…':'resultado';$('#fstat').style.color=t>=22.8?'#FF3B3B':'#B8B4AE';
-  $$('#read .rd').forEach(r=>{const q=prog(t,+r.dataset.at,.35);r.style.opacity=clamp(q*2);r.style.transform=`translateX(${(1-eo(q))*-30}px)`});
-  const iv=prog(t,22.8,.4);$('#invis').style.opacity=iv>0?1:0;$('#invis').style.transform=`scale(${1.6-.6*ei(iv)})`;$('#invis').style.letterSpacing=`${-.035+.06*(1-iv)}em`;
-  $('#smsg').style.filter=`opacity(${1-.82*prog(t,22.9,.6)}) grayscale(${prog(t,22.9,.6)})`;
-  if(gl>0){$('#s4').style.clipPath=`inset(${Math.abs(Math.sin(t*137))*40}% 0 ${Math.abs(Math.cos(t*91))*30}% 0)`;$('#s4').style.transform+=` translateX(${Math.sin(t*211)*30*gl}px)`}else $('#s4').style.clipPath='none';
+  /* 4 · o filtro */
+  {const fi=eo(prog(T,18.2,.65)),fo=eio(prog(T,22.8,.45));$('#flt').style.opacity=fi*(1-fo);$('#flt').style.transform=`translateY(${(1-fi)*70}px) scale(${1-.06*fo})`;$('#flt').style.filter=fo>0?`blur(${fo*12}px)`:'none';$('#flt').style.visibility=fo>=1?'hidden':'visible';
+   const sc=prog(T,19.2,1.1);$('#scan4').style.left=(-200+1060*eio(sc))+'px';$('#scan4').style.opacity=sc>0&&sc<1?1:0;
+   $('#fst').textContent=T<19.2?'pronto':T<22.62?'analisando…':'resultado';$('#fst').style.color=T>=22.62?'var(--co)':'var(--mute)';
+   ['#yes4','#no4'].forEach((id,i)=>{const q=prog(T,20.95+i*.12,.5);$(id).style.opacity=clamp(q*2);$(id).style.transform=`translateY(${(1-eo(q))*24}px)`});
+   const sel=eio(prog(T,22.62,.22));$('#yes4').style.background=`rgba(36,67,240,${sel})`;$('#yes4').style.color=sel>.5?'#fff':'var(--ink)';$('#yes4').style.borderColor=`rgba(36,67,240,${Math.max(.12,sel)})`;$('#ck4').style.display=T>=22.62?'block':'none';
+   // o toque
+   const tp=prog(T,21.85,.7),tx=lerp(820,330,eio(tp)),ty=lerp(1560,1190,eio(tp)),press=Math.sin(Math.PI*prog(T,22.55,.25));
+   S($('#tap4'),{left:tx+'px',top:ty+'px',opacity:(clamp(prog(T,21.85,.2)*3)*(1-prog(T,22.85,.25))).toFixed(3),transform:`scale(${1-.25*press})`});
+   // a multidão
+   $$('#crowd .cr').forEach((c,i)=>{const r=Math.floor(i/3),k=i%3,dist=Math.abs(r-1.5)+Math.abs(k-1);const q=prog(T,22.95+dist*.07,.5);const fade=eio(prog(T,23.9,.6));
+     c.style.opacity=clamp(q*2.5)*(1-.5*fade);c.style.transform=`translateY(${(1-eo(q))*50}px) scale(${.92+.08*back(q)})`;
+     if(i===4){const me=1-eio(prog(T,23.35,.55));c.style.boxShadow=`0 0 0 ${3*me}px rgba(36,67,240,${me}),0 18px 40px -16px rgba(14,23,38,.22)`;const nm=c.querySelector('.crn');nm.style.color=`rgb(${Math.round(14+(36-14)*me)},${Math.round(23+(67-23)*me)},${Math.round(38+(240-38)*me)})`}});
+   const iv=prog(T,23.2,.6),gh=eio(prog(T,23.75,.8));$('#inv4').style.opacity=clamp(iv*2);$('#inv4').style.transform=`translateY(${(1-ex(iv))*60}px)`;$('#inv4').style.filter=iv<1?`blur(${(1-ex(iv))*14}px)`:'none';
+   $('#inv4').style.color=`rgba(14,23,38,${1-.9*gh})`;$('#inv4').style.webkitTextStroke=`${2*gh}px rgba(14,23,38,${.35*gh})`;$('#inv4').style.letterSpacing=`${-.055+.02*gh}em`;}
 
-  // 5 · a fórmula
-  [['#c1',26.5],['#c2',28.2]].forEach(([id,a])=>{const q=prog(t,a,.55);$(id).style.opacity=q>0?clamp(q*2):0;$(id).style.transform=`perspective(1800px) rotateX(${(1-eo(q))*-25}deg) translateY(${(1-eo(q))*60}px)`});
-  $$('.wnum').forEach(w=>{const q=eo(prog(t,+w.dataset.at+.2,.8));w.style.fontWeight=Math.round(200+600*q)});
-  const pl=prog(t,27.9,.4);$('#plus').style.opacity=pl;$('#plus').style.transform=`rotate(${(1-eo(pl))*-180}deg) scale(${.5+.5*back(pl)})`;
+  /* 5 · a iniciativa */
+  {[['#c51',26.6],['#c52',28.25]].forEach(([id,a])=>{const q=prog(T,a,.6);$(id).style.opacity=clamp(q*2);$(id).style.transform=`translateY(${(1-eo(q))*70}px) scale(${.96+.04*eo(q)})`});
+   const s=prog(T,29.75,.5);$('#sum5').style.opacity=clamp(s*2);$('#sum5').style.transform=`translateY(${(1-eo(s))*24}px)`;}
 
-  // 6 · o exemplo: story, resposta, filtro, risada
-  const p6=eo(prog(t,30.9,.7));$('#ph6').style.transform=`perspective(2400px) rotateY(${12-5*prog(t,30.9,7)}deg) rotateX(5deg) translateY(${(1-p6)*120}px) scale(${1-.18*eo(prog(t,36.6,.6))}) translateY(${-70*eo(prog(t,36.6,.6))}px)`;
-  $('#dog').style.transform=`scale(${1.04+.08*prog(t,30.9,8)})`;
-  const RT='ele acabou com o sofá inteiro ou sobrou alguma almofada?';const nn=clamp(Math.floor((t-33.05)/.042)+1,0,RT.length);
-  $('#stx').textContent=t<33.05?'':RT.slice(0,nn);$('#shint').style.display=t<33.05?'inline':'none';$('#scar').style.opacity=t<33.05?0:(nn<RT.length?1:(Math.floor(t*2.5)%2?0:1));
-  $('#sreply').style.borderColor=t>35.55?`rgba(255,59,59,${clamp((t-35.55)*4)})`:'rgba(255,255,255,.85)';
-  const ps=prog(t,36.1,.45);$('#pass').style.opacity=ps>0?clamp(ps*2):0;$('#pass').style.transform=`translateX(-50%) scale(${.6+.4*spring(ps)})`;
-  const hr=prog(t,36.75,.5);$('#herrep').style.opacity=hr>0?1:0;$('#herrep').style.transform=`scale(${.4+.6*spring(hr)})`;
+  /* 6 · o exemplo */
+  {const si=eo(prog(T,30.95,.7)),mq=eio(prog(T,32.6,.7));
+   // o story encolhe e vira a miniatura da resposta dentro da conversa
+   S($('#st6'),{left:lerp(250,760,mq)+'px',top:lerp(720,870,mq)+'px',width:lerp(580,190,mq)+'px',height:lerp(740,300,mq)+'px',borderRadius:lerp(40,22,mq)+'px'});
+   $('#ui6').style.opacity=1-clamp(mq*1.6);$('#stk6').style.transform=`translate(-50%,-50%) rotate(-6deg) scale(${lerp(1,.34,mq)})`;
+   $('#im6').style.transform=`scale(${1.1-.06*prog(T,30.95,2)})`;
+   const dq=eo(prog(T,32.75,.6)),out=eio(prog(T,36.4,.6));$('#dm6').style.opacity=dq;$('#dm6').style.transform=`translateY(${(1-dq)*50}px) translateX(${-1100*out}px)`;
+   $('#st6').style.opacity=si;$('#st6').style.transform=`translateY(${(1-si)*80}px) translateX(${-1100*out}px)`;
+   const RT='Ele acabou com o sofá inteiro ou sobrou alguma almofada?';const nn=clamp(Math.floor((T-33.1)/.041)+1,0,RT.length);
+   $('#tx6').textContent=T<33.1?'':RT.slice(0,nn);$('#car6').style.opacity=nn>=RT.length&&T>35.5?0:(Math.floor(T*2.6)%2?.2:1);
+   const bb=prog(T,33.0,.35);$('#bub6').style.opacity=clamp(bb*3);$('#bub6').style.transform=`scale(${.9+.1*eo(bb)})`;$('#bub6').style.transformOrigin='100% 100%';
+   const ok=prog(T,35.9,.45);$('#ok6').style.opacity=clamp(ok*2);$('#ok6').style.transform=`translateY(${(1-eo(ok))*20}px) scale(${.85+.15*back(ok)})`;
+   // ela ri: a conversa sai, a foto dela entra
+   const hi=prog(T,36.45,.75);$('#her6').style.opacity=hi>0?1:0;$('#her6').style.transform=`translateX(${(1-eo(hi))*1000}px) rotate(${(1-eo(hi))*8-1.5*eo(hi)}deg)`;
+   $('#im6b').style.transform=`scale(${1.12-.07*prog(T,36.45,3)}) translateY(${-8*prog(T,36.45,3)}px)`;$('#sh6').style.transform=`translateX(${-120+240*eio(prog(T,36.9,1.1))}%)`;
+   const rp=prog(T,36.85,.55);$('#rep6').style.opacity=rp>0?1:0;$('#rep6').style.transform=`scale(${.4+.6*spring(rp)})`;
+   const dt=prog(T,38.0,.4);$('#dots6').style.opacity=clamp(dt*2);$('#dots6').style.transform=`scale(${.6+.4*back(dt)})`;
+   $$('#dots6 i').forEach((d,i)=>d.style.transform=`translateY(${-8*Math.max(0,Math.sin(T*9-i*.9))}px)`);}
 
-  // 7 · quando parar
-  const ru=eo(prog(t,42.7,.5));$('#rules').style.opacity=ru;$('#rules').style.transform=`translateY(${(1-ru)*50}px)`;
-  $$('#rules .ru').forEach(r=>{const q=prog(t,+r.dataset.at,.4);r.style.opacity=.15+.85*clamp(q*2);r.style.transform=`translateX(${(1-eo(q))*-30}px)`});
+  /* 7 · quando parar */
+  {const pi=eo(prog(T,39.3,.8)),sh=eio(prog(T,42.5,.5));
+   S($('#seg7'),{height:lerp(640,380,sh)+'px'});$('#seg7').style.opacity=pi;$('#seg7').style.transform=`translateY(${(1-pi)*80}px)`;
+   $('#im7').style.transform=`scale(${1.14-.1*prog(T,39.3,8)}) translateY(${-10*prog(T,39.3,8)}px)`;$('#sh7').style.transform=`translateX(${-120+240*eio(prog(T,41.3,1.2))}%)`;
+   const r=eo(prog(T,42.85,.55));$('#rul7').style.opacity=r;$('#rul7').style.transform=`translateY(${(1-r)*80}px)`;
+   $$('#rul7 .ru').forEach(e=>{const q=prog(T,+e.dataset.at,.4);e.style.opacity=.12+.88*clamp(q*2);e.style.transform=`translateX(${(1-eo(q))*-24}px)`});
+   $$('#rul7 .strike').forEach(e=>{e.style.transform=`scaleX(${eo(prog(T,+e.dataset.at,.35))})`});}
 
-  // 8 · CTA
-  const bo=prog(t,48.6,.6);$('#bolo').style.opacity=bo>0?clamp(bo*2):0;$('#bolo').style.transform=`perspective(2000px) rotateY(${(1-spring(bo))*-20}deg) rotate(${-2+2*(1-bo)}deg) scale(${.85+.15*spring(bo)})`;
-  const cp=eo(prog(t,51.4,.6));$('#comp').style.opacity=cp;$('#comp').style.transform=`translateY(${(1-cp)*50}px)`;
-  const CT='o que você mandaria pra ela?';const cn=clamp(Math.floor((t-51.9)/.05)+1,0,CT.length);$('#ctx').textContent=t<51.9?'':CT.slice(0,cn);$('#ccar').style.opacity=Math.floor(t*2.5)%2?.15:1;
-  const fo=eo(prog(t,53.4,.5));$('#follow').style.opacity=fo;$('#follow').style.transform=`translateY(${(1-fo)*20}px) scale(${1+.035*Math.sin(Math.max(0,t-53.9)*4)})`;
-  $('#logo b').style.transform=`scale(${1+.05*Math.sin(t*3)})`;
+  /* 8 · desafio */
+  {const b=prog(T,48.6,.75);$('#bolo8').style.opacity=clamp(b*2.5);$('#bolo8').style.transform=`perspective(2200px) rotateY(${(1-spring(b))*-24+Math.sin(T*.9)*2.5}deg) rotateX(${Math.cos(T*.7)*1.5}deg) rotate(-1.5deg) scale(${.86+.14*spring(b)})`;
+   $('#im8').style.transform=`scale(${1.1-.06*prog(T,48.6,8)})`;$('#sh8').style.transform=`translateX(${-120+240*eio(prog(T,49.3,1.2))}%)`;
+   const cp=eo(prog(T,51.35,.6));$('#cmp8').style.opacity=cp;$('#cmp8').style.transform=`translateY(${(1-cp)*50}px)`;
+   const CT='o que você mandaria pra ela?';const cn=clamp(Math.floor((T-51.9)/.05)+1,0,CT.length);$('#tx8').textContent=T<51.9?'':CT.slice(0,cn);$('#ph8').style.display=T<51.9?'inline':'none';$('#car8').style.opacity=Math.floor(T*2.5)%2?.15:1;
+   const bd=prog(T,53.6,.5);$('#badge8').style.opacity=clamp(bd*3);$('#badge8').style.transform=`rotate(-4deg) scale(${.5+.5*spring(bd)})`;
+   const fo=eo(prog(T,54.4,.6));$('#fol8').style.opacity=fo;$('#fol8').style.transform=`translateY(${(1-fo)*24}px)`;
+   $('#sbtn').style.transform=`scale(${1+.045*Math.max(0,Math.sin(Math.max(0,T-55)*3.2))})`;}
 }
 let FRAME=0;
-window.render=t=>{FRAME=Math.round(t*30);renderOld(warp(t),FRAME)};
+window.render=t=>{FRAME=Math.round(t*30);paint(warp(t),FRAME)};
 window.render(0);
 </script>
 </body>

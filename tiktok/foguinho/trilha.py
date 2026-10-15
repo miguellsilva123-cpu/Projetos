@@ -165,7 +165,7 @@ def wipe(t0):
     mx.place(sfx.whoosh(.7), t0 - .12, .32, pan=.25)
     mx.place(soft_hit(.8), t0 + .2, .35)
     mx.place(chime(), t0 + .05, .12)
-    mx.place(sfx.whoosh(.55), t0 + .42, .2)
+    mx.place(sfx.whoosh(.55), t0 + .55, .2)
 
 
 def push(t0):
@@ -183,10 +183,9 @@ mx.place(sfx.pop(800, 1300), 5.0, .3)
 mx.place(hiss(), 5.55, .14)
 mx.place(sfx.tick(900, .08), 5.55, .3)
 # transições
-push(6.25)
 push(12.75)
 push(30.75)
-for w in (17.75, 24.55, 38.95, 47.85):
+for w in (6.0, 17.45, 24.25, 38.7, 47.45):
     wipe(w)
 # 2 · o celular acende e os foguinhos chegam
 mx.place(sfx.tick(2200, .05), 7.5, .3)
@@ -205,9 +204,9 @@ mx.place(sfx.tick(900, .08), 11.8, .35)
 # 3 · nada pra responder
 mx.place(sfx.pop(600, 1000), 13.25, .35)
 mx.place(zip_(.45), 15.25, .12, pan=-.3)
-mx.place(zip_(.45), 15.55, .12, pan=.3)
+mx.place(zip_(.45), 16.45, .12, pan=.3)
 mx.place(sfx.pop(700, 1100), 15.45, .22)
-mx.place(sfx.pop(800, 1200), 15.8, .22)
+mx.place(sfx.pop(800, 1200), 16.7, .22)
 # 4 · o filtro
 mx.place(scan(), 19.2, .35)
 mx.place(sfx.pop(900, 1400), 20.95, .18)
@@ -234,7 +233,10 @@ mx.place(ding(1320), 36.85, .32)
 for k in range(3):
     mx.place(sfx.tick(1500, .03), 38.0 + k * .12, .08)
 # 7 · quando parar
-mx.place(soft_hit(), 41.25, .4)
+mx.place(sfx.pop(700, 1100), 39.5, .22)                                  # a mensagem boa, no vácuo
+mx.place(sfx.tick(2600, .04), 40.3, .2)                                   # Visto há 2 dias
+mx.place(sfx.whoosh(.45), 41.0, .2)
+mx.place(soft_hit(), 41.75, .4)
 mx.place(sfx.whoosh(.5), 41.15, .18)
 mx.place(sfx.tick(2400, .06), 43.0, .32)
 for t0 in (44.2, 45.2):
@@ -243,11 +245,13 @@ for t0 in (44.2, 45.2):
 # 8 · desafio
 mx.place(sfx.whoosh(.45), 48.6, .22)
 mx.place(sfx.pop(800, 1300), 51.35, .26)
-for i in range(28):
+for i in range(13):
     mx.place(sfx.key(), 51.9 + i * .05, .13)
 mx.place(sfx.pop(1000, 1600), 53.6, .3)
 mx.place(sfx.plim(1760), 53.75, .22)
-mx.place(sfx.pop(800, 1300), 54.4, .26)
+mx.place(sfx.pop(800, 1300), 53.0, .26)
+mx.place(sfx.tick(2800, .04), 54.6, .4)                                   # toque no Seguir
+mx.place(sfx.pop(1000, 1500), 54.72, .28)
 mx.place(chime((587.33, 880.0, 1174.66), 2.4), 54.6, .14)
 
 mx.render(sys.argv[3], sys.argv[2], ducks=[(8.6, 11.0, .5)], music_gain=.34)

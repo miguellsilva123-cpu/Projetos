@@ -21,7 +21,7 @@ html,body{margin:0;background:var(--paper)}
 #world{position:absolute;inset:0;transform-origin:540px 1000px}
 .sc{position:absolute;inset:0;visibility:hidden}
 /* marca */
-#logo{position:absolute;top:150px;left:90px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;color:var(--ink);z-index:30}
+#logo{position:absolute;top:478px;right:90px;display:flex;align-items:center;gap:16px;font-size:20px;font-weight:500;color:var(--ink);z-index:30}
 #logo b{position:relative;width:28px;height:28px;box-sizing:border-box;border:2.5px solid var(--ink);border-radius:50%}
 #logo b::after{content:'';position:absolute;right:-5px;top:-5px;width:11px;height:11px;border-radius:50%;background:var(--co)}
 /* capítulo */
@@ -38,6 +38,7 @@ html,body{margin:0;background:var(--paper)}
 .w{display:inline-block;will-change:transform,filter,opacity}
 mark{background:none;color:inherit;position:relative;display:inline-block;padding:0 .12em;margin:0 -.06em;z-index:0}
 mark::before{content:'';position:absolute;left:0;right:0;top:.12em;bottom:.02em;background:var(--co);border-radius:.14em;transform:scaleX(var(--p,0));transform-origin:0 50%;z-index:-1}
+em{font-style:normal}
 mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#fff;white-space:nowrap;clip-path:inset(0 100% 0 0)}
 /* superfícies */
 .card{position:absolute;box-sizing:border-box;background:#fff;border-radius:44px;box-shadow:0 1px 0 #fff inset,0 50px 100px -30px rgba(14,23,38,.28),0 14px 34px -14px rgba(14,23,38,.14),0 0 0 1px rgba(14,23,38,.05)}
@@ -68,7 +69,8 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
 .wp{position:absolute;inset:0;z-index:35;transform:translateY(100%)}
 #wpA{background:#9AAAFF}
 #wpB{background:linear-gradient(170deg,#2E4CF6,#1B34D6);color:#fff;overflow:hidden}
-#wpB .num{position:absolute;left:84px;top:700px;font-size:300px;font-weight:200;letter-spacing:-.06em;line-height:1}
+#wpB .num{position:absolute;left:84px;top:700px;height:300px;overflow:hidden;font-size:300px;font-weight:200;letter-spacing:-.06em;line-height:1}
+#wpB .num span{display:block;height:300px}
 #wpB .tit{position:absolute;left:96px;top:1030px;font-size:96px;font-weight:650;letter-spacing:-.04em}
 #wpB .lab{position:absolute;left:100px;top:650px;font-size:24px;opacity:.75}
 #wpB .rule{position:absolute;left:100px;top:1160px;width:880px;height:2px;background:rgba(255,255,255,.35);transform-origin:0 50%}
@@ -95,13 +97,13 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
 
     <!-- 2 · o celular dela: bloqueado, acende e os foguinhos chegam -->
     <div class="sc" id="s2">
-      <div class="hl" data-in="6.65" data-out="8.45">A mensagem mais <mark data-at="7.5">fácil</mark> de mandar.</div>
-      <div class="hl" data-in="8.62" data-out="10.7">É a que ela <mark data-at="9.3">mais recebe</mark>.</div>
-      <div class="hl" data-in="10.82">E a primeira que ela <mark data-at="11.5">esquece</mark>.</div>
+      <div class="hl" data-in="6.7" data-out="8.4">A mensagem mais <em class="c" data-at="7.5">fácil</em> de mandar.</div>
+      <div class="hl" data-in="8.62" data-out="10.6">É a que ela <em class="c" data-at="9.3">mais recebe</em>.</div>
+      <div class="hl" data-in="10.82">E a primeira que ela <em class="fd" data-at="11.4">esquece</em>.</div>
       <div class="phone" id="ph2" style="left:240px;top:722px;width:600px;height:1240px">
         <div class="bt" style="left:-5px;top:230px;height:60px"></div><div class="bt" style="left:-5px;top:330px;height:110px"></div><div class="bt" style="left:-5px;top:460px;height:110px"></div><div class="bt" style="right:-5px;top:360px;height:170px"></div>
         <div class="scr">
-          <img src="../serie/fotos/cachorro-sofa.jpg" alt="" id="wall2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
+          <img src="fotos/cachorro-sofa-dia-hd.jpg" alt="" id="wall2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,0) 32%,rgba(0,0,0,.08) 60%,rgba(0,0,0,.35))"></div>
           <svg style="position:absolute;left:50%;top:84px;margin-left:-13px" width="26" height="32" viewBox="0 0 22 28" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3" y="12" width="16" height="13" rx="3" fill="#fff" stroke="none"/><path d="M6.5 12V8a4.5 4.5 0 0 1 9 0v4"/></svg>
           <div style="position:absolute;left:0;right:0;top:126px;text-align:center;font-size:27px;font-weight:600;color:rgba(255,255,255,.92)">terça-feira, 14 de outubro</div>
@@ -116,12 +118,12 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
 
     <!-- 3 · nada pra responder -->
     <div class="sc" id="s3">
-      <div class="hl" data-in="13.05">Não deixa nada pra ela <mark data-at="13.9">responder</mark>.</div>
+      <div class="hl" data-in="13.05">Não deixa nada pra ela <em class="c" data-at="14.25">responder</em>.</div>
       <div class="card" id="dm3" style="left:90px;top:740px;width:900px;height:430px;overflow:hidden">
         <div style="display:flex;align-items:center;gap:20px;padding:24px 34px;border-bottom:1px solid #EFEFEF">
           <svg width="22" height="38" viewBox="0 0 12 20" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg>
           <div class="av" style="width:64px;height:64px;background:linear-gradient(135deg,#9FB0C8,#4E5D78)"></div>
-          <div style="flex:1"><div style="font-size:30px;font-weight:650">lucas_m</div><div style="font-size:22px;color:#737373">lucas</div></div>
+          <div style="flex:1"><div style="font-size:30px;font-weight:650">andre.v</div><div style="font-size:22px;color:#737373">André</div></div>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3"/></svg>
         </div>
@@ -139,11 +141,10 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
       </div>
       <svg id="br3" style="position:absolute;left:0;top:1170px" width="1080" height="130" viewBox="0 0 1080 130" fill="none" stroke="rgba(14,23,38,.28)" stroke-width="3" stroke-linecap="round">
         <path class="draw" data-start="15.25" data-dur=".45" pathLength="1" d="M540 0V40C540 70 520 80 480 80H340C310 80 300 95 300 125"/>
-        <path class="draw" data-start="15.55" data-dur=".45" pathLength="1" d="M540 40C540 70 560 80 600 80H740C770 80 780 95 780 125"/>
+        <path class="draw" data-start="16.45" data-dur=".45" pathLength="1" d="M540 40C540 70 560 80 600 80H740C770 80 780 95 780 125"/>
       </svg>
       <div class="card" id="o3a" style="left:110px;top:1300px;width:390px;height:118px;border-radius:32px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:34px;font-weight:600">devolve <span class="emo" style="font-size:40px">🔥</span></div>
       <div class="card" id="o3b" style="left:585px;top:1300px;width:390px;height:118px;border-radius:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;font-weight:600">ignora<span style="font-size:21px;font-weight:400;color:#8E8E93;margin-top:4px">Visto às 21:48</span></div>
-      <div class="mono" id="cap3" style="position:absolute;left:90px;right:90px;top:1446px;text-align:center;font-size:22px;color:var(--ink2)">nenhum dos dois vira assunto</div>
     </div>
 
     <!-- 4 · o filtro -->
@@ -180,14 +181,14 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
         <div style="margin-left:170px"><div data-in="28.35" style="font-size:52px;font-weight:680;letter-spacing:-.035em;line-height:1.08">Pergunta algo</div><div data-in="28.75" style="margin-top:14px;font-size:40px;color:var(--ink2);letter-spacing:-.02em">que só ela sabe responder.</div></div>
         <svg style="position:absolute;right:44px;bottom:40px" width="66" height="66" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="28.5" pathLength="1" d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path class="draw" data-start="28.8" pathLength="1" d="M10.3 9.6a1.8 1.8 0 1 1 2.7 1.5c-.6.4-1 .8-1 1.5M12 15.2h.01"/></svg>
       </div>
-      <div class="pill mono" id="sum5" style="position:absolute;left:90px;top:1408px;padding:18px 30px;background:var(--mints);color:#0B6E55;font-size:22px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0E9F7A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="29.8" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>detalhe + pergunta = passa no filtro</div>
+      <div class="pill" id="sum5" style="position:absolute;left:90px;top:1404px;padding:18px 32px;background:var(--mints);color:#0B6E55;font-size:31px;font-weight:600;letter-spacing:-.01em"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0E9F7A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="29.8" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>detalhe + pergunta = passa no filtro</div>
     </div>
 
     <!-- 6 · o exemplo -->
     <div class="sc" id="s6">
-      <div class="hl" data-in="31.05" data-out="32.3">Ela postou o cachorro que destruiu o sofá.</div>
-      <div class="hl" data-in="32.45" data-out="36.25">Manda <mark data-at="32.9">assim</mark>:</div>
-      <div class="hl" data-in="36.45" data-out="37.6">Agora ela tem do que <mark data-at="37.0">rir</mark>.</div>
+      <div class="hl" data-in="31.05" data-out="32.25">Ela postou o cachorro que destruiu o sofá.</div>
+      <div class="hl" data-in="32.45" data-out="36.25">Manda assim:</div>
+      <div class="hl" data-in="36.45" data-out="37.52">Agora ela tem do que <em class="c" data-at="37.0">rir</em>.</div>
       <div class="hl" data-in="37.72">E vocês têm <mark data-at="38.2">assunto</mark>.</div>
       <div class="card" id="dm6" style="left:90px;top:700px;width:900px;height:770px;overflow:hidden">
         <div style="display:flex;align-items:center;gap:20px;padding:24px 34px;border-bottom:1px solid #EFEFEF">
@@ -197,10 +198,10 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
         </div>
         <div style="position:absolute;right:40px;top:132px;font-size:22px;color:#8E8E93">Você respondeu ao story dela</div>
         <div id="bub6" class="igbub out" style="position:absolute;right:40px;top:500px;max-width:620px;border-bottom-right-radius:12px"><span id="tx6"></span><span id="car6" style="display:inline-block;width:3px;height:36px;background:#fff;margin-left:3px;vertical-align:-6px"></span></div>
-        <div class="pill" id="ok6" style="position:absolute;right:40px;top:690px;padding:12px 22px;background:var(--mints);color:#0B6E55;font-size:23px;font-weight:600"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E9F7A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="35.95" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>passou no filtro: só serve pra ela</div>
+        <div class="pill" id="ok6" style="position:absolute;right:40px;top:676px;padding:14px 26px;background:var(--mints);color:#0B6E55;font-size:28px;font-weight:600"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0E9F7A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="35.95" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>passou no filtro: só serve pra ela</div>
       </div>
       <div class="photo" id="st6" style="left:250px;top:720px;width:580px;height:740px;border-radius:40px">
-        <img src="../serie/fotos/cachorro-sofa.jpg" alt="" id="im6" style="object-position:50% 55%">
+        <img src="fotos/cachorro-sofa-dia-hd.jpg" alt="" id="im6" style="object-position:50% 55%">
         <div id="ui6" style="position:absolute;inset:0">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),transparent 22%,transparent 70%,rgba(0,0,0,.5))"></div>
           <div style="position:absolute;left:22px;right:22px;top:20px;display:flex;gap:8px"><i style="flex:1;height:5px;border-radius:3px;background:#fff"></i><i style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.45)"></i></div>
@@ -216,15 +217,25 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
 
     <!-- 7 · quando parar -->
     <div class="sc" id="s7">
-      <div class="hl" data-in="39.45" data-out="45.85">E se ela <mark data-at="40.3">não responder</mark>?</div>
-      <div class="hl" data-in="46.02">Quem tem interesse, <mark data-at="46.9">responde</mark>.</div>
-      <div class="photo" id="seg7" style="left:90px;top:720px;width:900px;height:640px">
+      <div class="hl" data-in="39.45" data-out="42.6">E se ela <em class="c" data-at="40.3">não responder</em>?</div>
+      <div class="hl" data-in="42.8" data-out="45.8">Uma mensagem <em class="c" data-at="43.2">boa</em>. Uma.</div>
+      <div class="hl" data-in="46.02">Quem tem interesse, <em class="c" data-at="46.9">responde</em>.</div>
+      <div class="card" id="wait7" style="left:90px;top:740px;width:900px;height:420px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:20px;padding:24px 34px;border-bottom:1px solid #EFEFEF">
+          <svg width="22" height="38" viewBox="0 0 12 20" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg>
+          <div class="av ring" style="width:64px;height:64px;background:linear-gradient(135deg,#E9C8A8,#9C6B4E)"></div>
+          <div style="flex:1"><div style="font-size:30px;font-weight:650">carol.m</div><div style="font-size:22px;color:#737373">Carolina</div></div>
+        </div>
+        <div class="igbub out" style="position:absolute;right:40px;top:150px;max-width:620px;border-bottom-right-radius:12px">Ele acabou com o sofá inteiro ou sobrou alguma almofada?</div>
+        <div id="seen7" style="position:absolute;right:44px;top:318px;font-size:24px;color:#8E8E93">Visto há 2 dias</div>
+      </div>
+      <div class="photo" id="seg7" style="left:90px;top:740px;width:900px;height:620px">
         <img src="fotos/segue-dia-hd.jpg" alt="" id="im7" style="object-position:50% 42%">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,23,38,0) 45%,rgba(14,23,38,.62))"></div>
-        <div data-in="41.25" style="position:absolute;left:48px;bottom:40px;font-size:112px;font-weight:750;letter-spacing:-.05em;color:#fff;line-height:1">Segue a vida.</div>
+        <div data-in="41.75" style="position:absolute;left:48px;bottom:40px;font-size:112px;font-weight:750;letter-spacing:-.05em;color:#fff;line-height:1">Segue a vida.</div>
         <div class="sheen" id="sh7"></div>
       </div>
-      <div class="card" id="rul7" style="left:90px;top:1125px;width:900px;height:340px;padding:4px 44px">
+      <div class="card" id="rul7" style="left:90px;top:1135px;width:900px;height:340px;padding:4px 44px">
         <div class="ru" data-at="42.9" style="display:flex;align-items:center;justify-content:space-between;height:110px;border-bottom:1px solid #EEE;font-size:40px;font-weight:620;letter-spacing:-.02em">1 mensagem boa<svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="var(--co)"/><path class="draw" data-start="43.0" data-dur=".3" pathLength="1" d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ru" data-at="43.95" style="position:relative;display:flex;align-items:center;justify-content:space-between;height:110px;border-bottom:1px solid #EEE;font-size:40px;font-weight:620;letter-spacing:-.02em;color:#9AA0AA"><span style="position:relative">segundo foguinho<i class="strike" data-at="44.2" style="position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:#9AA0AA;transform-origin:0 50%"></i></span><svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E9E6E0"/><path class="draw" data-start="44.1" data-dur=".25" pathLength="1" d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#7D8490" stroke-width="2.4" stroke-linecap="round"/></svg></div>
         <div class="ru" data-at="44.95" style="position:relative;display:flex;align-items:center;justify-content:space-between;height:110px;font-size:40px;font-weight:620;letter-spacing:-.02em;color:#9AA0AA"><span style="position:relative">“sumiu?”<i class="strike" data-at="45.2" style="position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:#9AA0AA;transform-origin:0 50%"></i></span><svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E9E6E0"/><path class="draw" data-start="45.1" data-dur=".25" pathLength="1" d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#7D8490" stroke-width="2.4" stroke-linecap="round"/></svg></div>
@@ -233,27 +244,28 @@ mark .mt{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 .12em;color:#
 
     <!-- 8 · desafio -->
     <div class="sc" id="s8">
-      <div class="hl" data-in="48.45" data-out="50.85">Agora é <mark data-at="49.0">com você</mark>.</div>
+      <div class="hl" data-in="48.45" data-out="50.8">Agora é <em class="c" data-at="49.0">com você</em>.</div>
       <div class="hl" data-in="51.02">Comenta o que você <mark data-at="52.0">mandaria</mark>.</div>
-      <div class="photo" id="bolo8" style="left:300px;top:700px;width:480px;height:560px;border-radius:40px">
-        <img src="fotos/bolo-hd.jpg" alt="" id="im8">
+      <div class="photo" id="bolo8" style="left:300px;top:742px;width:480px;height:520px;border-radius:40px">
+        <img src="fotos/bolo-queimado-hd.jpg" alt="" id="im8">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),transparent 24%,transparent 58%,rgba(0,0,0,.55))"></div>
         <div style="position:absolute;left:20px;right:20px;top:18px;display:flex"><i style="flex:1;height:5px;border-radius:3px;background:#fff"></i></div>
         <div style="position:absolute;left:22px;top:38px;display:flex;align-items:center;gap:12px;font-size:23px;font-weight:650;color:#fff"><div class="av" style="width:44px;height:44px;background:linear-gradient(135deg,#F1D3A8,#A8744A);border:2px solid #fff"></div>ju.ferraz <span style="font-weight:400;opacity:.85">1 h</span></div>
-        <div style="position:absolute;left:24px;right:24px;top:392px;text-align:center;font-size:36px;font-weight:750;line-height:1.15;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)">primeira vez fazendo bolo</div>
-        <div style="position:absolute;left:50%;top:478px;transform:translateX(-50%) rotate(-5deg);padding:10px 22px;border-radius:12px;background:#fff;color:#111;font-size:28px;font-weight:800;white-space:nowrap">deu ruim kkk</div>
+        <div style="position:absolute;left:24px;right:24px;top:356px;text-align:center;font-size:36px;font-weight:750;line-height:1.15;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)">primeira vez fazendo bolo</div>
+        <div style="position:absolute;left:50%;top:442px;transform:translateX(-50%) rotate(-5deg);padding:10px 22px;border-radius:12px;background:#fff;color:#111;font-size:28px;font-weight:800;white-space:nowrap">queimei kkk</div>
         <div class="sheen" id="sh8"></div>
       </div>
-      <div class="pill" id="badge8" style="position:absolute;left:610px;top:1218px;padding:16px 26px;background:var(--co);color:#fff;font-size:26px;font-weight:650;box-shadow:0 20px 40px -12px rgba(36,67,240,.55);z-index:3"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="53.75" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>eu passo no filtro</div>
+      <div class="pill" id="badge8" style="position:absolute;left:610px;top:1226px;padding:16px 26px;background:var(--co);color:#fff;font-size:26px;font-weight:650;box-shadow:0 20px 40px -12px rgba(36,67,240,.55);z-index:3"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="draw" data-start="53.75" data-dur=".3" pathLength="1" d="M4 12l5 5L20 6"/></svg>eu passo no filtro</div>
       <div class="card pill" id="cmp8" style="left:90px;top:1296px;width:900px;height:104px;padding:0 30px 0 18px;gap:20px">
         <div class="av" style="width:68px;height:68px;background:linear-gradient(135deg,#C9D3FF,#2443F0)"></div>
-        <div style="flex:1;font-size:30px;color:#111;white-space:nowrap;overflow:hidden"><span id="tx8"></span><span id="car8" style="display:inline-block;width:3px;height:36px;background:#3797F0;margin-left:2px;vertical-align:-6px"></span><span id="ph8" style="color:#8E8E93">Adicione um comentário…</span></div>
+        <div style="flex:1;font-size:30px;color:#111;white-space:nowrap;overflow:hidden"><span id="tx8"></span><span id="car8" style="display:inline-block;width:3px;height:36px;background:#3797F0;margin-left:2px;vertical-align:-6px"></span><span id="ph8" style="color:#8E8E93">Escreve o que você mandaria…</span></div>
         <div style="font-size:28px;font-weight:650;color:#3797F0">Publicar</div>
       </div>
       <div id="fol8" style="position:absolute;left:90px;right:90px;top:1428px;display:flex;align-items:center;justify-content:center;gap:20px">
         <div style="position:relative;width:54px;height:54px;border-radius:50%;background:var(--ink)"><b style="position:absolute;left:14px;top:14px;width:26px;height:26px;box-sizing:border-box;border:2.5px solid #fff;border-radius:50%"></b><b style="position:absolute;left:33px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--co2)"></b></div>
-        <div style="font-size:31px;font-weight:650;letter-spacing:-.01em">@oprotocolodapresenca</div>
-        <div id="sbtn" class="pill" style="padding:14px 30px;background:var(--co);color:#fff;font-size:26px;font-weight:650">Seguir</div>
+        <div style="font-size:35px;font-weight:650;letter-spacing:-.015em">@oprotocolodapresenca</div>
+        <div id="sbtn" class="pill" style="position:relative;padding:16px 34px;background:var(--co);color:#fff;font-size:30px;font-weight:650;border:2px solid var(--co)"><span id="sbt">Seguir</span></div>
+        <div id="tap8" style="position:absolute;left:0;top:0;width:70px;height:70px;margin:-35px;border-radius:50%;background:rgba(14,23,38,.22);border:3px solid rgba(255,255,255,.95);opacity:0"></div>
       </div>
     </div>
   </div>
@@ -285,20 +297,20 @@ const S=(el,o)=>{for(const k in o)el.style[k]=o[k]};
 
 /* ---------- conteúdo gerado ---------- */
 const IGI='<div style="width:66px;height:66px;border-radius:16px;flex-shrink:0;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="#fff" stroke="none"/></svg></div>';
-const NAMES=['lucas_m','rafa.oli','gui.santos','theo_','joao.p','marcos.r','vini_','dudu.lima','caio.f','pedro_h','bruno.s','leo.mt','andre.c','felipe_','renan.x','matheus','igor.b','diego.a','tiago_','hugo.r'];
+const NAMES=['andre.v','pedro.lm','caio_r','rodrigo.s','fe.alves','nando_','gabriel.c','vitor.m','lipe_','rafael.b','thiago.n','samuel.r','henrique_','joao.vp','luan.s','bernardo','mateus.f','enzo_','davi.c','otavio_'];
 const MSGS=['🔥','🔥','🔥🔥','🔥','🔥','🔥','🔥🔥','🔥','🔥','🔥','🔥','🔥🔥','🔥','🔥','🔥','🔥','🔥🔥','🔥','🔥','🔥'];
 const NT=[7.6];{let tt=8.65,g=.34;for(let i=1;i<20;i++){NT.push(+tt.toFixed(3));tt+=g;g=Math.max(.055,g*.83)}}
 $('#notifs').innerHTML=NAMES.map((n,i)=>`<div class="nt" data-t="${NT[i]}">${IGI}<div class="tx"><div class="hd"><b>${n}</b><span>agora</span></div><div class="ms emo">${MSGS[i]}</div></div></div>`).join('');
 // a multidão: a mesma mensagem, de todo mundo
-const CR=['lucas_m','rafa.oli','gui.santos','theo_','você','joao.p','marcos.r','vini_','dudu.lima','caio.f','pedro_h','bruno.s'];
+const CR=['andre.v','pedro.lm','caio_r','rodrigo.s','você','fe.alves','nando_','gabriel.c','vitor.m','lipe_','rafael.b','thiago.n'];
 const CRC=[['#B9C4D8','#5A6A86'],['#D8CBB8','#8C7559'],['#BFD3C9','#4F7666'],['#C9C3D9','#655B86'],['#C9D3FF','#2443F0'],['#D9D2C6','#7B7266'],['#B8C9D9','#4E6A86'],['#D6C7BE','#8A6A5A'],['#C4CFC0','#5D7356'],['#CFC9DB','#6C6390'],['#C2CCD6','#566577'],['#D8CFC0','#86775F']];
 $('#crowd').innerHTML=CR.map((n,i)=>`<div class="cr" style="position:absolute;left:${(i%3)*310}px;top:${Math.floor(i/3)*112}px;width:280px;height:94px;box-sizing:border-box;border-radius:28px;background:#fff;box-shadow:0 18px 40px -16px rgba(14,23,38,.22),0 0 0 1px rgba(14,23,38,.05);display:flex;align-items:center;gap:14px;padding:0 20px"><div class="av" style="width:52px;height:52px;background:linear-gradient(135deg,${CRC[i][0]},${CRC[i][1]})"></div><div style="flex:1;font-size:23px;font-weight:620;white-space:nowrap" class="crn">${n}</div><span class="emo" style="font-size:36px">🔥</span></div>`).join('');
 // fumaça do foguinho apagado
 $('#smoke1').innerHTML=Array.from({length:7},(_,i)=>`<i class="sm" style="position:absolute;left:${-40+((i*37)%60)}px;top:0;width:${70+i*10}px;height:${70+i*10}px;margin:-35px;border-radius:50%;background:radial-gradient(circle,rgba(110,114,122,.5),rgba(110,114,122,0) 70%);opacity:0"></i>`).join('');
 // capítulos
-const CH=[['01','O problema',6.35,18.05],['02','O filtro',18.05,24.85],['03','A iniciativa',24.85,39.25],['04','O limite',39.25,48.15],['05','Sua vez',48.15,999]];
+const CH=[['01','O problema',6.3,17.75],['02','O filtro',17.75,24.55],['03','A iniciativa',24.55,39.0],['04','O limite',39.0,47.75],['05','Sua vez',47.75,999]];
 $('#chap').innerHTML=CH.map(c=>`<div class="chp mono"><b>${c[0]}</b><i></i><span>${c[1]}</span></div>`).join('');
-const WIPES=[[17.75,'02','O filtro'],[24.55,'03','A iniciativa'],[38.95,'04','O limite'],[47.85,'05','Sua vez']];
+const WIPES=[[6.0,'01','O problema'],[17.45,'02','O filtro'],[24.25,'03','A iniciativa'],[38.7,'04','O limite'],[47.45,'05','Sua vez']];
 
 // texto: palavra por palavra, sobe e entra em foco
 const TX=[];
@@ -311,12 +323,13 @@ $$('[data-in]').forEach(el=>{
   });
   TX.push({el,units,a:+el.dataset.in,b:el.dataset.out?+el.dataset.out:null});
 });
+const EM=$$('em[data-at]').map(e=>({e,at:+e.dataset.at,fd:e.classList.contains('fd')}));
 const MK=$$('mark').map(m=>{const t=document.createElement('span');t.className='mt';t.textContent=m.textContent;m.appendChild(t);return{m,t,at:+m.dataset.at}});
 const draws=$$('.draw').map(el=>({el,start:+el.dataset.start,dur:el.dataset.dur?+el.dataset.dur:.6}));
 draws.forEach(d=>{d.el.style.strokeDasharray='1';d.el.style.strokeDashoffset='1'});
 
 // cenas: [id, entra, sai, tipo de entrada, tipo de saída]
-const SC=[['#s1',0,6.25,'cut','push'],['#s2',6.25,12.75,'push','push'],['#s3',12.75,17.75,'push','wipe'],['#s4',17.75,24.55,'wipe','wipe'],['#s5',24.55,30.75,'wipe','push'],['#s6',30.75,38.95,'push','wipe'],['#s7',38.95,47.85,'wipe','wipe'],['#s8',47.85,999,'wipe','none']];
+const SC=[['#s1',0,6.0,'cut','wipe'],['#s2',6.0,12.75,'wipe','push'],['#s3',12.75,17.45,'push','wipe'],['#s4',17.45,24.25,'wipe','wipe'],['#s5',24.25,30.75,'wipe','push'],['#s6',30.75,38.7,'push','wipe'],['#s7',38.7,47.45,'wipe','wipe'],['#s8',47.45,999,'wipe','none']];
 
 // granulação determinística
 const gc=$('#grain').getContext('2d'),gimg=gc.createImageData(540,960);
@@ -338,9 +351,12 @@ function paint(T,frame){
     e.style.visibility=vis&&op>.001?'visible':'hidden';e.style.opacity=op;e.style.transform=`translateY(${y}px) scale(${s})`;e.style.filter=bl>.2?`blur(${bl}px)`:'none'});
 
   // cortina dos capítulos
-  let wy=100,wya=100;WIPES.forEach(([w,n,tit])=>{if(T>w-.2&&T<w+1){const q1=prog(T,w-.12,.42),q2=prog(T,w+.42,.42),a1=prog(T,w-.2,.4),a2=prog(T,w+.5,.42);
-    wy=q2>0?-100*eio(q2):100*(1-eio(q1));wya=a2>0?-100*eio(a2):100*(1-eio(a1));$('#wnum').textContent=n;$('#wtit').textContent=tit;
-    const tq=eo(prog(T,w+.0,.35)),tf=1-prog(T,w+.34,.14);$('#wpB').querySelectorAll('.tit,.lab,.rule').forEach(e=>e.style.opacity=tf);$('#wnum').style.transform=`translateY(${(1-tq)*60}px)`;$('#wnum').style.opacity=tq*tf;$('#wtit').style.transform=`translateY(${(1-eo(prog(T,w+.06,.35)))*60}px)`;$('#wrule').style.transform=`scaleX(${eo(prog(T,w+.05,.5))})`}});
+  let wy=100,wya=100;WIPES.forEach(([w,n,tit],wi)=>{if(T>w-.2&&T<w+1.1){const q1=prog(T,w-.12,.42),q2=prog(T,w+.55,.42),a1=prog(T,w-.2,.4),a2=prog(T,w+.63,.42);
+    wy=q2>0?-100*eio(q2):100*(1-eio(q1));wya=a2>0?-100*eio(a2):100*(1-eio(a1));
+    const prev=wi?WIPES[wi-1][1]:'00';if($('#wnum').dataset.n!==n){$('#wnum').dataset.n=n;$('#wnum').innerHTML=`<div class="roll"><span>${prev}</span><span>${n}</span></div>`}$('#wtit').textContent=tit;
+    const rq=eio(prog(T,w+.02,.3)),tf=1-prog(T,w+.42,.13);$('#wnum').querySelector('.roll').style.transform=`translateY(${-300*rq}px)`;
+    $('#wpB').querySelectorAll('.tit,.rule').forEach(e=>e.style.opacity=tf);$('#wpB').querySelector('.lab').style.opacity=.75*tf;$('#wnum').style.opacity=tf;
+    $('#wtit').style.transform=`translateY(${(1-eo(prog(T,w+.06,.35)))*60}px)`;$('#wrule').style.transform=`scaleX(${eo(prog(T,w+.05,.5))})`}});
   $('#wpB').style.transform=`translateY(${wy}%)`;$('#wpA').style.transform=`translateY(${wya}%)`;
 
   // rótulo do capítulo
@@ -348,15 +364,17 @@ function paint(T,frame){
 
   // texto
   TX.forEach(g=>{g.units.forEach((u,i)=>{const p=ex(prog(T,g.a+i*.06,.75));u.style.opacity=p;u.style.transform=`translateY(${(1-p)*.45}em)`;u.style.filter=p<.98?`blur(${(1-p)*14}px)`:'none'});
-    if(g.b!=null){const q=prog(T,g.b,.32);g.el.style.opacity=1-q;g.el.style.transform=`translateY(${-q*36}px)`;g.el.style.filter=q>0?`blur(${q*10}px)`:'none';g.el.style.visibility=q>=1?'hidden':'visible'}});
+    if(g.b!=null){const q=prog(T,g.b,.2);g.el.style.opacity=1-q;g.el.style.transform=`translateY(${-q*50}px)`;g.el.style.filter=q>0?`blur(${q*10}px)`:'none';g.el.style.visibility=q>=1?'hidden':'visible'}});
   MK.forEach(({m,t,at})=>{const p=eio(prog(T,at,.45));m.style.setProperty('--p',p);t.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`});
+  EM.forEach(({e,at,fd})=>{const p=eio(prog(T,at,fd?.7:.35));if(fd){e.style.opacity=(+e.style.opacity||0)*(1-.78*p);e.style.letterSpacing=`${.06*p}em`}else{e.style.color=`rgb(${Math.round(14+(36-14)*p)},${Math.round(23+(67-23)*p)},${Math.round(38+(240-38)*p)})`}});
   draws.forEach(d=>{const q=prog(T,d.start,d.dur);d.el.style.strokeDashoffset=1-eo(q);d.el.style.opacity=q>0?1:0});
 
   // caixinha: grande no começo, fixa no alto depois (como no reel de referência)
   const bx=$('#box'),bin=prog(T,.05,.7);
-  const by=keys(T,[[0,600],[3.9,600],[4.5,236],[999,236]]),bs=keys(T,[[0,1],[3.9,1.02],[4.5,.62],[999,.62]]);
+  const by=keys(T,[[0,600],[3.9,600],[4.5,236],[999,236]]),bs=keys(T,[[0,1],[3.9,1.02],[4.5,.74],[999,.74]]);
   bx.style.opacity=clamp(bin*3);bx.style.transform=`translateY(${by+(1-spring(bin))*90}px) scale(${bs*(T<1?.92+.08*spring(bin):1)})`;
   $('#boxfire').style.transform=`scale(${1+.08*Math.sin(T*6)})`;
+  $('#logo').style.opacity=eo(prog(T,4.5,.5));
 
   /* 1 · gancho */
   {const q=prog(T,3.9,.65),e=eio(q);S($('#ph1'),{left:lerp(60,300,e)+'px',top:lerp(330,850,e)+'px',width:lerp(960,480,e)+'px',height:lerp(1200,600,e)+'px',borderRadius:lerp(48,40,e)+'px'});
@@ -368,12 +386,12 @@ function paint(T,frame){
    $$('#smoke1 .sm').forEach((m,i)=>{const q=prog(T,5.6+i*.06,1.3);m.style.opacity=(Math.sin(Math.PI*q)*.9).toFixed(3);m.style.transform=`translate(${Math.sin(i*2.3)*40*q}px,${-200*q}px) scale(${.4+1.1*q})`});}
 
   /* 2 · o celular dela */
-  {const p=eo(prog(T,6.3,.8)),st=eio(prog(T,6.6,1.7));$('#ph2').style.transform=`perspective(2600px) rotateY(${-16*(1-st)}deg) rotateX(${10*(1-st)}deg) translateY(${(1-p)*140}px) scale(${1+.03*prog(T,8.3,4)})`;
-   const wake=eo(prog(T,7.5,.35)),sleep=eo(prog(T,11.8,.3));$('#off2').style.opacity=Math.max(1-wake,sleep);
+  {const p=eo(prog(T,6.4,.8)),st=eio(prog(T,6.6,1.7));$('#ph2').style.transform=`perspective(2600px) rotateY(${-16*(1-st)}deg) rotateX(${10*(1-st)}deg) translateY(${(1-p)*140}px) scale(${1+.03*prog(T,8.3,4)})`;
+   const wake=eo(prog(T,7.5,.35)),sleep=eo(prog(T,11.8,.3));$('#off2').style.opacity=.84*Math.max(1-wake,sleep);
    $('#wall2').style.filter=`blur(${10*eo(prog(T,8.65,.6))}px) brightness(${1-.12*eo(prog(T,8.65,.6))})`;$('#wall2').style.transform='scale(1.06)';
    const nts=$$('#notifs .nt');let n=0;nts.forEach(e=>{if(T>=+e.dataset.t)n++});
    nts.forEach((e,i)=>{const t0=+e.dataset.t,j=n-1-i,q=prog(T,t0,.32),clr=prog(T,11.15+Math.max(0,Math.min(j,5))*.045,.38);
-     let y,sc,op;if(j<4){y=j*120;sc=1;op=1}else{const k=Math.min(j-4,2);y=4*120+k*14;sc=1-(k+1)*.05;op=j-4<3?.8:0}
+     let y,sc,op;if(j<3){y=j*116;sc=1;op=1}else{const k=Math.min(j-3,2);y=3*116+k*14;sc=1-(k+1)*.05;op=j-3<3?.8:0}
      e.style.zIndex=50-j;e.style.opacity=T>=t0?clamp(q*3)*op*(1-clr):0;e.style.transform=`translateX(${-ei(clr)*600}px) translateY(${y+(1-spring(q))*-40}px) scale(${sc*(.9+.1*spring(q))})`});
    const cq=prog(T,7.6,.5);$('#cnt2').style.opacity=clamp(cq*3)*(1-prog(T,11.3,.4));$('#cnt2').style.transform=`scale(${.6+.4*spring(cq)}) translateY(${(1-eo(cq))*30}px)`;$('#cntn').textContent=n;}
 
@@ -381,9 +399,7 @@ function paint(T,frame){
   {const d=eo(prog(T,12.95,.6));$('#dm3').style.transform=`translateY(${(1-d)*60}px)`;$('#dm3').style.opacity=d;
    const f=prog(T,13.25,.55);$('#fb3').style.transform=`scale(${.2+.8*spring(f)})`;$('#fb3').style.opacity=f>0?1:0;
    $('#car3').style.opacity=Math.floor(T*2.2)%2?0:1;
-   const dim=eo(prog(T,16.55,.5));
-   [['#o3a',15.45],['#o3b',15.8]].forEach(([id,a])=>{const q=prog(T,a,.5);$(id).style.opacity=clamp(q*2.5)*(1-.35*dim);$(id).style.transform=`translateY(${(1-eo(q))*40}px) scale(${.9+.1*back(q)})`;$(id).style.filter=`saturate(${1-dim})`});
-   const c=eo(prog(T,16.55,.5));$('#cap3').style.opacity=c;$('#cap3').style.transform=`translateY(${(1-c)*16}px)`;}
+   [['#o3a',15.45],['#o3b',16.7]].forEach(([id,a])=>{const q=prog(T,a,.5);$(id).style.opacity=clamp(q*2.5);$(id).style.transform=`translateY(${(1-eo(q))*40}px) scale(${.9+.1*back(q)})`});}
 
   /* 4 · o filtro */
   {const fi=eo(prog(T,18.2,.65)),fo=eio(prog(T,22.8,.45));$('#flt').style.opacity=fi*(1-fo);$('#flt').style.transform=`translateY(${(1-fi)*70}px) scale(${1-.06*fo})`;$('#flt').style.filter=fo>0?`blur(${fo*12}px)`:'none';$('#flt').style.visibility=fo>=1?'hidden':'visible';
@@ -425,21 +441,23 @@ function paint(T,frame){
    $$('#dots6 i').forEach((d,i)=>d.style.transform=`translateY(${-8*Math.max(0,Math.sin(T*9-i*.9))}px)`);}
 
   /* 7 · quando parar */
-  {const pi=eo(prog(T,39.3,.8)),sh=eio(prog(T,42.5,.5));
-   S($('#seg7'),{height:lerp(640,380,sh)+'px'});$('#seg7').style.opacity=pi;$('#seg7').style.transform=`translateY(${(1-pi)*80}px)`;
-   $('#im7').style.transform=`scale(${1.14-.1*prog(T,39.3,8)}) translateY(${-10*prog(T,39.3,8)}px)`;$('#sh7').style.transform=`translateX(${-120+240*eio(prog(T,41.3,1.2))}%)`;
+  {const wi=eo(prog(T,39.5,.6)),wo=eio(prog(T,41.0,.4));$('#wait7').style.opacity=wi*(1-wo);$('#wait7').style.transform=`translateY(${(1-wi)*60-wo*80}px) scale(${1-.04*wo})`;$('#wait7').style.visibility=wo>=1?'hidden':'visible';$('#seen7').style.opacity=eo(prog(T,40.3,.35));
+   const pi=eo(prog(T,41.15,.75)),sh=eio(prog(T,42.5,.5));
+   S($('#seg7'),{height:lerp(620,370,sh)+'px'});$('#seg7').style.opacity=pi;$('#seg7').style.transform=`translateY(${(1-pi)*90}px) scale(${.96+.04*pi})`;
+   $('#im7').style.transform=`scale(${1.16-.1*prog(T,41.15,6)}) translateY(${-10*prog(T,41.15,6)}px)`;$('#sh7').style.transform=`translateX(${-120+240*eio(prog(T,41.8,1.2))}%)`;
    const r=eo(prog(T,42.85,.55));$('#rul7').style.opacity=r;$('#rul7').style.transform=`translateY(${(1-r)*80}px)`;
-   $$('#rul7 .ru').forEach(e=>{const q=prog(T,+e.dataset.at,.4);e.style.opacity=.12+.88*clamp(q*2);e.style.transform=`translateX(${(1-eo(q))*-24}px)`});
+   $$('#rul7 .ru').forEach(e=>{const q=prog(T,+e.dataset.at,.4);e.style.opacity=clamp(q*2);e.style.transform=`translateX(${(1-eo(q))*-24}px)`});
    $$('#rul7 .strike').forEach(e=>{e.style.transform=`scaleX(${eo(prog(T,+e.dataset.at,.35))})`});}
 
   /* 8 · desafio */
   {const b=prog(T,48.6,.75);$('#bolo8').style.opacity=clamp(b*2.5);$('#bolo8').style.transform=`perspective(2200px) rotateY(${(1-spring(b))*-24+Math.sin(T*.9)*2.5}deg) rotateX(${Math.cos(T*.7)*1.5}deg) rotate(-1.5deg) scale(${.86+.14*spring(b)})`;
    $('#im8').style.transform=`scale(${1.1-.06*prog(T,48.6,8)})`;$('#sh8').style.transform=`translateX(${-120+240*eio(prog(T,49.3,1.2))}%)`;
    const cp=eo(prog(T,51.35,.6));$('#cmp8').style.opacity=cp;$('#cmp8').style.transform=`translateY(${(1-cp)*50}px)`;
-   const CT='o que você mandaria pra ela?';const cn=clamp(Math.floor((T-51.9)/.05)+1,0,CT.length);$('#tx8').textContent=T<51.9?'':CT.slice(0,cn);$('#ph8').style.display=T<51.9?'inline':'none';$('#car8').style.opacity=Math.floor(T*2.5)%2?.15:1;
+   const CT='eu mandaria: ';const cn=clamp(Math.floor((T-51.9)/.05)+1,0,CT.length);$('#tx8').textContent=T<51.9?'':CT.slice(0,cn);$('#ph8').style.display=T<51.9?'inline':'none';$('#car8').style.opacity=Math.floor(T*2.5)%2?.15:1;
    const bd=prog(T,53.6,.5);$('#badge8').style.opacity=clamp(bd*3);$('#badge8').style.transform=`rotate(-4deg) scale(${.5+.5*spring(bd)})`;
-   const fo=eo(prog(T,54.4,.6));$('#fol8').style.opacity=fo;$('#fol8').style.transform=`translateY(${(1-fo)*24}px)`;
-   $('#sbtn').style.transform=`scale(${1+.045*Math.max(0,Math.sin(Math.max(0,T-55)*3.2))})`;}
+   const fo=eo(prog(T,53.0,.6));$('#fol8').style.opacity=fo;$('#fol8').style.transform=`translateY(${(1-fo)*24}px)`;
+   const done=T>=54.75,pr=Math.sin(Math.PI*prog(T,54.6,.25));$('#sbtn').style.transform=`scale(${(1-.06*pr)*(done?1:1+.04*Math.max(0,Math.sin(Math.max(0,T-53.6)*4)))})`;$('#sbtn').style.background=done?'#fff':'var(--co)';$('#sbtn').style.color=done?'var(--ink)':'#fff';$('#sbtn').style.borderColor=done?'rgba(14,23,38,.18)':'var(--co)';$('#sbt').textContent=done?'Seguindo':'Seguir';
+   const sb=$('#sbtn').getBoundingClientRect(),fb=$('#fol8').getBoundingClientRect(),tq=prog(T,54.05,.55);S($('#tap8'),{left:(sb.left-fb.left+sb.width/2+lerp(120,0,eio(tq)))+'px',top:(sb.top-fb.top+sb.height/2+lerp(160,0,eio(tq)))+'px',opacity:(clamp(prog(T,54.05,.15)*3)*(1-prog(T,54.85,.25))).toFixed(3),transform:`scale(${1-.25*pr})`});}
 }
 let FRAME=0;
 window.render=t=>{FRAME=Math.round(t*30);paint(warp(t),FRAME)};

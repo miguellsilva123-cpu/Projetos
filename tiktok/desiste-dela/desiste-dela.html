@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O Protocolo — Desiste dela</title>
+<style>
+@font-face{font-family:'Geist';src:url(../foguinho/fonts/geist.woff2) format('woff2');font-weight:100 900}
+html,body{margin:0;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#000;font-family:'Geist',sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+.emo{font-family:'Noto Color Emoji';font-weight:400}
+/* caixinha (igual à do reel de referência), fixa no alto */
+#box{position:absolute;left:120px;top:300px;width:840px;transform-origin:50% 0;border-radius:34px;overflow:hidden}
+#box .hd{background:#262626;color:#fff;font-size:30px;font-weight:600;text-align:center;padding:24px 30px}
+#box .bd{background:#fff;color:#4a4a4a;font-size:46px;line-height:1.3;text-align:center;padding:34px 46px 40px}
+/* legenda */
+#cap{position:absolute;left:90px;right:90px;top:1080px;transform:translateY(-50%);text-align:center;font-size:92px;font-weight:700;line-height:1.14;letter-spacing:-.02em}
+#cap .w{display:none;opacity:0}
+#cap .r{color:#FF2B2B;font-weight:900}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="box"><div class="hd">Manda a sua melhor pergunta…</div><div class="bd">Mando <span class="emo">🔥</span> no direct dela e ela não responde, devo desistir dela?</div></div>
+  <div id="cap"></div>
+</div>
+<script src="timeline.js"></script>
+<script src="legendas.js"></script>
+<script>
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-x,3);
+const spring=x=>x>=1?1:1-Math.exp(-6.5*x)*Math.cos(9*x);
+const cap=document.getElementById('cap'),box=document.getElementById('box');
+
+// cada trecho: início e fim da fala; cada palavra entra proporcional aos caracteres
+const SEG=window.SEGS.map((s,i,a)=>{
+  const words=[];let red=false;
+  s.text.split(/\s+/).forEach(tok=>{
+    let t=tok,r0=red;
+    if(t.startsWith('*')){red=true;r0=true;t=t.slice(1)}
+    let endRed=false;if(/\*[.,:;?!]*$/.test(t)){endRed=true;t=t.replace('*','')}
+    words.push({t,red:r0||red});
+    if(endRed)red=false;
+  });
+  const total=words.reduce((n,w)=>n+w.t.length+1,0);let acc=0;
+  words.forEach(w=>{w.at=s.start+0.9*(s.end-s.start)*(acc/total);acc+=w.t.length+1});
+  return {...s,words,hide:i+1<a.length?a[i+1].start-0.03:1e9};
+});
+let cur=-1;
+function show(i){
+  cur=i;cap.innerHTML=i<0?'':SEG[i].words.map(w=>`<span class="w${w.red?' r':''}">${w.t}</span>`).join(' ');
+}
+window.render=t=>{
+  // caixinha entra no começo e fica
+  const b=clamp(t/0.6);box.style.opacity=clamp(b*3);box.style.transform=`translateY(${(1-spring(b))*60}px) scale(${.92+.08*spring(b)})`;
+  let i=-1;SEG.forEach((s,k)=>{if(t>=s.start-0.06)i=k});
+  if(i!==cur)show(i);
+  if(i<0)return;
+  const ws=cap.querySelectorAll('.w');
+  SEG[i].words.forEach((w,k)=>{const q=clamp((t-w.at)/0.12);ws[k].style.display=t>=w.at?'inline-block':'none';ws[k].style.opacity=q;ws[k].style.transform=`translateY(${(1-eo(q))*18}px) scale(${.9+.1*eo(q)})`});
+};
+window.render(0);
+</script>
+</body>
+</html>

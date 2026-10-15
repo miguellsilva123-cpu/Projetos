@@ -1,0 +1,917 @@
+{
+ "duration": 122.459,
+ "warp": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.3,
+   0.01
+  ],
+  [
+   1.87,
+   0.02
+  ],
+  [
+   3.12,
+   0.03
+  ],
+  [
+   4.565,
+   0.04
+  ],
+  [
+   5.805,
+   0.05
+  ],
+  [
+   6.865,
+   0.06
+  ],
+  [
+   7.985,
+   0.07
+  ],
+  [
+   10.18,
+   0.08
+  ],
+  [
+   11.77,
+   0.09
+  ],
+  [
+   13.5,
+   0.1
+  ],
+  [
+   15.59,
+   0.11
+  ],
+  [
+   16.58,
+   0.12
+  ],
+  [
+   18.039,
+   0.13
+  ],
+  [
+   19.749,
+   0.14
+  ],
+  [
+   20.949,
+   0.15
+  ],
+  [
+   22.729,
+   0.16
+  ],
+  [
+   23.649,
+   0.17
+  ],
+  [
+   24.329,
+   0.18
+  ],
+  [
+   25.289,
+   0.19
+  ],
+  [
+   26.299,
+   0.2
+  ],
+  [
+   27.447,
+   0.21
+  ],
+  [
+   29.497,
+   0.22
+  ],
+  [
+   30.857,
+   0.23
+  ],
+  [
+   32.157,
+   0.24
+  ],
+  [
+   33.798,
+   0.25
+  ],
+  [
+   35.148,
+   0.26
+  ],
+  [
+   37.318,
+   0.27
+  ],
+  [
+   39.629,
+   0.28
+  ],
+  [
+   40.479,
+   0.29
+  ],
+  [
+   41.479,
+   0.3
+  ],
+  [
+   42.959,
+   0.31
+  ],
+  [
+   45.349,
+   0.32
+  ],
+  [
+   46.306,
+   0.33
+  ],
+  [
+   48.096,
+   0.34
+  ],
+  [
+   49.396,
+   0.35000000000000003
+  ],
+  [
+   50.736,
+   0.36
+  ],
+  [
+   51.936,
+   0.37
+  ],
+  [
+   53.306,
+   0.38
+  ],
+  [
+   54.936,
+   0.39
+  ],
+  [
+   56.131,
+   0.4
+  ],
+  [
+   57.351,
+   0.41000000000000003
+  ],
+  [
+   58.851,
+   0.42
+  ],
+  [
+   60.381,
+   0.43
+  ],
+  [
+   62.691,
+   0.44
+  ],
+  [
+   64.138,
+   0.45
+  ],
+  [
+   66.458,
+   0.46
+  ],
+  [
+   68.058,
+   0.47000000000000003
+  ],
+  [
+   69.866,
+   0.48
+  ],
+  [
+   70.986,
+   0.49
+  ],
+  [
+   73.016,
+   0.5
+  ],
+  [
+   75.376,
+   0.51
+  ],
+  [
+   76.636,
+   0.52
+  ],
+  [
+   77.876,
+   0.53
+  ],
+  [
+   79.676,
+   0.54
+  ],
+  [
+   80.556,
+   0.55
+  ],
+  [
+   83.853,
+   0.56
+  ],
+  [
+   84.923,
+   0.5700000000000001
+  ],
+  [
+   86.653,
+   0.58
+  ],
+  [
+   88.113,
+   0.59
+  ],
+  [
+   89.603,
+   0.6
+  ],
+  [
+   90.303,
+   0.61
+  ],
+  [
+   92.694,
+   0.62
+  ],
+  [
+   94.094,
+   0.63
+  ],
+  [
+   95.044,
+   0.64
+  ],
+  [
+   97.224,
+   0.65
+  ],
+  [
+   99.114,
+   0.66
+  ],
+  [
+   100.234,
+   0.67
+  ],
+  [
+   103.009,
+   0.68
+  ],
+  [
+   103.309,
+   0.6900000000000001
+  ],
+  [
+   104.599,
+   0.7000000000000001
+  ],
+  [
+   104.799,
+   0.71
+  ],
+  [
+   105.509,
+   0.72
+  ],
+  [
+   106.399,
+   0.73
+  ],
+  [
+   107.129,
+   0.74
+  ],
+  [
+   109.475,
+   0.75
+  ],
+  [
+   111.215,
+   0.76
+  ],
+  [
+   112.485,
+   0.77
+  ],
+  [
+   115.095,
+   0.78
+  ],
+  [
+   116.637,
+   0.79
+  ],
+  [
+   117.987,
+   0.8
+  ],
+  [
+   119.507,
+   0.81
+  ],
+  [
+   122.459,
+   0.8200000000000001
+  ]
+ ],
+ "phrases": [
+  {
+   "id": "b01",
+   "text": "Eu mando foguinho no direct dela,",
+   "old": 0.01,
+   "start": 0.3
+  },
+  {
+   "id": "b01",
+   "text": "e ela não responde.",
+   "old": 0.02,
+   "start": 1.87
+  },
+  {
+   "id": "b01",
+   "text": "Devo desistir?",
+   "old": 0.03,
+   "start": 3.12
+  },
+  {
+   "id": "b02",
+   "text": "Desiste dela, sim.",
+   "old": 0.04,
+   "start": 4.565
+  },
+  {
+   "id": "b02",
+   "text": "E aproveita pra desistir",
+   "old": 0.05,
+   "start": 5.805
+  },
+  {
+   "id": "b02",
+   "text": "de ser assim.",
+   "old": 0.06,
+   "start": 6.865
+  },
+  {
+   "id": "b02",
+   "text": "Porque desse jeito, não vai rolar.",
+   "old": 0.07,
+   "start": 7.985
+  },
+  {
+   "id": "b03",
+   "text": "Pode me chamar de antiquado,",
+   "old": 0.08,
+   "start": 10.18
+  },
+  {
+   "id": "b03",
+   "text": "mas eu não entendo essa moda.",
+   "old": 0.09,
+   "start": 11.77
+  },
+  {
+   "id": "b03",
+   "text": "Uma mulher bonita e inteligente",
+   "old": 0.1,
+   "start": 13.5
+  },
+  {
+   "id": "b03",
+   "text": "não responde foguinho.",
+   "old": 0.11,
+   "start": 15.59
+  },
+  {
+   "id": "b03",
+   "text": "Nem coraçãozinho.",
+   "old": 0.12,
+   "start": 16.58
+  },
+  {
+   "id": "b04",
+   "text": "Olha o outro lado da tela.",
+   "old": 0.13,
+   "start": 18.039
+  },
+  {
+   "id": "b04",
+   "text": "Ela abre o direct e encontra",
+   "old": 0.14,
+   "start": 19.749
+  },
+  {
+   "id": "b04",
+   "text": "um monte de homem comum:",
+   "old": 0.15,
+   "start": 20.949
+  },
+  {
+   "id": "b04",
+   "text": "vinte foguinhos,",
+   "old": 0.16,
+   "start": 22.729
+  },
+  {
+   "id": "b04",
+   "text": "cem corações,",
+   "old": 0.17,
+   "start": 23.649
+  },
+  {
+   "id": "b04",
+   "text": "três oi, gata,",
+   "old": 0.18,
+   "start": 24.329
+  },
+  {
+   "id": "b04",
+   "text": "e um de onde você é?",
+   "old": 0.19,
+   "start": 25.289
+  },
+  {
+   "id": "b04",
+   "text": "É tudo igual.",
+   "old": 0.2,
+   "start": 26.299
+  },
+  {
+   "id": "b05",
+   "text": "Me responde com sinceridade:",
+   "old": 0.21,
+   "start": 27.447
+  },
+  {
+   "id": "b05",
+   "text": "por que ela escolheria você,",
+   "old": 0.22,
+   "start": 29.497
+  },
+  {
+   "id": "b05",
+   "text": "se você mesmo se coloca",
+   "old": 0.23,
+   "start": 30.857
+  },
+  {
+   "id": "b05",
+   "text": "no meio desse monte?",
+   "old": 0.24,
+   "start": 32.157
+  },
+  {
+   "id": "b06",
+   "text": "Foguinho é a mensagem de quem",
+   "old": 0.25,
+   "start": 33.798
+  },
+  {
+   "id": "b06",
+   "text": "não gastou nem dez segundos.",
+   "old": 0.26,
+   "start": 35.148
+  },
+  {
+   "id": "b06",
+   "text": "E não, isso aqui não é papo de curso.",
+   "old": 0.27,
+   "start": 37.318
+  },
+  {
+   "id": "b07",
+   "text": "O ponto é um só:",
+   "old": 0.28,
+   "start": 39.629
+  },
+  {
+   "id": "b07",
+   "text": "zero esforço,",
+   "old": 0.29,
+   "start": 40.479
+  },
+  {
+   "id": "b07",
+   "text": "esperando atenção máxima.",
+   "old": 0.3,
+   "start": 41.479
+  },
+  {
+   "id": "b07",
+   "text": "O que você tá acrescentando nessa conversa?",
+   "old": 0.31,
+   "start": 42.959
+  },
+  {
+   "id": "b07",
+   "text": "Nada.",
+   "old": 0.32,
+   "start": 45.349
+  },
+  {
+   "id": "b08",
+   "text": "Você não tá enxergando a mulher.",
+   "old": 0.33,
+   "start": 46.306
+  },
+  {
+   "id": "b08",
+   "text": "Mandou foguinho porque gostou",
+   "old": 0.34,
+   "start": 48.096
+  },
+  {
+   "id": "b08",
+   "text": "da aparência dela.",
+   "old": 0.35000000000000003,
+   "start": 49.396
+  },
+  {
+   "id": "b08",
+   "text": "E o Instagram é dela:",
+   "old": 0.36,
+   "start": 50.736
+  },
+  {
+   "id": "b08",
+   "text": "ela posta o que quiser.",
+   "old": 0.37,
+   "start": 51.936
+  },
+  {
+   "id": "b08",
+   "text": "Ela não tem obrigação nenhuma",
+   "old": 0.38,
+   "start": 53.306
+  },
+  {
+   "id": "b08",
+   "text": "de te responder.",
+   "old": 0.39,
+   "start": 54.936
+  },
+  {
+   "id": "b09",
+   "text": "Não teve esforço.",
+   "old": 0.4,
+   "start": 56.131
+  },
+  {
+   "id": "b09",
+   "text": "Não teve iniciativa da sua parte.",
+   "old": 0.41000000000000003,
+   "start": 57.351
+  },
+  {
+   "id": "b09",
+   "text": "Você quer que ela faça tudo,",
+   "old": 0.42,
+   "start": 58.851
+  },
+  {
+   "id": "b09",
+   "text": "enquanto você só aperta um emoji.",
+   "old": 0.43,
+   "start": 60.381
+  },
+  {
+   "id": "b09",
+   "text": "Isso não existe.",
+   "old": 0.44,
+   "start": 62.691
+  },
+  {
+   "id": "b10",
+   "text": "Uma mulher inteligente percebe na hora:",
+   "old": 0.45,
+   "start": 64.138
+  },
+  {
+   "id": "b10",
+   "text": "esse cara mandou o mesmo foguinho",
+   "old": 0.46,
+   "start": 66.458
+  },
+  {
+   "id": "b10",
+   "text": "pra vinte mulheres hoje.",
+   "old": 0.47000000000000003,
+   "start": 68.058
+  },
+  {
+   "id": "b11",
+   "text": "E aqui tá a virada.",
+   "old": 0.48,
+   "start": 69.866
+  },
+  {
+   "id": "b11",
+   "text": "Não é que ela não responde ninguém.",
+   "old": 0.49,
+   "start": 70.986
+  },
+  {
+   "id": "b11",
+   "text": "Ela responde um homem diferente.",
+   "old": 0.5,
+   "start": 73.016
+  },
+  {
+   "id": "b12",
+   "text": "O homem que comentou",
+   "old": 0.51,
+   "start": 75.376
+  },
+  {
+   "id": "b12",
+   "text": "uma coisa específica.",
+   "old": 0.52,
+   "start": 76.636
+  },
+  {
+   "id": "b12",
+   "text": "Que se esforçou, nem que seja um pouco.",
+   "old": 0.53,
+   "start": 77.876
+  },
+  {
+   "id": "b12",
+   "text": "Você entende o que é",
+   "old": 0.54,
+   "start": 79.676
+  },
+  {
+   "id": "b12",
+   "text": "se esforçar por alguém que você quer conhecer?",
+   "old": 0.55,
+   "start": 80.556
+  },
+  {
+   "id": "b13",
+   "text": "Ele olhou pra ela.",
+   "old": 0.56,
+   "start": 83.853
+  },
+  {
+   "id": "b13",
+   "text": "Pra ela, não pro corpo dela.",
+   "old": 0.5700000000000001,
+   "start": 84.923
+  },
+  {
+   "id": "b13",
+   "text": "E comentou algo que ela postou,",
+   "old": 0.58,
+   "start": 86.653
+  },
+  {
+   "id": "b13",
+   "text": "que mostrou que ele prestou atenção,",
+   "old": 0.59,
+   "start": 88.113
+  },
+  {
+   "id": "b13",
+   "text": "que pensou,",
+   "old": 0.6,
+   "start": 89.603
+  },
+  {
+   "id": "b13",
+   "text": "e que quis conhecer ela melhor.",
+   "old": 0.61,
+   "start": 90.303
+  },
+  {
+   "id": "b14",
+   "text": "Uma frase com conteúdo,",
+   "old": 0.62,
+   "start": 92.694
+  },
+  {
+   "id": "b14",
+   "text": "sobre o que ela gosta,",
+   "old": 0.63,
+   "start": 94.094
+  },
+  {
+   "id": "b14",
+   "text": "vale mais que mil foguinhos.",
+   "old": 0.64,
+   "start": 95.044
+  },
+  {
+   "id": "b15",
+   "text": "E outra coisa, sem papo de guru:",
+   "old": 0.65,
+   "start": 97.224
+  },
+  {
+   "id": "b15",
+   "text": "o direct é apenas a porta.",
+   "old": 0.66,
+   "start": 99.114
+  },
+  {
+   "id": "b15",
+   "text": "Quem sustenta é a sua vida real.",
+   "old": 0.67,
+   "start": 100.234
+  },
+  {
+   "id": "b16",
+   "text": "Sua rotina.",
+   "old": 0.68,
+   "start": 103.009
+  },
+  {
+   "id": "b16",
+   "text": "Seu trabalho.",
+   "old": 0.6900000000000001,
+   "start": 103.309
+  },
+  {
+   "id": "b16",
+   "text": "Seu corpo.",
+   "old": 0.7000000000000001,
+   "start": 104.599
+  },
+  {
+   "id": "b16",
+   "text": "Seu caráter.",
+   "old": 0.71,
+   "start": 104.799
+  },
+  {
+   "id": "b16",
+   "text": "Sua fé.",
+   "old": 0.72,
+   "start": 105.509
+  },
+  {
+   "id": "b16",
+   "text": "Constrói isso primeiro,",
+   "old": 0.73,
+   "start": 106.399
+  },
+  {
+   "id": "b16",
+   "text": "que a mensagem vira detalhe.",
+   "old": 0.74,
+   "start": 107.129
+  },
+  {
+   "id": "b17",
+   "text": "Transforma o seu Instagram",
+   "old": 0.75,
+   "start": 109.475
+  },
+  {
+   "id": "b17",
+   "text": "numa vitrine de quem você é.",
+   "old": 0.76,
+   "start": 111.215
+  },
+  {
+   "id": "b17",
+   "text": "Não numa máquina de mandar mensagenzinha",
+   "old": 0.77,
+   "start": 112.485
+  },
+  {
+   "id": "b17",
+   "text": "pra um monte de mulher.",
+   "old": 0.78,
+   "start": 115.095
+  },
+  {
+   "id": "b18",
+   "text": "Mostra quem você é.",
+   "old": 0.79,
+   "start": 116.637
+  },
+  {
+   "id": "b18",
+   "text": "E mostra que você se interessa",
+   "old": 0.8,
+   "start": 117.987
+  },
+  {
+   "id": "b18",
+   "text": "por quem ela é.",
+   "old": 0.81,
+   "start": 119.507
+  }
+ ],
+ "blocks": [
+  {
+   "id": "b01",
+   "start": 0.3,
+   "dur": 3.765
+  },
+  {
+   "id": "b02",
+   "start": 4.565,
+   "dur": 5.115
+  },
+  {
+   "id": "b03",
+   "start": 10.18,
+   "dur": 7.41
+  },
+  {
+   "id": "b04",
+   "start": 18.039,
+   "dur": 8.957
+  },
+  {
+   "id": "b05",
+   "start": 27.447,
+   "dur": 5.851
+  },
+  {
+   "id": "b06",
+   "start": 33.798,
+   "dur": 5.431
+  },
+  {
+   "id": "b07",
+   "start": 39.629,
+   "dur": 6.177
+  },
+  {
+   "id": "b08",
+   "start": 46.306,
+   "dur": 9.376
+  },
+  {
+   "id": "b09",
+   "start": 56.131,
+   "dur": 7.507
+  },
+  {
+   "id": "b10",
+   "start": 64.138,
+   "dur": 5.178
+  },
+  {
+   "id": "b11",
+   "start": 69.866,
+   "dur": 5.01
+  },
+  {
+   "id": "b12",
+   "start": 75.376,
+   "dur": 8.027
+  },
+  {
+   "id": "b13",
+   "start": 83.853,
+   "dur": 8.391
+  },
+  {
+   "id": "b14",
+   "start": 92.694,
+   "dur": 3.98
+  },
+  {
+   "id": "b15",
+   "start": 97.224,
+   "dur": 5.335
+  },
+  {
+   "id": "b16",
+   "start": 103.009,
+   "dur": 6.016
+  },
+  {
+   "id": "b17",
+   "start": 109.475,
+   "dur": 6.712
+  },
+  {
+   "id": "b18",
+   "start": 116.637,
+   "dur": 3.822
+  }
+ ]
+}

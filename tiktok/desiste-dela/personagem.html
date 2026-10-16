@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O Protocolo — Desiste dela (personagem)</title>
+<style>
+@font-face{font-family:'Geist';src:url(../foguinho/fonts/geist.woff2) format('woff2');font-weight:100 900}
+html,body{margin:0;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#000;font-family:'Geist',sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+.emo{font-family:'Noto Color Emoji';font-weight:400}
+#glow{position:absolute;left:90px;top:860px;width:900px;height:1200px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.07),rgba(255,255,255,0))}
+#box{position:absolute;left:120px;top:250px;width:840px;transform-origin:50% 0;border-radius:34px;overflow:hidden;z-index:3}
+#box .hd{background:#262626;color:#fff;font-size:30px;font-weight:600;text-align:center;padding:24px 30px}
+#box .bd{background:#fff;color:#4a4a4a;font-size:46px;line-height:1.3;text-align:center;padding:34px 46px 40px}
+#cap{position:absolute;left:80px;right:80px;top:715px;transform:translateY(-50%);text-align:center;font-size:82px;font-weight:700;line-height:1.12;letter-spacing:-.02em;z-index:3}
+#cap .w{display:none;opacity:0}
+#cap .r{color:#FF2B2B;font-weight:900}
+svg{position:absolute;left:0;top:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="glow"></div>
+  <svg width="1080" height="1920" viewBox="0 0 1080 1920">
+    <defs>
+      <linearGradient id="tee" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6E747D"/><stop offset=".45" stop-color="#8E949D"/><stop offset="1" stop-color="#7A808A"/></linearGradient>
+      <linearGradient id="skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B9805E"/><stop offset=".5" stop-color="#C98F6C"/><stop offset="1" stop-color="#BE8462"/></linearGradient>
+      <clipPath id="mclip"><path id="mclipP" d=""/></clipPath>
+    </defs>
+    <g id="body">
+      <!-- tronco (camiseta) -->
+      <path d="M236 1980 L238 1540 Q240 1436 318 1404 L470 1348 Q540 1374 610 1348 L762 1404 Q840 1436 842 1540 L844 1980 Z" fill="url(#tee)"/>
+      <path d="M238 1540 Q240 1436 318 1404 L346 1394 Q290 1450 290 1570 L288 1980 L236 1980 Z" fill="#5F656E" opacity=".55"/>
+      <path d="M318 1404 Q246 1430 240 1530" fill="none" stroke="#B7BDC6" stroke-width="4" opacity=".45"/>
+      <path d="M762 1404 Q834 1430 840 1530" fill="none" stroke="#B7BDC6" stroke-width="4" opacity=".45"/>
+      <!-- pescoço -->
+      <path d="M486 1270 L594 1270 L600 1356 Q540 1384 480 1356 Z" fill="#B57C5A"/>
+      <path d="M486 1270 L594 1270 L596 1300 Q540 1330 484 1300 Z" fill="#9E6748" opacity=".7"/>
+      <path d="M466 1346 Q540 1398 614 1346" fill="none" stroke="#5E646C" stroke-width="14" stroke-linecap="round"/>
+      <g id="head">
+        <ellipse cx="410" cy="1142" rx="24" ry="40" fill="#B57C5A"/>
+        <ellipse cx="670" cy="1142" rx="24" ry="40" fill="#B57C5A"/>
+        <path d="M410 1090 Q410 958 540 952 Q670 958 670 1090 L668 1172 Q660 1266 580 1300 Q540 1314 500 1300 Q420 1266 412 1172 Z" fill="url(#skin)"/>
+        <!-- barba rala -->
+        <path d="M414 1168 Q420 1262 500 1298 Q540 1313 580 1298 Q660 1262 666 1168 Q650 1214 612 1222 Q590 1200 540 1202 Q490 1200 468 1222 Q430 1214 414 1168 Z" fill="#2E2019" opacity=".38"/>
+        <!-- cabelo -->
+        <path d="M402 1112 Q384 962 470 922 Q540 892 622 916 Q694 942 684 1064 L680 1112 Q668 1036 642 1002 Q600 1022 524 1008 Q456 998 432 1034 Q412 1064 408 1112 Z" fill="#1B1511"/>
+        <path d="M470 922 Q540 896 622 916 Q590 930 540 932 Q500 934 470 922 Z" fill="#2B221C"/>
+        <g id="browL"><path d="M446 1078 Q478 1058 514 1070" fill="none" stroke="#1B1511" stroke-width="15" stroke-linecap="round"/></g>
+        <g id="browR"><path d="M566 1070 Q602 1058 634 1078" fill="none" stroke="#1B1511" stroke-width="15" stroke-linecap="round"/></g>
+        <g id="eyeL" transform="translate(482,1114)"><g class="lid"><ellipse rx="24" ry="15" fill="#F2ECE6"/><circle id="irisL" r="11.5" fill="#3A281E"/><circle r="5" fill="#0E0B09"/><circle cx="4" cy="-4" r="3" fill="#fff"/></g><path d="M-26 -4 Q0 -20 26 -4" fill="none" stroke="#2A1B14" stroke-width="5" stroke-linecap="round"/></g>
+        <g id="eyeR" transform="translate(598,1114)"><g class="lid"><ellipse rx="24" ry="15" fill="#F2ECE6"/><circle id="irisR" r="11.5" fill="#3A281E"/><circle r="5" fill="#0E0B09"/><circle cx="4" cy="-4" r="3" fill="#fff"/></g><path d="M-26 -4 Q0 -20 26 -4" fill="none" stroke="#2A1B14" stroke-width="5" stroke-linecap="round"/></g>
+        <path d="M534 1124 Q522 1170 528 1184 Q542 1194 560 1182" fill="none" stroke="#9A6446" stroke-width="6" stroke-linecap="round"/>
+        <g id="mouth" transform="translate(540,1236)">
+          <path id="mIn" d="" fill="#3A1A1A"/>
+          <g clip-path="url(#mclip)"><rect id="teeth" x="-60" y="-40" width="120" height="14" fill="#F1ECE4"/><ellipse id="tongue" cx="0" cy="24" rx="22" ry="12" fill="#B4525A"/></g>
+          <path id="mLine" d="" fill="none" stroke="#6B3A30" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+    <g id="armA" transform="translate(262,1462)"></g>
+    <g id="armB" transform="translate(818,1462) scale(-1,1)"></g>
+  </svg>
+  <div id="box"><div class="hd">Manda a sua melhor pergunta…</div><div class="bd">Mando <span class="emo">🔥</span> no direct dela e ela não responde, devo desistir dela?</div></div>
+  <div id="cap"></div>
+  <div id="capa" style="display:none;position:absolute;left:60px;right:60px;top:508px;text-align:center;z-index:4"><div style="font-size:136px;font-weight:900;line-height:.95;letter-spacing:-.03em">DESISTE<br>DELA.</div><div style="margin-top:14px;font-size:70px;font-weight:900;color:#FF2B2B;letter-spacing:-.02em">E DE SER ASSIM.</div></div>
+</div>
+<script src="legendas.js"></script>
+<script src="amp.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const spring=x=>x>=1?1:1-Math.exp(-6.5*x)*Math.cos(9*x);
+const lerp=(a,b,p)=>a+(b-a)*p;
+
+/* ---------- braço: ombro → cotovelo → punho → mão (0° = para baixo, positivo = para dentro) ---------- */
+const UP=220,FO=200;
+function armSVG(){return `
+  <g class="u"><rect x="-44" y="-30" width="88" height="${UP+40}" rx="44" fill="#B57C5A"/>
+    <path d="M-50 -34 Q0 -60 50 -34 L52 92 Q0 108 -52 92 Z" fill="#848A93"/><path d="M-52 92 Q0 108 52 92" fill="none" stroke="#6A7079" stroke-width="6"/>
+    <g class="f" transform="translate(0,${UP})"><rect x="-36" y="-24" width="72" height="${FO+30}" rx="36" fill="#C08664"/>
+      <g class="h" transform="translate(0,${FO})">
+        <rect x="-40" y="-8" width="80" height="86" rx="30" fill="#C98F6C"/>
+        <rect class="fg" data-k="0" x="-38" y="56" width="21" height="78" rx="10.5" fill="#C98F6C"/>
+        <rect class="fg" data-k="1" x="-16" y="60" width="21" height="86" rx="10.5" fill="#C48A68"/>
+        <rect class="fg" data-k="2" x="6" y="58" width="21" height="80" rx="10.5" fill="#C98F6C"/>
+        <rect class="fg" data-k="3" x="27" y="52" width="18" height="64" rx="9" fill="#C48A68"/>
+        <g class="th" transform="translate(-36,30) rotate(38)"><rect x="-12" y="0" width="24" height="70" rx="12" fill="#BF8563"/></g>
+      </g></g></g>`}
+$('#armA').innerHTML=armSVG();$('#armB').innerHTML=armSVG();
+const ARMS=['#armA','#armB'].map(id=>{const g=$(id);return{u:g.querySelector('.u'),f:g.querySelector('.f'),h:g.querySelector('.h'),fg:[...g.querySelectorAll('.fg')],th:g.querySelector('.th')}});
+const FL=[78,86,80,64];
+// poses: [ombro, antebraço (absoluto), mão, dedos esticados (indicador, médio, anelar, mínimo), polegar]
+const P={
+  rest:[-2,0,0,[.4,.4,.4,.4],.4],
+  open:[-10,152,4,[1,1,1,1],1],
+  high:[-6,168,0,[1,1,1,1],1],
+  point:[-10,146,-8,[1,0,0,0],0],
+  fist:[-10,140,0,[0,0,0,0],0],
+  ask:[-4,100,-18,[1,1,1,1],1],
+  chest:[6,124,-30,[1,1,1,1],1],
+  c1:[-6,166,0,[1,0,0,0],0],c2:[-6,166,0,[1,1,0,0],0],c3:[-6,166,0,[1,1,1,0],0],c4:[-6,166,0,[1,1,1,1],0],c5:[-6,166,0,[1,1,1,1],1],
+};
+function setArm(a,p,wag){
+  const [s,f,h,fg,th]=p;
+  a.u.setAttribute('transform',`rotate(${-s})`);
+  a.f.setAttribute('transform',`translate(0,${UP}) rotate(${-(f-s)})`);
+  a.h.setAttribute('transform',`translate(0,${FO}) rotate(${-(h+wag)})`);
+  a.fg.forEach((e,k)=>e.setAttribute('height',(26+(FL[k]-26)*fg[k]).toFixed(1)));
+  a.th.setAttribute('transform',`translate(-36,30) rotate(${38-80*(1-th)})`);
+}
+const mixP=(a,b,q)=>[lerp(a[0],b[0],q),lerp(a[1],b[1],q),lerp(a[2],b[2],q),a[3].map((v,k)=>lerp(v,b[3][k],q)),lerp(a[4],b[4],q)];
+
+/* ---------- legendas ---------- */
+const SEG=window.SEGS.map((s,i,a)=>{
+  const words=[];let red=false;
+  s.text.split(/\s+/).forEach(tok=>{let t=tok,r0=red;if(t.startsWith('*')){red=true;r0=true;t=t.slice(1)}
+    let endRed=false;if(/\*[.,:;?!]*$/.test(t)){endRed=true;t=t.replace('*','')}words.push({t,red:r0||red});if(endRed)red=false});
+  const total=words.reduce((n,w)=>n+w.t.length+1,0);let acc=0;
+  words.forEach(w=>{w.at=s.start+0.9*(s.end-s.start)*(acc/total);w.t0=acc/total;acc+=w.t.length+1});
+  return {...s,plain:s.text.replace(/\*/g,''),words};
+});
+
+/* ---------- gestos de cada trecho ---------- */
+const COUNT={'vinte foguinhos,':'c1','cem corações,':'c2','três oi, gata,':'c3','e um de onde você é?':'c4','Sua rotina.':'c1','Seu trabalho.':'c2','Seu corpo.':'c3','Seu caráter.':'c4','Sua fé.':'c5'};
+let alt=0;
+SEG.forEach((s,i)=>{
+  const t=s.plain,lo=t.toLowerCase();let A='rest',B='rest',wag=0;
+  if(COUNT[t]){B=COUNT[t]}
+  else if(/^nada\.|isso não existe|não pro corpo/.test(lo)){B='point';wag=1}
+  else if(lo.startsWith('desiste dela')){B='high'}
+  else if(t.endsWith('?')){B='ask'}
+  else if(/apenas a porta|vida real|vitrine/.test(lo)){A='open';B='open'}
+  else if(/quem você é|você mesmo|olhou pra ela/.test(lo)){A='chest'}
+  else if(/\bvocê\b/.test(lo)){B='point'}
+  else if(/\*/.test(s.text)){B=(alt++%2)?'fist':'open'}
+  else{const r=i%5;if(r===1)B='open';else if(r===3)A='open';else if(r===4){A='open';B='open'}}
+  s.pose=[A,B];s.wag=wag;
+});
+
+/* ---------- boca: forma pela letra falada, abertura pela voz ---------- */
+const VIS={a:[1.0,1.0],e:[1.15,.55],o:[.72,.85],m:[.9,0],f:[1.0,.18],n:[.95,.35]};
+function vis(ch){ch=ch.toLowerCase();if('aáàâã'.includes(ch))return 'a';if('eéêiíy'.includes(ch))return 'e';if('oóôõuú'.includes(ch))return 'o';if('mbp'.includes(ch))return 'm';if('fv'.includes(ch))return 'f';return 'n'}
+function mouthAt(t){
+  const i=Math.floor(t*100),amp=window.AMP[clamp(i,0,window.AMP.length-1)]||0;
+  let k='m';
+  for(const s of SEG){if(t>=s.start&&t<s.end){const p=clamp((t-s.start)/(0.9*(s.end-s.start)),0,.999);const ch=s.plain[Math.floor(p*s.plain.length)]||' ';k=/[a-zà-ú]/i.test(ch)?vis(ch):'n';break}}
+  const [w,o]=VIS[k];const open=clamp((amp-.06)/.6)*o;return [w,open];
+}
+function drawMouth(t){
+  const a=mouthAt(t),b=mouthAt(t-.033),c=mouthAt(t-.066);
+  const w=(a[0]*.5+b[0]*.3+c[0]*.2),o=(a[1]*.5+b[1]*.3+c[1]*.2);
+  const W=30*w+4,H=34*o;
+  const d=`M${-W} 0 Q0 ${-H*.42-3} ${W} 0 Q0 ${H*1.1+3} ${-W} 0 Z`;
+  $('#mIn').setAttribute('d',d);$('#mclipP').setAttribute('d',d);
+  $('#teeth').setAttribute('y',(-H*.42-3).toFixed(1));$('#teeth').setAttribute('height',(6+H*.32).toFixed(1));
+  $('#tongue').setAttribute('cy',(H*.9).toFixed(1));$('#tongue').style.opacity=clamp(o*1.4);
+  $('#mLine').setAttribute('d',`M${-W-4} ${-1} Q0 ${-H*.42-4} ${W+4} -1 M${-W} 0 Q0 ${H*1.1+4} ${W} 0`);
+  return o;
+}
+
+/* ---------- quadro ---------- */
+let cur=-1;const cap=$('#cap'),box=$('#box');
+function show(i){cur=i;cap.innerHTML=i<0?'':SEG[i].words.map(w=>`<span class="w${w.red?' r':''}">${w.t}</span>`).join(' ')}
+window.render=t=>{
+  const b=clamp(t/0.6);box.style.opacity=clamp(b*3);box.style.transform=`translateY(${(1-spring(b))*60}px) scale(${(.92+.08*spring(b))*.86})`;
+  // legenda
+  let i=-1;SEG.forEach((s,k)=>{if(t>=s.start-0.06)i=k});
+  if(i!==cur)show(i);
+  if(i>=0){const ws=cap.querySelectorAll('.w');SEG[i].words.forEach((w,k)=>{const q=clamp((t-w.at)/0.12);ws[k].style.display=t>=w.at?'inline-block':'none';ws[k].style.opacity=q;ws[k].style.transform=`translateY(${(1-eo(q))*16}px) scale(${.9+.1*eo(q)})`})}
+  // gestos: muda um pouco antes de cada trecho; pausa longa volta ao descanso
+  let pi=-1;SEG.forEach((s,k)=>{if(t>=s.start-0.18)pi=k});
+  const target=k=>{if(k<0)return['rest','rest'];const s=SEG[k],nx=SEG[k+1];if(nx&&t>s.end+0.45&&nx.start-s.end>0.8)return['rest','rest'];return s.pose};
+  const curP=target(pi),prevP=target(pi-1),q=eio(clamp((t-((pi>=0?SEG[pi].start:0)-0.18))/0.38));
+  const mouthOpen=drawMouth(t);
+  ARMS.forEach((a,k)=>{
+    let p=mixP(P[prevP[k]],P[curP[k]],q);
+    // batida nas palavras vermelhas e um leve balanço
+    let beat=0;if(pi>=0)SEG[pi].words.forEach(w=>{if(w.red){const d=t-w.at;if(d>0&&d<.35)beat=Math.max(beat,Math.sin(Math.PI*d/.35))}});
+    const live=curP[k]!=='rest';
+    p[1]+=live?(8*beat+2.5*Math.sin(t*2.1+k*1.7)):1.5*Math.sin(t*1.1+k);
+    const wag=pi>=0&&SEG[pi].wag&&k===1?14*Math.sin(t*14):0;
+    setArm(a,p,wag);
+  });
+  // cabeça: balanço, aceno nas ênfases, inclina nas perguntas
+  let nod=0;if(i>=0)SEG[i].words.forEach(w=>{const d=t-w.at;if(w.red&&d>0&&d<.4)nod=Math.max(nod,Math.sin(Math.PI*d/.4))});
+  const ask=i>=0&&SEG[i].plain.endsWith('?')&&t<SEG[i].end+.6?eio(clamp((t-SEG[i].start)/.4)):0;
+  $('#head').setAttribute('transform',`rotate(${1.6*Math.sin(t*.9)+4*ask},540,1290) translate(${3*Math.sin(t*.7)},${6*nod+2*Math.sin(t*1.3)})`);
+  $('#body').setAttribute('transform',`translate(0,${1.5*Math.sin(t*1.2)+2.5*mouthOpen})`);
+  // sobrancelhas e piscadas
+  const raise=Math.max(ask,nod*.7);
+  $('#browL').setAttribute('transform',`translate(0,${-10*raise})`);$('#browR').setAttribute('transform',`translate(0,${-10*raise-3*ask}) rotate(${-4*ask},600,1070)`);
+  let bl=1;for(let k=0;k<60;k++){const bt=1.6+k*3.1+((k*0.73)%1.3);const d=t-bt;if(d>0&&d<.16)bl=Math.min(bl,1-Math.sin(Math.PI*d/.16)*.92)}
+  document.querySelectorAll('.lid').forEach(e=>e.setAttribute('transform',`scale(1,${bl})`));
+  const look=Math.sin(t*.37)*2;$('#irisL').setAttribute('cx',look);$('#irisR').setAttribute('cx',look);
+};
+if(location.search.includes('capa')){$('#cap').style.display='none';$('#capa').style.display='block';const r=window.render;window.render=t=>{r(t);$('#cap').style.display='none'}}
+window.render(0);
+</script>
+</body>
+</html>

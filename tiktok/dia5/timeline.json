@@ -1,0 +1,232 @@
+{
+ "duration": 46.679,
+ "warp": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.5,
+   0.3
+  ],
+  [
+   2.11,
+   2.2
+  ],
+  [
+   3.282,
+   4.3
+  ],
+  [
+   4.332,
+   5.8
+  ],
+  [
+   6.812,
+   8.6
+  ],
+  [
+   10.658,
+   13.3
+  ],
+  [
+   13.048,
+   17.0
+  ],
+  [
+   16.028,
+   20.5
+  ],
+  [
+   17.908,
+   22.8
+  ],
+  [
+   19.974,
+   25.3
+  ],
+  [
+   23.144,
+   28.6
+  ],
+  [
+   25.864,
+   32.4
+  ],
+  [
+   28.964,
+   35.4
+  ],
+  [
+   29.984,
+   36.8
+  ],
+  [
+   33.884,
+   41.3
+  ],
+  [
+   37.584,
+   44.3
+  ],
+  [
+   39.484,
+   46.3
+  ],
+  [
+   42.914,
+   49.6
+  ],
+  [
+   46.679,
+   54.0
+  ]
+ ],
+ "phrases": [
+  {
+   "id": "b01",
+   "text": "Bateu o silêncio no encontro.",
+   "old": 0.3,
+   "start": 0.5
+  },
+  {
+   "id": "b01",
+   "text": "E agora?",
+   "old": 2.2,
+   "start": 2.11
+  },
+  {
+   "id": "b02",
+   "text": "Primeiro: calma.",
+   "old": 4.3,
+   "start": 3.282
+  },
+  {
+   "id": "b02",
+   "text": "Alguns segundos de silêncio são normais.",
+   "old": 5.8,
+   "start": 4.332
+  },
+  {
+   "id": "b02",
+   "text": "O que mata o encontro é o desespero de disparar qualquer pergunta.",
+   "old": 8.6,
+   "start": 6.812
+  },
+  {
+   "id": "b03",
+   "text": "Segundo: volta num assunto que ficou aberto.",
+   "old": 13.3,
+   "start": 10.658
+  },
+  {
+   "id": "b03",
+   "text": "Peraí, você não terminou de contar daquele show.",
+   "old": 17.0,
+   "start": 13.048
+  },
+  {
+   "id": "b03",
+   "text": "Ela percebe que você prestou atenção,",
+   "old": 20.5,
+   "start": 16.028
+  },
+  {
+   "id": "b03",
+   "text": "e a conversa volta sozinha.",
+   "old": 22.8,
+   "start": 17.908
+  },
+  {
+   "id": "b04",
+   "text": "Terceiro: sem assunto aberto, usa o que tá na sua frente.",
+   "old": 25.3,
+   "start": 19.974
+  },
+  {
+   "id": "b04",
+   "text": "O lugar, a música, o que vocês pediram.",
+   "old": 28.6,
+   "start": 23.144
+  },
+  {
+   "id": "b05",
+   "text": "E no direct, quando a conversa tá boa, não deixa esfriar.",
+   "old": 32.4,
+   "start": 25.864
+  },
+  {
+   "id": "b05",
+   "text": "Chama pra algo concreto:",
+   "old": 35.4,
+   "start": 28.964
+  },
+  {
+   "id": "b05",
+   "text": "Você falou que queria um hambúrguer bom. Conheço um... Sábado?",
+   "old": 36.8,
+   "start": 29.984
+  },
+  {
+   "id": "b06",
+   "text": "Chamar, abrir, sustentar, não vacilar e lidar com o silêncio.",
+   "old": 41.3,
+   "start": 33.884
+  },
+  {
+   "id": "b06",
+   "text": "Esses foram os cinco dias.",
+   "old": 44.3,
+   "start": 37.584
+  },
+  {
+   "id": "b07",
+   "text": "Quer o protocolo completo, com o roteiro do primeiro encontro?",
+   "old": 46.3,
+   "start": 39.484
+  },
+  {
+   "id": "b07",
+   "text": "Comenta presença, que eu te mando.",
+   "old": 49.6,
+   "start": 42.914
+  }
+ ],
+ "blocks": [
+  {
+   "id": "b01",
+   "start": 0.5,
+   "dur": 2.182
+  },
+  {
+   "id": "b02",
+   "start": 3.282,
+   "dur": 6.826
+  },
+  {
+   "id": "b03",
+   "start": 10.658,
+   "dur": 8.766
+  },
+  {
+   "id": "b04",
+   "start": 19.974,
+   "dur": 5.34
+  },
+  {
+   "id": "b05",
+   "start": 25.864,
+   "dur": 7.47
+  },
+  {
+   "id": "b06",
+   "start": 33.884,
+   "dur": 5.101
+  },
+  {
+   "id": "b07",
+   "start": 39.484,
+   "dur": 5.194
+  }
+ ]
+}

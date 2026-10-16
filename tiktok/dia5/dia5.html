@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O Protocolo da Presença — Dia 5: o silêncio e o próximo passo</title>
+<style>
+@font-face{font-family:'Sora';src:url(../serie/fonts/sora.woff2) format('woff2');font-weight:100 800}
+@font-face{font-family:'Playfair Display';src:url(../serie/fonts/playfair-italic.woff2) format('woff2');font-style:italic;font-weight:400 900}
+:root{--bg:#0B0C0F;--red:#E11D2E;--ink:#F4F4F1;--mute:#8C9099;--card:#15171B}
+html,body{margin:0;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-family:'Sora',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 85% 62% at 50% 50%,#1A1C21 0%,#0B0C0F 74%)}
+#cam{position:absolute;inset:0;transform-origin:540px 960px}
+#world{position:absolute;left:0;top:0;width:1080px;height:13440px}
+.sc{position:absolute;left:0;width:1080px;height:1920px}
+#rail{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+#pen{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--red);box-shadow:0 0 18px 4px rgba(225,29,46,.35)}
+#pen i{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px;border-radius:50%;border:1.5px solid rgba(225,29,46,.4);box-sizing:border-box}
+/* tipografia */
+.imp{font-weight:800;text-transform:uppercase;font-size:126px;line-height:.95;letter-spacing:-.02em}
+.kw{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--red);font-size:100px;line-height:1.05;letter-spacing:-.01em;text-shadow:0 0 34px rgba(225,29,46,.35)}
+.title{position:absolute;left:96px;right:96px;top:1100px}
+.center{text-align:center}
+.num{position:absolute;left:88px;top:236px;font-weight:800;font-size:260px;line-height:.8;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.25)}
+.lab{position:absolute;left:96px;top:1040px;font-weight:600;font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+.sup{font-weight:400;font-size:34px;line-height:1.32}
+.wm{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .1em .1em 0;margin:0 -.1em -.1em 0}
+.wi{display:inline-block}
+.card{position:absolute;box-sizing:border-box;background:var(--card);border:1.5px solid rgba(255,255,255,.10);border-radius:24px}
+.dot{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--red);box-shadow:0 0 16px 3px rgba(225,29,46,.35)}
+.ring{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;border:2.5px solid var(--red);box-sizing:border-box;box-shadow:0 0 16px 3px rgba(225,29,46,.35),inset 0 0 8px rgba(225,29,46,.35);background:var(--bg)}
+.frame{position:absolute;box-sizing:border-box;padding:8px;background:var(--ink);box-shadow:0 50px 110px rgba(0,0,0,.7)}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+/* piso metálico em grade */
+.floor{position:absolute;left:-420px;width:1920px;height:900px;perspective:820px;perspective-origin:50% 0;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 22%,transparent 42%)}
+.floor .pl{position:absolute;left:0;top:0;width:1920px;height:1800px;transform-origin:50% 0;transform:rotateX(78deg);background-color:#0E0F12;background-image:linear-gradient(rgba(255,255,255,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.05) 50%,rgba(255,255,255,0) 100%);background-size:96px 96px,96px 96px,100% 100%}
+.floor .rl{position:absolute;inset:0;background:radial-gradient(ellipse 34% 60% at 30% 10%,rgba(225,29,46,.42),rgba(225,29,46,0) 70%)}
+/* iPhone e tablet */
+.dev{position:absolute;box-sizing:border-box;background:linear-gradient(150deg,#34363C 0%,#16171B 30%,#24262B 62%,#0F1013 100%);box-shadow:inset 0 0 0 2px #3C3E44,inset 0 0 0 5px #0A0A0C,-26px 0 60px -18px rgba(225,29,46,.55),0 70px 90px -30px rgba(0,0,0,.85)}
+.dev .scr{position:absolute;overflow:hidden;background:#000}
+.dev .gl{position:absolute;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 32%)}
+.rim{position:absolute;left:0;top:8%;bottom:8%;width:3px;background:linear-gradient(180deg,transparent,rgba(255,80,90,.85),transparent);filter:blur(1px)}
+.shadow{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.85),rgba(0,0,0,0))}
+.bub{display:inline-block;box-sizing:border-box;padding:14px 20px;border-radius:24px;font-size:25px;line-height:1.32}
+/* selo, círculo, grão */
+#seal{position:absolute;top:236px;right:96px;display:flex;align-items:center;gap:14px;font-weight:600;font-size:22px;letter-spacing:.3em;color:var(--ink);z-index:20}
+#seal b{width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 14px 3px rgba(225,29,46,.35)}
+#circ{position:absolute;left:50%;top:50%;width:2400px;height:2400px;margin:-1200px;border-radius:50%;background:var(--red);transform:scale(0);z-index:30}
+#grain{position:absolute;inset:0;width:1080px;height:1920px;opacity:.11;mix-blend-mode:soft-light;pointer-events:none;z-index:40}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse 78% 70% at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.72) 100%);pointer-events:none;z-index:39}
+/* capa do ebook (reconstruída da imagem enviada) */
+.cover{position:absolute;left:0;top:0;width:1333px;height:2000px;transform-origin:0 0;background:radial-gradient(circle at 66% 37%,rgba(110,22,32,.42) 0,rgba(110,22,32,0) 34%),linear-gradient(180deg,#121317,#0B0C0F);font-family:'Sora',sans-serif;color:#F4F4F1;overflow:hidden}
+.cover .gd{position:absolute;left:290px;top:230px;width:860px;height:800px;background-image:radial-gradient(rgba(255,255,255,.16) 3px,transparent 3.6px);background-size:83px 83px;-webkit-mask-image:radial-gradient(ellipse 55% 55% at 68% 52%,#000 30%,transparent 75%)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="cam"><div id="world">
+    <svg id="rail" width="1080" height="13440" viewBox="0 0 1080 13440"><path id="railP" d="" fill="none" stroke="rgba(244,244,241,.5)" stroke-width="2"/></svg>
+
+    <!-- 1 · gancho -->
+    <div class="sc" id="s1" style="top:0">
+      <div id="ph1" style="position:absolute;inset:0;overflow:hidden"><img src="fotos/casal-silencio.jpg" alt="" id="im1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(1) brightness(.4) contrast(1.08)"></div>
+      <div class="title center" style="top:1100px"><div class="imp" data-in="-1" style="font-size:140px">Bateu o silêncio.</div><div class="kw" data-in="2.05" style="font-size:110px;margin-top:6px">e agora?</div></div>
+    </div>
+
+    <!-- 2 · regra 01 -->
+    <div class="sc" id="s2" style="top:1920px">
+      <div class="num el" data-a="4.0">01</div>
+      <div class="lab el" data-a="4.75" style="top:720px">3 segundos · normal</div>
+      <div class="el" data-a="4.75" style="position:absolute;left:96px;top:774px;width:888px;height:4px;border-radius:2px;background:rgba(244,244,241,.12)"><div id="bar2" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:2px;background:var(--red);box-shadow:0 0 14px rgba(225,29,46,.35)"></div><div class="dot" id="bard2" style="left:0;top:2px"></div></div>
+      <div class="lab" data-in="4.4">Não se desespera</div>
+      <div class="title"><div class="imp" data-in="5.9">Silêncio não mata.</div><div class="kw" data-in="10.2">desespero mata.</div></div>
+    </div>
+
+    <!-- 3 · regra 02 -->
+    <div class="sc" id="s3" style="top:3840px">
+      <div class="num el" data-a="13.0">02</div>
+      <div id="p3" style="position:absolute;left:0;top:0;width:1080px;height:1920px">
+        <div class="pt" data-a="13.7" data-k="0" style="position:absolute;left:0;top:560px;width:1080px"><div class="dot" style="left:60px;top:0"></div><div style="position:absolute;left:96px;top:-19px;font-weight:600;font-size:30px;letter-spacing:.14em;color:var(--mute)">TRABALHO</div></div>
+        <div class="pt" data-a="14.2" data-k="1" style="position:absolute;left:0;top:700px;width:1080px"><div class="dot" style="left:60px;top:0"></div><div style="position:absolute;left:96px;top:-19px;font-weight:600;font-size:30px;letter-spacing:.14em;color:var(--mute)">FACULDADE</div></div>
+        <div class="pt" data-a="14.8" data-k="2" style="position:absolute;left:0;top:840px;width:1080px"><div class="ring" style="left:60px;top:0"></div><div style="position:absolute;left:96px;top:-19px;font-weight:600;font-size:30px;letter-spacing:.14em;color:var(--ink);white-space:nowrap">SHOW DO FIM DE SEMANA</div><div class="el" data-a="15.4" style="position:absolute;left:96px;top:30px;padding:6px 16px;border:1.5px solid var(--red);border-radius:999px;font-weight:600;font-size:18px;letter-spacing:.3em;color:var(--red);box-shadow:0 0 14px rgba(225,29,46,.35)">ABERTO</div></div>
+      </div>
+      <div class="card sup el" data-a="17.1" id="b3" style="left:96px;top:660px;width:560px;padding:24px 30px;border-bottom-left-radius:8px">peraí, você não terminou de contar daquele show.</div>
+      <div class="frame el" data-a="20.3" style="left:690px;top:610px;width:294px;height:380px"><img src="fotos/casal-rindo.jpg" alt="" id="im3" style="object-position:50% 40%"></div>
+      <div class="lab" data-in="13.4">Volta num fio aberto</div>
+      <div class="title"><div class="imp" data-in="20.6">Ela percebe que</div><div class="kw" data-in="21.6" style="font-size:90px">você prestou atenção.</div></div>
+    </div>
+
+    <!-- 4 · regra 03 -->
+    <div class="sc" id="s4" style="top:5760px">
+      <div class="num el" data-a="25.0">03</div>
+      <div id="ic4" style="position:absolute;left:96px;top:600px;width:888px;height:300px">
+        <div class="ic" data-a="28.7" style="position:absolute;left:0;width:296px;top:0;text-align:center">
+          <svg width="132" height="132" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path class="draw" pathLength="1" d="M12 21.5s-6.5-6-6.5-11.5a6.5 6.5 0 1 1 13 0c0 5.5-6.5 11.5-6.5 11.5z"/><circle class="draw" pathLength="1" cx="12" cy="10" r="2.4"/></svg>
+          <div class="lab" style="position:static;margin-top:26px;color:var(--mute)">O lugar</div></div>
+        <div class="ic" data-a="29.35" style="position:absolute;left:296px;width:296px;top:0;text-align:center">
+          <svg width="132" height="132" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path class="draw" pathLength="1" d="M9 18V5.5l11-2.5v12.5"/><circle class="draw" pathLength="1" cx="6.2" cy="18" r="2.8"/><circle class="draw" pathLength="1" cx="17.2" cy="15.5" r="2.8"/></svg>
+          <div class="lab" style="position:static;margin-top:26px;color:var(--mute)">A música</div></div>
+        <div class="ic" data-a="30.0" style="position:absolute;left:592px;width:296px;top:0;text-align:center">
+          <svg width="132" height="132" viewBox="0 0 24 24" fill="none" stroke="#F4F4F1" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path class="draw" pathLength="1" d="M6 4h12l-1.6 15.4a1.8 1.8 0 0 1-1.8 1.6H9.4a1.8 1.8 0 0 1-1.8-1.6z"/><path class="draw" pathLength="1" d="M6.6 9.5h10.8M14.5 2l-1.6 11"/></svg>
+          <div class="lab" style="position:static;margin-top:26px;color:var(--mute)">O pedido</div></div>
+      </div>
+      <div class="lab" data-in="25.6">Usa o que tá na sua frente</div>
+      <div class="title"><div class="imp" data-in="26.3">O momento sempre</div><div class="kw" data-in="27.2">te dá assunto.</div></div>
+    </div>
+
+    <!-- 5 · no direct -->
+    <div class="sc" id="s5" style="top:7680px">
+      <div class="floor" style="top:930px"><div class="pl" id="pl5"></div><div class="rl"></div></div>
+      <div class="shadow" style="left:150px;top:990px;width:400px;height:60px"></div>
+      <div class="dev" id="ph5" style="left:140px;top:232px;width:392px;height:776px;border-radius:64px">
+        <div class="scr" style="inset:13px;border-radius:52px">
+          <div style="position:absolute;left:28px;right:28px;top:20px;display:flex;justify-content:space-between;font-size:19px;font-weight:600"><span>21:47</span><span style="letter-spacing:.1em">●●● ▮</span></div>
+          <div style="position:absolute;left:50%;top:14px;width:110px;height:32px;margin-left:-55px;border-radius:999px;background:#000;box-shadow:0 0 0 1px #111"></div>
+          <div style="position:absolute;left:0;right:0;top:62px;display:flex;align-items:center;gap:14px;padding:12px 22px;border-bottom:1px solid rgba(255,255,255,.08)">
+            <svg width="14" height="24" viewBox="0 0 12 20" fill="none" stroke="#F4F4F1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg>
+            <div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#d9d9d9,#6b6b6b)"></div>
+            <div><div style="font-size:21px;font-weight:600">ana.luz</div><div style="font-size:15px;color:var(--mute)">Ativa agora</div></div>
+          </div>
+          <div style="position:absolute;left:0;right:0;top:150px;text-align:center;font-size:15px;font-weight:600;letter-spacing:.2em;color:var(--mute)">HOJE 19:12</div>
+          <div class="el" data-a="36.95" style="position:absolute;right:18px;top:196px;max-width:290px;transform-origin:100% 100%"><div class="bub" style="background:#2A2D33;color:#F4F4F1;border-bottom-right-radius:8px">você falou que queria um hambúrguer bom. conheço um. sábado?</div></div>
+          <div class="el" data-a="39.4" style="position:absolute;left:18px;top:390px;transform-origin:0 100%"><div class="bub" style="background:var(--card);border:1.5px solid rgba(255,255,255,.10);border-bottom-left-radius:8px">bora!</div></div>
+          <div style="position:absolute;left:16px;right:16px;bottom:26px;height:58px;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);display:flex;align-items:center;padding:0 22px;font-size:19px;color:var(--mute)">Mensagem…</div>
+        </div>
+        <div class="rim"></div>
+        <div class="gl" style="inset:13px;border-radius:52px"></div>
+      </div>
+      <div class="sup el" data-a="39.9" style="position:absolute;left:600px;top:560px;padding:12px 30px;border:2px solid var(--red);border-radius:999px;font-weight:600;letter-spacing:.2em;box-shadow:0 0 24px rgba(225,29,46,.35)">SÁB</div>
+      <div class="lab" data-in="33.0">No direct · chama enquanto tá bom</div>
+      <div class="title"><div class="imp" data-in="34.0">Não deixa</div><div class="kw" data-in="34.7">esfriar.</div></div>
+    </div>
+
+    <!-- 6 · os 5 dias -->
+    <div class="sc" id="s6" style="top:9600px">
+      <div id="l6"></div>
+      <div class="lab" data-in="41.3">O protocolo em 5 dias</div>
+      <div class="title"><div class="imp" data-in="44.4">5 dias.</div></div>
+    </div>
+
+    <!-- 7 · chamada final -->
+    <div class="sc" id="s7" style="top:11520px">
+      <div class="floor" style="top:900px"><div class="pl" id="pl7"></div><div class="rl" style="background:radial-gradient(ellipse 30% 60% at 34% 8%,rgba(225,29,46,.45),rgba(225,29,46,0) 70%)"></div></div>
+      <div class="shadow" style="left:300px;top:968px;width:480px;height:64px"></div>
+      <div id="tbw" style="position:absolute;left:290px;top:228px;width:500px;height:752px;perspective:1600px">
+        <div class="dev" id="tb7" style="left:0;top:0;width:500px;height:752px;border-radius:40px">
+          <div class="scr" id="tbs" style="inset:20px;border-radius:24px;background:#0B0C0F"></div>
+          <div class="rim"></div>
+          <div class="gl" style="inset:20px;border-radius:24px"></div>
+        </div>
+      </div>
+      <div class="lab center" data-in="46.4" style="left:0;right:0;text-align:center">Protocolo completo + roteiro do 1º encontro</div>
+      <div class="title center"><div class="imp" data-in="49.7" style="font-size:140px">Comenta</div><div class="kw" data-in="50.2" style="font-size:110px">PRESENÇA</div></div>
+      <div class="sup el center" data-a="50.9" style="position:absolute;left:96px;right:96px;top:1408px;color:var(--mute)">e receba o protocolo completo</div>
+      <div class="lab el center" data-a="51.4" style="left:0;right:0;top:1548px;text-align:center;font-size:20px">Pare de ser só mais um · @oprotocolodapresenca</div>
+    </div>
+  </div></div>
+  <div id="pen" style="display:none"></div>
+  <div id="seal"><b></b>DIA 5/5</div>
+  <div id="circ"></div>
+  <div id="vig"></div>
+  <canvas id="grain" width="540" height="960"></canvas>
+</div>
+<script src="timeline.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+// a única curva do vídeo: cubic-bezier(0.22, 1, 0.36, 1)
+const E=(()=>{const x1=.22,y1=1,x2=.36,y2=1,cx=3*x1,bx=3*(x2-x1)-cx,ax=1-cx-bx,cy=3*y1,by=3*(y2-y1)-cy,ay=1-cy-by;
+  const X=t=>((ax*t+bx)*t+cx)*t,Y=t=>((ay*t+by)*t+cy)*t,dX=t=>(3*ax*t+2*bx)*t+cx;
+  return x=>{if(x<=0)return 0;if(x>=1)return 1;let t=x;for(let i=0;i<8;i++){const e=X(t)-x,d=dX(t);if(Math.abs(e)<1e-6||Math.abs(d)<1e-6)break;t-=e/d}t=clamp(t);return Y(t)}})();
+const prog=(t,a,d)=>clamp((t-a)/d);
+const lerp=(a,b,p)=>a+(b-a)*p;
+function warp(t){const W=window.WARP;if(!W||!W.length)return t;if(t<=W[0][0])return W[0][1];for(let i=0;i<W.length-1;i++){const[a0,b0]=W[i],[a1,b1]=W[i+1];if(t<=a1)return b0+(b1-b0)*(t-a0)/(a1-a0)}const[a,b]=W[W.length-1];return b+(t-a)}
+const IN=.5,OUT=.3,STEP=.06;
+
+/* ---------- conteúdo gerado ---------- */
+// lista dos 5 dias
+const DAYS=['Chamar','Abrir','Sustentar','Não vacilar','O silêncio'];
+$('#l6').innerHTML=DAYS.map((d,k)=>`<div class="row6 el" data-a="${(40.95+k*.06).toFixed(2)}" style="position:absolute;left:0;top:${300+k*140}px;width:1080px">
+  <div class="g6" style="position:absolute;left:53px;top:-7px;width:14px;height:14px;border-radius:50%;background:rgba(244,244,241,.35)"></div>
+  <div class="k6" style="position:absolute;left:44px;top:-16px;width:32px;height:32px;border-radius:50%;background:var(--red);box-shadow:0 0 18px 4px rgba(225,29,46,.35);opacity:0"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="draw6" pathLength="1" d="M7 12.5l3.3 3.2L17 9"/></svg></div>
+  <div style="position:absolute;left:96px;top:-22px;font-weight:600;font-size:34px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap"><span style="color:var(--mute);margin-right:22px">0${k+1}</span>${d}</div></div>`).join('');
+const CHECK=DAYS.map((_,k)=>41.3+k*.6);
+// capa do ebook dentro do tablet
+$('#tbs').innerHTML=`<div class="cover" id="cv">
+  <div class="gd"></div>
+  <div style="position:absolute;left:874px;top:0;width:2px;height:722px;background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.7))"></div>
+  <div style="position:absolute;left:819px;top:694px;width:112px;height:112px;border-radius:50%;border:1.5px solid rgba(225,29,46,.25);box-sizing:border-box"></div>
+  <div style="position:absolute;left:843px;top:718px;width:64px;height:64px;border-radius:50%;border:2.5px solid rgba(225,29,46,.85);box-sizing:border-box;box-shadow:0 0 30px rgba(225,29,46,.4)"></div>
+  <div style="position:absolute;left:864px;top:739px;width:22px;height:22px;border-radius:50%;background:#E11D2E;box-shadow:0 0 24px 6px rgba(225,29,46,.6)"></div>
+  <div style="position:absolute;left:107px;top:104px;display:flex;align-items:center;gap:22px;font-weight:600;font-size:30px;letter-spacing:.42em"><b style="position:relative;width:36px;height:36px;box-sizing:border-box;border:3px solid #F4F4F1;border-radius:50%;display:block"><i style="position:absolute;right:-6px;top:-7px;width:12px;height:12px;border-radius:50%;background:#E11D2E;display:block;box-shadow:0 0 12px rgba(225,29,46,.9)"></i></b>O PROTOCOLO</div>
+  <div style="position:absolute;left:107px;top:1088px;font-weight:600;font-size:27px;letter-spacing:.3em;color:#E11D2E">MÉTODO · 11 CAPÍTULOS + BÔNUS</div>
+  <div style="position:absolute;left:104px;top:1140px;font-family:'Playfair Display',serif;font-style:italic;font-size:118px;line-height:1">O Protocolo da</div>
+  <div style="position:absolute;left:104px;top:1268px;font-weight:800;font-size:184px;line-height:.95;letter-spacing:-.035em">PRESENÇA</div>
+  <div style="position:absolute;left:104px;top:1452px;font-weight:800;font-size:152px;line-height:.95;letter-spacing:-.035em">INESQUECÍVEL<span style="display:inline-block;width:26px;height:26px;border-radius:50%;background:#E11D2E;margin-left:8px;box-shadow:0 0 18px rgba(225,29,46,.9)"></span></div>
+  <div style="position:absolute;left:107px;top:1627px;width:1120px;height:2px;background:rgba(255,255,255,.2)"></div>
+  <div style="position:absolute;left:106px;top:1660px;font-family:'Playfair Display',serif;font-style:italic;font-size:58px;color:#CFCFCB">Pare de ser só mais um.</div>
+  <div style="position:absolute;left:107px;top:1843px;height:56px;padding:0 30px;border:2px solid rgba(255,255,255,.2);border-radius:28px;display:flex;align-items:center;gap:16px;font-weight:600;font-size:20px;letter-spacing:.28em"><i style="width:9px;height:9px;border-radius:50%;background:#E11D2E;display:block"></i>EBOOK DIGITAL · ACESSO IMEDIATO</div>
+  <div style="position:absolute;right:108px;top:1860px;font-weight:500;font-size:19px;letter-spacing:.24em;color:#8C9099">@OPROTOCOLODAPRESENCA</div></div>`;
+$('#cv').style.transform=`translate(0px,5px) scale(${460/1333})`;
+
+/* ---------- texto: palavra a palavra, saindo de uma máscara ---------- */
+const TX=[];
+$$('[data-in]').forEach(el=>{
+  const words=el.textContent.trim().split(/\s+/);el.innerHTML='';
+  const ins=words.map((w,i)=>{const m=document.createElement('span');m.className='wm';const s=document.createElement('span');s.className='wi';s.textContent=w;m.appendChild(s);el.appendChild(m);if(i<words.length-1)el.appendChild(document.createTextNode(' '));return s});
+  TX.push({el,ins,a:+el.dataset.in});
+});
+const EL=$$('.el').map(e=>({e,a:+e.dataset.a}));
+const DR=$$('.draw').map(e=>{e.style.strokeDasharray='1';e.style.strokeDashoffset='1';return{e,a:+e.closest('[data-a]').dataset.a}});
+$$('.draw6').forEach(e=>{e.style.strokeDasharray='1';e.style.strokeDashoffset='1'});
+
+/* ---------- câmera, cenas e o fio ---------- */
+// [início, fim] de cada cena no relógio original; as trocas caem nas pausas da fala
+const SCN=[[0,3.7],[3.7,12.85],[12.85,24.85],[24.85,31.95],[31.95,40.85],[40.85,45.85],[45.85,60]];
+const TR=[3.7,12.85,24.85,31.95,40.85,45.85];
+const PEN=[960,2974,4894,6814,8734,10654,11748];
+$('#railP').setAttribute('d','M540 0 V960 C540 1500 60 1500 60 2100 V10820 C60 11300 540 11300 540 11640 V11748');
+const RP=$('#railP'),RL=RP.getTotalLength(),SAMP=[];for(let l=0;l<=RL;l+=3){const p=RP.getPointAtLength(l);SAMP.push([l,p.y])}
+const lenAtY=y=>{for(const[l,py]of SAMP)if(py>=y)return l;return RL};
+const PL=PEN.map(lenAtY);
+function sceneAt(T){let k=0;SCN.forEach(([a],i)=>{if(T>=a)k=i});return k}
+
+// granulação
+const gc=$('#grain').getContext('2d'),gimg=gc.createImageData(540,960);
+function grain(seed){let x=(seed*2654435761)>>>0||1;const d=gimg.data;for(let i=0;i<d.length;i+=4){x^=x<<13;x^=x>>>17;x^=x<<5;const v=x&255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gc.putImageData(gimg,0,0)}
+
+function paint(T,frame){
+  grain(frame+1);
+  // congelamento do gancho: no segundo 3, imagem e fio param por um instante
+  const F=(T>=3.0&&T<3.7)?3.0:T;
+  const k=sceneAt(T);
+  // câmera: desce pelo fio nas trocas (no direct, troca escondida pelo círculo)
+  let camY=0;TR.forEach((t0,i)=>{const to=(i+1)*1920,from=i*1920;if(i===3){if(T>=32.45)camY=to}else{const q=E(prog(T,t0,.7));if(T>=t0)camY=lerp(from,to,q)}});
+  const [a,b]=SCN[k],zq=k===0?prog(F,0,3.7):prog(T,a+.6,b-a-.6);
+  const z=1+.03*zq;
+  $('#cam').style.transform=`scale(${z})`;$('#world').style.transform=`translateY(${-camY}px)`;
+  // o fio
+  let L=E(prog(F,.15,2.3))*PL[0];TR.forEach((t0,i)=>{if(T>=t0)L=lerp(PL[i],PL[i+1],E(prog(T,t0,.75)))});
+  L-=E(prog(T,52.9,1.0))*(PL[6]-lenAtY(11520));
+  RP.setAttribute('stroke-dasharray',`${Math.max(0,L)} 99999`);
+  const p=RP.getPointAtLength(Math.max(0,L)),pen=$('#pen');
+  const sy=(p.y-camY-960)*z+960,sx=(p.x-540)*z+540;
+  pen.style.display=L>2&&sy>-20?'block':'none';pen.style.left=sx+'px';pen.style.top=sy+'px';
+  // cenas: entram no seu tempo, saem 300 ms antes da troca
+  ['#s1','#s2','#s3','#s4','#s5','#s6','#s7'].forEach((id,i)=>{const e=$(id),[sa,sb]=SCN[i];const vis=T>=sa-1.2&&T<sb+1.2;e.style.visibility=vis?'visible':'hidden';
+    const out=i<6?E(prog(T,TR[i]-OUT,OUT)):0;e.style.opacity=1-out;e.style.transform=`translateY(${-20*out}px)`});
+  // textos
+  TX.forEach(g=>g.ins.forEach((w,i)=>{const q=E(prog(T,g.a+i*STEP,IN));w.style.transform=`translateY(${(1-q)*108}%)`;w.style.opacity=q>0?1:0}));
+  EL.forEach(({e,a})=>{const q=E(prog(T,a,IN));e.style.opacity=q;e.style.translate=`0 ${(1-q)*24}px`});
+  DR.forEach(({e,a})=>{e.style.strokeDashoffset=1-E(prog(T,a,.5))});
+
+  /* 1 · gancho */
+  $('#im1').style.transform=`scale(${1.05+.05*prog(F,0,3.7)})`;
+  /* 2 · a barra de 3 segundos */
+  const bq=prog(T,5.9,3.4);$('#bar2').style.width=(bq*888)+'px';$('#bard2').style.left=(bq*888)+'px';
+  /* 3 · o fio aberto */
+  const dq=E(prog(T,16.4,.6));$('#p3').style.transform=`translateY(${-280*dq}px)`;
+  $$('#p3 .pt').forEach(e=>{const q=E(prog(T,+e.dataset.a,IN)),kk=+e.dataset.k;e.style.opacity=q*(kk<2?1-dq:1);e.style.translate=`0 ${(1-q)*24}px`});
+  $('#im3').style.transform=`scale(${1.04+.04*prog(T,20.3,4.5)})`;
+  /* 5 · no direct */
+  const pq=E(prog(T,32.45,.8));$('#ph5').style.transform=`perspective(1700px) rotateY(${lerp(12,8,prog(T,32.45,8))}deg) rotateX(4deg) translateY(${(1-pq)*40}px)`;
+  $('#pl5').style.backgroundPosition=`0 ${-T*10}px, ${-T*6}px 0, 0 0`;
+  // círculo vermelho: cresce do centro, cobre a tela e recolhe revelando o celular
+  const c1=E(prog(T,31.95,.5)),c2=E(prog(T,32.5,.5));const cs=T<32.5?c1:1-c2;$('#circ').style.transform=`scale(${cs})`;$('#circ').style.display=cs>.04?'block':'none';
+  /* 6 · os 5 dias */
+  $$('#l6 .row6').forEach((r,i)=>{const q=E(prog(T,CHECK[i],.4));r.querySelector('.k6').style.opacity=q;r.querySelector('.k6').style.transform=`scale(${.6+.4*q})`;r.querySelector('.g6').style.opacity=1-q;r.querySelector('.draw6').style.strokeDashoffset=1-E(prog(T,CHECK[i]+.12,.4))});
+  /* 7 · o tablet e a câmera girando em volta */
+  const tq=E(prog(T,46.0,.9)),rot=lerp(-6,4,prog(T,46.0,8));$('#tb7').style.transform=`rotateY(${rot}deg) translateY(${(1-tq)*40}px)`;$('#tb7').style.opacity=tq;
+  $('#pl7').style.backgroundPosition=`0 0, ${rot*14}px 0, 0 0`;
+}
+let FRAME=0;
+window.render=t=>{FRAME=Math.round(t*30);const T=warp(t);paint(T,(T>=3.0&&T<3.7)?FRAME:FRAME)};
+window.render(0);
+</script>
+</body>
+</html>

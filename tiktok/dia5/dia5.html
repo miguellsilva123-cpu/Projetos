@@ -62,7 +62,10 @@ html,body{margin:0;background:var(--bg)}
     <!-- 1 · gancho -->
     <div class="sc" id="s1" style="top:0">
       <div id="ph1" style="position:absolute;inset:0;overflow:hidden"><img src="fotos/casal-silencio.jpg" alt="" id="im1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(1) brightness(.4) contrast(1.08)"></div>
-      <div class="title center" style="top:1100px"><div class="imp" data-in="-1" style="font-size:140px">Bateu o silêncio.</div><div class="kw" data-in="2.05" style="font-size:110px;margin-top:6px">e agora?</div></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,15,0) 50%,rgba(11,12,15,.6) 68%,rgba(11,12,15,.7) 100%)"></div>
+      <div class="lab center" style="left:0;right:0;top:516px;text-align:center;color:var(--ink);opacity:.85">Silêncio</div>
+      <div id="timer" style="position:absolute;left:0;right:0;top:556px;text-align:center;font-weight:800;font-size:220px;line-height:1;letter-spacing:-.02em;color:var(--red);text-shadow:0 0 48px rgba(225,29,46,.35);font-variant-numeric:tabular-nums">0:01</div>
+      <div class="title center" style="top:1100px"><div class="imp" data-in="-1" style="font-size:140px">Acabou o assunto?</div><div class="kw" data-in="1.85" style="font-size:82px;margin-top:10px">tem uma frase que salva.</div></div>
     </div>
 
     <!-- 2 · regra 01 -->
@@ -82,7 +85,8 @@ html,body{margin:0;background:var(--bg)}
         <div class="pt" data-a="14.2" data-k="1" style="position:absolute;left:0;top:700px;width:1080px"><div class="dot" style="left:60px;top:0"></div><div style="position:absolute;left:96px;top:-19px;font-weight:600;font-size:30px;letter-spacing:.14em;color:var(--mute)">FACULDADE</div></div>
         <div class="pt" data-a="14.8" data-k="2" style="position:absolute;left:0;top:840px;width:1080px"><div class="ring" style="left:60px;top:0"></div><div style="position:absolute;left:96px;top:-19px;font-weight:600;font-size:30px;letter-spacing:.14em;color:var(--ink);white-space:nowrap">SHOW DO FIM DE SEMANA</div><div class="el" data-a="15.4" style="position:absolute;left:96px;top:30px;padding:6px 16px;border:1.5px solid var(--red);border-radius:999px;font-weight:600;font-size:18px;letter-spacing:.3em;color:var(--red);box-shadow:0 0 14px rgba(225,29,46,.35)">ABERTO</div></div>
       </div>
-      <div class="card sup el" data-a="17.1" id="b3" style="left:96px;top:660px;width:560px;padding:24px 30px;border-bottom-left-radius:8px">peraí, você não terminou de contar daquele show.</div>
+      <div class="lab el" data-a="16.4" style="top:670px;color:var(--ink)">A frase que salva</div>
+      <div class="card sup el" data-a="17.1" id="b3" style="left:96px;top:712px;width:560px;padding:24px 30px;border-bottom-left-radius:8px">peraí, você não terminou de contar daquele show.</div>
       <div class="frame el" data-a="20.3" style="left:690px;top:610px;width:294px;height:380px"><img src="fotos/casal-rindo.jpg" alt="" id="im3" style="object-position:50% 40%"></div>
       <div class="lab" data-in="13.4">Volta num fio aberto</div>
       <div class="title"><div class="imp" data-in="20.6">Ela percebe que</div><div class="kw" data-in="21.6" style="font-size:90px">você prestou atenção.</div></div>
@@ -152,10 +156,15 @@ html,body{margin:0;background:var(--bg)}
           <div class="gl" style="inset:20px;border-radius:24px"></div>
         </div>
       </div>
-      <div class="lab center" data-in="46.4" style="left:0;right:0;text-align:center">Protocolo completo + roteiro do 1º encontro</div>
+      <div class="lab center" data-in="46.4" style="left:0;right:0;text-align:center">Isso é só uma parte do protocolo</div>
+      <div class="title center"><div class="imp" data-in="47.6" data-out="49.35" style="font-size:140px">Do direct</div><div class="kw" data-in="48.2" data-out="49.35" style="font-size:96px">ao primeiro encontro.</div></div>
       <div class="title center"><div class="imp" data-in="49.7" style="font-size:140px">Comenta</div><div class="kw" data-in="50.2" style="font-size:110px">PRESENÇA</div></div>
-      <div class="sup el center" data-a="50.9" style="position:absolute;left:96px;right:96px;top:1408px;color:var(--mute)">e receba o protocolo completo</div>
-      <div class="lab el center" data-a="51.4" style="left:0;right:0;top:1548px;text-align:center;font-size:20px">Pare de ser só mais um · @oprotocolodapresenca</div>
+      <div class="card el" data-a="50.55" id="cmp7" style="left:200px;top:1388px;width:680px;height:100px;border-radius:999px;display:flex;align-items:center;gap:20px;padding:0 14px 0 22px">
+        <div style="width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#3A3D44,#1E2025);flex-shrink:0"></div>
+        <div style="flex:1;font-weight:600;font-size:36px;letter-spacing:.06em;white-space:nowrap"><span id="tx7"></span><span id="car7" style="display:inline-block;width:3px;height:38px;background:var(--red);margin-left:3px;vertical-align:-6px"></span><span id="ph7" style="font-weight:400;font-size:30px;letter-spacing:0;color:var(--mute)">Adicione um comentário…</span></div>
+        <div id="snd7" style="width:72px;height:72px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(225,29,46,.35);flex-shrink:0"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="lab el center" data-a="51.4" style="left:0;right:0;top:1548px;text-align:center;font-size:20px">11 capítulos + bônus · acesso imediato no direct</div>
     </div>
   </div></div>
   <div id="pen" style="display:none"></div>
@@ -208,7 +217,7 @@ const TX=[];
 $$('[data-in]').forEach(el=>{
   const words=el.textContent.trim().split(/\s+/);el.innerHTML='';
   const ins=words.map((w,i)=>{const m=document.createElement('span');m.className='wm';const s=document.createElement('span');s.className='wi';s.textContent=w;m.appendChild(s);el.appendChild(m);if(i<words.length-1)el.appendChild(document.createTextNode(' '));return s});
-  TX.push({el,ins,a:+el.dataset.in});
+  TX.push({el,ins,a:+el.dataset.in,b:el.dataset.out?+el.dataset.out:null});
 });
 const EL=$$('.el').map(e=>({e,a:+e.dataset.a}));
 const DR=$$('.draw').map(e=>{e.style.strokeDasharray='1';e.style.strokeDashoffset='1';return{e,a:+e.closest('[data-a]').dataset.a}});
@@ -218,8 +227,8 @@ $$('.draw6').forEach(e=>{e.style.strokeDasharray='1';e.style.strokeDashoffset='1
 // [início, fim] de cada cena no relógio original; as trocas caem nas pausas da fala
 const SCN=[[0,3.7],[3.7,12.85],[12.85,24.85],[24.85,31.95],[31.95,40.85],[40.85,45.85],[45.85,60]];
 const TR=[3.7,12.85,24.85,31.95,40.85,45.85];
-const PEN=[960,2974,4894,6814,8734,10654,11748];
-$('#railP').setAttribute('d','M540 0 V960 C540 1500 60 1500 60 2100 V10820 C60 11300 540 11300 540 11640 V11748');
+const PEN=[470,2974,4894,6814,8734,10654,11748];
+$('#railP').setAttribute('d','M540 0 V470 C540 1300 60 1400 60 2100 V10820 C60 11300 540 11300 540 11640 V11748');
 const RP=$('#railP'),RL=RP.getTotalLength(),SAMP=[];for(let l=0;l<=RL;l+=3){const p=RP.getPointAtLength(l);SAMP.push([l,p.y])}
 const lenAtY=y=>{for(const[l,py]of SAMP)if(py>=y)return l;return RL};
 const PL=PEN.map(lenAtY);
@@ -250,11 +259,12 @@ function paint(T,frame){
   ['#s1','#s2','#s3','#s4','#s5','#s6','#s7'].forEach((id,i)=>{const e=$(id),[sa,sb]=SCN[i];const vis=T>=sa-1.2&&T<sb+1.2;e.style.visibility=vis?'visible':'hidden';
     const out=i<6?E(prog(T,TR[i]-OUT,OUT)):0;e.style.opacity=1-out;e.style.transform=`translateY(${-20*out}px)`});
   // textos
-  TX.forEach(g=>g.ins.forEach((w,i)=>{const q=E(prog(T,g.a+i*STEP,IN));w.style.transform=`translateY(${(1-q)*108}%)`;w.style.opacity=q>0?1:0}));
+  TX.forEach(g=>{g.ins.forEach((w,i)=>{const q=E(prog(T,g.a+i*STEP,IN));w.style.transform=`translateY(${(1-q)*108}%)`;w.style.opacity=q>0?1:0});if(g.b!=null){const q=E(prog(T,g.b,OUT));g.el.style.opacity=1-q;g.el.style.transform=`translateY(${-20*q}px)`}});
   EL.forEach(({e,a})=>{const q=E(prog(T,a,IN));e.style.opacity=q;e.style.translate=`0 ${(1-q)*24}px`});
   DR.forEach(({e,a})=>{e.style.strokeDashoffset=1-E(prog(T,a,.5))});
 
-  /* 1 · gancho */
+  /* 1 · gancho: o cronômetro do silêncio */
+  {const n=F<0.95?1:F<1.9?2:3,tk=[-.3,.95,1.9][n-1],q=E(prog(F,tk,.25));$('#timer').textContent='0:0'+n;$('#timer').style.transform=`scale(${1.06-.06*q})`;$('#timer').style.opacity=.55+.45*q}
   $('#im1').style.transform=`scale(${1.05+.05*prog(F,0,3.7)})`;
   /* 2 · a barra de 3 segundos */
   const bq=prog(T,5.9,3.4);$('#bar2').style.width=(bq*888)+'px';$('#bard2').style.left=(bq*888)+'px';
@@ -269,6 +279,8 @@ function paint(T,frame){
   const c1=E(prog(T,31.95,.5)),c2=E(prog(T,32.5,.5));const cs=T<32.5?c1:1-c2;$('#circ').style.transform=`scale(${cs})`;$('#circ').style.display=cs>.04?'block':'none';
   /* 6 · os 5 dias */
   $$('#l6 .row6').forEach((r,i)=>{const q=E(prog(T,CHECK[i],.4));r.querySelector('.k6').style.opacity=q;r.querySelector('.k6').style.transform=`scale(${.6+.4*q})`;r.querySelector('.g6').style.opacity=1-q;r.querySelector('.draw6').style.strokeDashoffset=1-E(prog(T,CHECK[i]+.12,.4))});
+  /* 7 · comentário PRESENÇA sendo digitado */
+  {const W='PRESENÇA',n=clamp(Math.floor((T-50.75)/.075)+1,0,W.length);$('#tx7').textContent=T<50.75?'':W.slice(0,n);$('#ph7').style.display=T<50.75?'inline':'none';$('#car7').style.opacity=Math.floor(T*2.6)%2?.15:1;const sq=Math.sin(Math.PI*prog(T,51.45,.35));$('#snd7').style.transform=`scale(${1-.08*sq})`}
   /* 7 · o tablet e a câmera girando em volta */
   const tq=E(prog(T,46.0,.9)),rot=lerp(-6,4,prog(T,46.0,8));$('#tb7').style.transform=`rotateY(${rot}deg) translateY(${(1-tq)*40}px)`;$('#tb7').style.opacity=tq;
   $('#pl7').style.backgroundPosition=`0 0, ${rot*14}px 0, 0 0`;

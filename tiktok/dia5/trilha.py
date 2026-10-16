@@ -11,9 +11,12 @@ import sfx  # noqa: E402
 np = sfx.np
 mx = sfx.Mix(sys.argv[1])
 
-# 1 · gancho: o fio desce e tudo congela no silêncio
-mx.place(sfx.boom(1.4, 60, 36), 0.05, .45)
-mx.place(sfx.whoosh(1.6), 0.2, .14)
+# 1 · gancho: o barulho do bar corta, sobra o silêncio e o cronômetro
+mur = sfx.murmur(.5, 3) * np.clip((.5 - sfx.tt(.5)) / .08, 0, 1)
+mx.place(mur, 0.0, .3)
+mx.place(sfx.boom(1.2, 60, 36), 0.0, .38)
+for t0 in (0.0, 0.95, 1.9):
+    mx.place(sfx.tick(2000, .05), t0, .42)
 mx.place(sfx.tick(1200, .08), 3.0, .3)
 # trocas de cena descendo pelo fio
 for t0 in (3.7, 12.85, 24.85, 40.85, 45.85):
@@ -45,8 +48,11 @@ for k in range(5):
 mx.place(sfx.boom(1.0, 64, 38), 44.4, .35)
 # 7 · chamada final e o fio voltando ao topo
 mx.place(sfx.boom(1.2, 60, 36), 49.7, .4)
+for i in range(8):
+    mx.place(sfx.key(), 50.75 + i * .075, .2)
+mx.place(sfx.pop(900, 1500), 51.45, .3)
 mx.place(sfx.swell((220.0, 277.18, 329.63, 440.0), 2.4), 50.0, .3)
 mx.place(sfx.rewind(.9), 52.95, .12)
 
-mx.render(sys.argv[3], sys.argv[2], ducks=[(3.0, 3.7, .2)], music_gain=.28)
+mx.render(sys.argv[3], sys.argv[2], ducks=[(0.0, 3.7, .12)], music_gain=.28)
 print('ok', sys.argv[3])

@@ -1,5 +1,5 @@
 {
- "duration": 46.679,
+ "duration": 51.009,
  "warp": [
   [
    0.0,
@@ -10,223 +10,243 @@
    0.3
   ],
   [
-   2.11,
-   2.2
+   2.22,
+   1.9
   ],
   [
-   3.282,
+   4.213,
    4.3
   ],
   [
-   4.332,
+   5.233,
    5.8
   ],
   [
-   6.812,
+   7.673,
    8.6
   ],
   [
-   10.658,
+   11.0,
    13.3
   ],
   [
-   13.048,
+   13.37,
+   16.3
+  ],
+  [
+   14.42,
    17.0
   ],
   [
-   16.028,
+   17.08,
    20.5
   ],
   [
-   17.908,
+   19.19,
    22.8
   ],
   [
-   19.974,
+   21.221,
    25.3
   ],
   [
-   23.144,
+   24.391,
    28.6
   ],
   [
-   25.864,
+   27.111,
    32.4
   ],
   [
-   28.964,
+   30.211,
    35.4
   ],
   [
-   29.984,
+   31.231,
    36.8
   ],
   [
-   33.884,
+   35.13,
    41.3
   ],
   [
-   37.584,
+   38.831,
    44.3
   ],
   [
-   39.484,
+   40.731,
    46.3
   ],
   [
-   42.914,
+   42.661,
+   47.5
+  ],
+  [
+   46.891,
    49.6
   ],
   [
-   46.679,
+   51.009,
    54.0
   ]
  ],
  "phrases": [
   {
    "id": "b01",
-   "text": "Bateu o silêncio no encontro.",
+   "text": "Acabou o assunto no encontro?",
    "old": 0.3,
    "start": 0.5
   },
   {
    "id": "b01",
-   "text": "E agora?",
-   "old": 2.2,
-   "start": 2.11
+   "text": "Tem uma frase que salva.",
+   "old": 1.9,
+   "start": 2.22
   },
   {
    "id": "b02",
    "text": "Primeiro: calma.",
    "old": 4.3,
-   "start": 3.282
+   "start": 4.213
   },
   {
    "id": "b02",
    "text": "Alguns segundos de silêncio são normais.",
    "old": 5.8,
-   "start": 4.332
+   "start": 5.233
   },
   {
    "id": "b02",
-   "text": "O que mata o encontro é o desespero de disparar qualquer pergunta.",
+   "text": "O que mata é o desespero de disparar qualquer pergunta.",
    "old": 8.6,
-   "start": 6.812
+   "start": 7.673
   },
   {
    "id": "b03",
    "text": "Segundo: volta num assunto que ficou aberto.",
    "old": 13.3,
-   "start": 10.658
+   "start": 11.0
+  },
+  {
+   "id": "b03",
+   "text": "A frase é essa:",
+   "old": 16.3,
+   "start": 13.37
   },
   {
    "id": "b03",
    "text": "Peraí, você não terminou de contar daquele show.",
    "old": 17.0,
-   "start": 13.048
+   "start": 14.42
   },
   {
    "id": "b03",
    "text": "Ela percebe que você prestou atenção,",
    "old": 20.5,
-   "start": 16.028
+   "start": 17.08
   },
   {
    "id": "b03",
    "text": "e a conversa volta sozinha.",
    "old": 22.8,
-   "start": 17.908
+   "start": 19.19
   },
   {
    "id": "b04",
    "text": "Terceiro: sem assunto aberto, usa o que tá na sua frente.",
    "old": 25.3,
-   "start": 19.974
+   "start": 21.221
   },
   {
    "id": "b04",
    "text": "O lugar, a música, o que vocês pediram.",
    "old": 28.6,
-   "start": 23.144
+   "start": 24.391
   },
   {
    "id": "b05",
    "text": "E no direct, quando a conversa tá boa, não deixa esfriar.",
    "old": 32.4,
-   "start": 25.864
+   "start": 27.111
   },
   {
    "id": "b05",
    "text": "Chama pra algo concreto:",
    "old": 35.4,
-   "start": 28.964
+   "start": 30.211
   },
   {
    "id": "b05",
    "text": "Você falou que queria um hambúrguer bom. Conheço um... Sábado?",
    "old": 36.8,
-   "start": 29.984
+   "start": 31.231
   },
   {
    "id": "b06",
    "text": "Chamar, abrir, sustentar, não vacilar e lidar com o silêncio.",
    "old": 41.3,
-   "start": 33.884
+   "start": 35.13
   },
   {
    "id": "b06",
    "text": "Esses foram os cinco dias.",
    "old": 44.3,
-   "start": 37.584
+   "start": 38.831
   },
   {
    "id": "b07",
-   "text": "Quer o protocolo completo, com o roteiro do primeiro encontro?",
+   "text": "Isso é só uma parte do protocolo.",
    "old": 46.3,
-   "start": 39.484
+   "start": 40.731
   },
   {
    "id": "b07",
-   "text": "Comenta presença, que eu te mando.",
+   "text": "O completo vai do primeiro direct ao primeiro encontro, em onze capítulos.",
+   "old": 47.5,
+   "start": 42.661
+  },
+  {
+   "id": "b07",
+   "text": "Comenta presença, que eu te mando o acesso.",
    "old": 49.6,
-   "start": 42.914
+   "start": 46.891
   }
  ],
  "blocks": [
   {
    "id": "b01",
    "start": 0.5,
-   "dur": 2.182
+   "dur": 3.113
   },
   {
    "id": "b02",
-   "start": 3.282,
-   "dur": 6.826
+   "start": 4.213,
+   "dur": 6.237
   },
   {
    "id": "b03",
-   "start": 10.658,
-   "dur": 8.766
+   "start": 11.0,
+   "dur": 9.67
   },
   {
    "id": "b04",
-   "start": 19.974,
+   "start": 21.221,
    "dur": 5.34
   },
   {
    "id": "b05",
-   "start": 25.864,
+   "start": 27.111,
    "dur": 7.47
   },
   {
    "id": "b06",
-   "start": 33.884,
+   "start": 35.13,
    "dur": 5.101
   },
   {
    "id": "b07",
-   "start": 39.484,
-   "dur": 5.194
+   "start": 40.731,
+   "dur": 8.278
   }
  ]
 }

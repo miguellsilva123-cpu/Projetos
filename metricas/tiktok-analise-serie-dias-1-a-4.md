@@ -46,3 +46,33 @@ Do segundo 1 para o 2, o vídeo perde metade das pessoas. Os primeiros 2 segundo
 3. Se um vídeo estiver restrito por engano, pedir revisão pelo próprio aviso. Não apagar e repostar o mesmo vídeo.
 4. Ao postar, marcar "Conteúdo gerado por IA" (voz sintética e fotos geradas). É exigência do TikTok para conteúdo realista feito com IA. Ele não derruba o alcance, e postar sem a marcação pode levar a restrição.
 5. Postar pelo app, com o som original, e responder os primeiros comentários na primeira hora.
+
+---
+
+# Dia 5 (postado em 16/10): primeiros números
+
+Dados do Windsor.ai em 17/10/2026. No plano de teste não dá para forçar atualização, então os números podem estar até 1 dia atrasados.
+
+| Vídeo | Views | Origem | Tempo médio assistido | Viu até o fim | Curtidas | Comentários |
+|---|---|---|---|---|---|---|
+| Dia 5 (o silêncio) | **125** | 100% "Para Você" | 1,9 s | 0% | 1 | **0** |
+
+**Retenção:**
+
+| Segundo | 0 | 1 | 2 | 3 | 5 | 10 | 12 | 13 |
+|---|---|---|---|---|---|---|---|---|
+| Dia 5 | 100% | 47% | 20% | 9% | 7% | 3% | 1% | **0%** |
+| Dia 1 (comparação) | 100% | 68% | 32% | 27% | 18% | 11% | — | — |
+
+## O que os números dizem
+
+1. **A distribuição voltou.** Os Dias 3 e 4 ficaram com 0 views. O Dia 5 entrou no "Para Você" e teve 125 views em um dia. A conta não está travada.
+2. **Ninguém chegou na chamada.** O "Comenta PRESENÇA" aparece aos 46 s, e aos 13 s já não havia ninguém assistindo. Por isso 0 comentários: a chamada do vídeo não foi vista por ninguém.
+3. **A abertura ainda perde gente rápido.** Metade sai no primeiro segundo e 80% até o segundo 2. O Dia 1 segurava mais nesse trecho.
+4. **Erro na legenda postada.** A instrução "COMENTÁRIO FIXADO (postar logo depois de publicar e fixar)" foi colada junto com a legenda. Se o TikTok deixar editar a legenda, tire essa linha. Se não deixar, não apague nem reposte o vídeo, porque ele está distribuindo. Saiu também com #fy, que não ajuda.
+
+## O que fazer nos próximos vídeos
+
+- **Chamada no começo, não só no fim.** Ponha o "Comenta PRESENÇA" como texto fixo na tela desde os primeiros segundos, além de repetir no final. Fixe o comentário com a chamada logo depois de postar.
+- **Vídeos mais curtos para vender.** Com retenção de 2 a 3 segundos, um vídeo de 15 a 25 s com a chamada antes dos 10 s tem muito mais chance de gerar comentário do que um de 50 s.
+- **Responder todo comentário PRESENÇA na primeira hora**, com a mensagem pronta em `produto/pagina-de-vendas-protocolo.md`.

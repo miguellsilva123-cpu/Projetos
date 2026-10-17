@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# produto pago (entregue após o checkout): nunca versionar
+produto/ebook/
+*.pdf
